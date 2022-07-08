@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const MainContainer = styled.div`
   width: 320px;
+  height: 100%;
   padding-left: ${({ theme: { spacing } }) => spacing(5)};
   padding-right: ${({ theme: { spacing } }) => spacing(5)};
   margin-left: auto;

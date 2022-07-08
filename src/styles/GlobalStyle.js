@@ -1,15 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+
   html {
   width: 100%;
   height: 100%;
   }
   body {
   margin: 0;
-  /* font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
   font-family: ${({ theme: { fonts } }) => fonts.verdana};
   font-weight: 400;
   width: 100%;
@@ -37,6 +35,4 @@ ul {
 a {
   text-decoration: none;
 }
-
-
 `;

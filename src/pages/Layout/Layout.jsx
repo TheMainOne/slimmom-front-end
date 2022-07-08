@@ -1,19 +1,11 @@
-import BackgroundLayout from "components/BackgroundLayout";
-import Container from "components/Container";
-import MainPage from "pages/MainPage";
-import Example from "components/_EXAMPLE";
+import { LayoutStyles } from "./Layout.styled";
 
 const Layout = () => {
   return (
-    <BackgroundLayout>
+    <LayoutStyles>
       {/* Header */}
-      {/* <Example /> */}
-
-      <Container>
-        <MainPage />
-      </Container>
-      {/* Outlet */}
-    </BackgroundLayout>
+      <main>{/* Outlet */}</main>
+    </LayoutStyles>
   );
 };
 

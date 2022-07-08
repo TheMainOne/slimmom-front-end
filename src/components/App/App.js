@@ -1,13 +1,17 @@
-import Layout from "pages/Layout";
 import { ThemeProvider } from "styled-components";
 import { theme, GlobalStyle } from "styles";
+import Example from "components/_EXAMPLE";
+import Container from "components/Container";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Layout />
-      <div className="App"></div>
+      <Container>
+        <div className="App">
+          <Example />
+        </div>
+      </Container>
     </ThemeProvider>
   );
 };
