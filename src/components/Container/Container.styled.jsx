@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components/macro';
 
 const MainContainer = styled.div`
   width: 320px;

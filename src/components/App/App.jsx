@@ -1,7 +1,7 @@
-import { ThemeProvider } from "styled-components";
-import { theme, GlobalStyle } from "styles";
-import Example from "components/_EXAMPLE";
-import Container from "components/Container";
+import { ThemeProvider } from 'styled-components';
+import { theme, GlobalStyle } from 'styles';
+import Example from 'components/_EXAMPLE';
+import Container from 'components/Container';
 
 const App = () => {
   return (

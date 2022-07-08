@@ -1,0 +1,17 @@
+* text=auto
+*.txt text
+
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+
+*.prettierrc text eol=lf
+*.eslintrc text eol=lf
+
+*.editorconfigtext eol=lf
+*.gitignore text eol=lf
+
+# to prevent modification of binary.
+*.png binary
+*.jpg binary
+*.pdf -text

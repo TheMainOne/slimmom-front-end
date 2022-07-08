@@ -1,17 +1,27 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
+import Verdana from '../fonts/Verdana/Verdana.ttf';
+import VerdanaBold from '../fonts/Verdana/Verdana-Bold.ttf';
+import GothamPro from '../fonts/GothamPro/GothamPro.ttf';
+import GothamProBold from '../fonts/GothamPro/GothamPro-Bold.ttf';
 
 export const GlobalStyle = createGlobalStyle`
 
-  html {
-  width: 100%;
-  height: 100%;
-  }
+@font-face {
+  font-family: 'Verdana';
+  src: url(${Verdana}) format('ttf'),
+  src: url(${VerdanaBold}) format('ttf'),
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url(${GothamPro}) format('ttf'),
+  src: url(${GothamProBold}) format('ttf'),
+}
+
   body {
   margin: 0;
-  font-family: ${({ theme: { fonts } }) => fonts.verdana};
-  font-weight: 400;
-  width: 100%;
-  height: 100%;
+  font-family: 'Verdana';
+  font-weight: 700;
    line-height: ${({ theme: { lineHeight } }) => lineHeight.verdana};
   letter-spacing: 0.04em;
   -webkit-font-smoothing: antialiased;
