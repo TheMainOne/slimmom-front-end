@@ -1,4 +1,3 @@
-import { Spinner } from 'components/Spinner';
 import {
   Title,
   FirstListItem,
@@ -15,8 +14,6 @@ const Example = () => {
         <SecondListItem>Применили colors и spacing</SecondListItem>
         <ThirdListItem>Применили тень</ThirdListItem>
       </ul>
-
-      <Spinner />
     </div>
   );
 };
