@@ -4,7 +4,6 @@ import Header from 'components/Header/Navigation/Navigation';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme, GlobalStyle } from 'styles';
-import { Outlet } from 'react-router-dom';
 
 const App = () => {
   return (
@@ -12,9 +11,11 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <Suspense fallback="">
           <Container>
-            <div className="App">
-              <Header />
-            </div>
+            <Routes>
+              <Route path="/" element={<Header />}>
+                <Route path="*" element={<Navigate to="/" />} />
+              </Route>
+            </Routes>
           </Container>
         </Suspense>
         <GlobalStyle />
