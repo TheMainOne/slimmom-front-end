@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/slimmom-front-end/static/js/main.374b76db.js",
+    "main.js": "/slimmom-front-end/static/js/main.ddd02482.js",
     "index.html": "/slimmom-front-end/index.html",
-    "main.374b76db.js.map": "/slimmom-front-end/static/js/main.374b76db.js.map"
+    "main.ddd02482.js.map": "/slimmom-front-end/static/js/main.ddd02482.js.map"
   },
   "entrypoints": [
-    "static/js/main.374b76db.js"
+    "static/js/main.ddd02482.js"
   ]
 }
