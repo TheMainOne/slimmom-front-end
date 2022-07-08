@@ -1,10 +1,10 @@
-import React, { lazy, Suspense } from "react";
-import Container from "components/Container";
-import Header from "components/Header/Navigation/Navigation";
-import { Routes, Route, Navigate } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
-import { theme, GlobalStyle } from "styles";
-import { Outlet } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
+import Container from 'components/Container';
+import Header from 'components/Header/Navigation/Navigation';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { theme, GlobalStyle } from 'styles';
+import { Outlet } from 'react-router-dom';
 
 const App = () => {
   return (
