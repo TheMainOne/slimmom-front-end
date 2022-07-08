@@ -1,9 +1,11 @@
-const MainPage = ({ children }) => {
+import PageTitle from "components/PageTitle";
+import { PageContainer } from "./MainPage.styled";
+
+const MainPage = () => {
   return (
-    <div>
-      <h1>MainPage</h1>
-      {children}
-    </div>
+    <PageContainer>
+      <PageTitle title={"Calculate your daily calorie intake right now"} />
+    </PageContainer>
   );
 };
 

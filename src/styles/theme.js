@@ -10,6 +10,7 @@ export const theme = {
   lineHeight: {
     verdanaHeight: "1.2",
     gothamProHeight: "0.9",
+    pageTitleHeight: "1.4",
   },
 
   colors: {
