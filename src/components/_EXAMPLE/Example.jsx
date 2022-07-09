@@ -3,7 +3,7 @@ import {
   FirstListItem,
   SecondListItem,
   ThirdListItem,
-} from "./Example.styled";
+} from './Example.styled';
 
 const Example = () => {
   return (
