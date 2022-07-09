@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { hideSpinner, selectShowLoader, showSpinner } from 'redux/slices';
 import { useCallback } from 'react';
 

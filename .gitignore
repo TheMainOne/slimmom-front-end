@@ -115,6 +115,9 @@ dist
 # production
 /build
 
+# local settings
+/.vscode
+
 # misc
 .DS_Store
 .env.local
