@@ -3,7 +3,9 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import {  Form } from './RegistrationForm.styled';
 import { ButtonRegister, CastomTextField } from './MuI';
-// import {  useDispatch } from 'react-redux';
+import {  useDispatch } from 'react-redux';
+import { register } from 'redux/auth/authOperations';
+
 
 const validationSchema = yup.object({
   name: yup
@@ -21,7 +23,7 @@ const validationSchema = yup.object({
 });
 
 const RegistrationForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
    const formik = useFormik({
      initialValues: {
@@ -31,7 +33,7 @@ const RegistrationForm = () => {
     },
     validationSchema: validationSchema,
      onSubmit: (values, {resetForm}) => {
-      // dispatch(register(values));
+      dispatch(register(values));
       //  console.log(values);
         resetForm();
     },
