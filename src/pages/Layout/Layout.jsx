@@ -1,7 +1,7 @@
 import { LayoutStyles } from './Layout.styled';
 import Example from 'components/_EXAMPLE';
 import Container from 'components/Container';
-import MainPage from 'pages/MainPage/MainPage';
+// import MainPage from 'pages/MainPage/MainPage';
 
 const Layout = () => {
   return (
