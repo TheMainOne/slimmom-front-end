@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 @font-face {
-  font-family: 'Gotham Pro';
+  font-family: 'Gotham Pro':
   src: url(${GothamPro}) format('ttf'),
   src: url(${GothamProBold}) format('ttf'),
 }
@@ -41,6 +41,5 @@ ul {
 a {
   text-decoration: none;
 }
-
 
 `;
