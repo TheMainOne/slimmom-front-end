@@ -53,8 +53,6 @@ export const GlobalStyle = createGlobalStyle`
   padding: 0;
   }
 
-<<<<<<< HEAD
-=======
   ul {
     list-style: none;
   }
@@ -62,5 +60,4 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
->>>>>>> main
 `;
