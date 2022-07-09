@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const Title = styled.h1`
   margin-bottom: ${({ theme: { spacing } }) => spacing(5)};
