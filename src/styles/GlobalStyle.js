@@ -1,11 +1,16 @@
 import { createGlobalStyle } from 'styled-components';
 
+import Verdana from '../fonts/Verdana/Verdana.ttf';
+import VerdanaBold from '../fonts/Verdana/Verdana-Bold.ttf';
+import GothamPro from '../fonts/GothamPro/GothamPro.ttf';
+import GothamProBold from '../fonts/GothamPro/GothamPro-Bold.ttf';
+
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Verdana';
     font-style: normal;
     font-weight: 400;
-    src: local('Verdana'), url('../fonts/Verdana/Verdana.ttf') format('truetype');
+    src: local('Verdana'), url(${Verdana}) format('truetype');
   }
 
   @font-face {
@@ -13,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-weight: 700;
     src: local('Verdana'),
-      url('../fonts/Verdana/Verdana-Bold.ttf') format('truetype');
+      url(${VerdanaBold}) format('truetype');
   }
 
   @font-face {
@@ -21,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-weight: 400;
     src: local('Gotham Pro'),
-      url('../fonts/GothamPro/GothamPro.ttf') format('truetype');
+      url(${GothamPro}) format('truetype');
   }
 
   @font-face {
@@ -29,14 +34,14 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-weight: 700;
     src: local('Gotham Pro'),
-      url('../fonts/GothamPro/GothamPro-Bold.ttf') format('truetype');
+      url(${GothamProBold}) format('truetype');
   }
 
   body {
     margin: 0;
-    /* font-family: 'Verdana'; */
+    font-family: 'Verdana';
     font-weight: 700;
-    /* line-height: ${({ theme: { lineHeight } }) => lineHeight.verdana}; */
+    line-height: ${({ theme: { lineHeight } }) => lineHeight.verdana};
     letter-spacing: 0.04em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
