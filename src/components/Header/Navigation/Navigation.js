@@ -10,7 +10,9 @@ const Header = () => {
     <>
       <HeaderStyled>
         <HeaderNavigation>
-          <Logo />
+          <div>
+            <Logo />
+          </div>
           <div>
             <HeaderLink to="/login">Sign in</HeaderLink>
             <HeaderLink to="/signup">Registration</HeaderLink>
