@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme, GlobalStyle } from 'styles';
 import Example from 'components/_EXAMPLE';
+import RegistrationPage from 'pages/RegistrationPage';
 import { SpinnerExample } from 'components/Spinner';
 import DiaryPage from 'pages/DiaryPage';
 
@@ -15,6 +16,7 @@ const App = () => {
       <Container>
         <div className="App">
           <Example />
+          <RegistrationPage />
           <SpinnerExample />
         </div>
 
