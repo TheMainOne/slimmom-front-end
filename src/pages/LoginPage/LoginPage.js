@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Container from '../../components/Container';
 import Header from '../../components/Header';
 import LoginForm from '../../components/Forms/LoginForm';
-import Loader from '../../components/Loader';
+import Spinner from '../../components/Spinner';
 
 import { getLoading } from '../../redux/auth/auth_selector';
 
@@ -20,13 +20,13 @@ const LoginPage = () => {
   return (
     <>
       <Container>
-        <div className={styles.loginPage}>
-          <Header className={styles.loginPage__header} isHidden />
-          <LoginForm className={styles.loginPage__form} />
+        <div >
+          <Header  isHidden />
+          <LoginForm  />
         </div>
       </Container>
 
-      {isLoading && <Loader />}
+      {isLoading && <Spinner />}
     </>
   );
 };
