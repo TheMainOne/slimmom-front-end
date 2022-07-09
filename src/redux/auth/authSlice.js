@@ -1,4 +1,4 @@
-import { register } from './authOperation';
+import { register } from './authOperations';
 const { createSlice } = require('@reduxjs/toolkit');
 
 const initialState = {

@@ -11,6 +11,5 @@ const RegistrationPage = () => {
            Login
         </LinkLogin>
     </PageContainer>
-   
 };
 export default RegistrationPage;
