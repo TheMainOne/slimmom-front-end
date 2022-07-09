@@ -1,7 +1,8 @@
 import { LayoutStyles } from './Layout.styled';
-// import Example from 'components/_EXAMPLE';
+import Example from 'components/_EXAMPLE';
 import Container from 'components/Container';
-import LoginForm from 'components/Forms/LoginForm';
+
+// import { Example } from 'components/Spinner';
 // import MainPage from 'pages/MainPage/MainPage';
 
 
@@ -13,7 +14,7 @@ const Layout = () => {
       Example компонент, потом возвращать как было */}
       {/* Header */}
       <Container>
-        <LoginForm />
+        <Example />
         {/* Outlet */}
       </Container>
     </LayoutStyles>

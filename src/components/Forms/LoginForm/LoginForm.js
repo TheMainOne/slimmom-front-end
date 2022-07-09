@@ -47,7 +47,7 @@ const LoginForm = () => {
   // const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      login: '',
+      email: '',
       password: '',
     },
     validationSchema: validationSchema,
