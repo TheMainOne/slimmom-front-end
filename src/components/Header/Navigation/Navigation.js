@@ -1,14 +1,21 @@
-import Logo from "../Logo";
-import { HeaderStyled, HeaderLink } from "./Navigation.styled";
+import Logo from '../Logo';
+import {
+  HeaderStyled,
+  HeaderNavigation,
+  HeaderLink,
+} from './Navigation.styled';
 
 const Header = () => {
   return (
     <>
       <HeaderStyled>
-        <nav>
+        <HeaderNavigation>
           <Logo />
-          <div>{/* <HeaderLink to="/">Sign in</HeaderLink> */}</div>
-        </nav>
+          <div>
+            <HeaderLink to="/login">Sign in</HeaderLink>
+            <HeaderLink to="/signup">Registration</HeaderLink>
+          </div>
+        </HeaderNavigation>
       </HeaderStyled>
     </>
   );
