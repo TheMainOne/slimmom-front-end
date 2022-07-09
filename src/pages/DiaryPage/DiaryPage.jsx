@@ -10,6 +10,10 @@ const DiaryPage = () => {
   return (
     <DiaryPageStyled>
       {/* <DiaryDateСalendar /> */}
+      <p>🚧 🏗 Under construction:</p>
+      <p>DiaryDateСalendar</p>
+      <p>DiaryAddProductForm</p>
+      <p>DiaryProductsList</p>
       {/* <DiaryAddProductForm /> */}
       {/* {isLoading ? <Spinner /> : <DiaryProductsList items={items} />} */}
     </DiaryPageStyled>
