@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import backgroundUrl from 'static/images/Layer-4.png';
 
 export const MainContainer = styled.div`
   font-weight: 400;
@@ -7,6 +8,9 @@ export const MainContainer = styled.div`
   color: ${({ theme: { colors } }) => colors.$grey};
   background-color: ${({ theme: { colors } }) => colors.$lightGrey};
   padding: 40px 15px 40px 20px;
+  background-image: url(${backgroundUrl});
+  background-repeat: no-repeat;
+  background-position: right 30px bottom 20px;
 
   @media (min-width: 768px) {
     display: flex;
