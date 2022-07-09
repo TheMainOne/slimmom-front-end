@@ -11,36 +11,21 @@ import DiaryPage from 'pages/DiaryPage';
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Container>
-        <div className="App">
-          <Example />
-          <RegistrationPage />
-          <SpinnerExample />
-        </div>
-
-        <DiaryPage />
-      </Container>
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={theme}>
+        <Suspense fallback="">
+          <Container>
+            <Routes>
+              <Route path="/" element={<Header />}>
+                <Route path="*" element={<Navigate to="/" />} />
+              </Route>
+            </Routes>
+          </Container>
+        </Suspense>
+        <GlobalStyle />
+      </ThemeProvider>
+    </>
   );
 };
 
 export default App;
-
-// const App = () => {
-//   return (
-//     <>
-//       <ThemeProvider theme={theme}>
-//         <Suspense fallback="">
-//           <Container>
-//             <Routes>
-//               <Route path="/" element={<Header />}>
-//                 <Route path="*" element={<Navigate to="/" />} />
-//               </Route>
-//             </Routes>
-//           </Container>
-//         </Suspense>
-//         <GlobalStyle />
-//       </ThemeProvider>
-//     </>
