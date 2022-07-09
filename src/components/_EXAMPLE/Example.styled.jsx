@@ -1,8 +1,9 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 const Title = styled.h1`
   margin-bottom: ${({ theme: { spacing } }) => spacing(5)};
 `;
+
 const FirstListItem = styled.li`
   font-family: ${({ theme: { fonts } }) => fonts.gothamPro};
   font-weight: 700;
@@ -12,6 +13,7 @@ const FirstListItem = styled.li`
 const SecondListItem = styled.li`
   background-color: ${({ theme: { colors } }) => colors.$orange};
   padding-top: ${({ theme: { spacing } }) => spacing(3)};
+  font-family: ${({ theme: { fonts } }) => fonts.verdana};
   padding-bottom: ${({ theme: { spacing } }) => spacing(5)};
   padding-left: ${({ theme: { spacing } }) => spacing(10)};
 `;
