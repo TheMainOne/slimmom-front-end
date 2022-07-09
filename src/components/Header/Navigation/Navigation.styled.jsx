@@ -54,6 +54,9 @@ export const HeaderLink = styled(NavLink)`
 `;
 
 export const HeaderLinksWrapper = styled.div`
+  display: flex;
+  gap: 30px;
+
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     margin-left: 40px;
   }
