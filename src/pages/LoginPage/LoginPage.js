@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { LinkLogin } from 'components/Forms/LoginForm/Mui';
+// import { LinkRegistration } from 'components/Forms/LoginForm/Mui';
 // import Header from '../../components/Header';
 import LoginForm from '../../components/Forms/LoginForm';
 import Spinner from '../../components/Spinner/Spinner';
@@ -22,9 +22,9 @@ const LoginPage = () => {
       <Title>Sign In</Title>
       
           <LoginForm />
-          <LinkLogin color="primary" variant="outlined"  type="button">
+          {/* <LinkRegistration color="primary" variant="outlined"  type="button">
            Registration
-        </LinkLogin>
+        </LinkRegistration> */}
       </MainContainer>
 
       {isLoading && <Spinner />}

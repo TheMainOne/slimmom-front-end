@@ -18,7 +18,7 @@ margin-top:60px;
   transform: scale(1.1);
 }
 `
-const LinkLogin = styled(ButtonLogin)`
+const LinkRegistration = styled(ButtonLogin)`
 color: #FC842D;
 background-color: #ffffff;
 border: 2px solid #FC842D;
@@ -57,4 +57,4 @@ lineHeight:'1.2',
   
 });
 
-export {  ButtonLogin, CastomTextField , LinkLogin};
+export {  ButtonLogin, CastomTextField , LinkRegistration};
