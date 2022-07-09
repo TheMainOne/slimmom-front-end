@@ -1,9 +1,19 @@
+import { LayoutStyles } from './Layout.styled';
+import Example from 'components/_EXAMPLE';
+import Container from 'components/Container';
+// import MainPage from 'pages/MainPage/MainPage';
+
 const Layout = () => {
   return (
-    <div>
+    <LayoutStyles>
+      {/* ВНИМАНИЕ!!!!!!! Структуру не менять! Тестить свои компоненты вместо
+      Example компонент, потом возвращать как было */}
       {/* Header */}
-      <main>{/* Outlet */}</main>
-    </div>
+      <Container>
+        <Example />
+        {/* Outlet */}
+      </Container>
+    </LayoutStyles>
   );
 };
 
