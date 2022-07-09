@@ -5,6 +5,7 @@ import Container from 'components/Container';
 import { SpinnerExample } from 'components/Spinner';
 import DiaryPage from 'pages/DiaryPage';
 
+
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
