@@ -1,9 +1,10 @@
-import styled from "styled-components";
-import bgDesktopImage from "assets/images/bg-desktop.svg";
-import bgTabletImage from "assets/images/bg-tablet.svg";
+import styled from 'styled-components';
+import bgDesktopImage from 'assets/images/bg-desktop.svg';
+import bgTabletImage from 'assets/images/bg-tablet.svg';
 
 //это временно
 export const LayoutStyles = styled.div`
+  height: 100%;
   background-image: none;
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     height: 100%;

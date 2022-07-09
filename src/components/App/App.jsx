@@ -1,23 +1,13 @@
 import { ThemeProvider } from 'styled-components';
 import { theme, GlobalStyle } from 'styles';
-import Example from 'components/_EXAMPLE';
-import Container from 'components/Container';
-import { SpinnerExample } from 'components/Spinner';
-import DiaryPage from 'pages/DiaryPage';
-
+import Layout from 'pages/Layout';
 
 const App = () => {
   return (
+    // НИЧЕГО НЕ МЕНЯТЬ И НЕ ТРОГАТЬ ВООБЩЕ, РАБОТАЕМ С <Layout />
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Container>
-        <div className="App">
-          <Example />
-          <SpinnerExample />
-        </div>
-
-        <DiaryPage />
-      </Container>
+      <Layout />
     </ThemeProvider>
   );
 };

@@ -1,14 +1,14 @@
-import banan from "assets/banan.svg";
-import strawberry from "assets/strawberry.svg";
-import greyBackground from "assets/grey-background.svg";
-import leaves from "assets/leaves.svg";
+import banan from 'assets/images/banan.svg';
+import strawberry from 'assets/images/strawberry.svg';
+import greyBackground from 'assets/images/grey-background.svg';
+import leaves from 'assets/images/leaves.svg';
 import {
   ImagesWrapper,
   GreyBackgroundImg,
   LeavesImg,
   BananaImg,
   StrawberryImg,
-} from "./ImagesContainer.styled";
+} from './ImagesContainer.styled';
 
 const ImagesContainer = () => {
   return (

@@ -1,5 +1,5 @@
-import ImagesContainer from "./ImagesContainer";
-import { Background } from "./BackgroundLayout.styled";
+import ImagesContainer from './ImagesContainer';
+import { Background } from './BackgroundLayout.styled';
 
 const BackgroundLayout = ({ children }) => {
   return (
