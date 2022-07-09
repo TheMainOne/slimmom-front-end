@@ -13,21 +13,6 @@ const token = {
   },
 };
 
-/*
- * POST @ /users/signup
- * body: { name, email, password }
- * После успешной регистрации добавляем токен в HTTP-заголовок
- */
-const register = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const { data } = await axios.post('/users/signup', credentials);
-    token.set(data.token);
-    return data;
-  } catch (error) {
-      // toast.error(error.message);
-    // TODO: Добавить обработку ошибки error.message
-  }
-});
 
 /*
  * POST @ /users/login
@@ -91,7 +76,6 @@ const fetchCurrentUser = createAsyncThunk(
 );
 
 const operations = {
-  register,
   logOut,
   logIn,
   fetchCurrentUser,

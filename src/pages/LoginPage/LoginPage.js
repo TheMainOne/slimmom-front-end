@@ -6,12 +6,12 @@ import Header from '../../components/Header';
 import LoginForm from '../../components/Forms/LoginForm';
 import Spinner from '../../components/Spinner';
 
-import { getLoading } from '../../redux/auth/auth_selector';
+import { selectShowLoader } from '../../redux/slices/loaderSlice';
 
 // import styles from './LoginPage.module.css';
 
 const LoginPage = () => {
-  const isLoading = useSelector(getLoading); // Селектор статуса загрузки
+  const isLoading = useSelector(selectShowLoader); // Селектор статуса загрузки
 
   useEffect(() => {
     document.title = 'Вход в профиль | SlimMom';
@@ -21,7 +21,7 @@ const LoginPage = () => {
     <>
       <Container>
         <div >
-          <Header  isHidden />
+          <Header />
           <LoginForm  />
         </div>
       </Container>
