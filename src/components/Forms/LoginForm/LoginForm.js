@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import {InputAdornment, IconButton } from '@material-ui/core';
-import { ButtonRegister, CastomTextField } from './Mui';
+import { ButtonLogin, CastomTextField } from './Mui';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 // import { useDispatch } from 'react-redux';
@@ -103,20 +103,20 @@ const LoginForm = () => {
 
         <div >
           <div >
-            <ButtonRegister
-              text="Вход"
+            <ButtonLogin
+              text="SignIn"
               type="submit"
               customType="primary"
               disabled={formik.isSubmitting || !formik.dirty}>
                 SignIn
-            </ButtonRegister>
+            </ButtonLogin>
           </div>
 
           <NavLink to={routes.registration}>
             <div>
-            <ButtonRegister color="primary" variant="contained"  type="submit" disabled={!formik.isValid}>
+            <ButtonLogin color="primary" variant="contained"  type="submit" disabled={!formik.isValid}>
            Register
-        </ButtonRegister>
+        </ButtonLogin>
             </div>
           </NavLink>
         </div>

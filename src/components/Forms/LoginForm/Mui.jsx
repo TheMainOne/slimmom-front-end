@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
-const ButtonRegister = styled(Button)`
+const ButtonLogin = styled(Button)`
 font-family: 'Verdana';
 font-weight: 700;
 font-size: 14px;
@@ -18,7 +18,7 @@ margin-top:60px;
   transform: scale(1.1);
 }
 `
-const LinkLogin = styled(ButtonRegister)`
+const LinkLogin = styled(ButtonLogin)`
 color: #FC842D;
 background-color: #ffffff;
 border: 2px solid #FC842D;
@@ -57,4 +57,4 @@ lineHeight:'1.2',
   
 });
 
-export {  ButtonRegister, CastomTextField , LinkLogin};
+export {  ButtonLogin, CastomTextField , LinkLogin};

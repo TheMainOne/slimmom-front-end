@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import Container from '../../components/Container';
 import Header from '../../components/Header';
 import LoginForm from '../../components/Forms/LoginForm';
 import Spinner from '../../components/Spinner';
 
 import { selectShowLoader } from '../../redux/slices/loaderSlice';
-
+import { Container, Title } from "./LoginPage.styled";
 // import styles from './LoginPage.module.css';
 
 const LoginPage = () => {
@@ -20,10 +19,10 @@ const LoginPage = () => {
   return (
     <>
       <Container>
-        <div >
+      <Title>SignIn</Title>
           <Header />
-          <LoginForm  />
-        </div>
+          <LoginForm  olor="primary" variant="outlined"  type="button"/>
+        
       </Container>
 
       {isLoading && <Spinner />}
