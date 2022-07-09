@@ -11,7 +11,7 @@ import { ButtonLogin, CastomTextField } from './Mui';
 // import routes from '../../routes';
 // import { NavLink } from 'react-router-dom';
 // import { makeStyles } from '@material-ui/core/styles';
-import { Form } from './LoginForm.styled';
+import { Form, ButtonContainer } from './LoginForm.styled';
 
 // const useStyles = makeStyles({
 //   input: {
@@ -102,23 +102,22 @@ const LoginForm = () => {
           // }}
         />
 
-        <div >
-          <div >
+       
+          <ButtonContainer>
           <ButtonLogin color="primary" variant="contained"  type="submit" disabled={!formik.isValid}>
            Login
         </ButtonLogin>
-          </div>
-
+         
           {/* <NavLink to={routes.registration}> */}
-            <div>
+            
             <ButtonLogin color="primary" variant="contained"  type="submit" disabled={!formik.isValid}>
            Register
         </ButtonLogin>
-            </div>
+           
           {/* </NavLink> */}
-        </div>
+        </ButtonContainer>
       </Form>
-    </div>
+   </div>
   );
 };
 

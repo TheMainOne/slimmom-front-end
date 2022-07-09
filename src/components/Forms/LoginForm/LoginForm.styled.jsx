@@ -23,5 +23,8 @@ flex-direction:column;
 /* align-items: stretch; */
 `;
 
+const ButtonContainer = styled.div`
+display:flex;
+`
 
-export { MainContainer, Form};
+export { MainContainer, Form, ButtonContainer};

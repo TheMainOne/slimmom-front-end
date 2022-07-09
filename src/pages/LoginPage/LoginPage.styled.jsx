@@ -26,6 +26,7 @@ color: ${({ theme: { colors } }) => colors.$orange};
 text-align: center;
 margin-bottom: 60px;
 `
+;
 
 export { MainContainer, Title };
 
