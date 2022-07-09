@@ -30,6 +30,11 @@ export const HeaderNavigation = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
+    justify-content: flex-start;
+    align-items: end;
+  }
 `;
 
 export const HeaderLink = styled(NavLink)`
@@ -45,5 +50,11 @@ export const HeaderLink = styled(NavLink)`
 
   &:first-of-type {
     margin-right: 16px;
+  }
+`;
+
+export const HeaderLinksWrapper = styled.div`
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
+    margin-left: 40px;
   }
 `;

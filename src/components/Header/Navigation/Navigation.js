@@ -3,6 +3,7 @@ import {
   HeaderStyled,
   HeaderNavigation,
   HeaderLink,
+  HeaderLinksWrapper,
 } from './Navigation.styled';
 
 const Header = () => {
@@ -13,10 +14,10 @@ const Header = () => {
           <div>
             <Logo />
           </div>
-          <div>
+          <HeaderLinksWrapper>
             <HeaderLink to="/login">Sign in</HeaderLink>
             <HeaderLink to="/signup">Registration</HeaderLink>
-          </div>
+          </HeaderLinksWrapper>
         </HeaderNavigation>
       </HeaderStyled>
     </>
