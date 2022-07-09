@@ -5,7 +5,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme, GlobalStyle } from 'styles';
 import Example from 'components/_EXAMPLE';
-import Container from 'components/Container';
 import { SpinnerExample } from 'components/Spinner';
 import DiaryPage from 'pages/DiaryPage';
 
