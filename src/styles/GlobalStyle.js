@@ -37,8 +37,22 @@ export const GlobalStyle = createGlobalStyle`
       url(${GothamProBold}) format('truetype');
   }
 
+ 
+  html {
+  width: 100%;
+  height: 100%;
+  }
+  
+
+  #root {
+    height: 100vh;
+  }
+
   body {
+    width: 100%;
+    height: 100%;
     margin: 0;
+    height: 0;
     font-family: 'Verdana';
     font-weight: 700;
     line-height: ${({ theme: { lineHeight } }) => lineHeight.verdana};
