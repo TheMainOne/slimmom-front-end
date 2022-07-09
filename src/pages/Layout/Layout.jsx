@@ -1,11 +1,7 @@
 import { LayoutStyles } from './Layout.styled';
-import Example from 'components/_EXAMPLE';
+import Header from 'components/Header/Navigation/Navigation';
 import Container from 'components/Container';
-
-// import { Example } from 'components/Spinner';
 // import MainPage from 'pages/MainPage/MainPage';
-
-
 
 const Layout = () => {
   return (
@@ -14,7 +10,7 @@ const Layout = () => {
       Example компонент, потом возвращать как было */}
       {/* Header */}
       <Container>
-        <Example />
+        <Header />
         {/* Outlet */}
       </Container>
     </LayoutStyles>
