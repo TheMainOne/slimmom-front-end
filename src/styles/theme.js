@@ -1,9 +1,11 @@
 const VERDANA = `'Verdana', sans-serif`;
+const VERDANA_BOLD = `'Verdana Bold', sans-serif`;
 const GOTHAM_PRO = `'Gotham Pro', sans-serif`;
 
 export const theme = {
   fonts: {
     verdana: VERDANA,
+    verdanaBold: VERDANA_BOLD,
     gothamPro: GOTHAM_PRO,
   },
 

@@ -1,18 +1,17 @@
 import { LayoutStyles } from './Layout.styled';
-import Header from 'components/Header/Navigation/Navigation';
-import Container from 'components/Container';
-// import MainPage from 'pages/MainPage/MainPage';
+// import Header from 'components/Header/Navigation/Navigation';
+
+import BackgroundLayout from 'components/BackgroundLayout';
 
 const Layout = () => {
   return (
     <LayoutStyles>
-      {/* ВНИМАНИЕ!!!!!!! Структуру не менять! Тестить свои компоненты вместо
+      <BackgroundLayout>
+        {/* ВНИМАНИЕ!!!!!!! Структуру не менять! Тестить свои компоненты вместо
       Example компонент, потом возвращать как было */}
-      {/* Header */}
-      <Container>
-        <Header />
+        {/* <Header /> */}
         {/* Outlet */}
-      </Container>
+      </BackgroundLayout>
     </LayoutStyles>
   );
 };

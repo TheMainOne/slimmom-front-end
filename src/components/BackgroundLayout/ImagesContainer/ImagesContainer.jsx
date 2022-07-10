@@ -1,7 +1,7 @@
-import banan from 'assets/images/banan.svg';
-import strawberry from 'assets/images/strawberry.svg';
-import greyBackground from 'assets/images/grey-background.svg';
-import leaves from 'assets/images/leaves.svg';
+import banan from 'images/background/banan.svg';
+import strawberry from 'images/background/strawberry.svg';
+import greyBackground from 'images/background/grey-background.svg';
+import leaves from 'images/background/leaves.svg';
 import {
   ImagesWrapper,
   GreyBackgroundImg,
@@ -10,12 +10,12 @@ import {
   StrawberryImg,
 } from './ImagesContainer.styled';
 
-const ImagesContainer = () => {
+const ImagesContainer = ({ route = '' }) => {
   return (
     <ImagesWrapper>
       <GreyBackgroundImg src={greyBackground} alt="" />
-      <StrawberryImg src={strawberry} alt="" />
-      <LeavesImg src={leaves} alt="" />
+      <StrawberryImg route={route} src={strawberry} alt="" />
+      <LeavesImg route={route} src={leaves} alt="" />
       <BananaImg src={banan} alt="" />
     </ImagesWrapper>
   );
