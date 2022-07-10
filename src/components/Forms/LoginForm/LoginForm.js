@@ -5,10 +5,10 @@ import { InputAdornment, IconButton, TextField } from '@material-ui/core';
 // import {  CastomTextField } from './Mui';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-// import { logIn } from '../../redux/auth/auth_operations';
-// import routes from '../../routes';
+import { logIn } from '../../../redux/auth/authOperations';
+// import routes from '../../../routs';
 // import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Form, ButtonContainer, ButtonLogin, Container } from './LoginForm.styled';
@@ -44,7 +44,7 @@ const LoginForm = () => {
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const handleMouseDownPassword = () => setShowPassword(!showPassword);
   const classes = useStyles();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -53,12 +53,12 @@ const LoginForm = () => {
     validationSchema: validationSchema,
 
     onSubmit: (values, { resetForm }) => {
-      // const payload = {
-      //   logIn: values.logIn,
-      //   password: values.password,
-      // };
+      const payload = {
+        email: values.email,
+        password: values.password,
+      };
 
-      // dispatch(login(payload));
+      dispatch(logIn(payload));
       resetForm({ values: '' });
     },
   });

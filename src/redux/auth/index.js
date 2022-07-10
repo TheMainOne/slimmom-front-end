@@ -1,2 +1,2 @@
-// export { register } from './authOperations';
-// export { authSlice } from './authSlice';
+export { register, logIn, logOut } from './auth-operations';
+export { authSlice } from './authSlice';
