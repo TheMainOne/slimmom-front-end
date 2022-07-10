@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 
 const MainContainer = styled.div`
+
 background-color:blue;
  /* width: 300px; 
   padding: 40px 15px;
@@ -22,12 +23,12 @@ const Form = styled.form`
 min-width: 280px;
 display:flex;
 flex-direction:column;
- @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-   align-items: start;
+@media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+  align-items: start;
 
-  }
+ }
 
 `;
 
 
-export { MainContainer, Form};
+export { MainContainer, Form };

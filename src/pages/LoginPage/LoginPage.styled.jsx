@@ -1,10 +1,9 @@
 import styled from 'styled-components/macro';
 
 const PageContainer = styled.div`
-
-  display: flex;
-  flex-direction: column; 
-     position:relative;
+display: flex;
+flex-direction: column; 
+   position:relative;
 `;
 
 const Title = styled.h1`
