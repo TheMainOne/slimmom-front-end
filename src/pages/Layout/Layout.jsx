@@ -1,6 +1,6 @@
 import { LayoutStyles } from './Layout.styled';
 import { Outlet } from 'react-router-dom';
-import Container from 'components/Container';
+// import Container from 'components/Container';
 // import MainPage from 'pages/MainPage/MainPage';
 
 const Layout = () => {
@@ -9,9 +9,9 @@ const Layout = () => {
       {/* ВНИМАНИЕ!!!!!!! Структуру не менять! Тестить свои компоненты вместо
       Example компонент, потом возвращать как было */}
 
-      <Container>
-        <Outlet />
-      </Container>
+      {/* <Container> */}
+      <Outlet />
+      {/* </Container> */}
     </LayoutStyles>
   );
 };
