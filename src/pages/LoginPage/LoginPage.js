@@ -1,33 +1,31 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+// import { useEffect } from 'react';
+// import { useSelector } from 'react-redux';
 // import { LinkRegistration } from 'components/Forms/LoginForm/Mui';
 // import Header from '../../components/Header';
-import LoginForm from '../../components/Forms/LoginForm';
-import Spinner from '../../components/Spinner/Spinner';
+import LoginForm from '../../components/Forms/LoginForm/LoginForm';
+// import Spinner from '../../components/Spinner/Spinner';
 
-import { selectShowLoader } from '../../redux/slices/loaderSlice';
-import { MainContainer, Title } from "./LoginPage.styled";
-// import styles from './LoginPage.module.css';
+// import { selectShowLoader } from '../../redux/slices/loaderSlice';
+import { Container, Title } from "./LoginPage.styled";
+
 
 const LoginPage = () => {
-  const isLoading = useSelector(selectShowLoader); // Селектор статуса загрузки
+  // const isLoading = useSelector(selectShowLoader); // Селектор статуса загрузки
 
-  useEffect(() => {
-    document.title = 'Вход в профиль | SlimMom';
-  }, []);
+  // useEffect(() => {
+  //   document.title = 'Вход в профиль | SlimMom';
+  // }, []);
 
   return (
     <>
-      <MainContainer>
+      <Container>
       <Title>Sign In</Title>
       
           <LoginForm />
-          {/* <LinkRegistration color="primary" variant="outlined"  type="button">
-           Registration
-        </LinkRegistration> */}
-      </MainContainer>
 
-      {isLoading && <Spinner />}
+      </Container>
+
+      {/* {isLoading && <Spinner />} */}
     </>
   );
 };

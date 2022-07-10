@@ -1,7 +1,8 @@
 import styled from 'styled-components/macro';
 
-const MainContainer = styled.div`
-background-color:blue;
+const Container = styled.div`
+align-items: flex-start;
+
  /* width: 300px; 
   padding: 40px 15px;
   margin-left: auto;
@@ -26,5 +27,21 @@ flex-direction:column;
 const ButtonContainer = styled.div`
 display:flex;
 `
+const ButtonLogin = styled.button`
+margin-right: 32px;
 
-export { MainContainer, Form, ButtonContainer};
+min-width: 176px;
+border: none;
+padding: 13px;
+font-size: 14px;
+line-height: 1.21;
+font-weight: 700;
+letter-spacing: 0.04em;
+border-radius: 30px;
+cursor: pointer;
+&:hover {
+  background-color: #e76000;
+  transform: scale(1.1);
+}
+`
+export { Container, Form, ButtonContainer, ButtonLogin};
