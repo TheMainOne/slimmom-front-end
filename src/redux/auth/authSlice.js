@@ -1,4 +1,4 @@
-import { register } from './authOperations';
+import { register, logIn, logOut } from './authOperations';
 const { createSlice } = require('@reduxjs/toolkit');
 
 const initialState = {
@@ -18,7 +18,18 @@ export const authSlice = createSlice({
       state.isLoggedIn = true;
     },
     [register.rejected](state) {
-      state.isLoggedIn = false;
+      state.isLoggedIn = false;},
+    [logIn.fulfilled](state, action) {
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+      },
+    [logOut.fulfilled](state, action) {
+        state.user = { name: null, email: null };
+        state.token = null;
+        state.isLoggedIn = false;
     },
   },
 });
+
+export default authSlice.reducer;
