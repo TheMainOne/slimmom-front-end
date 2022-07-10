@@ -1,4 +1,5 @@
 import Logo from '../Logo';
+import Container from 'components/Container';
 import {
   HeaderStyled,
   HeaderNavigation,
@@ -10,16 +11,18 @@ const Header = () => {
   return (
     <>
       <HeaderStyled>
-        <HeaderNavigation>
-          <div>
-            <Logo />
-          </div>
-          <HeaderLinksWrapper>
-            <HeaderLink to="/login">Sign in</HeaderLink>
-            <HeaderLink to="/signup">Registration</HeaderLink>
-            <HeaderLink to="/diary">Diary</HeaderLink>
-          </HeaderLinksWrapper>
-        </HeaderNavigation>
+        <Container>
+          <HeaderNavigation>
+            <div>
+              <Logo />
+            </div>
+            <HeaderLinksWrapper>
+              <HeaderLink to="/login">Sign in</HeaderLink>
+              <HeaderLink to="/signup">Registration</HeaderLink>
+              {/* <HeaderLink to="/diary">Diary</HeaderLink> */}
+            </HeaderLinksWrapper>
+          </HeaderNavigation>
+        </Container>
       </HeaderStyled>
     </>
   );
