@@ -1,9 +1,11 @@
-import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/authOperations';
+import { useDispatch, useSelector } from 'react-redux';
+import { logIn, register } from 'redux/auth/authOperations';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Form } from './RegistrationForm.styled';
 import { ButtonRegister, CastomTextField } from './MuI';
+import { getUser } from 'redux/auth/authSelector';
+import { useEffect, useState } from 'react';
 
 const validationSchema = yup.object({
   name: yup
@@ -21,7 +23,21 @@ const validationSchema = yup.object({
 });
 
 const RegistrationForm = () => {
+  const [user, setUser] = useState(null);
+  const [isRegister, setIsRegister] = useState(false);
   const dispatch = useDispatch();
+  const userInfo = useSelector(getUser);
+
+  useEffect(() => {
+    if (isRegister && userInfo?.name) {
+      console.log('if');
+      console.log(userInfo?.name);
+      setUser(userInfo);
+      dispatch(logIn(user));
+      setIsRegister(false);
+    }
+    console.log('hello');
+  }, [userInfo, isRegister, dispatch, user]);
 
   const formik = useFormik({
     initialValues: {
@@ -30,8 +46,16 @@ const RegistrationForm = () => {
       password: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: async (values, { resetForm }) => {
       dispatch(register(values));
+      setUser(values);
+      setIsRegister(true);
+      // console.log({ userInfo, user });
+
+      // if (user) {
+      //   dispatch(logIn(values));
+      // }
+
       resetForm();
     },
   });
@@ -78,6 +102,7 @@ const RegistrationForm = () => {
         name="password"
         label="Password *"
         type="password"
+        autoComplete="new-password"
         value={formik.values.password}
         onChange={formik.handleChange}
         error={formik.touched.password && Boolean(formik.errors.password)}

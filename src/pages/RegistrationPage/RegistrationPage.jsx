@@ -1,6 +1,7 @@
 import Container from 'components/Container';
 import RegistrationForm from 'components/Forms/RegistrationForm';
-import { PageContainer, Title, LinkLogin } from './RegistrationPage.styled';
+import { LinkLogin } from 'components/Forms/RegistrationForm/MuI';
+import { PageContainer, Title, LinkLog } from './RegistrationPage.styled';
 
 const RegistrationPage = () => {
   return (
@@ -8,7 +9,11 @@ const RegistrationPage = () => {
       <PageContainer>
         <Title>Register</Title>
         <RegistrationForm />
-        <LinkLogin to="/login">Login</LinkLogin>
+        <LinkLog to="/login">
+          <LinkLogin color="primary" variant="outlined" type="button">
+            Login
+          </LinkLogin>
+        </LinkLog>
       </PageContainer>
     </Container>
   );
