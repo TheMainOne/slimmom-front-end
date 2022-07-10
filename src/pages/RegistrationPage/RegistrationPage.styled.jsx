@@ -1,20 +1,10 @@
 import styled from 'styled-components/macro';
 
-const MainContainer = styled.div`
- outline: 5px solid red;
- padding: 40px 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-    width: ${({ theme: { breakpoints } }) => breakpoints.tablet};
-    padding-left: ${({ theme: { spacing } }) => spacing(8)};
-    padding-right: ${({ theme: { spacing } }) => spacing(8)};
-  }
+const PageContainer = styled.div`
 
-  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
-    width: ${({ theme: { breakpoints } }) => breakpoints.desktop};
-  }  */
+  display: flex;
+  flex-direction: column; 
+     position:relative;
 `;
 
 const Title = styled.h1`
@@ -25,7 +15,10 @@ text-transform: uppercase;
 color: ${({ theme: { colors } }) => colors.$orange};
 text-align: center;
 margin-bottom: 60px;
+@media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    text-align: start;
+  }
 `
 
-export { MainContainer, Title };
+export { PageContainer, Title };
 
