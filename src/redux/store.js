@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import { baseApi } from './apis/baseApi';
 import { calendarReducer, loaderReducer } from './slices';
 import { authSlice } from './auth/authSlice';
-import { loaderReducer } from './slices';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import {
   persistStore,
