@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 // import { LinkRegistration } from 'components/Forms/LoginForm/Mui';
 // import Header from '../../components/Header';
-import { LinkRegistration } from "components/Forms/LoginForm/Mui";
+import { ButtonRegistration } from "components/Forms/LoginForm/Mui";
 import LoginForm from '../../components/Forms/LoginForm';
 // import { Spinner } from '../../components/Spinner/Spinner';
 
@@ -24,12 +24,12 @@ const LoginPage = () => {
         <Title>Sign In</Title>
        <LoginForm />
        <NavLink to="/signup">
-        <LinkRegistration 
+        <ButtonRegistration 
           color="primary" 
           variant="outlined"  
           type="button">
            Register
-        </LinkRegistration>
+        </ButtonRegistration>
        </NavLink>
         
         
