@@ -17,6 +17,7 @@ const Header = () => {
           <HeaderLinksWrapper>
             <HeaderLink to="/login">Sign in</HeaderLink>
             <HeaderLink to="/signup">Registration</HeaderLink>
+            <HeaderLink to="/diary">Diary</HeaderLink>
           </HeaderLinksWrapper>
         </HeaderNavigation>
       </HeaderStyled>
