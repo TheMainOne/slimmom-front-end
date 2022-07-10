@@ -1,7 +1,6 @@
 import { LayoutStyles } from './Layout.styled';
-
-import Container from 'components/Container';
 import { Outlet } from 'react-router-dom';
+import Container from 'components/Container';
 import RegistrationPage from 'pages/RegistrationPage';
 // import MainPage from 'pages/MainPage/MainPage';
 
