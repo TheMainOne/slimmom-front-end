@@ -10,7 +10,7 @@ const Logo = () => {
 
   return (
     <>
-      <LogoLink href="/" lang="en">
+      <LogoLink href="/slimmom-front-end/" lang="en">
         {desktopWidth ? (
           <LogoImage src={logoDesktop} alt="Logo"></LogoImage>
         ) : (
