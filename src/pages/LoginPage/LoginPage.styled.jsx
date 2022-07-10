@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 
 const PageContainer = styled.div`
+
 display: flex;
 flex-direction: column; 
    position:relative;
@@ -9,6 +10,7 @@ flex-direction: column;
 const Title = styled.h1`
 font-size: 14px;
 font-weight: 700;
+margin-top: 160px;
 font-family: ${({ theme: { fonts } }) => fonts.gothamPro};
 text-transform: uppercase;
 color: ${({ theme: { colors } }) => colors.$orange};

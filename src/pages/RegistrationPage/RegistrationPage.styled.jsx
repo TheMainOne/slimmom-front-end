@@ -9,6 +9,7 @@ const PageContainer = styled.div`
 
 const Title = styled.h1`
 font-size: 14px;
+margin-top: 160px;
 font-weight: 700;
 font-family: ${({ theme: { fonts } }) => fonts.gothamPro};
 text-transform: uppercase;

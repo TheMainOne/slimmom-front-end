@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://slimmomproject.herokuapp.com/';
 
 const token = {
   set(token) {
@@ -33,7 +33,7 @@ export const register = createAsyncThunk(
 
 export const logIn = createAsyncThunk('auth/login', async credentials => {
   try {
-    const { data } = await axios.post('/users/login', credentials);
+    const { data } = await axios.post('/api/auth/login', credentials);
     token.set(data.token);
     return data;
   } catch (error) {
@@ -43,7 +43,7 @@ export const logIn = createAsyncThunk('auth/login', async credentials => {
 
 export const logOut = createAsyncThunk('auth/logout', async () => {
   try {
-    await axios.post('/users/logout');
+    await axios.post('/api/auth/logout');
     token.unset();
   } catch (error) {
       toast.error(error.message);

@@ -23,6 +23,7 @@ margin-top:60px;
 } 
 `
 const ButtonRegistration = styled(ButtonLogin)`
+display: flex;
 color: #FC842D;
 background-color: #ffffff;
 border: 2px solid #FC842D;
@@ -35,6 +36,7 @@ margin-top:20px;
   border: 3px solid #e76000;
 }
 @media screen and (min-width: 768px){
+  
   position: absolute;
   bottom: 0;
   left:215px;
