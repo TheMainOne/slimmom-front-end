@@ -1,7 +1,6 @@
 import { LayoutStyles } from './Layout.styled';
 import { Outlet } from 'react-router-dom';
 import Container from 'components/Container';
-import RegistrationPage from 'pages/RegistrationPage';
 // import MainPage from 'pages/MainPage/MainPage';
 
 const Layout = () => {
@@ -12,7 +11,6 @@ const Layout = () => {
 
       <Container>
         <Outlet />
-        <RegistrationPage />
       </Container>
     </LayoutStyles>
   );
