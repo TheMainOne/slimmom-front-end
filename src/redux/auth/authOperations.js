@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
@@ -16,9 +17,14 @@ const token = {
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
+    const dispatch = useDispatch();
     try {
       const { data } = await axios.post('/users/signup', credentials);
       token.set(data.token);
+      if (data) {
+        console.log(credentials);
+        dispatch(logIn(credentials));
+      }
       return data;
     } catch (error) {
       toast.error('Sign up failed. Check your data!', {
@@ -32,13 +38,14 @@ export const register = createAsyncThunk(
 );
 
 export const logIn = createAsyncThunk('auth/login', async credentials => {
+  console.log('hello');
   try {
     const { data } = await axios.post('/users/login', credentials);
     token.set(data.token);
     return data;
   } catch (error) {
-      toast.error(error.message);
-   }
+    toast.error(error.message);
+  }
 });
 
 export const logOut = createAsyncThunk('auth/logout', async () => {
@@ -46,8 +53,8 @@ export const logOut = createAsyncThunk('auth/logout', async () => {
     await axios.post('/users/logout');
     token.unset();
   } catch (error) {
-      toast.error(error.message);
-     }
+    toast.error(error.message);
+  }
 });
 
 // const authOperations = {
