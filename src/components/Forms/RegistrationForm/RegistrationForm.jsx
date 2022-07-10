@@ -1,9 +1,9 @@
-
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import {  Form } from './RegistrationForm.styled';
+import { Form } from './RegistrationForm.styled';
 import { ButtonRegister, CastomTextField } from './MuI';
-// import {  useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/authOperations';
 
 const validationSchema = yup.object({
   name: yup
@@ -21,75 +21,82 @@ const validationSchema = yup.object({
 });
 
 const RegistrationForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-   const formik = useFormik({
-     initialValues: {
-      name:'',
+  const formik = useFormik({
+    initialValues: {
+      name: '',
       email: '',
       password: '',
     },
     validationSchema: validationSchema,
-     onSubmit: (values, {resetForm}) => {
-      // dispatch(register(values));
-      //  console.log(values);
-        resetForm();
+    onSubmit: (values, { resetForm }) => {
+      dispatch(register(values))
+        .then(data => console.log(data))
+        .catch(er => console.log(er));
+
+      resetForm();
     },
   });
-// const Input = ({typeInput}) => {
-//   return <TextField
-//           variant="standard"
-//         id={typeInput}
-//           name={typeInput}
-//     label={`${typeInput} *`}
-//           type={typeInput}
-//           value={formik.values[typeInput]}
-//           onChange={formik.handleChange}
-//           error={formik.touched[typeInput] && Boolean(formik.errors[typeInput])}
-//           helperText={formik.touched[typeInput] && formik.errors[typeInput]}
-//         />
-// }
+  // const Input = ({ typeInput }) => {
+  //   return (
+  //     <CastomTextField
+  //       variant="standard"
+  //       id={typeInput}
+  //       name={typeInput}
+  //       label={`${typeInput} *`}
+  //       value={formik.values[typeInput]}
+  //       onChange={formik.handleChange}
+  //       error={formik.touched[typeInput] && Boolean(formik.errors[typeInput])}
+  //       helperText={formik.touched[typeInput] && formik.errors[typeInput]}
+  //     />
+  //   );
+  // };
+
   return (
-    
     <Form onSubmit={formik.handleSubmit}>
       <CastomTextField
-           variant="standard"
-          id="name"
-          name="name"
-          label="Name *"
-          value={formik.values.name}
-          onChange={formik.handleChange}
-          error={formik.touched.name && Boolean(formik.errors.name)}
-          helperText={formik.touched.name && formik.errors.name}
-        />
-        <CastomTextField
-           variant="standard"
-          id="email"
-          name="email"
-          label="Email *"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
-        />
-        <CastomTextField
-          variant="standard"
-        id="password"
-          name="password"
-          label="Password *"
-          type="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
+        variant="standard"
+        id="name"
+        name="name"
+        label="Name *"
+        value={formik.values.name}
+        onChange={formik.handleChange}
+        error={formik.touched.name && Boolean(formik.errors.name)}
+        helperText={formik.touched.name && formik.errors.name}
       />
-      
-        <ButtonRegister color="primary" variant="contained"  type="submit" disabled={!formik.isValid}>
-           Register
-        </ButtonRegister>
-        
-      </Form>)
+      <CastomTextField
+        variant="standard"
+        id="email"
+        name="email"
+        label="Email *"
+        value={formik.values.email}
+        onChange={formik.handleChange}
+        error={formik.touched.email && Boolean(formik.errors.email)}
+        helperText={formik.touched.email && formik.errors.email}
+      />
+      <CastomTextField
+        variant="standard"
+        id="password"
+        name="password"
+        label="Password *"
+        type="password"
+        value={formik.values.password}
+        onChange={formik.handleChange}
+        error={formik.touched.password && Boolean(formik.errors.password)}
+        helperText={formik.touched.password && formik.errors.password}
+      />
 
+      <ButtonRegister
+        color="primary"
+        variant="contained"
+        type="submit"
+        disabled={!formik.isValid}
+      >
+        Register
+      </ButtonRegister>
+    </Form>
+  );
 };
-export default RegistrationForm;
 
+export default RegistrationForm;

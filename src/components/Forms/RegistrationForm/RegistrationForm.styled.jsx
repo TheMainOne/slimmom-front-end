@@ -22,7 +22,11 @@ const Form = styled.form`
 min-width: 280px;
 display:flex;
 flex-direction:column;
-/* align-items: stretch; */
+ @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+   align-items: start;
+
+  }
+
 `;
 
 

@@ -17,24 +17,31 @@ margin-top:60px;
   background-color: #e76000;
   transform: scale(1.1);
 }
+@media screen and (min-width: 768px){
+  margin: 60px 0 0;
+} 
 `
 const LinkLogin = styled(ButtonRegister)`
 color: #FC842D;
 background-color: #ffffff;
 border: 2px solid #FC842D;
-padding: 13px 69px;
+padding: 11px 69px;
 box-shadow: none;
 margin-top:20px;
 &:hover {
   background-color: #ffffff;
   border: 3px solid #e76000;
 }
-
+@media screen and (min-width: 768px){
+  position: absolute;
+  bottom: 0;
+  left:215px;
+}
 `
 const CastomTextField = styled(TextField)({
   '& ': {
-    marginBottom: '20px'
-
+    marginBottom: '20px',
+minWidth: '240px'
   },
   '& label': {
     color: '#9B9FAA',
