@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/slimmom-front-end/static/css/main.075931b6.css",
-    "main.js": "/slimmom-front-end/static/js/main.4e6d52bf.js",
+    "main.js": "/slimmom-front-end/static/js/main.15897e1c.js",
     "static/js/94.68d8a254.chunk.js": "/slimmom-front-end/static/js/94.68d8a254.chunk.js",
     "static/css/551.4034a69b.chunk.css": "/slimmom-front-end/static/css/551.4034a69b.chunk.css",
     "static/media/bg-tablet.svg": "/slimmom-front-end/static/media/bg-tablet.b0b69611a632c00bd842f58551d9e46d.svg",
@@ -12,12 +12,12 @@
     "static/media/GothamPro.ttf": "/slimmom-front-end/static/media/GothamPro.4f71921a0823129cd8ba.ttf",
     "index.html": "/slimmom-front-end/index.html",
     "main.075931b6.css.map": "/slimmom-front-end/static/css/main.075931b6.css.map",
-    "main.4e6d52bf.js.map": "/slimmom-front-end/static/js/main.4e6d52bf.js.map",
+    "main.15897e1c.js.map": "/slimmom-front-end/static/js/main.15897e1c.js.map",
     "94.68d8a254.chunk.js.map": "/slimmom-front-end/static/js/94.68d8a254.chunk.js.map",
     "551.4034a69b.chunk.css.map": "/slimmom-front-end/static/css/551.4034a69b.chunk.css.map"
   },
   "entrypoints": [
     "static/css/main.075931b6.css",
-    "static/js/main.4e6d52bf.js"
+    "static/js/main.15897e1c.js"
   ]
 }
