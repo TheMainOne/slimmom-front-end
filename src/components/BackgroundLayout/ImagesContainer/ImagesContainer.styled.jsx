@@ -13,6 +13,19 @@ const ImagesWrapper = styled.div`
     overflow: hidden;
     pointer-events: none;
     z-index: -1;
+    animation-name: showBackground;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1.5s;
+
+    @keyframes showBackground {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
@@ -23,7 +36,6 @@ const ImagesWrapper = styled.div`
     width: 100%;
     height: 100%;
     z-index: -1;
-    /* pointer-events: none; */
   }
 `;
 
@@ -35,7 +47,6 @@ const GreyBackgroundImg = styled.img`
     width: 553px;
     height: 750px;
     z-index: ${props => (props.isMainPage ? '0' : '-2')};
-    /* pointer-events: none; */
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
@@ -45,9 +56,10 @@ const GreyBackgroundImg = styled.img`
     bottom: 0;
     width: auto;
     height: 96%;
-    /* pointer-events: none; */
   }
 `;
+
+// const POSITION = '229px';
 
 const StrawberryImg = styled.img`
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
@@ -56,14 +68,62 @@ const StrawberryImg = styled.img`
     bottom: ${props => (props.isMainPage ? '180px' : '229px')};
     z-index: ${props => (props.isMainPage ? '-1' : '0')};
 
-    /* pointer-events: none; */
+    animation-name: ${props =>
+      props.isMainPage ? 'rotateStawberryMain' : 'rotateStawberry'};
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: slidein;
+
+    @keyframes rotateStawberry {
+      from {
+        bottom: 100%;
+        transform: scale(0.1);
+        transform: rotate(2160deg);
+      }
+
+      to {
+        bottom: 229px;
+        transform: scale(1);
+        transform: rotate(0deg);
+      }
+    }
+
+    @keyframes rotateStawberryMain {
+      from {
+        bottom: 100%;
+        transform: scale(0.1);
+        transform: rotate(2160deg);
+      }
+
+      to {
+        bottom: 180px;
+        transform: scale(1);
+        transform: rotate(0deg);
+      }
+    }
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     position: absolute;
     right: -10px;
     bottom: -15px;
-    /* pointer-events: none; */
+    animation-name: dropStrawberry;
+    animation-duration: 2s;
+    animation-timing-function: slidein;
+
+    @keyframes dropStrawberry {
+      from {
+        bottom: 100%;
+        transform: scale(0.1);
+        transform: rotate(2160deg);
+      }
+
+      to {
+        bottom: -15px;
+        transform: scale(1);
+        transform: rotate(0deg);
+      }
+    }
   }
 `;
 
@@ -93,14 +153,26 @@ const BananaImg = styled.img`
     position: absolute;
     right: 0;
     bottom: 0;
+    animation-name: moveBanana;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    @keyframes moveBanana {
+      from {
+        right: -100%;
+      }
+
+      to {
+        right: 0;
+      }
+    }
     /* pointer-events: none; */
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     position: absolute;
-    right: 0;
     top: auto;
     bottom: 47%;
+
     /* pointer-events: none; */
   }
 `;

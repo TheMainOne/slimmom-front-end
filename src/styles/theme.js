@@ -18,10 +18,12 @@ export const theme = {
   colors: {
     $white: '#FFFFFF',
     $orange: '#FC842D',
+    $darkOrange: '#e76000',
     $blue: '#264061',
     $lightGrey: '#F0F1F3',
     $grey: '#9B9FAA',
     $black: '#212121',
+    $transparentGrey: 'rgba(33, 33, 33, 0.12)',
     borderColor: '#E0E0E0',
   },
   spacing: value => `${4 * value}px`,
