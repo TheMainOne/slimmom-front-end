@@ -5,7 +5,11 @@ const PageContainer = styled.div`
   padding-top: ${({ theme: { spacing } }) => spacing(8)};
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-    padding-top: ${({ theme: { spacing } }) => spacing(24)};
+    padding-top: ${({ theme: { spacing } }) => spacing(25)};
+  }
+
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
+    padding-top: ${({ theme: { spacing } }) => spacing(36)};
   }
 `;
 

@@ -1,11 +1,14 @@
-import PageTitle from "components/PageTitle";
-import { PageContainer } from "./MainPage.styled";
+import PageTitle from 'components/PageTitle';
+import { PageContainer } from './MainPage.styled';
+import Container from 'components/Container';
 
 const MainPage = () => {
   return (
-    <PageContainer>
-      <PageTitle title={"Calculate your daily calorie intake right now"} />
-    </PageContainer>
+    <Container>
+      <PageContainer>
+        <PageTitle title={'Calculate your daily calorie intake right now'} />
+      </PageContainer>
+    </Container>
   );
 };
 
