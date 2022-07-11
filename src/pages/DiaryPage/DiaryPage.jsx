@@ -6,12 +6,13 @@ import { toast } from 'react-toastify';
 
 import { Spinner } from 'components/Spinner';
 
-import { DiaryPageStyled, MainContainer } from './DiaryPage.styled';
+import { DiaryPageStyled } from './DiaryPage.styled';
 import { DiaryDateCalendar } from 'pages/DiaryDateCalendar';
 
 import { selectActiveDate } from 'redux/slices';
 import { useAddProductMutation } from 'redux/apis';
 import { RightSideBar } from 'components/RightSideBar/RightSideBar';
+import { PageContainer } from 'components/Container';
 const { stringify } = JSON;
 
 const DiaryPage = () => {
@@ -39,7 +40,7 @@ const DiaryPage = () => {
   );
 
   return (
-    <MainContainer>
+    <PageContainer>
       <DiaryPageStyled>
         <DiaryDateCalendar />
 
@@ -85,7 +86,7 @@ const DiaryPage = () => {
         )}
       </DiaryPageStyled>
       <RightSideBar />
-    </MainContainer>
+    </PageContainer>
   );
 };
 
