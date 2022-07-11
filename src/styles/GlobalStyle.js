@@ -40,14 +40,13 @@ export const GlobalStyle = createGlobalStyle`
  
   html {
   height: 100%;
-  /* width: 100%; */
+  width: 100%;
   }
 
   body {
-    /* width: 100%; */
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
     margin: 0;
-    height: 0;
     font-family: ${({ theme: { fonts } }) => fonts.verdanBold};
     line-height: ${({ theme: { lineHeight } }) => lineHeight.verdana};
     letter-spacing: 0.04em;
@@ -59,7 +58,7 @@ export const GlobalStyle = createGlobalStyle`
   
   #root {
     height: 100%;
-    /* width: 100%; */
+    width: 100%;
   }
 
   h1, h2, h3, h4, h5, h6, p, ul {

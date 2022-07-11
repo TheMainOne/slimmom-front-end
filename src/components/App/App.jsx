@@ -14,7 +14,6 @@ const LoginPage = lazy(() => import('pages/LoginPage'));
 
 const App = () => {
   return (
-    // НИЧЕГО НЕ МЕНЯТЬ И НЕ ТРОГАТЬ ВООБЩЕ, РАБОТАЕМ С <Layout />
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Layout />}>
