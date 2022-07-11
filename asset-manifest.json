@@ -1,12 +1,10 @@
 {
   "files": {
     "main.css": "/slimmom-front-end/static/css/main.075931b6.css",
-    "main.js": "/slimmom-front-end/static/js/main.f4a5aee5.js",
+    "main.js": "/slimmom-front-end/static/js/main.397f3420.js",
     "static/js/933.1666f76a.chunk.js": "/slimmom-front-end/static/js/933.1666f76a.chunk.js",
     "static/css/44.8b600499.chunk.css": "/slimmom-front-end/static/css/44.8b600499.chunk.css",
     "static/js/44.7181107c.chunk.js": "/slimmom-front-end/static/js/44.7181107c.chunk.js",
-    "static/media/bg-tablet.svg": "/slimmom-front-end/static/media/bg-tablet.b0b69611a632c00bd842f58551d9e46d.svg",
-    "static/media/bg-desktop.svg": "/slimmom-front-end/static/media/bg-desktop.85cce6f6a2849a73d2e49d987d0a7eac.svg",
     "static/media/Layer-5.svg": "/slimmom-front-end/static/media/Layer-5.02bd20ea58ab3bc0124fa64536fa81b0.svg",
     "static/media/Layer-4.svg": "/slimmom-front-end/static/media/Layer-4.a8eee669b7640dcc5a9c4e67d35fa9c6.svg",
     "static/media/Verdana.ttf": "/slimmom-front-end/static/media/Verdana.06356c47838279a6fe85.ttf",
@@ -20,16 +18,18 @@
     "static/media/GothamPro-Bold.ttf": "/slimmom-front-end/static/media/GothamPro-Bold.764ba13de4409a990823.ttf",
     "static/media/GothamPro.ttf": "/slimmom-front-end/static/media/GothamPro.4f71921a0823129cd8ba.ttf",
     "static/media/leaves-tablet.png": "/slimmom-front-end/static/media/leaves-tablet.6d4be1bb2bf47abcd3bc.png",
+    "static/media/bg-tablet.svg": "/slimmom-front-end/static/media/bg-tablet.f39e2d0df838a28e8899a79a80cb6849.svg",
+    "static/media/bg-desktop.svg": "/slimmom-front-end/static/media/bg-desktop.5f8b5eb6baf1ebba4c401648d86e1306.svg",
     "index.html": "/slimmom-front-end/index.html",
     "static/media/grey-background.svg": "/slimmom-front-end/static/media/grey-background.c655d736b7c28331ec143c1de45f86c8.svg",
     "main.075931b6.css.map": "/slimmom-front-end/static/css/main.075931b6.css.map",
-    "main.f4a5aee5.js.map": "/slimmom-front-end/static/js/main.f4a5aee5.js.map",
+    "main.397f3420.js.map": "/slimmom-front-end/static/js/main.397f3420.js.map",
     "933.1666f76a.chunk.js.map": "/slimmom-front-end/static/js/933.1666f76a.chunk.js.map",
     "44.8b600499.chunk.css.map": "/slimmom-front-end/static/css/44.8b600499.chunk.css.map",
     "44.7181107c.chunk.js.map": "/slimmom-front-end/static/js/44.7181107c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.075931b6.css",
-    "static/js/main.f4a5aee5.js"
+    "static/js/main.397f3420.js"
   ]
 }
