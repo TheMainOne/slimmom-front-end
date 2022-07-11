@@ -1,3 +1,4 @@
+import { Button } from 'components/Button';
 import { PageContainer } from 'components/Container';
 import { RightSideBar } from 'components/RightSideBar/RightSideBar';
 
