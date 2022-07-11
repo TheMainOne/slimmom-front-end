@@ -6,7 +6,7 @@ import LoginForm from '../../components/Forms/LoginForm';
 // import { Spinner } from '../../components/Spinner/Spinner';
 // import { selectShowLoader } from '../../redux/slices/loaderSlice';
 import { PageContainer, Title } from "./LoginPage.styled";
-
+import Container from 'components/Container';
 
 const LoginPage = () => {
   // const isLoading = useSelector(selectShowLoader); // Селектор статуса загрузки
@@ -16,7 +16,7 @@ const LoginPage = () => {
   }, []);
 
   return (
-    <>
+    <Container>
       <PageContainer>
       <Title>Sign In</Title>
        <LoginForm />
@@ -29,11 +29,8 @@ const LoginPage = () => {
         </ButtonRegistration>
        </NavLink>
     </PageContainer>
-        
-        {/* {isLoading && <Spinner />} */}
-     
-       </>
-  );
+    </Container>
+);
 };
 
 export default LoginPage;
