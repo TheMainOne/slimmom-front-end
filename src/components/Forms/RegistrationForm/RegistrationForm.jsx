@@ -1,9 +1,11 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { logIn, register } from 'redux/auth/authOperations';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Form } from './RegistrationForm.styled';
 import { ButtonRegister, CastomTextField } from './MuI';
-import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/authOperations';
+import { getUser } from 'redux/auth/authSelector';
+import { useEffect, useState } from 'react';
 
 const validationSchema = yup.object({
   name: yup
@@ -17,11 +19,32 @@ const validationSchema = yup.object({
   password: yup
     .string('Enter your password')
     .min(8, 'Password should be of min 8 characters length')
+    .matches(
+      /[a-zA-Z0-9]/,
+      'Password must contain Latin letters and min 1 number.'
+    )
     .required('Password is required'),
 });
 
 const RegistrationForm = () => {
+  const [user, setUser] = useState(null);
+  const [isRegister, setIsRegister] = useState(false);
   const dispatch = useDispatch();
+  const userInfo = useSelector(getUser);
+
+  useEffect(() => {
+    console.log(userInfo);
+    if (isRegister && userInfo?.code === 201) {
+      setUser(userInfo);
+      dispatch(
+        logIn({
+          email: user.email,
+          password: user.password,
+        })
+      );
+      setIsRegister(false);
+    }
+  }, [userInfo, isRegister, dispatch, user]);
 
   const formik = useFormik({
     initialValues: {
@@ -30,11 +53,10 @@ const RegistrationForm = () => {
       password: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values, { resetForm }) => {
-      dispatch(register(values))
-        .then(data => console.log(data))
-        .catch(er => console.log(er));
-
+    onSubmit: async (values, { resetForm }) => {
+      dispatch(register(values));
+      setUser(values);
+      setIsRegister(true);
       resetForm();
     },
   });
@@ -81,12 +103,12 @@ const RegistrationForm = () => {
         name="password"
         label="Password *"
         type="password"
+        autoComplete="new-password"
         value={formik.values.password}
         onChange={formik.handleChange}
         error={formik.touched.password && Boolean(formik.errors.password)}
         helperText={formik.touched.password && formik.errors.password}
       />
-
       <ButtonRegister
         color="primary"
         variant="contained"
