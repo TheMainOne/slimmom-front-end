@@ -1,14 +1,13 @@
-// import banan from 'images/background/banan.svg';
 import banana from 'images/background/banana.png';
 import bananaTablet from 'images/background/banana-tablet.png';
 import leaves from 'images/background/leaves.png';
-import leavesTabletAuth from 'images/background/leaves-tablet.png';
-import leavesTablet from 'images/background/leaves-tablet-auth.png';
+import leavesTablet from 'images/background/leaves-tablet.png';
+import leavesTabletAuth from 'images/background/leaves-tablet-auth.png';
 import strawberry from 'images/background/strawberry.png';
 import strawberryTablet from 'images/background/strawberry-tablet.png';
-// import strawberry from 'images/background/strawberry.svg';
 import greyBackground from 'images/background/grey-background.svg';
-// import leaves from 'images/background/leaves.svg';
+import useResizeAware from 'react-resize-aware';
+
 import {
   ImagesWrapper,
   GreyBackgroundImg,
@@ -17,26 +16,40 @@ import {
   StrawberryImg,
 } from './ImagesContainer.styled';
 
-const ImagesContainer = ({ isMainPage = false }) => {
-  const tablet = window.matchMedia(
-    '(min-width: 768px) and (max-width: 1279px)'
-  ).matches;
+const TABLET_WIDTH_BREAKPOINT = 1280;
 
-  console.log(isMainPage);
+const ImagesContainer = ({ isMainPage = false }) => {
+  const [resizeListener, { width }] = useResizeAware();
+  const isTablet = width < TABLET_WIDTH_BREAKPOINT;
+  const strawberryImageSource = !isTablet
+    ? strawberry
+    : isMainPage
+    ? strawberryTablet
+    : strawberry;
+
+  const leavesImageSource = !isTablet
+    ? leaves
+    : isMainPage
+    ? leavesTablet
+    : leavesTabletAuth;
+
+  const bananaImageSource = isTablet ? bananaTablet : banana;
+
   return (
     <ImagesWrapper>
+      {resizeListener}
       <GreyBackgroundImg src={greyBackground} alt="Grey background" />
       <StrawberryImg
-        isAuthPage={isMainPage}
-        src={tablet ? strawberryTablet : strawberry}
+        isMainPage={isMainPage}
+        src={strawberryImageSource}
         alt="Strawberry picture"
       />
       <LeavesImg
         isMainPage={isMainPage}
-        src={!tablet ? leaves : isMainPage ? leavesTablet : leavesTabletAuth}
+        src={leavesImageSource}
         alt="Leaves picture"
       />
-      <BananaImg src={tablet ? bananaTablet : banana} alt="Banana picture" />
+      <BananaImg src={bananaImageSource} alt="Banana picture" />
     </ImagesWrapper>
   );
 };
