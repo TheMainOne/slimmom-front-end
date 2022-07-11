@@ -1,15 +1,14 @@
+import { parseISO, format } from 'date-fns';
+import { useSelector } from 'react-redux';
+import { MainContainer, TextContainer, Block } from './Container/Container';
 import { DailyKkalReport } from './DailyKkalReport/DailyKkalReport';
 import { FoodList } from './FoodList/FoodList';
-
-const {
-  TextContainer,
-  MainContainer,
-  Block,
-} = require('./Container/Container');
-const { Title } = require('./Title/Title');
+import { Title } from './Title/Title';
 
 export const RightSideBar = () => {
-  const date = '06/20/2020';
+  const count = useSelector(state => state.calendar.activeDate);
+  const date = format(parseISO(JSON.parse(count)), 'MM/dd/yyyy');
+
   const TestData = {
     left: 3000,
     consumed: 300,

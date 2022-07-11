@@ -10,6 +10,8 @@ export const TabHead = styled.th`
   width: 150px; //change
   border-right: 20px solid transparent; //change
   padding-bottom: 14px;
+  font-weight: 400;
+  font-size: 14px;
 `;
 
 export const TabData = styled.td`
