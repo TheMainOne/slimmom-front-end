@@ -1,15 +1,19 @@
-import { LayoutStyles } from './Layout.styled';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-// import MainPage from 'pages/MainPage/MainPage';
+import Header from 'components/Header/Navigation';
+import BackgroundLayout from 'components/BackgroundLayout';
+import { LayoutStyles } from './Layout.styled';
 
 const Layout = () => {
   return (
     <LayoutStyles>
-      {/* ВНИМАНИЕ!!!!!!! Структуру не менять! Тестить свои компоненты вместо
-      Example компонент, потом возвращать как было */}
-
-      <Outlet />
+      <BackgroundLayout>
+        <Header />
+        <Suspense fallback="">
+          <Outlet />
+        </Suspense>
+      </BackgroundLayout>
     </LayoutStyles>
   );
 };
