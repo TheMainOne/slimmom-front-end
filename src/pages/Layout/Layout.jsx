@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from 'components/Header/Navigation';
 import BackgroundLayout from 'components/BackgroundLayout';
