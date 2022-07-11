@@ -2,8 +2,8 @@
 import banana from 'images/background/banana.png';
 import bananaTablet from 'images/background/banana-tablet.png';
 import leaves from 'images/background/leaves.png';
-import leavesTabletAuth from 'images/background/leaves-tablet.png';
-import leavesTablet from 'images/background/leaves-tablet-auth.png';
+import leavesTablet from 'images/background/leaves-tablet.png';
+import leavesTabletAuth from 'images/background/leaves-tablet-auth.png';
 import strawberry from 'images/background/strawberry.png';
 import strawberryTablet from 'images/background/strawberry-tablet.png';
 // import strawberry from 'images/background/strawberry.svg';
@@ -22,13 +22,15 @@ const ImagesContainer = ({ isMainPage = false }) => {
     '(min-width: 768px) and (max-width: 1279px)'
   ).matches;
 
+  console.log(tablet);
+
   console.log(isMainPage);
   return (
     <ImagesWrapper>
       <GreyBackgroundImg src={greyBackground} alt="Grey background" />
       <StrawberryImg
-        isAuthPage={isMainPage}
-        src={tablet ? strawberryTablet : strawberry}
+        isMainPage={isMainPage}
+        src={!tablet ? strawberry : isMainPage ? strawberryTablet : strawberry}
         alt="Strawberry picture"
       />
       <LeavesImg

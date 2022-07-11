@@ -34,6 +34,7 @@ const GreyBackgroundImg = styled.img`
     right: -32px;
     width: 553px;
     height: 750px;
+    z-index: ${props => (props.isMainPage ? '0' : '-2')};
     /* pointer-events: none; */
   }
 
@@ -51,20 +52,17 @@ const GreyBackgroundImg = styled.img`
 const StrawberryImg = styled.img`
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     position: absolute;
-    right: ${props => (props.isMainPage ? '-85px' : '50px')};
-    bottom: ${props => (props.isMainPage ? '168px' : '188px')};
-    width: ${props => (props.isMainPage ? '386px' : '286px')};
-    height: ${props => (props.isMainPage ? '44.6%' : '279px')};
+    right: ${props => (props.isMainPage ? '46px' : '-65px')};
+    bottom: ${props => (props.isMainPage ? '180px' : '229px')};
+    z-index: ${props => (props.isMainPage ? '-1' : '0')};
 
     /* pointer-events: none; */
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     position: absolute;
-    right: -41px;
-    bottom: -2%;
-    width: 386px;
-    height: 44.6%;
+    right: -10px;
+    bottom: -15px;
     /* pointer-events: none; */
   }
 `;
@@ -72,12 +70,10 @@ const StrawberryImg = styled.img`
 const LeavesImg = styled.img`
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     position: absolute;
-    right: ${props => (props.isMainPage ? '0px' : '205px')};
-    bottom: ${props => (props.isMainPage ? '265px' : '32px')};
-    width: ${props => (props.isMainPage ? '740px' : '602px')};
-    height: ${props => (props.isMainPage ? '842px' : '531px')};
-    /* transform: ${props =>
-      props.isAuthPage ? 'rotate(0deg)' : 'rotate(90deg)'}; */
+    bottom: ${props => (props.isMainPage ? '0' : '289px')};
+    right: ${props => (props.isMainPage ? '166px' : '12px')};
+    z-index: ${props => (props.isMainPage ? '0' : '-1')};
+
     /* pointer-events: none; */
   }
 
