@@ -1,1 +1,2 @@
-export { default } from "./Container";
+export { default } from './Container';
+export { PageContainer } from './PageContainer/PageContainer';
