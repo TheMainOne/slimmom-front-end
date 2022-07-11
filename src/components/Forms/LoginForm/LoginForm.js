@@ -8,11 +8,10 @@ import {  CastomTextField } from './Mui';
 import { useDispatch } from 'react-redux';
 // import { useState } from 'react';
 import { logIn } from 'redux/auth/authOperations';
-// import routes from '../../../routs';
-// import { NavLink } from 'react-router-dom';
 // import { makeStyles } from '@material-ui/core/styles';
 import { ButtonLogin } from './Mui';
 import { Form } from './LoginForm.styled';
+// import Container from 'components/Container';
 
 const validationSchema = yup.object({
   email: yup
@@ -51,7 +50,7 @@ const LoginForm = () => {
 
   return (
     <div>
-<Form onSubmit={formik.handleSubmit}>
+    <Form onSubmit={formik.handleSubmit}>
       <CastomTextField
         variant="standard"
         id="email"
