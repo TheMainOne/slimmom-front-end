@@ -2,17 +2,17 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-// import { DiaryProductsList } from 'components/DiaryProductsList';
-
 import { Spinner } from 'components/Spinner';
 
 import { DiaryPageStyled } from './DiaryPage.styled';
-import { DiaryDateCalendar } from 'pages/DiaryDateCalendar';
 
 import { selectActiveDate } from 'redux/slices';
 import { useAddProductMutation } from 'redux/apis';
 import { RightSideBar } from 'components/RightSideBar/RightSideBar';
 import { PageContainer } from 'components/Container';
+import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
+import { DiaryAddProductForm } from 'components/Forms/DiaryAddProductForm';
+
 const { stringify } = JSON;
 
 const DiaryPage = () => {
@@ -44,37 +44,7 @@ const DiaryPage = () => {
       <DiaryPageStyled>
         <DiaryDateCalendar />
 
-        {/* <DiaryAddProductForm /> */}
-        <form
-          onSubmit={onSubmit}
-          style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}
-        >
-          <label>
-            <input
-              name="productName"
-              type="text"
-              minLength={3}
-              maxLength={40}
-              required
-            />
-          </label>
-
-          <label>
-            <input
-              name="weight"
-              type="text"
-              minLength={2}
-              maxLength={6}
-              pattern="\d{2,6}"
-              title="min 2, max 6 digits"
-              required
-            />
-          </label>
-
-          <button type="submit" style={{ padding: '10px' }}>
-            [+]
-          </button>
-        </form>
+        <DiaryAddProductForm />
 
         {isAddingProduct ? (
           <Spinner />
