@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://slimmomproject.herokuapp.com/';
 
 const token = {
   set(token) {
@@ -17,8 +17,8 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('/users/signup', credentials);
-
+      const { data } = await axios.post('api/auth/signup', credentials);
+      console.log(data, 'my data');
       return data;
     } catch (error) {
       toast.error('Sign up failed. Check your data!', {
@@ -33,7 +33,7 @@ export const register = createAsyncThunk(
 
 export const logIn = createAsyncThunk('auth/login', async credentials => {
   try {
-    const { data } = await axios.post('/users/login', credentials);
+    const { data } = await axios.post('api/auth/login', credentials);
     token.set(data.token);
     return data;
   } catch (error) {

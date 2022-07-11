@@ -19,6 +19,10 @@ const validationSchema = yup.object({
   password: yup
     .string('Enter your password')
     .min(8, 'Password should be of min 8 characters length')
+    .matches(
+      /[a-zA-Z0-9]/,
+      'Password must contain Latin letters and min 1 number.'
+    )
     .required('Password is required'),
 });
 
@@ -29,14 +33,17 @@ const RegistrationForm = () => {
   const userInfo = useSelector(getUser);
 
   useEffect(() => {
-    if (isRegister && userInfo?.name) {
-      console.log('if');
-      console.log(userInfo?.name);
+    console.log(userInfo);
+    if (isRegister && userInfo?.code === 201) {
       setUser(userInfo);
-      dispatch(logIn(user));
+      dispatch(
+        logIn({
+          email: user.email,
+          password: user.password,
+        })
+      );
       setIsRegister(false);
     }
-    console.log('hello');
   }, [userInfo, isRegister, dispatch, user]);
 
   const formik = useFormik({
@@ -50,12 +57,6 @@ const RegistrationForm = () => {
       dispatch(register(values));
       setUser(values);
       setIsRegister(true);
-      // console.log({ userInfo, user });
-
-      // if (user) {
-      //   dispatch(logIn(values));
-      // }
-
       resetForm();
     },
   });
