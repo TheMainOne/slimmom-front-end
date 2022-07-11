@@ -3,11 +3,13 @@ import { NavLink } from 'react-router-dom';
 
 export const HeaderStyled = styled.header`
   padding-top: 20px;
+  padding-bottom: 16px;
   border-bottom: 2px solid #e0e0e0;
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     padding-top: 80px;
     border-bottom: none;
+    padding-bottom: 0px;
   }
 `;
 
@@ -26,6 +28,7 @@ export const HeaderLink = styled(NavLink)`
   color: #9b9faa;
   font-family: 'Gotham Pro';
   font-size: 14px;
+  font-weight: bold;
   letter-spacing: 0.03em;
   text-transform: uppercase;
 
@@ -42,6 +45,6 @@ export const HeaderLinksWrapper = styled.div`
   display: flex;
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
-    margin-left: 40px;
+    margin-left: 30px;
   }
 `;
