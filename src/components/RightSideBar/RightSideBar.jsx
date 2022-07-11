@@ -1,8 +1,11 @@
-import { Block } from './BLock/Block';
 import { DailyKkalReport } from './DailyKkalReport/DailyKkalReport';
 import { FoodList } from './FoodList/FoodList';
 
-const { Container } = require('./Container/Container');
+const {
+  TextContainer,
+  MainContainer,
+  Block,
+} = require('./Container/Container');
 const { Title } = require('./Title/Title');
 
 export const RightSideBar = () => {
@@ -15,16 +18,18 @@ export const RightSideBar = () => {
   };
 
   return (
-    <Container>
-      <Block>
-        <Title text={`Summary for ${date}`} />
-        <DailyKkalReport data={TestData} />
-      </Block>
+    <MainContainer>
+      <TextContainer>
+        <Block>
+          <Title text={`Summary for ${date}`} />
+          <DailyKkalReport data={TestData} />
+        </Block>
 
-      <Block>
-        <Title text={'Food not recommended'} />
-        <FoodList foodList={false} />
-      </Block>
-    </Container>
+        <Block>
+          <Title text={'Food not recommended'} />
+          <FoodList foodList={false} />
+        </Block>
+      </TextContainer>
+    </MainContainer>
   );
 };

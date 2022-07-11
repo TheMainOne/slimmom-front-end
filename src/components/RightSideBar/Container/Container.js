@@ -1,5 +1,9 @@
-import { MainContainer } from './Container.styled';
+import { Container, Div, Wrapper } from './Container.styled';
 
-export const Container = ({ children }) => (
-  <MainContainer>{children}</MainContainer>
+export const MainContainer = ({ children }) => (
+  <Container>{children}</Container>
 );
+
+export const Block = ({ children }) => <Div>{children}</Div>;
+
+export const TextContainer = ({ children }) => <Wrapper>{children}</Wrapper>;
