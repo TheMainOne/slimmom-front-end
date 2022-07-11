@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Verdana';
     font-style: normal;
     font-weight: 700;
-    src: local('Verdana'),
+    src: local('Verdana Bold'),
       url(${VerdanaBold}) format('truetype');
   }
 
@@ -39,27 +39,27 @@ export const GlobalStyle = createGlobalStyle`
 
  
   html {
-  width: 100%;
   height: 100%;
-  }
-  
-
-  #root {
-    height: 100vh;
+  /* width: 100%; */
   }
 
   body {
-    width: 100%;
-    height: 100%;
+    /* width: 100%; */
+    min-height: 100%;
     margin: 0;
     height: 0;
-    font-family: 'Verdana';
-    font-weight: 700;
+    font-family: ${({ theme: { fonts } }) => fonts.verdanBold};
     line-height: ${({ theme: { lineHeight } }) => lineHeight.verdana};
     letter-spacing: 0.04em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+  }
+
+  
+  #root {
+    height: 100%;
+    /* width: 100%; */
   }
 
   h1, h2, h3, h4, h5, h6, p, ul {
