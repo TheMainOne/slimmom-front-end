@@ -20,12 +20,16 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<MainPage />} />
-          <Route path="diary" element={
+          <Route 
+            path="diary" 
+              element={
                   <PrivateRoute >
                     <DiaryPage />
                   </PrivateRoute>
                 } />
-          <Route path="login" element={
+          <Route 
+            path="login" 
+              element={
                   <PublicRoute redirectTo="/diary" restricted>
                     <LoginPage />
                   </PublicRoute>
