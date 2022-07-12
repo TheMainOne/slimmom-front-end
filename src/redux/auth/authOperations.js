@@ -50,10 +50,10 @@ export const logOut = createAsyncThunk('auth/logout', async () => {
   }
 });
 
-// const authOperations = {
-//   register,
-//   logOut,
-//   logIn,
-//   };
+const authOperations = {
+  register,
+  logOut,
+  logIn,
+  };
 
-// export default authOperations;
+export default authOperations;

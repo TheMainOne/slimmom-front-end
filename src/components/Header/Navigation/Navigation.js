@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../Logo';
 import Container from 'components/Container';
 import { useSelector } from 'react-redux';
+import UserInfo from '../UserInfo';
 
 import {
   HeaderStyled,
@@ -60,8 +61,12 @@ const Header = () => {
         </>
       )}   
              
-            </HeaderLinksWrapper>
+            </HeaderLinksWrapper> 
+            <div style={styles.link}>
+              <UserInfo  />
+            </div>
           </HeaderNavigation>
+         
         </Container>
       </HeaderStyled>
     </>
