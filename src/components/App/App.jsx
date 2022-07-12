@@ -9,12 +9,13 @@ import MainPage from 'pages/MainPage';
 import RegistrationPage from 'pages/RegistrationPage';
 import PrivateRoute from '../PrivateRoute';
 import PublicRoute from '../PublicRoute';
+
 const DiaryPage = lazy(() => import('pages/DiaryPage'));
+const CalculatorPage = lazy(() => import('pages/CalculatorPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 
 const App = () => {
   return (
-    // НИЧЕГО НЕ МЕНЯТЬ И НЕ ТРОГАТЬ ВООБЩЕ, РАБОТАЕМ С <Layout />
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -24,6 +25,14 @@ const App = () => {
             element={
               <PrivateRoute>
                 <DiaryPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="calculator"
+            element={
+              <PrivateRoute>
+                <CalculatorPage />
               </PrivateRoute>
             }
           />

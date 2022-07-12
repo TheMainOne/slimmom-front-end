@@ -14,7 +14,7 @@ const ImagesWrapper = styled.div`
     pointer-events: none;
     z-index: -1;
     animation-name: showBackground;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: ease;
     animation-duration: 1.5s;
 
     @keyframes showBackground {
@@ -47,19 +47,42 @@ const GreyBackgroundImg = styled.img`
     width: 553px;
     height: 750px;
     z-index: ${props => (props.isMainPage ? '0' : '-2')};
+    animation-name: lowHeightGreyBg;
+    animation-timing-function: ease;
+    animation-duration: 1.5s;
+
+    @keyframes lowHeightGreyBg {
+      from {
+        bottom: 0px;
+      }
+
+      to {
+        bottom: -177px;
+      }
+    }
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     position: absolute;
-    top: auto;
     right: 0;
     bottom: 0;
     width: auto;
-    height: 96%;
+    height: ${props => (props.shouldResizeBg ? '85%' : '96%')};
+    animation-name: resizeHeightGreyBg;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+
+    @keyframes resizeHeightGreyBg {
+      from {
+        bottom: -177px;
+      }
+
+      to {
+        bottom: 0px;
+      }
+    }
   }
 `;
-
-// const POSITION = '229px';
 
 const StrawberryImg = styled.img`
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
@@ -133,18 +156,12 @@ const LeavesImg = styled.img`
     bottom: ${props => (props.isMainPage ? '0' : '289px')};
     right: ${props => (props.isMainPage ? '166px' : '12px')};
     z-index: ${props => (props.isMainPage ? '0' : '-1')};
-
-    /* pointer-events: none; */
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     position: absolute;
-    right: 14%;
-    bottom: 3%;
-    width: auto;
-    height: 100%;
-    transform: rotate(0deg);
-    pointer-events: none;
+    right: 185px;
+    bottom: 30px;
   }
 `;
 
@@ -156,6 +173,7 @@ const BananaImg = styled.img`
     animation-name: moveBanana;
     animation-duration: 1s;
     animation-timing-function: ease;
+
     @keyframes moveBanana {
       from {
         right: -100%;
@@ -165,15 +183,24 @@ const BananaImg = styled.img`
         right: 0;
       }
     }
-    /* pointer-events: none; */
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     position: absolute;
-    top: auto;
+    /* top: auto; */
     bottom: 47%;
+    animation-name: upBanana;
+    animation-duration: 1s;
+    animation-timing-function: ease;
 
-    /* pointer-events: none; */
+    @keyframes upBanana {
+      from {
+        bottom: 0;
+      }
+      to {
+        bottom: 47%;
+      }
+    }
   }
 `;
 

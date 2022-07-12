@@ -16,11 +16,14 @@ import {
   StrawberryImg,
 } from './ImagesContainer.styled';
 
-const TABLET_WIDTH_BREAKPOINT = 1280;
+const DESKTOP_WIDTH_BREAKPOINT = 1280;
+const DESKTOP_HEIGHT_BREAKPOINT = 850;
 
 const ImagesContainer = ({ isMainPage = false }) => {
-  const [resizeListener, { width }] = useResizeAware();
-  const isTablet = width < TABLET_WIDTH_BREAKPOINT;
+  const [resizeListener, { width, height }] = useResizeAware();
+  const isTablet = width < DESKTOP_WIDTH_BREAKPOINT;
+  const shouldResizeBg = height > DESKTOP_HEIGHT_BREAKPOINT;
+
   const strawberryImageSource = !isTablet
     ? strawberry
     : isMainPage
@@ -38,7 +41,11 @@ const ImagesContainer = ({ isMainPage = false }) => {
   return (
     <ImagesWrapper>
       {resizeListener}
-      <GreyBackgroundImg src={greyBackground} alt="Grey background" />
+      <GreyBackgroundImg
+        shouldResizeBg={shouldResizeBg}
+        src={greyBackground}
+        alt="Grey background"
+      />
       <StrawberryImg
         isMainPage={isMainPage}
         src={strawberryImageSource}
