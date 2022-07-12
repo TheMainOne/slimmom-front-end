@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '../Logo';
 import Container from 'components/Container';
 import { useSelector } from 'react-redux';
-import UserInfo from '../UserInfo';
+// import UserInfo from '../UserInfo';
 
 import {
   HeaderStyled,
@@ -19,12 +19,12 @@ const styles = {
   },
   isHidden: {
     display: 'none',
-  }
+  },
 };
 
 const Header = () => {
   const isLogged = useSelector(state => getIsLoggedIn(state));
- 
+
   return (
     <>
       <HeaderStyled>
@@ -33,38 +33,38 @@ const Header = () => {
             <div>
               <Logo />
             </div>
-           
-              <HeaderLinksWrapper> 
-                {!isLogged && (
-                  <>
-              <HeaderLink to="/login"  stylehidden={styles.isHidden} style={styles.link} 
-                >
-                  Sign in
-              </HeaderLink>
-              <HeaderLink to="/signup"  stylehidden={styles.isHidden} style={styles.link} 
-              >
-                Registration
-              </HeaderLink>
-                  </>
+
+            <HeaderLinksWrapper>
+              {!isLogged && (
+                <>
+                  <HeaderLink
+                    to="/login"
+                    stylehidden={styles.isHidden}
+                    style={styles.link}
+                  >
+                    Sign in
+                  </HeaderLink>
+                  <HeaderLink
+                    to="/signup"
+                    stylehidden={styles.isHidden}
+                    style={styles.link}
+                  >
+                    Registration
+                  </HeaderLink>
+                </>
               )}
-              
+
               {isLogged && (
-        <>
-          <HeaderLink to="/diary" style={styles.link}
-          >            
-          Diary
-          </HeaderLink>
-          <HeaderLink to="/calculator" style={styles.link} 
-          >
-            Calculator
-          </HeaderLink>
-        </>
-      )}   
-             
-            </HeaderLinksWrapper> 
-            <div style={styles.link}>
-              <UserInfo  />
-            </div>
+                <>
+                  <HeaderLink to="/diary" style={styles.link}>
+                    Diary
+                  </HeaderLink>
+                  <HeaderLink to="/calculator" style={styles.link}>
+                    Calculator
+                  </HeaderLink>
+                </>
+              )}
+            </HeaderLinksWrapper>
           </HeaderNavigation>
          
         </Container>
