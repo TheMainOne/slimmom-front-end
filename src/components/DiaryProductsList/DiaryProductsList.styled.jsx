@@ -15,12 +15,17 @@ const List = styled.ul`
     padding-right: 40px;
     overflow-y: auto;
 
+    ::-webkit-scrollbar-button {
+    }
+
     ::-webkit-scrollbar {
       width: 6px;
+      height: 221px;
     }
 
     ::-webkit-scrollbar-track {
       background: ${({ theme: { colors } }) => colors.$lightGrey};
+      height: 40px;
     }
 
     ::-webkit-scrollbar-thumb {
@@ -33,7 +38,7 @@ const List = styled.ul`
 
     //Scrollbar
     //Scrollbar variables
-    --mask-height: 50px;
+    --mask-height: 32px;
     --padding-right: 40px;
     --mask-image-content: linear-gradient(
       to bottom,
@@ -46,13 +51,15 @@ const List = styled.ul`
 
     mask-size: var(--mask-size-content);
     mask-image: var(--mask-image-content);
-    mask-position: bottom 0, 100% 0;
+    mask-position: bottom 50px;
     mask-repeat: no-repeat;
   }
 
   @media (min-width: 1280px) {
     width: 623px;
     height: 271px;
+    margin-right: ${({ theme: { spacing } }) => spacing(34)};
+    margin-left: auto;
   }
 `;
 
