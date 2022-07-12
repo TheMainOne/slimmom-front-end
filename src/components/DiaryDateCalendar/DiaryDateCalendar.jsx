@@ -7,7 +7,7 @@ const { stringify } = JSON;
 export const DiaryDateCalendar = () => {
   const dispatch = useDispatch();
   const activeDate = useSelector(selectActiveDate);
-  const selectDate = date => dispatch(setDate(stringify(date)));
+  w;
 
   return (
     <div>

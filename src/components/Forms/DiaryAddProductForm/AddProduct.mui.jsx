@@ -1,27 +1,7 @@
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-
-export const AddProductButton = styled(Button)`
-  font-family: 'Verdana';
-  font-weight: 700;
-  font-size: 14px;
-  text-transform: none;
-  background-color: #fc842d;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  border-radius: 30px;
-  margin: auto;
-  padding: 13px 57px;
-  margin-top: 60px;
-  &:hover {
-    background-color: #e76000;
-    transform: scale(1.1);
-  }
-  @media screen and (min-width: 768px) {
-    margin: 60px 0 0;
-  }
-`;
-// AddProductLabel;
+import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
 
 export const AddProductInput = styled(TextField)({
   '& ': {
@@ -47,3 +27,35 @@ export const AddProductInput = styled(TextField)({
     borderBottomColor: '#FC842D',
   },
 });
+
+export const AddProductButton = styled(Button)`
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: none;
+  background-color: ${({ theme: { colors } }) => colors.$orange};
+
+  box-shadow: 0 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 30px;
+  padding: 17px;
+
+  &:hover {
+    background-color: #e76000;
+    transform: scale(1.1);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin: 60px 0 0;
+  }
+
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: 471px;
+  top: 380px;
+
+  background: #fc842d;
+  /* orange */
+`;
+
+export const AddProductIcon = styled(AddCircleRoundedIcon)``;

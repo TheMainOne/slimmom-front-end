@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
-import { toast } from 'react-toastify';
 import * as yup from 'yup';
+import { toast } from 'react-toastify';
 import { DiaryAddProductFormStyled } from './DiaryAddProductForm.styled';
 import { AddProductButton, AddProductInput } from './AddProduct.mui';
 
@@ -198,9 +198,7 @@ export const DiaryAddProductForm = () => {
         variant="contained"
         type="submit"
         disabled={!formik.isValid}
-      >
-        +
-      </AddProductButton>
+      ></AddProductButton>
     </DiaryAddProductFormStyled>
   );
 };
