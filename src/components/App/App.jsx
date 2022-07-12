@@ -27,6 +27,15 @@ const App = () => {
             }
           />
           <Route
+            path="calculator"
+            element={
+              <PrivateRoute>
+                {/* Временно, потом нужно подставить вместо DiaryPage правильный раут*/}
+                <DiaryPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
             path="login"
             element={
               <PublicRoute redirectTo="/diary" restricted>
