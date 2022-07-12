@@ -9,7 +9,9 @@ import MainPage from 'pages/MainPage';
 import RegistrationPage from 'pages/RegistrationPage';
 import PrivateRoute from '../PrivateRoute';
 import PublicRoute from '../PublicRoute';
+
 const DiaryPage = lazy(() => import('pages/DiaryPage'));
+const CalculatorPage = lazy(() => import('pages/CalculatorPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 
 const App = () => {
@@ -30,8 +32,7 @@ const App = () => {
             path="calculator"
             element={
               <PrivateRoute>
-                {/* Временно, потом нужно подставить вместо DiaryPage правильный раут*/}
-                <DiaryPage />
+                <CalculatorPage />
               </PrivateRoute>
             }
           />
