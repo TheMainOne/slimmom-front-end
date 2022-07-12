@@ -18,12 +18,12 @@ const styles = {
   },
   isHidden: {
     display: 'none',
-  }
+  },
 };
 
 const Header = () => {
   const isLogged = useSelector(state => getIsLoggedIn(state));
- 
+
   return (
     <>
       <HeaderStyled>
@@ -32,34 +32,37 @@ const Header = () => {
             <div>
               <Logo />
             </div>
-           
-              <HeaderLinksWrapper> 
-                {!isLogged && (
-                  <>
-              <HeaderLink to="/login"  stylehidden={styles.isHidden} style={styles.link} 
-                >
-                  Sign in
-              </HeaderLink>
-              <HeaderLink to="/signup"  stylehidden={styles.isHidden} style={styles.link} 
-              >
-                Registration
-              </HeaderLink>
-                  </>
+
+            <HeaderLinksWrapper>
+              {!isLogged && (
+                <>
+                  <HeaderLink
+                    to="/login"
+                    stylehidden={styles.isHidden}
+                    style={styles.link}
+                  >
+                    Sign in
+                  </HeaderLink>
+                  <HeaderLink
+                    to="/signup"
+                    stylehidden={styles.isHidden}
+                    style={styles.link}
+                  >
+                    Registration
+                  </HeaderLink>
+                </>
               )}
-              
+
               {isLogged && (
-        <>
-          <HeaderLink to="/diary" style={styles.link}
-          >            
-          Diary
-          </HeaderLink>
-          <HeaderLink to="/calculator" style={styles.link} 
-          >
-            Calculator
-          </HeaderLink>
-        </>
-      )}   
-             
+                <>
+                  <HeaderLink to="/diary" style={styles.link}>
+                    Diary
+                  </HeaderLink>
+                  <HeaderLink to="/calculator" style={styles.link}>
+                    Calculator
+                  </HeaderLink>
+                </>
+              )}
             </HeaderLinksWrapper>
           </HeaderNavigation>
         </Container>
