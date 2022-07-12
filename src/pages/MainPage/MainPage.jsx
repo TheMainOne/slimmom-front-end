@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PageTitle from 'components/PageTitle';
 import { PageContainer, FormContainer } from './MainPage.styled';
+
 import Container from 'components/Container';
 import { Button } from 'components/Button';
 import { Modal } from 'components/Modal';
