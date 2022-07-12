@@ -13,4 +13,14 @@ const PageContainer = styled.div`
   }
 `;
 
-export { PageContainer };
+const FormContainer = styled.div`
+  width: 100%;
+  height: 190px;
+  margin-top: 68px;
+  background-color: violet;
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    width: 512px;
+  }
+`;
+
+export { PageContainer, FormContainer };
