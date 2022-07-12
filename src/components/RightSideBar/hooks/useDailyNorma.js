@@ -10,13 +10,13 @@ const body = {
 };
 
 export const useDailyNorma = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const [dailyRate, setDailyRate] = useState('');
   const [bannedProducts, setBannedProducts] = useState([]);
 
   useEffect(() => {
     const func = async () => {
-      setIsLoading(true);
+      // setIsLoading(true);
 
       try {
         const res = await axios.post('/api/users/daily-norma', body);
@@ -24,7 +24,7 @@ export const useDailyNorma = () => {
 
         setDailyRate(result.dailyRate);
         setBannedProducts(result.bannedProducts);
-        setIsLoading(false);
+        // setIsLoading(false);
       } catch (error) {
         throw new Error(error);
       }
@@ -32,7 +32,11 @@ export const useDailyNorma = () => {
     func();
   }, []);
 
-  return [isLoading, dailyRate, bannedProducts];
+  return [
+    // isLoading,
+    dailyRate,
+    bannedProducts,
+  ];
 };
 
 // 3група

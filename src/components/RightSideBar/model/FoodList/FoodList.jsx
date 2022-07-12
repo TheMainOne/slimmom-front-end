@@ -1,23 +1,21 @@
+import { useTemplate } from 'components/RightSideBar/hooks';
 import { List } from './FoodList.styled';
+import test from './test.json';
 
 export const FoodList = ({ foodList }) => {
+  const foodListTest = test.results.bannedProducts.categories; //test - delete
+
+  const [list] = useTemplate(foodListTest); //change on  foodList
+  console.log('~ list', list);
+
   const defaultTest = 'Your diet will be displayed here';
-
-  const obj = {};
-
-  const list = foodList.map(food => {
-    if (!obj[food.categories]) obj[food.categories] = 0;
-
-    obj[food.categories] += 1;
-
-    return food.categories;
-  });
-
-  console.log('~ obj', obj);
 
   return (
     <>
-      <List>{defaultTest}</List>
+      <List>
+        {(list.length > 0 && list.map(el => <p key={el}>{el}</p>)) ||
+          defaultTest}
+      </List>
     </>
   );
 };
