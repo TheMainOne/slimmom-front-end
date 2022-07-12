@@ -5,9 +5,11 @@ import { toast } from 'react-toastify';
 // import { DiaryProductsList } from 'components/DiaryProductsList';
 
 import { Spinner } from 'components/Spinner';
-
+import Container from 'components/Container';
 import { DiaryPageStyled } from './DiaryPage.styled';
 import { DiaryDateCalendar } from 'pages/DiaryDateCalendar';
+import DiaryProductsList from 'components/DiaryProductsList';
+import consumedProducts from 'components/DiaryProductsList/products.json';
 
 import { selectActiveDate } from 'redux/slices';
 import { useAddProductMutation } from 'redux/apis';
@@ -42,48 +44,48 @@ const DiaryPage = () => {
   return (
     <PageContainer>
       <DiaryPageStyled>
-        <DiaryDateCalendar />
+        <Container>
+          <DiaryDateCalendar />
 
-        {/* <DiaryAddProductForm /> */}
-        <form
-          onSubmit={onSubmit}
-          style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}
-        >
-          <label>
-            <input
-              name="productName"
-              type="text"
-              minLength={3}
-              maxLength={40}
-              required
-            />
-          </label>
+          {/* <DiaryAddProductForm /> */}
+          <form
+            onSubmit={onSubmit}
+            style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}
+          >
+            <label>
+              <input
+                name="productName"
+                type="text"
+                minLength={3}
+                maxLength={40}
+                required
+              />
+            </label>
 
-          <label>
-            <input
-              name="weight"
-              type="text"
-              minLength={2}
-              maxLength={6}
-              pattern="\d{2,6}"
-              title="min 2, max 6 digits"
-              required
-            />
-          </label>
+            <label>
+              scrollbar
+              <input
+                name="weight"
+                type="text"
+                minLength={2}
+                maxLength={6}
+                pattern="\d{2,6}"
+                title="min 2, max 6 digits"
+                required
+              />
+            </label>
 
-          <button type="submit" style={{ padding: '10px' }}>
-            [+]
-          </button>
-        </form>
+            <button type="submit" style={{ padding: '10px' }}>
+              [+]
+            </button>
+          </form>
 
-        {isAddingProduct ? (
-          <Spinner />
-        ) : (
-          <>
-            <p>DiaryProductsList</p>
-            {/* <DiaryProductsList items={items} /> */}
-          </>
-        )}
+          {isAddingProduct ? (
+            <Spinner />
+          ) : (
+            <DiaryProductsList consumedProducts={consumedProducts} />
+          )}
+        </Container>
       </DiaryPageStyled>
       <RightSideBar />
     </PageContainer>
