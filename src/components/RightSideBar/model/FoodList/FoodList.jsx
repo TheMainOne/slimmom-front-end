@@ -2,17 +2,22 @@ import { List } from './FoodList.styled';
 
 export const FoodList = ({ foodList }) => {
   const defaultTest = 'Your diet will be displayed here';
-  const list = foodList.map(food => {
-    console.log('~ food', food.title.ua);
 
-    return food.title.ua;
+  const obj = {};
+
+  const list = foodList.map(food => {
+    if (!obj[food.categories]) obj[food.categories] = 0;
+
+    obj[food.categories] += 1;
+
+    return food.categories;
   });
-  console.log('~ list', list);
-  // .join(', ');
+
+  console.log('~ obj', obj);
 
   return (
     <>
-      <List>{list || defaultTest}</List>
+      <List>{defaultTest}</List>
     </>
   );
 };

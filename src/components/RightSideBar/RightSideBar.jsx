@@ -15,7 +15,7 @@ export const RightSideBar = () => {
     left: 3000,
     consumed: 300,
     dailyRate,
-    percente: '30%',
+    percente: 300,
   };
 
   return (
