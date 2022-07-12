@@ -1,6 +1,16 @@
 import styled from 'styled-components/macro';
 
 const PageContainer = styled.div`
+  padding-bottom: 175px;
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    padding-bottom: 495px;
+  }
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
+    padding-bottom: 255px;
+  }
+`;
+
+const BoxRelative = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
@@ -25,4 +35,4 @@ const Title = styled.h1`
   }
 `;
 
-export { PageContainer, Title };
+export { PageContainer, Title, BoxRelative };
