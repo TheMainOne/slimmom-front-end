@@ -1,16 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import { Button } from 'components/Button';
+import { DailyCalorieIntake } from 'components/DailyCalorieIntake';
 import { Content, CloseModalButton } from '../Modal.styled';
 
 export const ModalContent = ({ setShowModal }) => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <Content>
-        <h1>Modal Content</h1>
-        <Button
-          onClick={() => {
-            setShowModal(prev => !prev);
-          }}
-        />
+        <DailyCalorieIntake />
+        <Button onClick={() => navigate('/signup')}></Button>
       </Content>
       <CloseModalButton
         aria-label="Close modal"
