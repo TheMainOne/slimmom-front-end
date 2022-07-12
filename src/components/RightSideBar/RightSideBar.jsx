@@ -1,18 +1,20 @@
-import { parseISO, format } from 'date-fns';
-import { useSelector } from 'react-redux';
-import { MainContainer, TextContainer, Block } from './Container/Container';
-import { DailyKkalReport } from './DailyKkalReport/DailyKkalReport';
-import { FoodList } from './FoodList/FoodList';
-import { Title } from './Title/Title';
+import { MainContainer, TextContainer, Block } from './model';
+import { DailyKkalReport, Title, FoodList } from './model';
+import { useDailyNorma, useSelectedData } from './hooks';
 
 export const RightSideBar = () => {
-  const count = useSelector(state => state.calendar.activeDate);
-  const date = format(parseISO(JSON.parse(count)), 'MM/dd/yyyy');
+  const [date] = useSelectedData('');
+  const [isLoading, dailyRate, bannedProducts] = useDailyNorma('');
+  console.log('~ isLoading', isLoading);
+
+  // делаем запрос
+  // сохраняем в редакс userDailyNorma
+  // на этой странице запускаем хук и возвращаем обьекты , которые будем передавать в компонент
 
   const TestData = {
     left: 3000,
     consumed: 300,
-    dailyRate: 3000,
+    dailyRate,
     percente: '30%',
   };
 
@@ -26,7 +28,7 @@ export const RightSideBar = () => {
 
         <Block>
           <Title text={'Food not recommended'} />
-          <FoodList foodList={false} />
+          <FoodList foodList={bannedProducts} />
         </Block>
       </TextContainer>
     </MainContainer>

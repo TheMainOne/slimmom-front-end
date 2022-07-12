@@ -16,7 +16,7 @@ export const DailyKkalReport = ({ data }) => {
 
         <TabRows>
           <TabHead>Daily rate</TabHead>
-          <TabData>000 kcal</TabData>
+          <TabData>{data.dailyRate || '000'} kcal</TabData>
         </TabRows>
 
         <TabRows>
