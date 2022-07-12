@@ -22,8 +22,8 @@ export default function UserInfo() {
   const dispatch = useDispatch();
   const name = useSelector(state => getName(state));
 
-  console.log(width, name);
-  console.log(width < 768);
+  // console.log(width, name);
+  // console.log(width < 768);
 
   return (
     <div style={styles.container}>

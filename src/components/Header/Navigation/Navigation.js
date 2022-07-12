@@ -1,16 +1,15 @@
 import React from 'react';
+import useResizeAware from 'react-resize-aware';
 import Logo from '../Logo';
 import Container from 'components/Container';
 import { useSelector } from 'react-redux';
 import UserInfo from '../UserInfo';
-
 import {
   HeaderStyled,
   HeaderNavigation,
   HeaderLink,
   HeaderLinksWrapper,
 } from './Navigation.styled';
-
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 
 const styles = {
@@ -23,11 +22,17 @@ const styles = {
 };
 
 const Header = () => {
+  const [resizeListener, { width }] = useResizeAware();
   const isLogged = useSelector(state => getIsLoggedIn(state));
+  const TabletWidth = 768;
+  const DesktopWidth = 1280;
+
+  console.log(width);
 
   return (
     <>
       <HeaderStyled>
+        {resizeListener}
         <Container>
           <HeaderNavigation>
             <div>
@@ -62,12 +67,11 @@ const Header = () => {
                   <HeaderLink to="/calculator" style={styles.link}>
                     Calculator
                   </HeaderLink>
+                  {width >= TabletWidth && <UserInfo />}
                 </>
               )}
-            </HeaderLinksWrapper> 
-            <UserInfo />
+            </HeaderLinksWrapper>
           </HeaderNavigation>
-        
         </Container>
       </HeaderStyled>
     </>
