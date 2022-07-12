@@ -1,16 +1,27 @@
 import styled from 'styled-components';
+import logoMobile from '../../../images/logo/logo-mobile.svg';
+import logoTablet from '../../../images/logo/logo-tablet.svg';
+import logoDesktop from '../../../images/logo/logo-desktop.svg';
 
 export const LogoLink = styled.a`
+  display: block;
   color: inherit;
   position: relative;
+  background-image: url(${logoMobile});
+  width: 47px;
+  height: 44px;
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-    display: flex;
-    align-items: center;
+    background-image: url(${logoTablet});
+    width: 162px;
+    height: 44px;
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     align-items: baseline;
+    background-image: url(${logoDesktop});
+    width: 167px;
+    height: 66px;
 
     &:after {
       border-bottom: 32px solid #e0e0e0;
