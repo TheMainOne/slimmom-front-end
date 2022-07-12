@@ -1,6 +1,7 @@
 import React from 'react';
 import useResizeAware from 'react-resize-aware';
 import Logo from '../Logo';
+import MenuIcon from '@mui/icons-material/Menu';
 import Container from 'components/Container';
 import { useSelector } from 'react-redux';
 import UserInfo from '../UserInfo';
@@ -24,10 +25,9 @@ const styles = {
 const Header = () => {
   const [resizeListener, { width }] = useResizeAware();
   const isLogged = useSelector(state => getIsLoggedIn(state));
-  const TabletWidth = 768;
-  const DesktopWidth = 1280;
-
-  console.log(width);
+  const mobileWidth = width <= 767;
+  const TabletWidth = width >= 768;
+  const DesktopWidth = width >= 1280;
 
   return (
     <>
@@ -36,7 +36,7 @@ const Header = () => {
         <Container>
           <HeaderNavigation>
             <div>
-              <Logo />
+              <Logo isLogged={isLogged} />
             </div>
 
             <HeaderLinksWrapper>
@@ -58,16 +58,15 @@ const Header = () => {
                   </HeaderLink>
                 </>
               )}
-
-              {isLogged && (
+              {isLogged && mobileWidth && (
                 <>
-                  <HeaderLink to="/diary" style={styles.link}>
-                    Diary
-                  </HeaderLink>
-                  <HeaderLink to="/calculator" style={styles.link}>
-                    Calculator
-                  </HeaderLink>
-                  {width >= TabletWidth && <UserInfo />}
+                  <MenuIcon fontSize="medium" />
+                </>
+              )}
+              {isLogged && TabletWidth && (
+                <>
+                  <UserInfo />
+                  <MenuIcon fontSize="medium" />
                 </>
               )}
             </HeaderLinksWrapper>

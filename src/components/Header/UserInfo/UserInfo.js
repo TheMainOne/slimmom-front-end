@@ -2,6 +2,7 @@ import useResizeAware from 'react-resize-aware';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations } from 'redux/auth';
 import { getName } from 'redux/auth/authSelector';
+import { HeaderNavButtons, HeaderNavButtonsContainer } from './UserInfo.styled';
 
 const styles = {
   container: {
@@ -26,12 +27,12 @@ export default function UserInfo() {
   // console.log(width < 768);
 
   return (
-    <div style={styles.container}>
+    <HeaderNavButtonsContainer>
       {resizeListener}
-      <span style={styles.name}>{name}</span>
-      <button type="button" onClick={() => dispatch(authOperations.logOut())}>
+      <HeaderNavButtons>{name}</HeaderNavButtons>
+      <HeaderNavButtons onClick={() => dispatch(authOperations.logOut())}>
         Exit
-      </button>
-    </div>
+      </HeaderNavButtons>
+    </HeaderNavButtonsContainer>
   );
 }
