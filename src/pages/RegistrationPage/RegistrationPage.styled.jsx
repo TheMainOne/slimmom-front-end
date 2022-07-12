@@ -2,13 +2,21 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const PageContainer = styled.div`
+  padding-top: 40px;
+  padding-bottom: 100px;
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    padding-top: 160px;
+    padding-bottom: 419px;
+  }
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
+    padding-bottom: 179px;
+  }
+`;
+
+const BoxRelative = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-top: 40px;
-  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-    padding-top: 160px;
-  }
 `;
 
 const Title = styled.h1`
@@ -27,4 +35,4 @@ const LinkLog = styled(Link)`
   margin: auto;
 `;
 
-export { PageContainer, Title, LinkLog };
+export { PageContainer, Title, LinkLog, BoxRelative };
