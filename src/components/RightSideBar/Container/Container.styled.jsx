@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import backgroundUrl from 'static/images/Layer-4.svg';
-import tabletBackgroundUrl from 'static/images/Layer-5.svg';
+import backgroundUrl from 'images/secondBackground/Layer-4.svg';
+import tabletBackgroundUrl from 'images/secondBackground/Layer-5.svg';
 
 export const Container = styled.div`
   font-weight: 400;
