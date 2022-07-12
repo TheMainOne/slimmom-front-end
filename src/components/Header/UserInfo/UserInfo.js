@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations } from 'redux/auth';
-import { getName } from 'redux/auth/authSelector';
 
 const styles = {
   container: {
@@ -18,7 +17,7 @@ const styles = {
 
 export default function UserInfo() {
   const dispatch = useDispatch();
-  const name = useSelector(state => getName(state));
+  const name = useSelector(state => state.auth.user.name);
 
   return (
     <div style={styles.container}>
