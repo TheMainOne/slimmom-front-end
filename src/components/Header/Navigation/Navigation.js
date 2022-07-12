@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '../Logo';
 import Container from 'components/Container';
 import { useSelector } from 'react-redux';
-import UserInfo from '../UserInfo';
+// import UserInfo from '../UserInfo';
 
 import {
   HeaderStyled,
@@ -12,6 +12,7 @@ import {
 } from './Navigation.styled';
 
 import { getIsLoggedIn } from 'redux/auth/authSelector';
+import UserInfo from '../UserInfo';
 
 const styles = {
   link: {
@@ -64,10 +65,9 @@ const Header = () => {
                   </HeaderLink>
                 </>
               )}
-            </HeaderLinksWrapper> 
+            </HeaderLinksWrapper>
             <UserInfo />
           </HeaderNavigation>
-        
         </Container>
       </HeaderStyled>
     </>
