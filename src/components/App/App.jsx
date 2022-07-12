@@ -6,7 +6,6 @@ import Layout from 'pages/Layout';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import MainPage from 'pages/MainPage';
-// import LoginPage from 'pages/LoginPage';
 import RegistrationPage from 'pages/RegistrationPage';
 import PrivateRoute from '../PrivateRoute';
 import PublicRoute from '../PublicRoute';
