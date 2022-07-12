@@ -18,8 +18,8 @@ export const authSlice = createSlice({
       state.isLoggedIn = true;
     },
     [logIn.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
+      state.user = action.payload.data.user;
+      state.token = action.payload.data.token;
       state.isLoggedIn = true;
     },
     [logOut.fulfilled](state, action) {

@@ -19,7 +19,7 @@ const styles = {
 export default function UserInfo() {
   const dispatch = useDispatch();
   const name = useSelector(state => getName(state));
-  
+
   return (
     <div style={styles.container}>
       <span style={styles.name}>{name}</span>
