@@ -14,13 +14,12 @@ const PageContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
-  max-width: 512px;
+  width: 100%;
   height: 190px;
   margin-top: 68px;
   background-color: violet;
-
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-    width: 100%;
+    width: 512px;
   }
 `;
 
