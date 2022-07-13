@@ -58,6 +58,7 @@ const LoginForm = () => {
         name="password"
         label="Password *"
         type="password"
+        autoComplete="current-password"
         value={formik.values.password}
         onChange={formik.handleChange}
         error={formik.touched.password && Boolean(formik.errors.password)}

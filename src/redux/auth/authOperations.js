@@ -37,7 +37,11 @@ export const logIn = createAsyncThunk('auth/login', async credentials => {
     token.set(data.data.token);
     return data;
   } catch (error) {
-    toast.error(error.message);
+    toast.error('Sign in failed. Check your data!', {
+      theme: 'colored',
+      position: 'top-center',
+      autoClose: 3000,
+    });
   }
 });
 
