@@ -4,11 +4,11 @@ export const diaryApi = baseApi.injectEndpoints({
   endpoints: build => ({
     getProductsByDate: build.query({
       query: date => ({
-        url: `/api/diary?date=${date}`,
+        url: `/diary?date=${date}`,
         method: 'GET',
       }),
       providesTags: result =>
-        result
+        Boolean(result.length)
           ? [
               ...result.map(({ id }) => ({ type: 'Diaries', id })),
               { type: 'Diaries', id: 'LIST' },
@@ -17,7 +17,7 @@ export const diaryApi = baseApi.injectEndpoints({
     }),
     deleteProductFromDate: build.mutation({
       query: (date, productId) => ({
-        url: `/api/diary?date=${date}&productId=${productId}`,
+        url: `/diary?date=${date}&productId=${productId}`,
         method: 'DELETE',
       }),
     }),

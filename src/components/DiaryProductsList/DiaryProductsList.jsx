@@ -3,9 +3,9 @@ import { List } from './DiaryProductsList.styled';
 const DiaryProductsList = ({ consumedProducts }) => {
   return (
     <List>
-      {consumedProducts?.map(({ title, weight, kcal }) => (
+      {consumedProducts.map(({ _id, title, weight, kcal }) => (
         <DiaryProductsListItem
-          key={title}
+          key={_id}
           title={title}
           weight={weight}
           kcal={kcal}
