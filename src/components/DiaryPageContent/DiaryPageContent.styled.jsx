@@ -4,22 +4,21 @@ export const DiaryPageContentStyled = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding-top: 160px;
-  padding-bottom: 60px;
+  width: 320px;
+  padding: 160px 20px 60px 20px;
+  margin: 0 auto;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding-top: 180px;
-    padding-top: 56px;
+    padding: 180px 32px 55px 32px;
+    width: 768px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    padding-top: 294px;
-    padding-bottom: 112px;
-    justify-content: center;
     align-items: center;
-
+    justify-content: center;
     width: 763px;
-    margin: 0 auto;
+
+    padding: 294px 32px 112px 32px;
   }
 `;
 
