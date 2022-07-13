@@ -5,7 +5,7 @@ import { getName } from 'redux/auth/authSelector';
 import { HeaderNavButtons, HeaderNavButtonsContainer } from './UserInfo.styled';
 
 export default function UserInfo() {
-  const [resizeListener, { width }] = useResizeAware();
+  const [resizeListener] = useResizeAware();
   const dispatch = useDispatch();
   const name = useSelector(state => getName(state));
 

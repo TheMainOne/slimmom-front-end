@@ -10,6 +10,9 @@ export const HeaderStyled = styled.header`
     padding-top: 80px;
     border-bottom: none;
     padding-bottom: 0px;
+
+    width: ${props => (props.isLogged ? '100%' : 'auto')};
+    position: ${props => (props.isLogged ? 'absolute' : 'initial')};
   }
 `;
 
@@ -45,6 +48,8 @@ export const HeaderLinksWrapper = styled.div`
   display: flex;
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
+    width: ${props => (props.isLogged ? '100%' : 'auto')};
+    justify-content: ${props => (props.isLogged ? 'space-between' : 'initial')};
     margin-left: 30px;
   }
 `;

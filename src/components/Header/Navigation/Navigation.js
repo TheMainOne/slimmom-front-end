@@ -26,12 +26,12 @@ const Header = () => {
   const [resizeListener, { width }] = useResizeAware();
   const isLogged = useSelector(state => getIsLoggedIn(state));
   const mobileWidth = width <= 767;
-  const TabletWidth = width >= 768;
-  const DesktopWidth = width >= 1280;
+  const tabletWidth = width >= 768 && width < 1279;
+  const desktopWidth = width >= 1280;
 
   return (
     <>
-      <HeaderStyled>
+      <HeaderStyled isLogged={isLogged}>
         {resizeListener}
         <Container>
           <HeaderNavigation>
@@ -39,7 +39,7 @@ const Header = () => {
               <Logo isLogged={isLogged} />
             </div>
 
-            <HeaderLinksWrapper>
+            <HeaderLinksWrapper isLogged={isLogged}>
               {!isLogged && (
                 <>
                   <HeaderLink
@@ -63,10 +63,31 @@ const Header = () => {
                   <MenuIcon fontSize="medium" />
                 </>
               )}
-              {isLogged && TabletWidth && (
+              {isLogged && tabletWidth && (
                 <>
                   <UserInfo />
                   <MenuIcon fontSize="medium" />
+                </>
+              )}
+              {isLogged && desktopWidth && (
+                <>
+                  <div>
+                    <HeaderLink
+                      to="/diary"
+                      stylehidden={styles.isHidden}
+                      style={styles.link}
+                    >
+                      Diary
+                    </HeaderLink>
+                    <HeaderLink
+                      to="/calculator"
+                      stylehidden={styles.isHidden}
+                      style={styles.link}
+                    >
+                      Calculator
+                    </HeaderLink>
+                  </div>
+                  <UserInfo />
                 </>
               )}
             </HeaderLinksWrapper>
