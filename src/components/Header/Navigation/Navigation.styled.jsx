@@ -5,7 +5,6 @@ export const HeaderStyled = styled.header`
   padding-top: 20px;
   padding-bottom: 16px;
   border-bottom: 2px solid #e0e0e0;
-  position: absolute;
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     padding-top: 80px;
