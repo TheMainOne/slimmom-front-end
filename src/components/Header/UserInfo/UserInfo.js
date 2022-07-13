@@ -1,30 +1,21 @@
+import useResizeAware from 'react-resize-aware';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations } from 'redux/auth';
-
-const styles = {
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  avatar: {
-    marginRight: 4,
-  },
-  name: {
-    fontWeight: 700,
-    marginRight: 12,
-  },
-};
+import { getName } from 'redux/auth/authSelector';
+import { HeaderNavButtons, HeaderNavButtonsContainer } from './UserInfo.styled';
 
 export default function UserInfo() {
+  const [resizeListener] = useResizeAware();
   const dispatch = useDispatch();
-  const name = useSelector(state => state.auth.user.name);
+  const name = useSelector(state => getName(state));
 
   return (
-    <div style={styles.container}>
-      <span style={styles.name}>{name}</span>
-      <button type="button" onClick={() => dispatch(authOperations.logOut())}>
+    <HeaderNavButtonsContainer>
+      {resizeListener}
+      <HeaderNavButtons>{name}</HeaderNavButtons>
+      <HeaderNavButtons onClick={() => dispatch(authOperations.logOut())}>
         Exit
-      </button>
-    </div>
+      </HeaderNavButtons>
+    </HeaderNavButtonsContainer>
   );
 }

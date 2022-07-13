@@ -1,8 +1,14 @@
 import { Btn } from './Button.styled';
 
-export const Button = ({ onClick }) => {
+export const Button = ({ centered, onClick }) => {
   return (
-    <Btn color="primary" variant="contained" type="submit" onClick={onClick}>
+    <Btn
+      centered={centered}
+      color="primary"
+      variant="contained"
+      type="submit"
+      onClick={onClick}
+    >
       Start losing weight
     </Btn>
   );
