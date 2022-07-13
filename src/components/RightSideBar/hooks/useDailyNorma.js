@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { usePrivatDailyNormaQuery } from 'redux/apis/privatDailyNorma';
 
-const body = {
-  currentWeight: 55,
-  height: 160,
-  age: 25,
-  desiredWeight: 50,
-  bloodType: 3,
-};
+// const body = {
+//   currentWeight: 55,
+//   height: 160,
+//   age: 25,
+//   desiredWeight: 50,
+//   bloodType: 3,
+// };
 const INITIAL_RES_DATA = {
   dailyData: {},
   bannedProducts: {},
@@ -25,7 +25,7 @@ export const useDailyNorma = () => {
         left: null,
         consumed: null,
         dailyRate,
-        percente: null,
+        percente: 3,
       };
     };
 
