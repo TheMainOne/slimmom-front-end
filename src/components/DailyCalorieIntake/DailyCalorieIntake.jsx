@@ -19,6 +19,7 @@ export const DailyCalorieIntake = () => {
       161 -
       10 * (currentWeight - desiredWeight)
   );
+
   return (
     <ModalContainer>
       <Title> Your recommended daily calorie intake is</Title>
