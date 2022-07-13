@@ -18,6 +18,8 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const { data } = await axios.post('api/auth/signup', credentials);
+
+      console.log({ data });
       return data;
     } catch (error) {
       toast.error('Sign up failed. Check your data!', {
