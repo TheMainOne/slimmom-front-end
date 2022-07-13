@@ -5,9 +5,10 @@ import { toast } from 'react-toastify';
 // import { DiaryProductsList } from 'components/DiaryProductsList';
 
 import { Spinner } from 'components/Spinner';
-
 import { DiaryPageStyled } from './DiaryPage.styled';
 import { DiaryDateCalendar } from 'pages/DiaryDateCalendar';
+import DiaryProductsList from 'components/DiaryProductsList';
+import consumedProducts from 'components/DiaryProductsList/products.json';
 
 import { selectActiveDate } from 'redux/slices';
 import { useAddProductMutation } from 'redux/apis';
@@ -60,6 +61,7 @@ const DiaryPage = () => {
           </label>
 
           <label>
+            scrollbar
             <input
               name="weight"
               type="text"
@@ -79,10 +81,7 @@ const DiaryPage = () => {
         {isAddingProduct ? (
           <Spinner />
         ) : (
-          <>
-            <p>DiaryProductsList</p>
-            {/* <DiaryProductsList items={items} /> */}
-          </>
+          <DiaryProductsList consumedProducts={consumedProducts} />
         )}
       </DiaryPageStyled>
       <RightSideBar />

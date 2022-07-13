@@ -22,6 +22,6 @@ export const Btn = styled(Button)`
   }
 
   @media screen and (min-width: 1200px) {
-    margin: 60px 0 0 339px;
+    margin: ${({ centered }) => (centered ? '0 auto' : '60px 0 0 339px')};
   }
 `;
