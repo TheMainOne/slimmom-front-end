@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from '../Logo';
+import { useLocation } from 'react-router-dom';
 import Container from 'components/Container';
 import { useSelector } from 'react-redux';
 import UserInfo from '../UserInfo';
@@ -24,7 +25,9 @@ const styles = {
 
 const Header = () => {
   const isLogged = useSelector(state => getIsLoggedIn(state));
-
+  const { pathname } = useLocation();
+  const bannedPaths = ['/login', '/signup'];
+  const isHidden = bannedPaths.some( ( bannedPath ) => bannedPath === pathname);
   return (
     <>
       <HeaderStyled>
@@ -34,7 +37,7 @@ const Header = () => {
               <Logo />
             </div>
 
-            <HeaderLinksWrapper>
+            <HeaderLinksWrapper isHidden={isHidden}>
               {!isLogged && (
                 <>
                   <HeaderLink

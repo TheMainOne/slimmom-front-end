@@ -46,5 +46,6 @@ export const HeaderLinksWrapper = styled.div`
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     margin-left: 30px;
+    display:${props=>props.isHidden && 'none' };
   }
 `;
