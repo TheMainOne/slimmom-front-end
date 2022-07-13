@@ -1,4 +1,4 @@
-import { parseISO, formatISO } from 'date-fns';
+import { parseISO, format } from 'date-fns';
 import { useSelector } from 'react-redux';
 import { MainContainer, TextContainer, Block } from './Container/Container';
 import { DailyKkalReport } from './DailyKkalReport/DailyKkalReport';
