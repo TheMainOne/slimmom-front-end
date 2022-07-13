@@ -7,7 +7,7 @@ import { Title } from './Title/Title';
 
 export const RightSideBar = () => {
   const count = useSelector(state => state.calendar.activeDate);
-  const date = formatISO(parseISO(count), 'MM/dd/yyyy');
+  const date = format(parseISO(count), 'MM/dd/yyyy');
 
   const TestData = {
     left: 3000,
