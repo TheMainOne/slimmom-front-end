@@ -4,7 +4,7 @@ export const bannedProductsApi = baseApi.injectEndpoints({
   endpoints: build => ({
     getBannedProducts: build.mutation({
       query: body => ({
-        url: `api/users/daily-norma`,
+        url: `/users/daily-norma`,
         method: 'POST',
         body,
       }),
