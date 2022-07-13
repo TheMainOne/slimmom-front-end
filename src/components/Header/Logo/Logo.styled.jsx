@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import logoMobile from '../../../images/logo/logo-mobile.svg';
+import logoMobileBurger from '../../../images/logo/logo-mobile-burger.svg';
 import logoTablet from '../../../images/logo/logo-tablet.svg';
 import logoDesktop from '../../../images/logo/logo-desktop.svg';
 
@@ -7,9 +8,10 @@ export const LogoLink = styled.a`
   display: block;
   color: inherit;
   position: relative;
-  background-image: url(${logoMobile});
-  width: 47px;
   height: 44px;
+  width: ${props => (props.isLogged ? '160px' : '47px')};
+  background-image: url(${props =>
+    props.isLogged ? logoMobileBurger : logoMobile});
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     background-image: url(${logoTablet});

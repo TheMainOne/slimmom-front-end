@@ -6,6 +6,7 @@ import { Form } from './RegistrationForm.styled';
 import { ButtonRegister, CastomTextField } from './MuI';
 import { getUser } from 'redux/auth/authSelector';
 import { useEffect, useState } from 'react';
+import { getUserParams } from 'redux/slices/selector';
 
 const validationSchema = yup.object({
   name: yup
@@ -35,9 +36,9 @@ const RegistrationForm = () => {
   const [isRegister, setIsRegister] = useState(false);
   const dispatch = useDispatch();
   const userInfo = useSelector(getUser);
+  const userParams = useSelector(getUserParams);
 
   useEffect(() => {
-    console.log(userInfo);
     if (isRegister && userInfo?.code === 201) {
       setUser(userInfo);
       dispatch(
@@ -58,7 +59,7 @@ const RegistrationForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
-      dispatch(register(values));
+      dispatch(register({ ...values, userParams }));
       setUser(values);
       setIsRegister(true);
       resetForm();
