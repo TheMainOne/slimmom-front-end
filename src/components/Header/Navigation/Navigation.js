@@ -64,10 +64,9 @@ const Header = () => {
                   </HeaderLink>
                 </>
               )}
-            </HeaderLinksWrapper> 
+            </HeaderLinksWrapper>
             <UserInfo />
           </HeaderNavigation>
-        
         </Container>
       </HeaderStyled>
     </>
