@@ -3,21 +3,10 @@ import * as yup from 'yup';
 import { toast } from 'react-toastify';
 import { DiaryAddProductFormStyled } from './DiaryAddProductForm.styled';
 import { AddProductButton, AddProductInput } from './AddProduct.mui';
-
-const validationSchema = yup.object({
-  productName: yup
-    .string('Enter product name')
-    .min(3, 'min 1 chars')
-    .max(40, 'max 40 chars')
-    .required('Eaten product name is required'),
-
-  weight: yup
-    .number('Enter weight of eaten product')
-    .min(3, 'min 1 digit')
-    .max(6, 'max 6 digits')
-    .matches(/[0-9]{1,6}/, 'Weight should be from 1 to 6 numbers')
-    .required('Weight is required'),
-});
+import { useSelector } from 'react-redux';
+import { selectActiveDate } from 'redux/slices';
+import { useGetProductsQuery } from 'redux/apis';
+import { useState } from 'react';
 
 // const top100Films = [
 //   { label: 'The Shawshank Redemption', year: 1994 },
@@ -146,16 +135,54 @@ const validationSchema = yup.object({
 //   { label: '3 Idiots', year: 2009 },
 //   { label: 'Monty Python and the Holy Grail', year: 1975 },
 // ];
+// import { matchSorter } from 'match-sorter';
+import Autocomplete from '@mui/material/Autocomplete';
+const { stringify } = JSON;
 
-export const DiaryAddProductForm = () => {
+const validationSchema = yup.object({
+  productName: yup
+    .string('Enter product name')
+    .min(3, 'min 1 chars')
+    .max(40, 'max 40 chars')
+    .required('Eaten product name is required'),
+
+  weight: yup
+    .number('Enter weight of eaten product')
+    .min(3, 'min 1 digit')
+    .max(6, 'max 6 digits')
+    .matches(/[0-9]{1,6}/, 'Weight should be from 1 to 6 numbers')
+    .required('Weight is required'),
+});
+
+const limit = 10;
+
+export const DiaryAddProductForm = ({ addProduct }) => {
+  const [title, setTitle] = useState('');
+
+  const { data, isLoading } = useGetProductsQuery({ title, limit });
+  console.log({ data });
+
+  // const filterOptions = (data, { inputValue }) => matchSorter(data, inputValue);
+
+  const date = useSelector(selectActiveDate);
+
   const formik = useFormik({
     initialValues: {
       productName: '',
       weight: 0,
     },
     validationSchema,
+
     onSubmit: (values, { resetForm }) => {
-      toast(JSON.stringify(values, null, 2));
+      const { productName, weight } = values;
+
+      if (!productName || !weight) {
+        return toast('Please fill all fields');
+      }
+
+      addProduct({ date, productName, weight });
+      toast(`POST: ${stringify({ date, productName, weight }, null, 2)}`);
+
       resetForm();
     },
   });
@@ -174,6 +201,12 @@ export const DiaryAddProductForm = () => {
         onChange={formik.handleChange}
         value={formik.values.productName}
         required
+      />
+
+      <Autocomplete
+        // filterOptions={filterOptions}
+        filterOptions={x => x}
+        sx={{ width: 300 }}
       />
 
       {/* TODO: check mockup add product form */}
