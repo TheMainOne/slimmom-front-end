@@ -1,16 +1,20 @@
 import { MainContainer, TextContainer, Block } from './model';
 import { DailyKkalReport, Title, FoodList } from './model';
 import { useDailyNorma, useSelectedData } from './hooks';
+import { usePrivatDailyNormaQuery } from 'redux/apis/privatDailyNorma';
 
 export const RightSideBar = () => {
   const [date] = useSelectedData('');
   const [dailyRate, bannedProducts] = useDailyNorma('');
 
+  const { data = [] } = usePrivatDailyNormaQuery();
+  console.log('~ data', data);
+
   const TestData = {
-    left: 3000,
-    consumed: 300,
+    left: null,
+    consumed: null,
     dailyRate,
-    percente: 300,
+    percente: null,
   };
 
   return (

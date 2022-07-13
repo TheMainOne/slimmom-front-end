@@ -31,6 +31,7 @@ export const Wrapper = styled.div`
   @media (min-width: 1280px) {
     width: 517px;
     min-height: 850px;
+    height: 100vh;
     padding: 292px 0 0 106px;
     flex-direction: column;
     justify-content: flex-start;
