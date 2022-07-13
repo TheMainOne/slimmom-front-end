@@ -61,11 +61,11 @@ const Header = () => {
                   </HeaderLink>
                   <HeaderLink to="/calculator" style={styles.link}>
                     Calculator
-                  </HeaderLink>
+                  </HeaderLink> 
+                  <UserInfo />
                 </>
               )}
             </HeaderLinksWrapper>
-            <UserInfo />
           </HeaderNavigation>
         </Container>
       </HeaderStyled>

@@ -1,17 +1,12 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-// import { InputAdornment, IconButton } from '@material-ui/core';
 import {  CastomTextField } from './Mui';
-// import Visibility from '@material-ui/icons/Visibility';
-// import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { useDispatch } from 'react-redux';
-// import { useState } from 'react';
 import { logIn } from 'redux/auth/authOperations';
-// import { makeStyles } from '@material-ui/core/styles';
 import { ButtonLogin } from './Mui';
 import { Form } from './LoginForm.styled';
-// import Container from 'components/Container';
+
 
 const validationSchema = yup.object({
   email: yup
@@ -25,10 +20,6 @@ const validationSchema = yup.object({
 });
 
 const LoginForm = () => {
-  // const [showPassword, setShowPassword ] = useState(false);
-  // const handleClickShowPassword = () => setShowPassword(!showPassword);
-  // const handleMouseDownPassword = () => setShowPassword(!showPassword);
-  // const classes = useStyles();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
