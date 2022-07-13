@@ -1,12 +1,12 @@
 import { useFormik } from 'formik';
-import * as yup from 'yup';
+// import * as yup from 'yup';
 import { toast } from 'react-toastify';
 import { DiaryAddProductFormStyled } from './DiaryAddProductForm.styled';
 import { AddProductButton, AddProductInput } from './AddProduct.mui';
 import { useSelector } from 'react-redux';
 import { selectActiveDate } from 'redux/slices';
-import { useGetProductsQuery } from 'redux/apis';
-import { useState } from 'react';
+// import { useGetProductsQuery } from 'redux/apis';
+// import { useState } from 'react';
 
 // const top100Films = [
 //   { label: 'The Shawshank Redemption', year: 1994 },
@@ -136,31 +136,31 @@ import { useState } from 'react';
 //   { label: 'Monty Python and the Holy Grail', year: 1975 },
 // ];
 // import { matchSorter } from 'match-sorter';
-import Autocomplete from '@mui/material/Autocomplete';
+// import Autocomplete from '@mui/material/Autocomplete';
 const { stringify } = JSON;
 
-const validationSchema = yup.object({
-  productName: yup
-    .string('Enter product name')
-    .min(3, 'min 1 chars')
-    .max(40, 'max 40 chars')
-    .required('Eaten product name is required'),
+// const validationSchema = yup.object({
+//   productName: yup
+//     .string('Enter product name')
+//     .min(3, 'min 1 chars')
+//     .max(40, 'max 40 chars')
+//     .required('Eaten product name is required'),
 
-  weight: yup
-    .number('Enter weight of eaten product')
-    .min(3, 'min 1 digit')
-    .max(6, 'max 6 digits')
-    .matches(/[0-9]{1,6}/, 'Weight should be from 1 to 6 numbers')
-    .required('Weight is required'),
-});
+//   weight: yup
+//     .number('Enter weight of eaten product')
+//     .min(3, 'min 1 digit')
+//     .max(6, 'max 6 digits')
+//     .matches(/[0-9]{1,6}/, 'Weight should be from 1 to 6 numbers')
+//     .required('Weight is required'),
+// });
 
-const limit = 10;
+// const limit = 10;
 
 export const DiaryAddProductForm = ({ addProduct }) => {
-  const [title, setTitle] = useState('');
+  // const [title, setTitle] = useState('');
 
-  const { data, isLoading } = useGetProductsQuery({ title, limit });
-  console.log({ data });
+  // const { data, isLoading } = useGetProductsQuery({ title, limit });
+  // console.log({ data });
 
   // const filterOptions = (data, { inputValue }) => matchSorter(data, inputValue);
 
@@ -171,7 +171,7 @@ export const DiaryAddProductForm = ({ addProduct }) => {
       productName: '',
       weight: 0,
     },
-    validationSchema,
+    // validationSchema,
 
     onSubmit: (values, { resetForm }) => {
       const { productName, weight } = values;
@@ -190,7 +190,7 @@ export const DiaryAddProductForm = ({ addProduct }) => {
   return (
     <DiaryAddProductFormStyled onSubmit={formik.handleSubmit}>
       {/* TODO: check mockup add product form */}
-      <AddProductInput
+      {/* <AddProductInput
         variant="standard"
         id="productName"
         name="productName"
@@ -201,13 +201,13 @@ export const DiaryAddProductForm = ({ addProduct }) => {
         onChange={formik.handleChange}
         value={formik.values.productName}
         required
-      />
-
+      /> */}
+      {/*
       <Autocomplete
         // filterOptions={filterOptions}
         filterOptions={x => x}
         sx={{ width: 300 }}
-      />
+      /> */}
 
       {/* TODO: check mockup add product form */}
 
