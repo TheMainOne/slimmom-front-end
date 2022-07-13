@@ -15,7 +15,6 @@ export const diaryApi = baseApi.injectEndpoints({
             ]
           : [{ type: 'Diaries', id: 'LIST' }],
     }),
-
     deleteProductFromDate: build.mutation({
       query: (date, productId) => ({
         url: `/api/diary?date=${date}&productId=${productId}`,
