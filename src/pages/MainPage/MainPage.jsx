@@ -9,7 +9,7 @@ import useResizeAware from 'react-resize-aware';
 import CalculatorСalorieForm from 'components/Forms/CalculatorСalorieForm/CalculatorСalorieForm';
 
 const MainPage = () => {
-  const [resizeListener, { width, height }] = useResizeAware();
+  const [resizeListener] = useResizeAware();
   const [showModal, setShowModal] = useState(false);
   const openModal = () => {
     setShowModal(prev => !prev);
