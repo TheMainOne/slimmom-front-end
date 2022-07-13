@@ -25,7 +25,7 @@ export const useDailyNorma = () => {
         left: null,
         consumed: null,
         dailyRate,
-        percente: 3,
+        percente: null,
       };
     };
 
