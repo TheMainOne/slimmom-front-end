@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkslimmom_front_end=self.webpackChunkslimmom_front_end||[]).push([[294],{3294:function(n,e,r){r.r(e),r.d(e,{default:function(){return t}});var i=r(1008),s=r(3436),l=r(184),t=function(){return(0,l.jsxs)(i._,{children:[(0,l.jsx)("div",{children:(0,l.jsxs)("p",{children:["\u043c\u0435\u0441\u0442\u043e \u0434\u043b\u044f",(0,l.jsx)("b",{children:"Calculate your daily calorie intake right now"})]})}),(0,l.jsx)(s.m,{})]})}}}]);
-//# sourceMappingURL=294.4c9b568f.chunk.js.map
