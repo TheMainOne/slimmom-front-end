@@ -1,4 +1,4 @@
-import { parseISO, format } from 'date-fns';
+import { parseISO, formatISO } from 'date-fns';
 import { useSelector } from 'react-redux';
 import { MainContainer, TextContainer, Block } from './Container/Container';
 import { DailyKkalReport } from './DailyKkalReport/DailyKkalReport';
@@ -7,7 +7,7 @@ import { Title } from './Title/Title';
 
 export const RightSideBar = () => {
   const count = useSelector(state => state.calendar.activeDate);
-  const date = format(parseISO(JSON.parse(count)), 'MM/dd/yyyy');
+  const date = formatISO(parseISO(count), 'MM/dd/yyyy');
 
   const TestData = {
     left: 3000,

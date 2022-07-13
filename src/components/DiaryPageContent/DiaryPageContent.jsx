@@ -20,7 +20,6 @@ export const DiaryPageContent = () => {
       {/* Kostia */}
       <DiaryPageStyled>
         <DiaryDateCalendar />
-
         {/* <DiaryAddProductForm addProduct={addProduct} /> */}
       </DiaryPageStyled>
 
