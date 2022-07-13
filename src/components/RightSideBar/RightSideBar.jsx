@@ -4,12 +4,7 @@ import { useDailyNorma, useSelectedData } from './hooks';
 
 export const RightSideBar = () => {
   const [date] = useSelectedData('');
-  const [isLoading, dailyRate, bannedProducts] = useDailyNorma('');
-  console.log('~ isLoading', isLoading);
-
-  // делаем запрос
-  // сохраняем в редакс userDailyNorma
-  // на этой странице запускаем хук и возвращаем обьекты , которые будем передавать в компонент
+  const [dailyRate, bannedProducts] = useDailyNorma('');
 
   const TestData = {
     left: 3000,

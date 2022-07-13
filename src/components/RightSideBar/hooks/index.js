@@ -1,3 +1,4 @@
 export { useSelectedData } from './useSelectedData';
 export { useDailyNorma } from './useDailyNorma';
-export { useTemplate } from './useTemplate';
+export { templaitingItem } from './templaitingItem';
+export { template } from './template';
