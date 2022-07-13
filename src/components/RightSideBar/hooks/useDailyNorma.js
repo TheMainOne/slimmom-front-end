@@ -1,32 +1,39 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-const DAILY_NORMA_URL = '/api/users/daily-norma';
+import { usePrivatDailyNormaQuery } from 'redux/apis/privatDailyNorma';
 
-const body = {
-  currentWeight: 55,
-  height: 160,
-  age: 25,
-  desiredWeight: 50,
-  bloodType: 3,
+// const body = {
+//   currentWeight: 55,
+//   height: 160,
+//   age: 25,
+//   desiredWeight: 50,
+//   bloodType: 3,
+// };
+const INITIAL_RES_DATA = {
+  dailyData: {},
+  bannedProducts: {},
 };
 
 export const useDailyNorma = () => {
-  const [dailyRate, setDailyRate] = useState('');
-  const [bannedProducts, setBannedProducts] = useState('');
+  const { data } = usePrivatDailyNormaQuery();
+  const [responseData, setResponseData] = useState(INITIAL_RES_DATA);
 
   useEffect(() => {
-    const func = async () => {
-      try {
-        const { data } = await axios.post(DAILY_NORMA_URL, body);
-        setDailyRate(data.results.dailyRate);
-        setBannedProducts(data.results.bannedProducts);
-      } catch (error) {
-        throw new Error(error);
-      }
+    if (!data) return;
+
+    const composeData = ({ dailyRate }) => {
+      return {
+        left: null,
+        consumed: null,
+        dailyRate,
+        percente: null,
+      };
     };
 
-    func();
-  }, []);
+    setResponseData({
+      dailyData: composeData(data.results),
+      bannedProducts: data.results.bannedProducts,
+    });
+  }, [data]);
 
-  return [dailyRate, bannedProducts];
+  return [responseData];
 };

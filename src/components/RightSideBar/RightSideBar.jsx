@@ -4,26 +4,19 @@ import { useDailyNorma, useSelectedData } from './hooks';
 
 export const RightSideBar = () => {
   const [date] = useSelectedData('');
-  const [dailyRate, bannedProducts] = useDailyNorma('');
-
-  const TestData = {
-    left: 3000,
-    consumed: 300,
-    dailyRate,
-    percente: 300,
-  };
+  const [responseData] = useDailyNorma('');
 
   return (
     <MainContainer>
       <TextContainer>
         <Block>
           <Title text={`Summary for ${date}`} />
-          <DailyKkalReport data={TestData} />
+          <DailyKkalReport data={responseData.dailyData} />
         </Block>
 
         <Block>
           <Title text={'Food not recommended'} />
-          <FoodList foodList={bannedProducts} />
+          <FoodList foodList={responseData.bannedProducts} />
         </Block>
       </TextContainer>
     </MainContainer>
