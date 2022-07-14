@@ -3,8 +3,10 @@ import styled from 'styled-components/macro';
 export const DiaryPageContentStyled = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   width: 320px;
+  height: 100%;
   padding: 160px 20px 60px 20px;
   margin: 0 auto;
 

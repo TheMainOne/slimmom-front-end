@@ -6,22 +6,22 @@ export const DailyKkalReport = ({ data }) => {
       <tbody>
         <TabRows>
           <TabHead>Left</TabHead>
-          <TabData>000 kcal</TabData>
+          <TabData>{data.left || '000'} kcal</TabData>
         </TabRows>
 
         <TabRows>
           <TabHead>Consumed</TabHead>
-          <TabData>000 kcal</TabData>
+          <TabData>{data.consumed || '000'} kcal</TabData>
         </TabRows>
 
         <TabRows>
           <TabHead>Daily rate</TabHead>
-          <TabData>000 kcal</TabData>
+          <TabData>{data.dailyRate || '000'} kcal</TabData>
         </TabRows>
 
         <TabRows>
           <TabHead>n% of normal</TabHead>
-          <TabData>000 kcal</TabData>
+          <TabData>{data.percente || '000'} kcal</TabData>
         </TabRows>
       </tbody>
     </Table>

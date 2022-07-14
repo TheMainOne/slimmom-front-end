@@ -1,9 +1,6 @@
-import { parseISO, format } from 'date-fns';
-import { useSelector } from 'react-redux';
-import { MainContainer, TextContainer, Block } from './Container/Container';
-import { DailyKkalReport } from './DailyKkalReport/DailyKkalReport';
-import { FoodList } from './FoodList/FoodList';
-import { Title } from './Title/Title';
+import { MainContainer, TextContainer, Block } from './model';
+import { DailyKkalReport, Title, FoodList } from './model';
+import { useDailyNorma, useSelectedData } from './hooks';
 
 export const RightSideBar = () => {
   const count = useSelector(state => state.calendar.activeDate);
@@ -16,17 +13,18 @@ export const RightSideBar = () => {
     percente: '30%',
   };
 
+
   return (
     <MainContainer>
       <TextContainer>
         <Block>
           <Title text={`Summary for ${date}`} />
-          <DailyKkalReport data={TestData} />
+          <DailyKkalReport data={responseData.dailyData} />
         </Block>
 
         <Block>
           <Title text={'Food not recommended'} />
-          <FoodList foodList={false} />
+          <FoodList foodList={responseData.bannedProducts} />
         </Block>
       </TextContainer>
     </MainContainer>
