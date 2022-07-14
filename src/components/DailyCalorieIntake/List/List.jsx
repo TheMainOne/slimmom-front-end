@@ -1,20 +1,28 @@
-import { OlList, Items } from './List.styled';
-import { Spinner } from 'components/Spinner';
 import { useEffect } from 'react';
+import { saveUserInfo } from 'redux/slices';
+import { useSelector } from 'react-redux';
+import { Spinner } from 'components/Spinner';
 import { useGetBannedProductsMutation } from 'redux/apis/bannedProducts';
+import { OlList, Items } from './List.styled';
 
 export const List = () => {
   const [getBannedProducts, { data, isLoading }] =
     useGetBannedProductsMutation();
+  const user = useSelector(saveUserInfo);
+
+  const { height, age, currentWeight, desiredWeight, typeBlood } =
+    user.payload.userInfo.userInfo;
+
   useEffect(() => {
     getBannedProducts({
-      currentWeight: 55,
-      height: 160,
-      age: 25,
-      desiredWeight: 50,
-      bloodType: 1,
+      currentWeight,
+      height,
+      age,
+      desiredWeight,
+      bloodType: typeBlood,
     });
-  }, [getBannedProducts]);
+  }, [age, typeBlood, currentWeight, desiredWeight, getBannedProducts, height]);
+
   const categories =
     data && Object.keys(data?.results?.bannedProducts?.categories);
 
