@@ -6,8 +6,26 @@ const Form = styled.form`
   flex-direction: column;
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-    align-items: start;
+    align-items: flex-start;
   }
 `;
 
-export { Form };
+const Block = styled.div`
+  margin-top: 19px;
+`;
+
+const InputContainer = styled.div`
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 204px;
+    width: 510px;
+  }
+
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
+    align-items: flex-start;
+  }
+`;
+
+export { Form, Block, InputContainer };
