@@ -9,7 +9,6 @@ export const diaryApi = baseApi.injectEndpoints({
       }),
       providesTags: result => {
         const consumedProducts = result?.data?.consumedProducts;
-        console.log(consumedProducts);
         const isConsumedProducts =
           Array.isArray(consumedProducts) && Boolean(consumedProducts.length);
 
@@ -23,6 +22,15 @@ export const diaryApi = baseApi.injectEndpoints({
             ]
           : [{ type: 'Diaries', id: 'LIST' }];
       },
+    }),
+    addProduct: build.mutation({
+      query: ({ date, id, weight }) => ({
+        url: '/diary/',
+        method: 'POST',
+        body: { id, weight },
+        params: { date },
+      }),
+      invalidatesTags: [{ type: 'Diaries', id: 'LIST' }],
     }),
     deleteProductFromDate: build.mutation({
       query: ({ currentDate, productId }) => {
