@@ -17,8 +17,8 @@ const LoginPage = lazy(() => import('pages/LoginPage'));
 
 const App = () => {
   const dispatch = useDispatch();
-  // const isFetchingCurrentUser = useSelector(authSelector.getIsFetchingCurrent);
-  useEffect(() => {
+  
+    useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
