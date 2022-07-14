@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkslimmom_front_end=self.webpackChunkslimmom_front_end||[]).push([[646],{7646:function(n,e,r){r.r(e),r.d(e,{default:function(){return f}});var t,i=r(366),s=r(4046),u=r(3287),l=r(168),c=r(7939).ZP.div(t||(t=(0,l.Z)([""]))),o=r(184),a=function(){return(0,o.jsxs)(i.qm,{children:[(0,o.jsx)(u.Z,{title:"Calculate your daily calorie intake right now"}),(0,o.jsx)(c,{children:(0,o.jsx)(s.Z,{})})]})},d=r(7015),f=function(){return(0,o.jsxs)(i._z,{children:[(0,o.jsx)(a,{}),(0,o.jsx)(d.m,{})]})}}}]);
+//# sourceMappingURL=646.f45ed586.chunk.js.map
