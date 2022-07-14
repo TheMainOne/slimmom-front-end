@@ -5,7 +5,7 @@ import { FoodItem } from './FoodItem';
 import { List } from './FoodList.styled';
 
 export const FoodList = ({ foodList }) => {
-  const list = useMemo(() => templaitingItem(foodList.categories), [foodList]);
+  const list = useMemo(() => templaitingItem(foodList?.categories), [foodList]);
   const defaultTest = 'Your diet will be displayed here';
 
   return (
