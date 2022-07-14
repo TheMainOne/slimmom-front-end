@@ -10,11 +10,9 @@ import React from 'react';
 
 // import { DiaryAddProductForm } from 'components/Forms/DiaryAddProductForm';
 
-import {
-  DiaryPageContentStyled,
-  DiaryPageStyled,
-} from './DiaryPageContent.styled';
+import { DiaryPageStyled } from './DiaryPageContent.styled';
 import { useSelector } from 'react-redux';
+import { BlockWrapper } from 'components/Container';
 
 export const DiaryPageContent = () => {
   const currentDate = useSelector(state => state.calendar.activeDate);
@@ -28,7 +26,7 @@ export const DiaryPageContent = () => {
   const { data: { consumedProducts = [] } = {} } = data;
 
   return (
-    <DiaryPageContentStyled>
+    <BlockWrapper>
       <DiaryPageStyled>
         <DiaryDateCalendar />
 
@@ -48,6 +46,6 @@ export const DiaryPageContent = () => {
       {/* ) : ( */}
 
       {/* )} */}
-    </DiaryPageContentStyled>
+    </BlockWrapper>
   );
 };
