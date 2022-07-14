@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    align-items: center;
+    align-items: flex-start;
     width: 763px;
     min-height: 850px;
     padding: 294px 32px 112px 32px;
