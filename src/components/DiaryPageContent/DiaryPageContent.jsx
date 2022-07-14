@@ -24,7 +24,6 @@ export const DiaryPageContent = () => {
 
   const { data = {}, isLoading } =
     diaryApi.useGetProductsByDateQuery(currentDate);
-
   const { data: { consumedProducts = [] } = {} } = data;
 
   return (
@@ -33,21 +32,18 @@ export const DiaryPageContent = () => {
         <DiaryDateCalendar />
 
         {/* <DiaryAddProductForm addProduct={addProduct} /> */}
+
+        {isLoading ? (
+          <Spinner />
+        ) : Boolean(consumedProducts.length) ? (
+          <DiaryProductsList
+            products={consumedProducts}
+            currentDate={currentDate}
+          />
+        ) : (
+          <h1>Сегодня вы ещё не ели!</h1>
+        )}
       </DiaryPageStyled>
-
-      {/* Natasha */}
-      {/* {isAddingProduct ? ( */}
-      {isLoading ? (
-        <Spinner />
-      ) : consumedProducts ? (
-        <DiaryProductsList products={consumedProducts} />
-      ) : (
-        <h1>Ты еще не ел сегодня!</h1>
-      )}
-
-      {/* ) : ( */}
-
-      {/* )} */}
     </DiaryPageContentStyled>
   );
 };
