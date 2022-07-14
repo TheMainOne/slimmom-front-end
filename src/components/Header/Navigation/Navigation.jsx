@@ -1,8 +1,6 @@
 import React from 'react';
 import useResizeAware from 'react-resize-aware';
 import Logo from '../Logo';
-import { useState } from 'react';
-import { Modal } from 'components/Modal';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from 'components/Container';
 import { useSelector } from 'react-redux';
@@ -15,7 +13,7 @@ import {
   HeaderLinksWrapper,
 } from './Navigation.styled';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
-import {HeaderModalContent} from "./HeaderModalContent"
+
 
 const styles = {
   link: {
@@ -38,11 +36,6 @@ const Header = () => {
   const desktopWidth = width >= 1280;
 
   
-  const [showModal, setShowModal] = useState(false);
-  const openModal = () => {
-    setShowModal(prev => !prev);
-  };
-
   return (
     <>
       <HeaderStyled isLogged={isLogged}>
@@ -74,22 +67,15 @@ const Header = () => {
               )}
               {isLogged && mobileWidth && (
                 <>
-                  <MenuIcon fontSize="medium" type="submit" 
-                  onClick={() => openModal()}/>
-                  <Modal showModal={showModal} setShowModal={setShowModal}>
-                  <HeaderModalContent />
-                  </Modal>
+                  <MenuIcon fontSize="medium" type="submit" />
+                  
               </>
               )}
               {isLogged && tabletWidth && (
                 <>
                   <UserInfo />
-                  <MenuIcon fontSize="medium" type="submit" 
-                  onClick={() => openModal()}/>
-                  <Modal showModal={showModal} setShowModal={setShowModal}>
-                  <HeaderModalContent />
-                  </Modal>
-                  </>
+                  <MenuIcon fontSize="medium" type="submit" />
+                   </>
               )}
               {isLogged && desktopWidth && (
                 <>
