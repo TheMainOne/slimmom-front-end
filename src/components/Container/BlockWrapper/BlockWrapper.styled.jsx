@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: 180px 32px 55px 32px;
+    padding: 100px 32px 55px 32px;
     width: 768px;
     min-height: 594px;
   }
