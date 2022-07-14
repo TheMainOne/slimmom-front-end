@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const ModalContainer = styled.div`
-  padding: 64px 81px 0;
-  text-align: center;
-  font-family: 'Verdana';
+// export const ModalContainer = styled.div`
+//   padding: 64px 81px 0;
+//   text-align: center;
+//   font-family: 'Verdana';
 
-  color: ${({ theme: { colors } }) => colors.$black};
-`;
+//   color: ${({ theme: { colors } }) => colors.$black};
+// `;
 export const Title = styled.h2`
   font-style: normal;
   font-weight: 700;
@@ -15,6 +15,14 @@ export const Title = styled.h2`
   width: 390px;
   color: ${({ theme: { colors } }) => colors.$black};
   margin-bottom: ${({ theme: { spacing } }) => spacing(8)};
+
+  @media screen and (max-width: 767px) {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    max-width: 280px;
+    text-align: start;
+  }
 `;
 export const Text = styled.p`
   font-style: normal;
@@ -23,10 +31,21 @@ export const Text = styled.p`
   line-height: 58px;
   text-align: center;
   letter-spacing: 0.04em;
+  margin-bottom: 32px;
 
   color: ${({ theme: { colors } }) => colors.$blue};
 `;
+export const Span = styled.span`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
 
-export const ListTitle = styled.h3`
-  text-align: start;
+  color: ${({ theme: { colors } }) => colors.$blue};
+
+  @media screen and (max-width: 767px) {
+  }
 `;

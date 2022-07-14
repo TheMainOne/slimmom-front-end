@@ -1,13 +1,8 @@
 import { saveUserInfo } from 'redux/slices';
 import { useSelector } from 'react-redux';
-
-import {
-  ModalContainer,
-  Title,
-  Text,
-  ListTitle,
-} from './DailyCalorieIntake.styled';
+import { Title, Text, Span } from './DailyCalorieIntake.styled';
 import { List } from './List';
+
 export const DailyCalorieIntake = () => {
   const user = useSelector(saveUserInfo);
   const { height, age, currentWeight, desiredWeight } =
@@ -19,13 +14,13 @@ export const DailyCalorieIntake = () => {
       161 -
       10 * (currentWeight - desiredWeight)
   );
-
   return (
-    <ModalContainer>
+    <>
       <Title> Your recommended daily calorie intake is</Title>
-      <Text>{formula} kkal</Text>
-      <ListTitle>Foods you should not eat</ListTitle>
+      <Text>
+        {formula} <Span>kkal</Span>
+      </Text>
       <List />
-    </ModalContainer>
+    </>
   );
 };
