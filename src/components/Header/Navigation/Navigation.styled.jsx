@@ -54,6 +54,7 @@ export const HeaderLinksWrapper = styled.div`
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     width: ${props => (props.isLogged ? '100%' : 'auto')};
     justify-content: ${props => (props.isLogged ? 'space-between' : 'initial')};
+    align-items: inherit;
     margin-left: 30px;
     display: ${props => props.isHidden && 'none'};
   }

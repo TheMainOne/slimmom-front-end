@@ -65,6 +65,10 @@ export const HeaderNavButtonsContainer = styled.div`
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     background-color: inherit;
   }
+
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
+    align-items: inherit;
+  }
 `;
 
 // export const HeaderNavButtons = styled.span`
