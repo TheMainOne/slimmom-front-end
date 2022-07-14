@@ -1,39 +1,32 @@
 import { useEffect, useState } from 'react';
-import { usePrivatDailyNormaQuery } from 'redux/apis/privatDailyNorma';
+import { useGetConsumedByDate } from './useGetConsumedByDate';
+import { useGetUserNorma } from './useGetUserNorma';
 
-// const body = {
-//   currentWeight: 55,
-//   height: 160,
-//   age: 25,
-//   desiredWeight: 50,
-//   bloodType: 3,
-// };
 const INITIAL_RES_DATA = {
-  dailyData: {},
+  dailyData: {
+    left: null,
+    consumed: null,
+    dailyRate: null,
+    percente: null,
+  },
   bannedProducts: {},
 };
 
 export const useDailyNorma = () => {
-  const { data } = usePrivatDailyNormaQuery();
+  const { dailyRate, bannedProducts } = useGetUserNorma();
+  const { consumed, date } = useGetConsumedByDate();
   const [responseData, setResponseData] = useState(INITIAL_RES_DATA);
 
   useEffect(() => {
-    if (!data) return;
-
-    const composeData = ({ dailyRate }) => {
-      return {
-        left: null,
-        consumed: null,
-        dailyRate,
-        percente: null,
-      };
-    };
+    const haveUserInfo = dailyRate && consumed >= 0;
+    const left = haveUserInfo ? dailyRate - consumed : null;
+    const percente = haveUserInfo ? (consumed * 100) / dailyRate : null;
 
     setResponseData({
-      dailyData: composeData(data.results),
-      bannedProducts: data.results.bannedProducts,
+      dailyData: { left, consumed, dailyRate, percente: Math.round(percente) },
+      bannedProducts,
     });
-  }, [data]);
+  }, [dailyRate, bannedProducts, consumed]);
 
-  return [responseData];
+  return [responseData, date];
 };
