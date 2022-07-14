@@ -1,3 +1,4 @@
+import { useAddProductMutation } from 'redux/apis';
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar';
 import DiaryProductsList from 'components/DiaryProductsList';
 // import { DiaryAddProductForm } from 'components/Forms/DiaryAddProductForm';
@@ -7,6 +8,8 @@ import { diaryApi } from 'redux/apis';
 import React, { useState } from 'react';
 // import { useAddProductMutation } from 'redux/apis';
 
+import { DiaryAddProductForm } from 'components/Forms/DiaryAddProductForm';
+// import consumedProducts from 'components/DiaryProductsList/products.json';
 import {
   DiaryPageContentStyled,
   DiaryPageStyled,
@@ -17,6 +20,7 @@ export const DiaryPageContent = () => {
   // const currentDate = useSelector(state => state.calendar.activeDate);
   // const { data: products, isLoading } = useGetProductsQuery();
   // const [addProduct, { isLoading: isAddingProduct }] = useAddProductMutation();
+  const [addProduct] = useAddProductMutation();
 
   const { data = {}, isLoading } =
     diaryApi.useGetProductsByDateQuery('2022-07-13');
@@ -25,11 +29,10 @@ export const DiaryPageContent = () => {
 
   return (
     <DiaryPageContentStyled>
-      {/* Kostia */}
       <DiaryPageStyled>
         <DiaryDateCalendar />
 
-        {/* <DiaryAddProductForm addProduct={addProduct} /> */}
+        <DiaryAddProductForm addProduct={addProduct} />
       </DiaryPageStyled>
 
       {/* Natasha */}

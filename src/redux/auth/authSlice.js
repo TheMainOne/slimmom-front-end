@@ -13,7 +13,7 @@ export const authSlice = createSlice({
   initialState,
   extraReducers: {
     [register.fulfilled](state, action) {
-      state.user = action.payload.user;
+      state.user = action.payload;
     },
     [logIn.fulfilled](state, action) {
       state.user = action.payload.data.user;

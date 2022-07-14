@@ -14,10 +14,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: 'Verdana';
+    font-family: 'Verdana Bold';
     font-style: normal;
     font-weight: 700;
-    src: local('Verdana'),
+    src: local('Verdana Bold'),
       url(${VerdanaBold}) format('truetype');
   }
 

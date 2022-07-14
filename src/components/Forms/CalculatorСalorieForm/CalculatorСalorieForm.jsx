@@ -47,7 +47,7 @@ const CalculatorСalorieForm = ({ openModal }) => {
     },
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
-      const paramsUser = { ...values, typeBlood: selectedTypeBlood };
+      const paramsUser = { ...values, bloodType: selectedTypeBlood };
       dispatch(saveUserInfo(paramsUser));
       resetForm();
     },
