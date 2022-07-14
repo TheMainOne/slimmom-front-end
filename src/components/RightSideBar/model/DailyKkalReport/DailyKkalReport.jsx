@@ -1,29 +1,17 @@
-import { TabData, TabHead, Table, TabRows } from './DailyKkalReport.styled';
+import { TableContainer, TabRows } from './Table';
 
 export const DailyKkalReport = ({ data }) => {
+  const { left, consumed, dailyRate, percente } = data;
+
   return (
-    <Table>
-      <tbody>
-        <TabRows>
-          <TabHead>Left</TabHead>
-          <TabData>{data.left || '000'} kcal</TabData>
-        </TabRows>
+    <TableContainer>
+      <TabRows data={left} head="Left" unit="kcal" />
 
-        <TabRows>
-          <TabHead>Consumed</TabHead>
-          <TabData>{data.consumed || '000'} kcal</TabData>
-        </TabRows>
+      <TabRows data={consumed} head="Consumed" unit="kcal" />
 
-        <TabRows>
-          <TabHead>Daily rate</TabHead>
-          <TabData>{data.dailyRate || '000'} kcal</TabData>
-        </TabRows>
+      <TabRows data={dailyRate} head="Daily rate" unit="kcal" />
 
-        <TabRows>
-          <TabHead>n% of normal</TabHead>
-          <TabData>{data.percente || '000'} kcal</TabData>
-        </TabRows>
-      </tbody>
-    </Table>
+      <TabRows data={percente} head="n% of normal" unit="%" />
+    </TableContainer>
   );
 };

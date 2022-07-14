@@ -1,39 +1,37 @@
 import { useEffect, useState } from 'react';
+import { diaryApi } from 'redux/apis';
 import { usePrivatDailyNormaQuery } from 'redux/apis/privatDailyNorma';
 
-// const body = {
-//   currentWeight: 55,
-//   height: 160,
-//   age: 25,
-//   desiredWeight: 50,
-//   bloodType: 3,
-// };
 const INITIAL_RES_DATA = {
-  dailyData: {},
+  dailyData: {
+    left: null,
+    consumed: null,
+    dailyRate: null,
+    percente: null,
+  },
   bannedProducts: {},
 };
 
 export const useDailyNorma = () => {
-  const { data } = usePrivatDailyNormaQuery();
+  const { data: dataDaily } = usePrivatDailyNormaQuery();
+  const { data: dataTotal } = diaryApi.useGetProductsByDateQuery();
+
   const [responseData, setResponseData] = useState(INITIAL_RES_DATA);
 
   useEffect(() => {
-    if (!data) return;
+    if (!dataDaily || !dataTotal) return;
 
-    const composeData = ({ dailyRate }) => {
-      return {
-        left: null,
-        consumed: null,
-        dailyRate,
-        percente: null,
-      };
-    };
+    const dailyRate = dataDaily?.results?.dailyRate;
+    const consumed = dataTotal?.data?.total;
+    const haveUserInfo = dailyRate && consumed;
+    const left = haveUserInfo ? dailyRate - consumed : null;
+    const percente = haveUserInfo ? (consumed * 100) / dailyRate : null;
 
     setResponseData({
-      dailyData: composeData(data.results),
-      bannedProducts: data.results.bannedProducts,
+      dailyData: { left, consumed, dailyRate, percente: Math.round(percente) },
+      bannedProducts: dataDaily.results.bannedProducts,
     });
-  }, [data]);
+  }, [dataDaily, dataTotal]);
 
   return [responseData];
 };

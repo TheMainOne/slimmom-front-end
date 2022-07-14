@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-export const Table = styled.table`
-  border-collapse: collapse;
-`;
-
-export const TabHead = styled.th`
+export const Head = styled.th`
   text-align: left;
   width: 150px;
   border-right: 20px solid transparent;
@@ -13,15 +9,20 @@ export const TabHead = styled.th`
   font-size: 14px;
 `;
 
-export const TabData = styled.td`
+export const Data = styled.td`
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
   width: 130px;
 `;
 
-export const TabRows = styled.tr`
-  &:last-child ${TabHead} {
+export const Row = styled.tr`
+  &:last-child ${Head} {
     padding-bottom: 0px;
   }
+`;
+
+export const Unit = styled.span`
+  margin-left: 5px;
+  width: 27px;
 `;
