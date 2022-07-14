@@ -4,10 +4,7 @@ import DiaryProductsList from 'components/DiaryProductsList';
 import { Spinner } from 'components/Spinner';
 import { diaryApi } from 'redux/apis';
 
-import {
-  DiaryPageContentStyled,
-  DiaryPageStyled,
-} from './DiaryPageContent.styled';
+import { DiaryPageStyled } from './DiaryPageContent.styled';
 import { useSelector } from 'react-redux';
 import { BlockWrapper } from 'components/Container';
 
@@ -37,24 +34,6 @@ export const DiaryPageContent = () => {
           <h1>Сегодня вы ещё не ели!</h1>
         )}
       </DiaryPageStyled>
-<<<<<<< HEAD
-    </DiaryPageContentStyled>
-=======
-
-      {/* Natasha */}
-      {/* {isAddingProduct ? ( */}
-      {isLoading ? (
-        <Spinner />
-      ) : consumedProducts ? (
-        <DiaryProductsList products={consumedProducts} />
-      ) : (
-        <h1>Ты еще не ел сегодня!</h1>
-      )}
-
-      {/* ) : ( */}
-
-      {/* )} */}
     </BlockWrapper>
->>>>>>> main
   );
 };
