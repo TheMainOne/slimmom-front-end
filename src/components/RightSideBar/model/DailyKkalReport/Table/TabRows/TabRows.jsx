@@ -4,7 +4,7 @@ export const TabRows = ({ data, unit, head }) => {
   return (
     <Row>
       <Head>{head}</Head>
-      <Data>
+      <Data number={data >= 0}>
         {data ? String(data).padStart(3, '0') : '000'}
         <Unit>{unit}</Unit>
       </Data>

@@ -14,6 +14,8 @@ export const Data = styled.td`
   align-items: flex-start;
   justify-content: flex-end;
   width: 130px;
+
+  color: ${props => (props.number ? 'inherit' : props.theme.colors.$orange)};
 `;
 
 export const Row = styled.tr`
