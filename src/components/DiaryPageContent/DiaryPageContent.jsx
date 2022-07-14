@@ -1,4 +1,4 @@
-import { useAddProductMutation } from 'redux/apis';
+// import { useAddProductMutation } from 'redux/apis';
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar';
 import DiaryProductsList from 'components/DiaryProductsList';
 // import { DiaryAddProductForm } from 'components/Forms/DiaryAddProductForm';
@@ -8,22 +8,22 @@ import { diaryApi } from 'redux/apis';
 import React from 'react';
 // import { useAddProductMutation } from 'redux/apis';
 
-import { DiaryAddProductForm } from 'components/Forms/DiaryAddProductForm';
-// import consumedProducts from 'components/DiaryProductsList/products.json';
+// import { DiaryAddProductForm } from 'components/Forms/DiaryAddProductForm';
+
 import {
   DiaryPageContentStyled,
   DiaryPageStyled,
 } from './DiaryPageContent.styled';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export const DiaryPageContent = () => {
-  // const currentDate = useSelector(state => state.calendar.activeDate);
+  const currentDate = useSelector(state => state.calendar.activeDate);
   // const { data: products, isLoading } = useGetProductsQuery();
   // const [addProduct, { isLoading: isAddingProduct }] = useAddProductMutation();
-  const [addProduct] = useAddProductMutation();
+  // const [addProduct] = useAddProductMutation();
 
   const { data = {}, isLoading } =
-    diaryApi.useGetProductsByDateQuery('2022-07-13');
+    diaryApi.useGetProductsByDateQuery(currentDate);
 
   const { data: { consumedProducts = [] } = {} } = data;
 
@@ -32,7 +32,7 @@ export const DiaryPageContent = () => {
       <DiaryPageStyled>
         <DiaryDateCalendar />
 
-        <DiaryAddProductForm addProduct={addProduct} />
+        {/* <DiaryAddProductForm addProduct={addProduct} /> */}
       </DiaryPageStyled>
 
       {/* Natasha */}
