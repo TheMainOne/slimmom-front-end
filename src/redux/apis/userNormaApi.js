@@ -1,12 +1,11 @@
 const { baseApi } = require('./baseApi');
 
-export const privatDailyNorma = baseApi.injectEndpoints({
+export const userNormaApi = baseApi.injectEndpoints({
   endpoints: build => ({
-    privatDailyNorma: build.query({
+    getPrivatDailyNorma: build.query({
       query: () => '/users/daily-norma',
       invalidatesTags: ['PrivatDailyNorma'],
     }),
+    //getBannedProducts
   }),
 });
-
-export const { usePrivatDailyNormaQuery } = privatDailyNorma;
