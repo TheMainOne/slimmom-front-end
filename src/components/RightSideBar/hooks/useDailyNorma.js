@@ -14,16 +14,11 @@ const INITIAL_RES_DATA = {
 
 export const useDailyNorma = () => {
   const { dailyRate, bannedProducts } = useGetUserNorma();
-
   const { consumed, date } = useGetConsumedByDate();
-
   const [responseData, setResponseData] = useState(INITIAL_RES_DATA);
 
   useEffect(() => {
     const haveUserInfo = dailyRate && consumed >= 0;
-    console.log('~ haveUserInfo', haveUserInfo);
-    // if (!haveUserInfo) return;
-
     const left = haveUserInfo ? dailyRate - consumed : null;
     const percente = haveUserInfo ? (consumed * 100) / dailyRate : null;
 
