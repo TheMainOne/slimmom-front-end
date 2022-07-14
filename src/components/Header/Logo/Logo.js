@@ -1,9 +1,12 @@
 import { LogoLink } from './Logo.styled';
 
-const Logo = ({ islogged }) => {
+const Logo = ({ isLogged }) => {
   return (
     <>
-      <LogoLink to="/" islogged={islogged}></LogoLink>
+      <LogoLink
+        to="/"
+        islogged={isLogged ? isLogged.toString() : undefined}
+      ></LogoLink>
     </>
   );
 };

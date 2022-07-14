@@ -23,6 +23,13 @@ const RadioLabel = styled(FormLabel)`
   letter-spacing: 0.04em;
   margin-bottom: 8.5px;
   color: #9b9faa;
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 11px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-right: 150px;
+    display: block;
+  }
 `;
 
 const ControlLabel = styled(FormControlLabel)`
@@ -45,20 +52,22 @@ const ButtonRegister = styled(Button)`
   border-radius: 30px;
   margin: auto;
   padding: 13px 27px;
-  margin-top: 60px;
+  margin-top: 40px;
+
   &:hover {
     background-color: #e76000;
     transform: scale(1.1);
   }
+
   @media screen and (min-width: 768px) {
-    margin: 60px 0 0;
+    margin: 28px 0 0;
   }
 `;
 
 const CastomTextField = styled(TextField)({
   '& ': {
     marginBottom: '20px',
-    minWidth: '240px',
+    width: '240px',
   },
   '& label': {
     color: '#9B9FAA',

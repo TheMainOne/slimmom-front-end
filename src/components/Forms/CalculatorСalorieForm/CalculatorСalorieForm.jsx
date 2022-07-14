@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { Form } from './CalculatorСalorieForm.styled';
+import { Block, Form, InputContainer } from './CalculatorСalorieForm.styled';
 import {
   ButtonRegister,
   CastomTextField,
@@ -55,70 +55,79 @@ const CalculatorСalorieForm = ({ openModal }) => {
 
   return (
     <Form onSubmit={formik.handleSubmit}>
-      <CastomTextField
-        variant="standard"
-        id="height"
-        name="height"
-        label="Height *"
-        value={formik.values.height}
-        onChange={formik.handleChange}
-        error={formik.touched.height && Boolean(formik.errors.height)}
-        helperText={formik.touched.height && formik.errors.height}
-      />
-      <CastomTextField
-        variant="standard"
-        id="age"
-        name="age"
-        label="Age *"
-        value={formik.values.age}
-        onChange={formik.handleChange}
-        error={formik.touched.age && Boolean(formik.errors.age)}
-        helperText={formik.touched.age && formik.errors.age}
-      />
-      <CastomTextField
-        variant="standard"
-        id="currentWeight"
-        name="currentWeight"
-        label="Current weight *"
-        type="currentWeight"
-        value={formik.values.currentWeight}
-        onChange={formik.handleChange}
-        error={
-          formik.touched.currentWeight && Boolean(formik.errors.currentWeight)
-        }
-        helperText={formik.touched.currentWeight && formik.errors.currentWeight}
-      />
-      <CastomTextField
-        variant="standard"
-        id="desiredWeight"
-        name="desiredWeight"
-        label="Desired weight *"
-        value={formik.values.desiredWeight}
-        onChange={formik.handleChange}
-        error={
-          formik.touched.desiredWeight && Boolean(formik.errors.desiredWeight)
-        }
-        helperText={formik.touched.desiredWeight && formik.errors.desiredWeight}
-      />
-      <RadioLabel id="demo-row-radio-buttons-group-label">
-        Blood type *
-      </RadioLabel>
-      <RadioGroup
-        id="bloodType"
-        row
-        aria-labelledby="demo-row-radio-buttons-group-label"
-        onChange={e => setSelectedTypeBlood(e.target.value)}
-      >
-        {typeBlood.map(number => (
-          <ControlLabel
-            key={number}
-            value={number}
-            control={<RadioInput />}
-            label={number}
-            checked={number === Number(selectedTypeBlood)}
-          />
-        ))}
-      </RadioGroup>
+      <InputContainer>
+        <CastomTextField
+          variant="standard"
+          id="height"
+          name="height"
+          label="Height *"
+          value={formik.values.height}
+          onChange={formik.handleChange}
+          error={formik.touched.height && Boolean(formik.errors.height)}
+          helperText={formik.touched.height && formik.errors.height}
+        />
+        <CastomTextField
+          variant="standard"
+          id="age"
+          name="age"
+          label="Age *"
+          value={formik.values.age}
+          onChange={formik.handleChange}
+          error={formik.touched.age && Boolean(formik.errors.age)}
+          helperText={formik.touched.age && formik.errors.age}
+        />
+        <CastomTextField
+          variant="standard"
+          id="currentWeight"
+          name="currentWeight"
+          label="Current weight *"
+          type="currentWeight"
+          value={formik.values.currentWeight}
+          onChange={formik.handleChange}
+          error={
+            formik.touched.currentWeight && Boolean(formik.errors.currentWeight)
+          }
+          helperText={
+            formik.touched.currentWeight && formik.errors.currentWeight
+          }
+        />
+        <CastomTextField
+          variant="standard"
+          id="desiredWeight"
+          name="desiredWeight"
+          label="Desired weight *"
+          value={formik.values.desiredWeight}
+          onChange={formik.handleChange}
+          error={
+            formik.touched.desiredWeight && Boolean(formik.errors.desiredWeight)
+          }
+          helperText={
+            formik.touched.desiredWeight && formik.errors.desiredWeight
+          }
+        />
+        <Block>
+          <RadioLabel id="demo-row-radio-buttons-group-label">
+            Blood type *
+          </RadioLabel>
+          <RadioGroup
+            id="bloodType"
+            row
+            aria-labelledby="demo-row-radio-buttons-group-label"
+            onChange={e => setSelectedTypeBlood(e.target.value)}
+          >
+            {typeBlood.map(number => (
+              <ControlLabel
+                key={number}
+                value={number}
+                control={<RadioInput />}
+                label={number}
+                checked={number === Number(selectedTypeBlood)}
+              />
+            ))}
+          </RadioGroup>
+        </Block>
+      </InputContainer>
+
       <ButtonRegister
         color="primary"
         variant="contained"

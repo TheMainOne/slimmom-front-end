@@ -1,7 +1,7 @@
-import { usePrivatDailyNormaQuery } from 'redux/apis/privatDailyNorma';
+import { userNormaApi } from 'redux/apis';
 
 export const useGetUserNorma = () => {
-  const { data: dataDaily } = usePrivatDailyNormaQuery();
+  const { data: dataDaily } = userNormaApi.useGetPrivatDailyNormaQuery();
 
   return {
     dailyRate: dataDaily?.results?.dailyRate,
