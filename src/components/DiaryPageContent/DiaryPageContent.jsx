@@ -9,6 +9,7 @@ import {
   DiaryPageStyled,
 } from './DiaryPageContent.styled';
 import { useSelector } from 'react-redux';
+import { BlockWrapper } from 'components/Container';
 
 export const DiaryPageContent = () => {
   const currentDate = useSelector(state => state.calendar.activeDate);
@@ -19,7 +20,7 @@ export const DiaryPageContent = () => {
   const { data: { consumedProducts = [] } = {} } = data;
 
   return (
-    <DiaryPageContentStyled>
+    <BlockWrapper>
       <DiaryPageStyled>
         <DiaryDateCalendar />
 
@@ -36,6 +37,24 @@ export const DiaryPageContent = () => {
           <h1>Сегодня вы ещё не ели!</h1>
         )}
       </DiaryPageStyled>
+<<<<<<< HEAD
     </DiaryPageContentStyled>
+=======
+
+      {/* Natasha */}
+      {/* {isAddingProduct ? ( */}
+      {isLoading ? (
+        <Spinner />
+      ) : consumedProducts ? (
+        <DiaryProductsList products={consumedProducts} />
+      ) : (
+        <h1>Ты еще не ел сегодня!</h1>
+      )}
+
+      {/* ) : ( */}
+
+      {/* )} */}
+    </BlockWrapper>
+>>>>>>> main
   );
 };
