@@ -14,14 +14,14 @@ import {
 import { useSelector } from 'react-redux';
 
 export const DiaryPageContent = () => {
-  const currentDate = useSelector(state => state.calendar.activeDate);
-  const [date, setDate] = useState(currentDate);
+  // const currentDate = useSelector(state => state.calendar.activeDate);
   // const { data: products, isLoading } = useGetProductsQuery();
   // const [addProduct, { isLoading: isAddingProduct }] = useAddProductMutation();
 
-  const { data, isLoading } = diaryApi.useGetProductsByDateQuery(currentDate);
-  console.log(data);
-  console.log(currentDate);
+  const { data = {}, isLoading } =
+    diaryApi.useGetProductsByDateQuery('2022-07-13');
+
+  const { data: { consumedProducts = [] } = {} } = data;
 
   return (
     <DiaryPageContentStyled>
@@ -36,8 +36,8 @@ export const DiaryPageContent = () => {
       {/* {isAddingProduct ? ( */}
       {isLoading ? (
         <Spinner />
-      ) : data.consumedProducts ? (
-        <DiaryProductsList consumedProducts={data.consumedProducts} />
+      ) : consumedProducts ? (
+        <DiaryProductsList products={consumedProducts} />
       ) : (
         <h1>Ты еще не ел сегодня!</h1>
       )}
