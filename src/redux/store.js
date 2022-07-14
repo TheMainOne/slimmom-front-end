@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { baseApi } from './apis/baseApi';
+import { diaryApi } from './apis/diaryApi';
 import { calculatorSlice, calendarReducer, loaderReducer } from './slices';
 import { authSlice } from './auth/authSlice';
 import { setupListeners } from '@reduxjs/toolkit/query';
@@ -47,7 +48,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-    baseApi.middleware,
+    diaryApi.middleware,
   ],
 });
 

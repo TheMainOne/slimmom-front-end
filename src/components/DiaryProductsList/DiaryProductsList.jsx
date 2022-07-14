@@ -1,12 +1,12 @@
 import DiaryProductsListItem from './DiaryProductsListItem';
 import { List } from './DiaryProductsList.styled';
-const DiaryProductsList = ({ consumedProducts }) => {
+const DiaryProductsList = ({ products }) => {
   return (
     <List>
-      {consumedProducts?.map(({ title, weight, kcal }) => (
+      {products.map(({ _id, title: { ua }, weight, kcal }) => (
         <DiaryProductsListItem
-          key={title}
-          title={title}
+          key={_id}
+          title={ua}
           weight={weight}
           kcal={kcal}
         />
