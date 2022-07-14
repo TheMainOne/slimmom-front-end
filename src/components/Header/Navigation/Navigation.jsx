@@ -14,7 +14,6 @@ import {
 } from './Navigation.styled';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 
-
 const styles = {
   link: {
     fontWeight: '700',
@@ -27,7 +26,7 @@ const styles = {
 const Header = () => {
   const { pathname } = useLocation();
   const bannedPaths = [];
-  const isHidden = bannedPaths.some( ( bannedPath ) => bannedPath === pathname);
+  const isHidden = bannedPaths.some(bannedPath => bannedPath === pathname);
 
   const [resizeListener, { width }] = useResizeAware();
   const isLogged = useSelector(state => getIsLoggedIn(state));
@@ -35,7 +34,6 @@ const Header = () => {
   const tabletWidth = width >= 768 && width < 1279;
   const desktopWidth = width >= 1280;
 
-  
   return (
     <>
       <HeaderStyled isLogged={isLogged}>
@@ -68,14 +66,13 @@ const Header = () => {
               {isLogged && mobileWidth && (
                 <>
                   <MenuIcon fontSize="medium" type="submit" />
-                  
-              </>
+                </>
               )}
               {isLogged && tabletWidth && (
                 <>
                   <UserInfo />
                   <MenuIcon fontSize="medium" type="submit" />
-                   </>
+                </>
               )}
               {isLogged && desktopWidth && (
                 <>
@@ -102,6 +99,11 @@ const Header = () => {
           </HeaderNavigation>
         </Container>
       </HeaderStyled>
+      {isLogged && mobileWidth && (
+        <>
+          <UserInfo />
+        </>
+      )}
     </>
   );
 };
