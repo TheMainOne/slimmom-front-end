@@ -25,4 +25,4 @@ export const diaryApi = baseApi.injectEndpoints({
   }),
 });
 
-const { useGetProductsByDateQuery, useDeleteProductFromDate } = diaryApi;
+// const { useGetProductsByDateQuery, useDeleteProductFromDate } = diaryApi;

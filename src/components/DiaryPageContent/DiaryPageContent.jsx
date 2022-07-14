@@ -5,7 +5,7 @@ import DiaryProductsList from 'components/DiaryProductsList';
 import { Spinner } from 'components/Spinner';
 import { diaryApi } from 'redux/apis';
 
-import React, { useState } from 'react';
+import React from 'react';
 // import { useAddProductMutation } from 'redux/apis';
 
 import { DiaryAddProductForm } from 'components/Forms/DiaryAddProductForm';
@@ -14,7 +14,7 @@ import {
   DiaryPageContentStyled,
   DiaryPageStyled,
 } from './DiaryPageContent.styled';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 export const DiaryPageContent = () => {
   // const currentDate = useSelector(state => state.calendar.activeDate);
