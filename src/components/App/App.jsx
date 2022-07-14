@@ -1,7 +1,8 @@
-import React, { lazy } from 'react';
+import React, { useEffect, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme, GlobalStyle } from 'styles';
+import { useDispatch } from 'react-redux';
 import Layout from 'pages/Layout';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
@@ -9,13 +10,20 @@ import MainPage from 'pages/MainPage';
 import RegistrationPage from 'pages/RegistrationPage';
 import PrivateRoute from '../PrivateRoute';
 import PublicRoute from '../PublicRoute';
-
+import { authOperations } from 'redux/auth';
 const DiaryPage = lazy(() => import('pages/DiaryPage'));
 const CalculatorPage = lazy(() => import('pages/CalculatorPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 
 const App = () => {
+  const dispatch = useDispatch();
+  
+    useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
+     
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -51,7 +59,11 @@ const App = () => {
       <GlobalStyle />
       <ToastContainer />
     </ThemeProvider>
+   
   );
+
+
+  
 };
 
 export default App;

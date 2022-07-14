@@ -39,7 +39,11 @@ export const logIn = createAsyncThunk('auth/login', async credentials => {
     token.set(data.data.token);
     return data;
   } catch (error) {
-    toast.error(error.message);
+    toast.error('Sign in failed. Check your data!', {
+      theme: 'colored',
+      position: 'top-center',
+      autoClose: 3000,
+    });
   }
 });
 
@@ -59,13 +63,12 @@ export const fetchCurrentUser = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      console.log('Токена нет, уходим из fetchCurrentUser');
       return thunkAPI.rejectWithValue();
     }
 
     token.set(persistedToken);
     try {
-      const { data } = await axios.get('/users/current');
+      const { data } = await axios.get('api/users/current');
       return data;
     } catch (error) {
       toast.error(error.message);

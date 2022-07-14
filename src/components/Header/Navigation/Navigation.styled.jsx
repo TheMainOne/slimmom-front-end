@@ -51,5 +51,6 @@ export const HeaderLinksWrapper = styled.div`
     width: ${props => (props.isLogged ? '100%' : 'auto')};
     justify-content: ${props => (props.isLogged ? 'space-between' : 'initial')};
     margin-left: 30px;
+    display:${props=>props.isHidden && 'none' };
   }
 `;
