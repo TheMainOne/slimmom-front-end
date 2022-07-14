@@ -11,7 +11,7 @@ const Form = styled.form`
 `;
 
 const Block = styled.div`
-  margin-top: 12px;
+  margin-top: 19px;
 `;
 
 const InputContainer = styled.div`

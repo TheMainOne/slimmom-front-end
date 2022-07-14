@@ -24,8 +24,11 @@ const RadioLabel = styled(FormLabel)`
   margin-bottom: 8.5px;
   color: #9b9faa;
 
-  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-    padding: 0px 0px 20px;
+  @media screen and (min-width: 768px) {
+    padding-bottom: 11px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-right: 150px;
+    display: block;
   }
 `;
 
