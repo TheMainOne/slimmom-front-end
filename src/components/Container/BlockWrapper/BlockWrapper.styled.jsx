@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 
   width: 320px;
   min-height: 460px;
@@ -19,10 +19,8 @@ export const Wrapper = styled.div`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
     align-items: center;
-    justify-content: flex-start;
     width: 763px;
     min-height: 850px;
-
     padding: 294px 32px 112px 32px;
   }
 `;
