@@ -26,7 +26,7 @@ const styles = {
 
 const Header = () => {
   const { pathname } = useLocation();
-  const bannedPaths = ['/login', '/signup'];
+  const bannedPaths = [];
   const isHidden = bannedPaths.some( ( bannedPath ) => bannedPath === pathname);
 
   const [resizeListener, { width }] = useResizeAware();
