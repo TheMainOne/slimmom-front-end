@@ -1,11 +1,11 @@
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
+import { GoPlus } from 'react-icons/go';
 
 export const AddProductInput = styled(TextField)({
   '& ': {
-    marginBottom: '20px',
+    // marginBottom: '20px',
     minWidth: '240px',
   },
   '& label': {
@@ -29,33 +29,27 @@ export const AddProductInput = styled(TextField)({
 });
 
 export const AddProductButton = styled(Button)`
-  font-family: 'Verdana';
-  font-weight: 700;
-  font-size: 14px;
-  text-transform: none;
-  background-color: ${({ theme: { colors } }) => colors.$orange};
-
-  box-shadow: 0 4px 10px rgba(252, 132, 45, 0.5);
-  border-radius: 30px;
+  min-width: 48px;
+  height: 48px;
   padding: 17px;
+  font-family: 'Verdana';
+
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: none;
+
+  background: #fc842d;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(252, 132, 45, 0.5);
 
   &:hover {
-    background-color: #e76000;
+    background: #e76000;
     transform: scale(1.1);
   }
 
   @media screen and (min-width: 768px) {
-    margin: 60px 0 0;
+    /* margin: 60px 0 0; */
   }
-
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  left: 471px;
-  top: 380px;
-
-  background: #fc842d;
-  /* orange */
 `;
 
-export const AddProductIcon = styled(AddCircleRoundedIcon)``;
+export const AddProductIcon = styled(GoPlus)``;

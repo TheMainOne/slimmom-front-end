@@ -24,5 +24,17 @@ export const IconCalendar = styled(iconCalendar)``;
 export const CalendarWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 20px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    gap: 30px;
+  }
+
+  .react-datepicker__input-container {
+    width: unset;
+  }
+
+  .react-datepicker-wrapper {
+    width: unset;
+  }
 `;

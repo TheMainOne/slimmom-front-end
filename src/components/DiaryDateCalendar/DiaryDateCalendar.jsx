@@ -12,11 +12,15 @@ import {
 export const DiaryDateCalendar = () => {
   const dispatch = useDispatch();
   const activeDate = useSelector(selectActiveDate);
-  const selectDate = date =>
-    dispatch(setDate(formatISO(date, { representation: 'date' })));
+  const selectDate = date => {
+    const data = formatISO(date, { representation: 'date' });
+    console.log(data);
+
+    dispatch(setDate(data));
+  };
 
   return (
-    <div>
+    <>
       <CalendarWrapper>
         <DatePicker
           selected={activeDate}
@@ -28,6 +32,6 @@ export const DiaryDateCalendar = () => {
       </CalendarWrapper>
 
       <ul>{/* <li>36. Верстка мобілка, планшет, десктоп</li> */}</ul>
-    </div>
+    </>
   );
 };
