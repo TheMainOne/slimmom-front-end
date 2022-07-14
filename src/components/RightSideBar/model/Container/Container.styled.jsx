@@ -50,15 +50,17 @@ export const Div = styled.div`
   }
 
   &:first-child {
-    width: 252px;
+    width: 280px;
     margin-bottom: 40px;
 
     @media (min-width: 768px) {
+      width: 252px;
       margin-bottom: 0px;
       margin-right: 60px;
     }
 
     @media (min-width: 1280px) {
+      width: 270px;
       margin-bottom: 60px;
       margin-left: 0px;
     }
