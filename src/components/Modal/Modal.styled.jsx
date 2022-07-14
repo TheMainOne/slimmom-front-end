@@ -7,6 +7,7 @@ export const Background = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  overflow-y: scroll;
   background: ${({ theme: { colors } }) => colors.$transparentGrey};
 `;
 
@@ -22,7 +23,7 @@ export const ModalWrapper = styled.div`
   background: ${({ theme: { colors } }) => colors.$white};
   color: ${({ theme: { colors } }) => colors.$black};
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     top: 65%;
     left: 50%;
   }
@@ -34,16 +35,15 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   line-height: ${({ theme: { lineHeight } }) => lineHeight.verdanaHeight};
-  color: #141414;
+  padding: 64px 81px 81px 81px;
+  text-align: center;
+  font-family: 'Verdana';
+  margin: auto;
 
-  p {
-    margin-bottom: 16px;
-  }
-  button {
-    padding: 10px 24px;
-    background: ${({ theme: { colors } }) => colors.$orange};
-    color: ${({ theme: { colors } }) => colors.$white};
-    border: none;
+  color: ${({ theme: { colors } }) => colors.$black};
+
+  @media screen and (max-width: 767px) {
+    padding: 40px 20px 120px 20px;
   }
 `;
 
@@ -56,4 +56,8 @@ export const CloseModalButton = styled(MdClose)`
   height: 20px;
   padding: 0;
   z-index: 10;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 `;
