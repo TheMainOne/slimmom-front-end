@@ -30,9 +30,7 @@ export const Modal = ({ showModal, setShowModal, children }) => {
     <>
       {showModal && (
         <Background ref={modalRef} onClick={closeModal}>
-          <div>
-            <ModalWrapper showModal={showModal}>{children}</ModalWrapper>
-          </div>
+          <ModalWrapper showModal={showModal}>{children}</ModalWrapper>
         </Background>
       )}
     </>,
