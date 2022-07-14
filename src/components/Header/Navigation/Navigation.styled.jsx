@@ -47,10 +47,15 @@ export const HeaderLink = styled(NavLink)`
 export const HeaderLinksWrapper = styled.div`
   display: flex;
 
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    align-items: center;
+  }
+
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     width: ${props => (props.isLogged ? '100%' : 'auto')};
     justify-content: ${props => (props.isLogged ? 'space-between' : 'initial')};
+    align-items: inherit;
     margin-left: 30px;
-    display:${props=>props.isHidden && 'none' };
+    display: ${props => props.isHidden && 'none'};
   }
 `;
