@@ -2,16 +2,26 @@ const { baseApi } = require('./baseApi');
 
 export const productsApi = baseApi.injectEndpoints({
   endpoints: build => ({
-    addProduct: build.mutation({
-      query: body => ({
-        url: `/products`,
-        method: 'POST',
+    getProducts: build.mutation({
+      query: ({ title, limit }) => ({
+        url: `/products/`,
+        method: 'GET',
+        params: { title, limit },
+      }),
 
-        body,
+      providesTags: ['Products'],
+    }),
+
+    addProduct: build.mutation({
+      query: ({ date, id, weight }) => ({
+        url: '/diary/',
+        method: 'POST',
+        body: { id, weight },
+        params: { date },
       }),
       invalidatesTags: ['Products'],
     }),
   }),
 });
 
-export const { useAddProductMutation } = productsApi;
+export const { useGetProductsMutation, useAddProductMutation } = productsApi;

@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: 'Verdana';
+    font-family: 'Verdana Bold';
     font-style: normal;
     font-weight: 700;
     src: local('Verdana Bold'),
@@ -37,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
       url(${GothamProBold}) format('truetype');
   }
 
- 
+
   html {
   height: 100%;
   width: 100%;
@@ -55,7 +55,7 @@ export const GlobalStyle = createGlobalStyle`
 
   }
 
-  
+
   #root {
     height: 100%;
     width: 100%;

@@ -14,14 +14,14 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   background-repeat: no-repeat;
-  padding: 40px 15px 40px 20px;
+  padding: 40px 15px 84px 20px;
 
   @media (min-width: 768px) {
     width: 768px;
-    height: 350px;
+    min-height: 350px;
     display: flex;
-    justify-content: center;
-    padding: 91px 87px;
+    justify-content: flex-start;
+    padding: 91px 10px 91px 87px;
 
     background-size: 369px 350px;
     background-position: 399px bottom;
@@ -30,7 +30,8 @@ export const Wrapper = styled.div`
 
   @media (min-width: 1280px) {
     width: 517px;
-    height: 850px;
+    min-height: 850px;
+    height: 100vh;
     padding: 292px 0 0 106px;
     flex-direction: column;
     justify-content: flex-start;
@@ -42,9 +43,14 @@ export const Wrapper = styled.div`
 `;
 
 export const Div = styled.div`
-  width: 288px;
+  width: 285px;
+
+  @media (min-width: 768px) {
+    width: 350px;
+  }
 
   &:first-child {
+    width: 252px;
     margin-bottom: 40px;
 
     @media (min-width: 768px) {

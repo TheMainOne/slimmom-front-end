@@ -1,1 +1,1 @@
-export const getUserParams = state => state.userInfo;
+export const getUserParams = state => state.userInfo.userInfo;
