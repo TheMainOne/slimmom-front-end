@@ -8,7 +8,7 @@ import {
   Measure,
   ButtonContainer,
 } from './DiaryProductsListItem.styled';
-
+import { useTranslation } from 'react-i18next';
 const DiaryProductsListItem = ({
   title,
   weight,
@@ -16,6 +16,8 @@ const DiaryProductsListItem = ({
   currentDate,
   productId,
 }) => {
+  const { t } = useTranslation();
+
   const [deleteProduct, { isLoading: isDeleting }] =
     diaryApi.useDeleteProductFromDateMutation();
 
@@ -24,11 +26,11 @@ const DiaryProductsListItem = ({
       <Title>{title}</Title>
       <Title>
         <Text>{weight}</Text>
-        <Measure>g</Measure>
+        <Measure>{t('g')}</Measure>
       </Title>
       <Title>
         <Text>{kcal}</Text>
-        <Measure>kcal</Measure>
+        <Measure>{t('kcal')}</Measure>
       </Title>
       <ButtonContainer>
         <IconButton

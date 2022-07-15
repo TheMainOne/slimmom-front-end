@@ -27,13 +27,19 @@
   "left": "Left",
   "consumed": "Consumed",
   "rate": "Daily rate",
-  "norm": "of normal",
+  "norm": "n% of normal",
   "notRecommended": "Food not recommended",
   "display": "Your diet will be displayed here",
+  "noMatch": "No products matches",
   "enter": "Enter product name",
   "grams": "Grams",
   "g": "g",
 
   "en": "en",
-  "ua": "ua"
+  "ua": "ua",
+  "defaultLogin": "for the default login use the data below",
+
+  "noFood": "You haven't eaten today yet!",
+
+  "alert": ""
 }

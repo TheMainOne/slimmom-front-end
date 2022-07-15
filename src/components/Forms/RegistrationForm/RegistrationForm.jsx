@@ -58,7 +58,7 @@ const RegistrationForm = () => {
         variant="standard"
         id="name"
         name="name"
-        label="Name *"
+        label={t('name')}
         value={formik.values.name}
         onChange={formik.handleChange}
         error={formik.touched.name && Boolean(formik.errors.name)}
@@ -68,7 +68,7 @@ const RegistrationForm = () => {
         variant="standard"
         id="email"
         name="email"
-        label="Email *"
+        label={t('email')}
         value={formik.values.email}
         onChange={formik.handleChange}
         error={formik.touched.email && Boolean(formik.errors.email)}
@@ -78,7 +78,7 @@ const RegistrationForm = () => {
         variant="standard"
         id="password"
         name="password"
-        label="Password *"
+        label={t('password')}
         type="password"
         autoComplete="new-password"
         value={formik.values.password}

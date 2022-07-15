@@ -1,12 +1,14 @@
 import { TextField, Autocomplete } from '@mui/material';
 import { Box } from '@mui/system';
-
+import { useTranslation } from 'react-i18next';
 export const LifeSearch = ({
   items,
   setProductId,
   inputValue,
   onInputChange,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <Autocomplete
       id="possible_products"
@@ -15,15 +17,13 @@ export const LifeSearch = ({
       isOptionEqualToValue={(option, value) => option._id === value._id}
       options={items}
       sx={{ width: 300 }}
-      noOptionsText={'Np products matches'}
+      noOptionsText={t('noMatch')}
       renderOption={(props, item) => (
         <Box component="li" {...props} key={item._id}>
           {item.title?.ua || item.title?.ru}
         </Box>
       )}
-      renderInput={params => (
-        <TextField {...params} label="Enter product name" />
-      )}
+      renderInput={params => <TextField {...params} label={t('enter')} />}
       onChange={(e, val) => {
         setProductId(val?._id);
       }}

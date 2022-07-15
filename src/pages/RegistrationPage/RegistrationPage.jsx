@@ -7,17 +7,20 @@ import {
   LinkLog,
   BoxRelative,
 } from './RegistrationPage.styled';
+import { useTranslation } from 'react-i18next';
 
 const RegistrationPage = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <PageContainer>
         <BoxRelative>
-          <Title>Register</Title>
+          <Title>{t('register')}</Title>
           <RegistrationForm />
           <LinkLog to="/login">
             <LinkLogin color="primary" variant="outlined" type="button">
-              Login
+              {t('logIn')}
             </LinkLogin>
           </LinkLog>
         </BoxRelative>

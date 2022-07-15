@@ -78,8 +78,6 @@ const Header = () => {
                   >
                     {t('registration')}
                   </HeaderLink>
-                  <button onClick={changeLanguage('en')}>en</button>
-                  <button onClick={changeLanguage('ua')}>ua</button>
                 </>
               )}
               {isLogged && mobileWidth && (
@@ -90,12 +88,12 @@ const Header = () => {
                       <MobileNavigation onClick={handleMenuBtnClick}>
                         <MobileNavigationItem>
                           <MobileNavigationLink to="/diary">
-                            diary
+                            {t('diary')}
                           </MobileNavigationLink>
                         </MobileNavigationItem>
                         <MobileNavigationItem>
                           <MobileNavigationLink to="/calculator">
-                            calculator
+                            {t('calculator')}
                           </MobileNavigationLink>
                         </MobileNavigationItem>
                       </MobileNavigation>
@@ -114,12 +112,12 @@ const Header = () => {
                       <MobileNavigation onClick={handleMenuBtnClick}>
                         <MobileNavigationItem>
                           <MobileNavigationLink to="/diary">
-                            diary
+                            {t('diary')}
                           </MobileNavigationLink>
                         </MobileNavigationItem>
                         <MobileNavigationItem>
                           <MobileNavigationLink to="/calculator">
-                            calculator
+                            {t('calculator')}
                           </MobileNavigationLink>
                         </MobileNavigationItem>
                       </MobileNavigation>
@@ -150,6 +148,8 @@ const Header = () => {
                   <UserInfo />
                 </>
               )}
+              <button onClick={changeLanguage('en')}>{t('en')}</button>
+              <button onClick={changeLanguage('ua')}>{t('ua')}</button>
             </HeaderLinksWrapper>
           </HeaderNavigation>
         </Container>

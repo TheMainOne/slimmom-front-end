@@ -8,8 +8,10 @@ import { DiaryPageStyled } from './DiaryPageContent.styled';
 import { useSelector } from 'react-redux';
 import { BlockWrapper } from 'components/Container';
 import { useShowForm } from './hooks';
-
+import { useTranslation } from 'react-i18next';
 export const DiaryPageContent = () => {
+  const { t } = useTranslation();
+
   const [addProduct, { isLoading: isAddingProduct }] =
     diaryApi.useAddProductMutation();
   const currentDate = useSelector(state => state.calendar.activeDate);
@@ -35,7 +37,7 @@ export const DiaryPageContent = () => {
             currentDate={currentDate}
           />
         ) : (
-          <h1>Сегодня вы ещё не ели!</h1>
+          <h1>{t('noFood')}</h1>
         )}
       </DiaryPageStyled>
     </BlockWrapper>
