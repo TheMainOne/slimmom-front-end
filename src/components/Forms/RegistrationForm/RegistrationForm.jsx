@@ -51,19 +51,38 @@ const RegistrationForm = () => {
 
   return (
     <Form onSubmit={formik.handleSubmit}>
-      {Object.keys(formik.initialValues).map(typeInput => (
-        <CastomTextField
-          key={typeInput}
-          variant="standard"
-          id={typeInput}
-          name={typeInput}
-          label={`${typeInput[0].toUpperCase()}${typeInput.slice(1)} *`}
-          value={formik.values[typeInput]}
-          onChange={formik.handleChange}
-          error={formik.touched[typeInput] && Boolean(formik.errors[typeInput])}
-          helperText={formik.touched[typeInput] && formik.errors[typeInput]}
-        />
-      ))}
+      <CastomTextField
+        variant="standard"
+        id="name"
+        name="name"
+        label="Name *"
+        value={formik.values.name}
+        onChange={formik.handleChange}
+        error={formik.touched.name && Boolean(formik.errors.name)}
+        helperText={formik.touched.name && formik.errors.name}
+      />
+      <CastomTextField
+        variant="standard"
+        id="email"
+        name="email"
+        label="Email *"
+        value={formik.values.email}
+        onChange={formik.handleChange}
+        error={formik.touched.email && Boolean(formik.errors.email)}
+        helperText={formik.touched.email && formik.errors.email}
+      />
+      <CastomTextField
+        variant="standard"
+        id="password"
+        name="password"
+        label="Password *"
+        type="password"
+        autoComplete="new-password"
+        value={formik.values.password}
+        onChange={formik.handleChange}
+        error={formik.touched.password && Boolean(formik.errors.password)}
+        helperText={formik.touched.password && formik.errors.password}
+      />
 
       <ButtonRegister color="primary" variant="contained" type="submit">
         Register
