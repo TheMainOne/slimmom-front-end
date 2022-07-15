@@ -35,7 +35,11 @@ const Header = () => {
   const mobileWidth = width <= 767;
   const tabletWidth = width >= 768 && width < 1279;
   const desktopWidth = width >= 1280;
-
+  const changeLanguage = ln => {
+    return () => {
+      i18n.changeLanguage(ln);
+    };
+  };
   return (
     <>
       <HeaderStyled isLogged={isLogged}>
@@ -63,6 +67,8 @@ const Header = () => {
                   >
                     {t('registration')}
                   </HeaderLink>
+                  <button onClick={changeLanguage('en')}>en</button>
+                  <button onClick={changeLanguage('ua')}>ua</button>
                 </>
               )}
               {isLogged && mobileWidth && (

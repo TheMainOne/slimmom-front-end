@@ -12,6 +12,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { saveUserInfo } from 'redux/slices';
+import { useTranslation } from 'react-i18next';
 
 const typeBlood = [1, 2, 3, 4];
 
@@ -37,6 +38,7 @@ const validationSchema = yup.object({
 const CalculatorСalorieForm = ({ openModal }) => {
   const [selectedTypeBlood, setSelectedTypeBlood] = useState(1);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const formik = useFormik({
     initialValues: {
@@ -60,7 +62,7 @@ const CalculatorСalorieForm = ({ openModal }) => {
           variant="standard"
           id="height"
           name="height"
-          label="Height *"
+          label={t('height')}
           value={formik.values.height}
           onChange={formik.handleChange}
           error={formik.touched.height && Boolean(formik.errors.height)}
@@ -70,7 +72,7 @@ const CalculatorСalorieForm = ({ openModal }) => {
           variant="standard"
           id="age"
           name="age"
-          label="Age *"
+          label={t('age')}
           value={formik.values.age}
           onChange={formik.handleChange}
           error={formik.touched.age && Boolean(formik.errors.age)}
@@ -80,7 +82,7 @@ const CalculatorСalorieForm = ({ openModal }) => {
           variant="standard"
           id="currentWeight"
           name="currentWeight"
-          label="Current weight *"
+          label={t('weight')}
           type="currentWeight"
           value={formik.values.currentWeight}
           onChange={formik.handleChange}
@@ -95,7 +97,7 @@ const CalculatorСalorieForm = ({ openModal }) => {
           variant="standard"
           id="desiredWeight"
           name="desiredWeight"
-          label="Desired weight *"
+          label={t('desiredWeight')}
           value={formik.values.desiredWeight}
           onChange={formik.handleChange}
           error={
@@ -107,7 +109,7 @@ const CalculatorСalorieForm = ({ openModal }) => {
         />
         <Block>
           <RadioLabel id="demo-row-radio-buttons-group-label">
-            Blood type *
+            {t('bloodType')}
           </RadioLabel>
           <RadioGroup
             id="bloodType"
@@ -138,7 +140,7 @@ const CalculatorСalorieForm = ({ openModal }) => {
           }
         }}
       >
-        Start losing weight
+        {t('start')}
       </ButtonRegister>
     </Form>
   );

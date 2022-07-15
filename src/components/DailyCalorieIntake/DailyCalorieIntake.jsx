@@ -1,12 +1,15 @@
-import { saveUserInfo } from 'redux/slices';
+// import { saveUserInfo } from 'redux/slices';
 import { useSelector } from 'react-redux';
 import { Title, Text, Span } from './DailyCalorieIntake.styled';
 import { List } from './List';
-
+import { useTranslation } from 'react-i18next';
+import { getUserParams } from 'redux/slices/selector';
 export const DailyCalorieIntake = () => {
-  const user = useSelector(saveUserInfo);
-  const { height, age, currentWeight, desiredWeight } =
-    user.payload.userInfo.userInfo;
+  const { t } = useTranslation();
+
+  const user = useSelector(getUserParams);
+  console.log(user);
+  const { height, age, currentWeight, desiredWeight } = user;
   const formula = Math.floor(
     10 * currentWeight +
       6.25 * height -
@@ -16,10 +19,8 @@ export const DailyCalorieIntake = () => {
   );
   return (
     <>
-      <Title> Your recommended daily calorie intake is</Title>
-      <Text>
-        {formula} <Span>kcal</Span>
-      </Text>
+      <Title>{t('recommendation')}</Title>
+      <Text>{/* {formula} <Span>{t('kcal')}</Span> */}</Text>
       <List />
     </>
   );

@@ -7,10 +7,13 @@ import { Modal } from 'components/Modal';
 import { ModalContent } from 'components/Modal/ModalContent';
 import useResizeAware from 'react-resize-aware';
 import CalculatorСalorieForm from 'components/Forms/CalculatorСalorieForm/CalculatorСalorieForm';
+import { useTranslation } from 'react-i18next';
 
 const MainPage = () => {
   const [resizeListener] = useResizeAware();
   const [showModal, setShowModal] = useState(false);
+  const { t } = useTranslation();
+
   const openModal = () => {
     setShowModal(prev => !prev);
   };
@@ -24,7 +27,7 @@ const MainPage = () => {
     <Container>
       <PageContainer>
         {resizeListener}
-        <PageTitle title={'Calculate your daily calorie intake right now'} />
+        <PageTitle title={t('title')} />
         <FormContainer>
           <CalculatorСalorieForm openModal={openModal} />
         </FormContainer>
