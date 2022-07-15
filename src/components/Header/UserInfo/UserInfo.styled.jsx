@@ -1,13 +1,15 @@
 import styled from 'styled-components';
+import Button from '@mui/material/Button';
 
-export const HeaderNavButtons = styled.span`
-  font-family: ${({ theme: { fonts } }) => fonts.gothamPro};
+export const HeaderNavButtons = styled(Button)`
+  /* font-family: ${({ theme: { fonts } }) => fonts.gothamPro}; */
   font-size: 14px;
-  font-weight: 700;
 
   &:first-of-type {
     position: relative;
     margin-right: 32px;
+    font-family: 'Gotham Pro';
+    font-weight: 700;
 
     &:after {
       border-bottom: 32px solid #e0e0e0;
@@ -26,12 +28,15 @@ export const HeaderNavButtons = styled.span`
     margin-right: 20px;
     color: #9b9faa;
   }
+  &:not(:last-child) {
+    color: #212121;
+  }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     &:first-of-type {
       position: inherit;
       margin-right: 30px;
-      color: #212121;
+      /* color: #212121; */
 
       &:after {
         border-bottom: 32px solid #e0e0e0;
@@ -46,7 +51,7 @@ export const HeaderNavButtons = styled.span`
     }
 
     &:last-of-type {
-      color: #9b9faa;
+      /* color: #9b9faa; */
       cursor: pointer;
     }
   }
