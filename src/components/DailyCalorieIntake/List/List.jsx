@@ -26,7 +26,6 @@ export const List = () => {
   const categories =
     data && Object.keys(data?.results?.bannedProducts?.categories);
 
-  console.log(categories);
   return (
     <ListWrapper>
       {categories && <ListTitle>Foods you should not eat</ListTitle>}
