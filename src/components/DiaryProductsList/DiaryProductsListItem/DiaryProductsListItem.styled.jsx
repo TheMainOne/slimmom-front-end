@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import Popover from '@mui/material/Popover';
 
 const ListItem = styled.li`
   display: flex;
 `;
 const Title = styled.div`
+  position: relative;
   padding-top: ${({ theme: { spacing } }) => spacing(5)};
   padding-bottom: ${({ theme: { spacing } }) => spacing(2)};
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.borderColor};
@@ -71,4 +73,14 @@ const ButtonContainer = styled.div`
   align-items: flex-end;
 `;
 
-export { ListItem, Title, Text, Measure, ButtonContainer };
+const PopoverStyled = styled(Popover)`
+  & .MuiPaper-root {
+    background-color: ${({ theme: { colors } }) => colors.$lightGrey};
+  }
+
+  & .MuiTypography-root {
+    font-size: 14px;
+  }
+`;
+
+export { ListItem, Title, Text, Measure, ButtonContainer, PopoverStyled };
