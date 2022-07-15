@@ -4,27 +4,19 @@ export const HeaderNavButtons = styled.span`
   font-family: ${({ theme: { fonts } }) => fonts.gothamPro};
   font-size: 14px;
   font-weight: 700;
+  height: 80%;
+  display: flex;
+  align-items: center;
 
   &:first-of-type {
-    position: relative;
-    margin-right: 32px;
-
-    &:after {
-      border-bottom: 32px solid #e0e0e0;
-      position: absolute;
-      z-index: -1;
-      content: '';
-      top: -8px;
-      left: 70px;
-      height: 32px;
-      width: 2px;
-      z-index: 1;
-    }
+    border-right: 2px solid #e0e0e0;
+    padding-right: 16px;
   }
 
   &:last-of-type {
     margin-right: 20px;
     color: #9b9faa;
+    padding-left: 16px;
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
