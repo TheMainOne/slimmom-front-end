@@ -8,7 +8,7 @@ export const DailyCalorieIntake = () => {
   const { t } = useTranslation();
 
   const user = useSelector(getUserParams);
-  console.log(user);
+  if (!user) return;
   const { height, age, currentWeight, desiredWeight } = user;
   const formula = Math.floor(
     10 * currentWeight +
@@ -20,8 +20,10 @@ export const DailyCalorieIntake = () => {
   return (
     <>
       <Title>{t('recommendation')}</Title>
-      <Text>{/* {formula} <Span>{t('kcal')}</Span> */}</Text>
-      <List />
+      <Text>
+        {formula} <Span>{t('kcal')}</Span>
+      </Text>
+      <List user={user} />
     </>
   );
 };
