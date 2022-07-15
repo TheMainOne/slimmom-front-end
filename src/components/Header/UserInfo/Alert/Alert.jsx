@@ -5,7 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { HeaderNavButtons } from '../UserInfo.styled';
+import { HeaderNavButton } from '../UserInfo.styled';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
 
@@ -22,10 +22,10 @@ export const Alert = () => {
   };
 
   return (
-    <div>
-      <HeaderNavButtons color="success" onClick={handleClickOpen}>
+    <>
+      <HeaderNavButton color="success" onClick={handleClickOpen}>
         Exit
-      </HeaderNavButtons>
+      </HeaderNavButton>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -55,6 +55,6 @@ export const Alert = () => {
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 };
