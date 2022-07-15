@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { saveUserInfo } from 'redux/slices';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { validationSchema } from './validationSchema';
+import { setUserData } from 'redux/auth/authSlice';
 
 const typeBlood = [1, 2, 3, 4];
 
@@ -34,13 +35,17 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
       desiredWeight: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: async (values, { resetForm }) => {
       const paramsUser = { ...values, bloodType: selectedTypeBlood };
       dispatch(saveUserInfo(paramsUser)); /// Юля поменяй место записи слайса
 
-      if (isLoggedIn) getPrivatDailyNorma(paramsUser);
+      if (isLoggedIn) {
+        dispatch(setUserData(paramsUser));
+        await getPrivatDailyNorma(paramsUser);
+      }
+
       if (formik.dirty && !isLoggedIn) {
-        openModal();
+        await openModal();
       }
 
       resetForm();
