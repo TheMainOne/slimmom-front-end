@@ -1,5 +1,13 @@
-import { ListItem, Title, Text, Measure } from './DiaryProductsListItem.styled';
 import { diaryApi } from 'redux/apis';
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from 'components/IconButton';
+import {
+  ListItem,
+  Title,
+  Text,
+  Measure,
+  ButtonContainer,
+} from './DiaryProductsListItem.styled';
 
 const DiaryProductsListItem = ({
   title,
@@ -8,11 +16,8 @@ const DiaryProductsListItem = ({
   currentDate,
   productId,
 }) => {
-  // console.log(id);
   const [deleteProduct, { isLoading: isDeleting }] =
     diaryApi.useDeleteProductFromDateMutation();
-  // console.log(data);
-  // console.log(date);
 
   return (
     <ListItem>
@@ -25,13 +30,18 @@ const DiaryProductsListItem = ({
         <Text>{kcal}</Text>
         <Measure>kcal</Measure>
       </Title>
-      <button
-        type="button"
-        onClick={() => deleteProduct({ currentDate, productId })}
-        disabled={isDeleting ? true : false}
-      >
-        X
-      </button>
+      <ButtonContainer>
+        <IconButton
+          type="button"
+          icon={<CloseIcon />}
+          onClick={() => deleteProduct({ currentDate, productId })}
+          disabled={isDeleting ? true : false}
+        />
+      </ButtonContainer>
+      {/* 
+      <ButtonContainer>
+        <IconButton type="button" icon={<CloseIcon />} />
+      </ButtonContainer> */}
     </ListItem>
   );
 };
