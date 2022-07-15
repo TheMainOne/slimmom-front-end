@@ -17,13 +17,12 @@ const LoginPage = lazy(() => import('pages/LoginPage'));
 
 const App = () => {
   const dispatch = useDispatch();
-  
-    useEffect(() => {
+
+  useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
   return (
-     
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -52,18 +51,21 @@ const App = () => {
               </PublicRoute>
             }
           />
-          <Route path="signup" element={<RegistrationPage />} />
+          <Route
+            path="signup"
+            element={
+              <PublicRoute redirectTo="/diary" restricted>
+                <RegistrationPage />
+              </PublicRoute>
+            }
+          />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
       <GlobalStyle />
       <ToastContainer />
     </ThemeProvider>
-   
   );
-
-
-  
 };
 
 export default App;

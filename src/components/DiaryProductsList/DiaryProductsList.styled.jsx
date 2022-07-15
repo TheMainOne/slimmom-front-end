@@ -12,7 +12,7 @@ const List = styled.ul`
   @media (min-width: 768px) {
     width: 610px;
     height: 244px;
-    padding-right: 40px;
+    padding-right: 32px;
     overflow-y: auto;
 
     ::-webkit-scrollbar-button {

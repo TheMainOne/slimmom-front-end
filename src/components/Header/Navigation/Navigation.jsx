@@ -1,9 +1,11 @@
 import React from 'react';
 import useResizeAware from 'react-resize-aware';
 import Logo from '../Logo';
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 import Container from 'components/Container';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import UserInfo from '../UserInfo';
 import {
@@ -11,6 +13,9 @@ import {
   HeaderNavigation,
   HeaderLink,
   HeaderLinksWrapper,
+  MobileNavigation,
+  MobileNavigationItem,
+  MobileNavigationLink
 } from './Navigation.styled';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 
@@ -21,9 +26,9 @@ const styles = {
   isHidden: {
     display: 'none',
   },
-};
+ };
 
-const Header = () => {
+ const Header = () =>  {
   const { pathname } = useLocation();
   const bannedPaths = [];
   const isHidden = bannedPaths.some(bannedPath => bannedPath === pathname);
@@ -33,6 +38,12 @@ const Header = () => {
   const mobileWidth = width <= 767;
   const tabletWidth = width >= 768 && width < 1279;
   const desktopWidth = width >= 1280;
+
+  const [visibleMenu, setVisibleMenu] = useState(false);
+
+  const handleMenuBtnClick = () => {
+    setVisibleMenu(prev => !prev);
+  };
 
   return (
     <>
@@ -64,14 +75,59 @@ const Header = () => {
                 </>
               )}
               {isLogged && mobileWidth && (
-                <>
-                  <MenuIcon fontSize="medium" type="submit" />
-                </>
+                 <div>
+                  {visibleMenu ? (
+                    <>
+                      <CloseIcon onClick={handleMenuBtnClick} />
+                      <MobileNavigation onClick={handleMenuBtnClick} >
+                        <MobileNavigationItem >
+                          <MobileNavigationLink
+                            to="/diary"
+                          >
+                            diary
+                          </MobileNavigationLink>
+                        </MobileNavigationItem>
+                        <MobileNavigationItem>
+                          <MobileNavigationLink
+                            to="/calculator"
+                          >
+                            calculator
+                          </MobileNavigationLink>
+                        </MobileNavigationItem>
+                      </MobileNavigation>
+                    </>
+                  ) : (
+                    <MenuIcon onClick={handleMenuBtnClick} />
+                  )}
+                </div>
+                
               )}
               {isLogged && tabletWidth && (
                 <>
                   <UserInfo />
-                  <MenuIcon fontSize="medium" type="submit" />
+                  {visibleMenu ? (
+                    <>
+                      <CloseIcon onClick={handleMenuBtnClick} />
+                      <MobileNavigation onClick={handleMenuBtnClick}>
+                        <MobileNavigationItem>
+                          <MobileNavigationLink
+                            to="/diary"
+                          >
+                            diary
+                          </MobileNavigationLink>
+                        </MobileNavigationItem>
+                        <MobileNavigationItem>
+                          <MobileNavigationLink
+                            to="/calculator"
+                          >
+                            calculator
+                          </MobileNavigationLink>
+                        </MobileNavigationItem>
+                      </MobileNavigation>
+                    </>
+                  ) : (
+                    <MenuIcon onClick={handleMenuBtnClick} />
+                  )}
                 </>
               )}
               {isLogged && desktopWidth && (
@@ -101,11 +157,11 @@ const Header = () => {
       </HeaderStyled>
       {isLogged && mobileWidth && (
         <>
-          <UserInfo />
+          {/* <UserInfo /> */}
         </>
       )}
     </>
   );
-};
+}
 
 export default Header;
