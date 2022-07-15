@@ -18,7 +18,7 @@ export const DailyCalorieIntake = () => {
     <>
       <Title> Your recommended daily calorie intake is</Title>
       <Text>
-        {formula} <Span>kkal</Span>
+        {formula} <Span>kcal</Span>
       </Text>
       <List />
     </>

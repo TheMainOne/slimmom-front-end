@@ -1,0 +1,36 @@
+{
+  "signIn": "sign in",
+  "registration": "registration",
+  "title": "Calculate your daily calorie intake right now",
+  "height": "Height",
+  "age": "Age",
+  "weight": "Current weight",
+  "desiredWeight": "Desired weight",
+  "bloodType": "Blood type",
+  "start": "Start losing weight",
+
+  "recommendation": "Your recommended daily calorie intake is",
+  "kkal": "kkal",
+  "bannedFood": "Foods you should not eat",
+
+  "email": "Email",
+  "password": "Password",
+  "logIn": "Login",
+  "register": "Register",
+  "name": "Name",
+
+  "diary": "diary",
+  "calculator": "calculator",
+  "exit": "Exit",
+  "summary": "Summary for",
+  "add": "Add",
+  "left": "Left",
+  "consumed": "Consumed",
+  "rate": "Daily rate",
+  "norm": "of normal",
+  "notRecommended": "Food not recommended",
+  "display": "Your diet will be displayed here",
+  "enter": "Enter product name",
+  "grams": "Grams",
+  "g": "g"
+}

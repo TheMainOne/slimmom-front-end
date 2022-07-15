@@ -1,0 +1,36 @@
+{
+  "signIn": "увiйти",
+  "registration": "реєстрацiя",
+  "title": "Прорахуй свою добову норму калорій прямо зараз",
+  "height": "Зріст",
+  "age": "Вік",
+  "weight": "Теперішня вага",
+  "desiredWeight": "Бажана вага",
+  "bloodType": "Тип крові",
+  "start": "Схуднути",
+
+  "recommendation": "Your recommended daily calorie intake is",
+  "kkal": "ккал",
+  "bannedFood": "Їжа, яку ти не повинна їсти",
+
+  "email": "Електронна пошта",
+  "password": "Пароль",
+  "logIn": "Увійти",
+  "register": "Зареєструватись",
+  "name": "Ім'я",
+
+  "diary": "щоденник",
+  "calculator": "калькулятор",
+  "exit": "вийти",
+  "summary": "Підсумок для",
+  "add": "Додати",
+  "left": "Залишилось",
+  "consumed": "Спожито",
+  "rate": "Добова норма",
+  "norm": "від норми",
+  "notRecommended": "Нерекомендована їжа",
+  "display": "Твоя дієта буде відображатись тут",
+  "enter": "Введи назву продукту",
+  "grams": "Грами",
+  "g": "гр"
+}

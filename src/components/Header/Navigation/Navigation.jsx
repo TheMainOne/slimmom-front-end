@@ -13,6 +13,7 @@ import {
   HeaderLinksWrapper,
 } from './Navigation.styled';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
+import { useTranslation } from 'react-i18next';
 
 const styles = {
   link: {
@@ -24,6 +25,7 @@ const styles = {
 };
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
   const { pathname } = useLocation();
   const bannedPaths = [];
   const isHidden = bannedPaths.some(bannedPath => bannedPath === pathname);
@@ -52,14 +54,14 @@ const Header = () => {
                     stylehidden={styles.isHidden}
                     style={styles.link}
                   >
-                    Sign in
+                    {t('signIn')}
                   </HeaderLink>
                   <HeaderLink
                     to="/signup"
                     stylehidden={styles.isHidden}
                     style={styles.link}
                   >
-                    Registration
+                    {t('registration')}
                   </HeaderLink>
                 </>
               )}

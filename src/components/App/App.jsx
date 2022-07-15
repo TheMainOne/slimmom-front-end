@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme, GlobalStyle } from 'styles';
 import { useDispatch } from 'react-redux';
 import Layout from 'pages/Layout';
+import '../../translation/i18n';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import MainPage from 'pages/MainPage';
@@ -17,13 +18,12 @@ const LoginPage = lazy(() => import('pages/LoginPage'));
 
 const App = () => {
   const dispatch = useDispatch();
-  
-    useEffect(() => {
+
+  useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
   return (
-     
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -59,11 +59,7 @@ const App = () => {
       <GlobalStyle />
       <ToastContainer />
     </ThemeProvider>
-   
   );
-
-
-  
 };
 
 export default App;
