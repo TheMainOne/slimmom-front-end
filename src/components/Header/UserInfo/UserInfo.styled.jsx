@@ -4,24 +4,15 @@ import Button from '@mui/material/Button';
 export const HeaderNavButtons = styled(Button)`
   /* font-family: ${({ theme: { fonts } }) => fonts.gothamPro}; */
   font-size: 14px;
+  font-family: 'Gotham Pro';
+  font-weight: 700;
+  height: 80%;
+  display: flex;
+  align-items: center;
 
   &:first-of-type {
-    position: relative;
-    margin-right: 32px;
-    font-family: 'Gotham Pro';
-    font-weight: 700;
-
-    &:after {
-      border-bottom: 32px solid #e0e0e0;
-      position: absolute;
-      z-index: -1;
-      content: '';
-      top: -8px;
-      left: 91px;
-      height: 32px;
-      width: 2px;
-      z-index: 1;
-    }
+    border-right: 2px solid #e0e0e0;
+    padding-right: 16px;
   }
 
   &:last-of-type {
@@ -33,13 +24,18 @@ export const HeaderNavButtons = styled(Button)`
     color: #212121;
   }
 
-  /* @media (min-width: ${({ theme: { breakpoints } }) =>
-    breakpoints.tablet}) { */
-  @media (min-width: 768px) {
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     &:first-of-type {
       position: inherit;
-      margin-right: 30px;
-      /* color: #212121; */
+      margin-right: 0px;
+      padding-right: 15px;
+      border-right: 2px solid #e0e0e0;
+      color: #212121;
 
       &:after {
         display: none;
