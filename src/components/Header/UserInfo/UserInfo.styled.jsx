@@ -32,7 +32,9 @@ export const HeaderNavButtons = styled(Button)`
     color: #212121;
   }
 
-  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+  /* @media (min-width: ${({ theme: { breakpoints } }) =>
+    breakpoints.tablet}) { */
+  @media (min-width: 768px) {
     &:first-of-type {
       position: inherit;
       margin-right: 30px;
