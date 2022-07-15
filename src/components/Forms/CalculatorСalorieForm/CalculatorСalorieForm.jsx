@@ -1,5 +1,4 @@
 import { useFormik } from 'formik';
-import * as yup from 'yup';
 import { Block, Form, InputContainer } from './CalculatorСalorieForm.styled';
 import {
   ButtonRegister,
@@ -13,27 +12,9 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveUserInfo } from 'redux/slices';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
+import { validationSchema } from './validationSchema';
 
 const typeBlood = [1, 2, 3, 4];
-
-const validationSchema = yup.object({
-  height: yup
-    .number('Height it is number')
-    .min(1, 'Height should be of min 1')
-    .required('Height is required'),
-  age: yup
-    .number('Age it is number')
-    .min(1, 'Age should be of min 1')
-    .required('Age is required'),
-  currentWeight: yup
-    .number('CurrentWeight it is number')
-    .min(1, 'CurrentWeight should be of min 1')
-    .required('CurrentWeight is required'),
-  desiredWeight: yup
-    .number('DesiredWeight it is number')
-    .min(1, 'DesiredWeight should be of min 1')
-    .required('DesiredWeight is required'),
-});
 
 const CalculatorСalorieForm = ({ openModal }) => {
   const [selectedTypeBlood, setSelectedTypeBlood] = useState(1);

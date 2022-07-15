@@ -24,6 +24,10 @@ const Button = styled.button`
     color: ${({ theme: { colors } }) => colors.$white};
   }
 
+  &:disabled {
+    background-color: ${({ theme: { colors } }) => colors.$lightGrey};
+  }
+
   & .css-i4bv87-MuiSvgIcon-root {
     width: 18px;
     height: 18px;

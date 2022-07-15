@@ -6,10 +6,12 @@ const PageContainer = styled.div`
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     padding-top: ${({ theme: { spacing } }) => spacing(25)};
+    padding-bottom: ${({ theme: { spacing } }) => spacing(99)};
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     padding-top: ${({ theme: { spacing } }) => spacing(36)};
+    padding-bottom: ${({ theme: { spacing } }) => spacing(28)};
   }
 `;
 

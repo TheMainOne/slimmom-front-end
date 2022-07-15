@@ -8,6 +8,8 @@ const calendarSlice = createSlice({
   },
   reducers: {
     setDate: (state, action) => void (state.activeDate = action.payload),
+    // setIsCurrentDate: (state, action) =>
+    //   void (state.isCurrentDate = action.payload),
   },
 });
 

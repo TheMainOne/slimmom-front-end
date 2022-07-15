@@ -18,14 +18,15 @@ export const DiaryPageContent = () => {
     diaryApi.useGetProductsByDateQuery(currentDate);
   const { data: { consumedProducts = [] } = {} } = data;
 
-  const showForm = useShowForm(currentDate);
+  const shouldShowForm = useShowForm(); // true only for now or future dates
+  console.log(shouldShowForm);
 
   return (
     <BlockWrapper>
       <DiaryPageStyled>
         <DiaryDateCalendar />
 
-        {showForm && <DiaryAddProductForm addProduct={addProduct} />}
+        {shouldShowForm && <DiaryAddProductForm addProduct={addProduct} />}
 
         {isLoading || isAddingProduct ? (
           <Spinner />
@@ -33,6 +34,7 @@ export const DiaryPageContent = () => {
           <DiaryProductsList
             products={consumedProducts}
             currentDate={currentDate}
+            disabled={!shouldShowForm}
           />
         ) : (
           <h1>Сегодня вы ещё не ели!</h1>
