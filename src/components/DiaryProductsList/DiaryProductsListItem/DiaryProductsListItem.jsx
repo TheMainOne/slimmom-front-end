@@ -15,6 +15,7 @@ const DiaryProductsListItem = ({
   kcal,
   currentDate,
   productId,
+  disabled,
 }) => {
   const [deleteProduct, { isLoading: isDeleting }] =
     diaryApi.useDeleteProductFromDateMutation();
@@ -35,7 +36,7 @@ const DiaryProductsListItem = ({
           type="button"
           icon={<CloseIcon />}
           onClick={() => deleteProduct({ currentDate, productId })}
-          disabled={isDeleting ? true : false}
+          disabled={isDeleting ? isDeleting : disabled ? disabled : false}
         />
       </ButtonContainer>
       {/* 

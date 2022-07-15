@@ -15,7 +15,7 @@ import {
   HeaderLinksWrapper,
   MobileNavigation,
   MobileNavigationItem,
-  MobileNavigationLink
+  MobileNavigationLink,
 } from './Navigation.styled';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 
@@ -26,9 +26,9 @@ const styles = {
   isHidden: {
     display: 'none',
   },
- };
+};
 
- const Header = () =>  {
+const Header = () => {
   const { pathname } = useLocation();
   const bannedPaths = [];
   const isHidden = bannedPaths.some(bannedPath => bannedPath === pathname);
@@ -75,22 +75,18 @@ const styles = {
                 </>
               )}
               {isLogged && mobileWidth && (
-                 <div>
+                <div>
                   {visibleMenu ? (
                     <>
                       <CloseIcon onClick={handleMenuBtnClick} />
-                      <MobileNavigation onClick={handleMenuBtnClick} >
-                        <MobileNavigationItem >
-                          <MobileNavigationLink
-                            to="/diary"
-                          >
+                      <MobileNavigation onClick={handleMenuBtnClick}>
+                        <MobileNavigationItem>
+                          <MobileNavigationLink to="/diary">
                             diary
                           </MobileNavigationLink>
                         </MobileNavigationItem>
                         <MobileNavigationItem>
-                          <MobileNavigationLink
-                            to="/calculator"
-                          >
+                          <MobileNavigationLink to="/calculator">
                             calculator
                           </MobileNavigationLink>
                         </MobileNavigationItem>
@@ -100,7 +96,6 @@ const styles = {
                     <MenuIcon onClick={handleMenuBtnClick} />
                   )}
                 </div>
-                
               )}
               {isLogged && tabletWidth && (
                 <>
@@ -110,16 +105,12 @@ const styles = {
                       <CloseIcon onClick={handleMenuBtnClick} />
                       <MobileNavigation onClick={handleMenuBtnClick}>
                         <MobileNavigationItem>
-                          <MobileNavigationLink
-                            to="/diary"
-                          >
+                          <MobileNavigationLink to="/diary">
                             diary
                           </MobileNavigationLink>
                         </MobileNavigationItem>
                         <MobileNavigationItem>
-                          <MobileNavigationLink
-                            to="/calculator"
-                          >
+                          <MobileNavigationLink to="/calculator">
                             calculator
                           </MobileNavigationLink>
                         </MobileNavigationItem>
@@ -157,11 +148,11 @@ const styles = {
       </HeaderStyled>
       {isLogged && mobileWidth && (
         <>
-          {/* <UserInfo /> */}
+          <UserInfo />
         </>
       )}
     </>
   );
-}
+};
 
 export default Header;

@@ -12,6 +12,7 @@ export default function UserInfo() {
   return (
     <HeaderNavButtonsContainer>
       {resizeListener}
+
       <HeaderNavButtons>{name}</HeaderNavButtons>
       <HeaderNavButtons onClick={() => dispatch(authOperations.logOut())}>
         Exit
