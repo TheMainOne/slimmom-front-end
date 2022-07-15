@@ -18,14 +18,16 @@ export const DiaryPageContent = () => {
     diaryApi.useGetProductsByDateQuery(currentDate);
   const { data: { consumedProducts = [] } = {} } = data;
 
-  const showForm = useShowForm(currentDate);
+  const shouldShowForm = useShowForm(); // true only for now or future dates
+  const isDisabledDelete = !shouldShowForm; // true only for past dates
+  console.log({ isDisabledDelete });
 
   return (
     <BlockWrapper>
       <DiaryPageStyled>
         <DiaryDateCalendar />
 
-        {showForm && <DiaryAddProductForm addProduct={addProduct} />}
+        {shouldShowForm && <DiaryAddProductForm addProduct={addProduct} />}
 
         {isLoading || isAddingProduct ? (
           <Spinner />
