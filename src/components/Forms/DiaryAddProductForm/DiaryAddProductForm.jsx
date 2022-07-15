@@ -75,7 +75,7 @@ export const DiaryAddProductForm = ({ addProduct }) => {
         <AddProductInput
           variant="standard"
           name="weight"
-          label="weight"
+          label="Grams"
           type="text"
           title="min 1, max 6 digits"
           inputProps={{ inputMode: 'numeric', pattern: '[0-9]{1,6}' }}

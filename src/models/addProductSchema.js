@@ -3,8 +3,8 @@ import { formatISO } from 'date-fns';
 
 export const addProductSchema = object({
   weight: number()
-    .min(1, 'min 1 char')
-    .max(7, 'max 20 char')
+    .min(1, 'min 1 gram')
+    .max(10000, 'max 10,000 grams')
     .positive('expects positive number')
     .integer('expects integer (no dot)')
     .required('Weight required'),
