@@ -23,7 +23,7 @@ export default function UserInfo() {
     <HeaderNavButtonsContainer>
       {resizeListener}
       <HeaderNavButtons disableRipple color="success">
-        {name}{' '}
+        {name}
       </HeaderNavButtons>
       {/* <HeaderNavButtons
         onClick={() => {

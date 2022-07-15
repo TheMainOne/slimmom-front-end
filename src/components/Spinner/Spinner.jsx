@@ -1,19 +1,11 @@
-import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components/macro';
-import { hideSpinner, selectShowLoader, showSpinner } from 'redux/slices';
-import { useCallback } from 'react';
 
 const ThreeDots = props => {
-  const showLoader = useSelector(selectShowLoader);
   const speed = Number(String(props.speed ?? 1));
   const fill = props.fill ?? '#fff';
   const stroke = props.stroke;
   const fillOpacity = props.fillOpacity;
   const strokeOpacity = props.strokeOpacity;
-
-  if (!showLoader) {
-    return null;
-  }
 
   return (
     <svg
@@ -127,47 +119,3 @@ export const Spinner = styled(ThreeDots).attrs(
     'aria-label': 'loading',
   })
 )``;
-
-export const Example = styled.div`
-  display: flex;
-  align-items: center;
-
-  height: 40px;
-
-  > button {
-    background-color: #2196f3;
-
-    :hover,
-    :active {
-      background-color: #2196f3aa;
-      color: white;
-    }
-    border: none;
-    margin: 0 4px;
-
-    padding: 4px 8px;
-
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition-property: color, background-color;
-  }
-`;
-
-export const SpinnerExample = () => {
-  const dispatch = useDispatch();
-
-  const hide = useCallback(() => dispatch(hideSpinner()), [dispatch]);
-  const show = useCallback(() => dispatch(showSpinner()), [dispatch]);
-
-  return (
-    <Example>
-      <button type="button" onClick={hide}>
-        hide
-      </button>
-      <button type="button" onClick={show}>
-        show
-      </button>
-
-      <Spinner />
-    </Example>
-  );
-};

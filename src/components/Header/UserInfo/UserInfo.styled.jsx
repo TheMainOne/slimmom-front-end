@@ -27,6 +27,7 @@ export const HeaderNavButtons = styled(Button)`
   &:last-of-type {
     margin-right: 20px;
     color: #9b9faa;
+    padding-left: 16px;
   }
   &:not(:last-child) {
     color: #212121;
@@ -41,20 +42,14 @@ export const HeaderNavButtons = styled(Button)`
       /* color: #212121; */
 
       &:after {
-        border-bottom: 32px solid #e0e0e0;
-        position: absolute;
-        z-index: -1;
-        content: '';
-        top: 26px;
-        left: 645px;
-        height: 32px;
-        width: 2px;
+        display: none;
       }
     }
 
     &:last-of-type {
       /* color: #9b9faa; */
       cursor: pointer;
+      padding-left: 15px;
     }
   }
 `;

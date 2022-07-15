@@ -19,8 +19,7 @@ export const DiaryPageContent = () => {
   const { data: { consumedProducts = [] } = {} } = data;
 
   const shouldShowForm = useShowForm(); // true only for now or future dates
-  const isDisabledDelete = !shouldShowForm; // true only for past dates
-  console.log({ isDisabledDelete });
+  console.log(shouldShowForm);
 
   return (
     <BlockWrapper>
@@ -35,6 +34,7 @@ export const DiaryPageContent = () => {
           <DiaryProductsList
             products={consumedProducts}
             currentDate={currentDate}
+            disabled={!shouldShowForm}
           />
         ) : (
           <h1>Сегодня вы ещё не ели!</h1>
