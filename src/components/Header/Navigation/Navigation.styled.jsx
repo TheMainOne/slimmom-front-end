@@ -44,6 +44,37 @@ export const HeaderLink = styled(NavLink)`
   }
 `;
 
+export const MobileNavigation = styled.ul`
+position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  top: 82px;
+  left: 0;
+  right: 0;
+  padding: 60px 15px;
+  background-color: #264061;
+  text-align: center;
+`
+export const MobileNavigationItem = styled.li`
+&:not(:last-child) {
+  margin-bottom: 25px;
+}
+`
+export const MobileNavigationLink = styled(NavLink)`
+text-decoration: none;
+  font-family: 'Verdana', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #9b9faa;
+
+  &.active {
+    color: #fff;
+  }
+`
 export const HeaderLinksWrapper = styled.div`
   display: flex;
 
