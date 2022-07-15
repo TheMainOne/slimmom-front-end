@@ -28,26 +28,27 @@ export const HeaderNavButtons = styled.span`
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     &:first-of-type {
       position: inherit;
-      margin-right: 30px;
+      margin-right: 0px;
+      padding-right: 15px;
+      border-right: 2px solid #e0e0e0;
       color: #212121;
 
       &:after {
-        border-bottom: 32px solid #e0e0e0;
-        position: absolute;
-        z-index: -1;
-        content: '';
-        top: 26px;
-        left: 645px;
-        height: 32px;
-        width: 2px;
+        display: none;
       }
     }
 
     &:last-of-type {
       color: #9b9faa;
       cursor: pointer;
+      padding-left: 15px;
     }
   }
 `;

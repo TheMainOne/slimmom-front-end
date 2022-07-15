@@ -5,40 +5,6 @@ import logoTablet from '../../../images/logo/logo-tablet.svg';
 import logoDesktop from '../../../images/logo/logo-desktop.svg';
 import { NavLink } from 'react-router-dom';
 
-// export const LogoLink = styled.a`
-//   display: block;
-//   color: inherit;
-//   position: relative;
-//   height: 44px;
-//   width: ${props => (props.isLogged ? '160px' : '47px')};
-//   background-image: url(${props =>
-//     props.isLogged ? logoMobileBurger : logoMobile});
-
-//   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-//     background-image: url(${logoTablet});
-//     width: 162px;
-//     height: 44px;
-//   }
-
-//   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
-//     align-items: baseline;
-//     background-image: url(${logoDesktop});
-//     width: 167px;
-//     height: 66px;
-
-//     &:after {
-//       border-bottom: 32px solid #e0e0e0;
-//       position: absolute;
-//       z-index: -1;
-//       content: '';
-//       top: 60%;
-//       left: 108%;
-//       height: 32px;
-//       width: 2px;
-//     }
-//   }
-// `;
-
 export const LogoImage = styled.img`
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     margin-right: 11px;
