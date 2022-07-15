@@ -15,7 +15,7 @@ export const HeaderNavButtons = styled.span`
       z-index: -1;
       content: '';
       top: -8px;
-      left: 91px;
+      left: 70px;
       height: 32px;
       width: 2px;
       z-index: 1;
