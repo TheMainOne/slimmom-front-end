@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { baseApi } from './apis/baseApi';
 import { diaryApi } from './apis/diaryApi';
-import { calculatorSlice, calendarReducer, loaderReducer } from './slices';
+import { calculatorSlice, calendarReducer } from './slices';
 import { authSlice } from './auth/authSlice';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import {
@@ -37,7 +37,6 @@ const calculatorReducer = persistReducer(
 export const store = configureStore({
   reducer: {
     calendar: calendarReducer,
-    loader: loaderReducer,
     userInfo: calculatorReducer,
     auth: authReducer,
     [baseApi.reducerPath]: baseApi.reducer,
