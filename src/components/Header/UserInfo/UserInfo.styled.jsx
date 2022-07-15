@@ -77,9 +77,9 @@ export const HeaderNavButton = styled.button`
   color: #9b9faa;
   margin-right: 20px;
   height: 80%;
+  background: none;
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-    background: none;
     padding-left: 15px;
   }
 `;
