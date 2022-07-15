@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PageTitle from 'components/PageTitle';
-import { PageContainer } from './MainPage.styled';
+import { PageContainer, FormContainer } from './MainPage.styled';
 
 import Container from 'components/Container';
 import { Modal } from 'components/Modal';
@@ -25,7 +25,9 @@ const MainPage = () => {
       <PageContainer>
         {resizeListener}
         <PageTitle title={'Calculate your daily calorie intake right now'} />
-        <CalculatorСalorieForm openModal={openModal} />
+        <FormContainer>
+          <CalculatorСalorieForm openModal={openModal} />
+        </FormContainer>
         <Modal showModal={showModal} setShowModal={setShowModal}>
           <ModalContent setShowModal={setShowModal} />
         </Modal>
