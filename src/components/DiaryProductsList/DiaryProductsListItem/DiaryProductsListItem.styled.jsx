@@ -3,11 +3,13 @@ import Popover from '@mui/material/Popover';
 
 const ListItem = styled.li`
   display: flex;
+  &:not(:first-child) {
+    padding-top: ${({ theme: { spacing } }) => spacing(4)};
+  }
 `;
+
 const Title = styled.div`
   position: relative;
-  padding-top: ${({ theme: { spacing } }) => spacing(5)};
-  padding-bottom: ${({ theme: { spacing } }) => spacing(2)};
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.borderColor};
   white-space: nowrap;
   overflow: hidden;
@@ -43,7 +45,6 @@ const Title = styled.div`
 
   &:nth-child(3) {
     width: 65px;
-    /* margin-right: 13px; */
     @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
       width: 106px;
       margin-right: 26px;
@@ -51,7 +52,6 @@ const Title = styled.div`
   }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-    padding-top: ${({ theme: { spacing } }) => spacing(6)};
     padding-bottom: ${({ theme: { spacing } }) => spacing(5)};
   }
 `;

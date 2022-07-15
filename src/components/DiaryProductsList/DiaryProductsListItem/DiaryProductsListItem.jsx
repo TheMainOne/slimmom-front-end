@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { diaryApi } from 'redux/apis';
-import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
-
-// import Popover from 'components/Popover';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from 'components/IconButton';
 import {
@@ -45,12 +42,9 @@ const DiaryProductsListItem = ({
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
-  console.log(anchorEl);
   return (
     <ListItem>
-      <Title ref={anchorEl} title={title} onClick={handleClick}>
-        {title}
-      </Title>
+      <Title onClick={handleClick}>{title}</Title>
       <PopoverStyled
         id={id}
         open={open}
