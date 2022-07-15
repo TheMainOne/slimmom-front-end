@@ -27,7 +27,7 @@ export const diaryApi = baseApi.injectEndpoints({
       query: ({ date, id, weight }) => ({
         url: '/diary/',
         method: 'POST',
-        body: { id, weight },
+        body: { id, weight: Number(weight) },
         params: { date },
       }),
       invalidatesTags: [{ type: 'Diaries', id: 'LIST' }],

@@ -5,13 +5,20 @@ import { ButtonRegistration } from 'components/Forms/LoginForm/Mui';
 import LoginForm from '../../components/Forms/LoginForm';
 // import { Spinner } from '../../components/Spinner/Spinner';
 // import { selectShowLoader } from '../../redux/slices/loaderSlice';
-import { PageContainer, Title, BoxRelative } from './LoginPage.styled';
+import {
+  PageContainer,
+  Title,
+  BoxRelative,
+  DefaultData,
+  DefaultLogin,
+  DefaultText,
+  Span,
+} from './LoginPage.styled';
 import Container from 'components/Container';
 import Navigation from 'components/Header/Navigation';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 
 const styles = {
-  
   isHidden: {
     display: 'none',
   },
@@ -29,11 +36,10 @@ const LoginPage = () => {
     <Container>
       <PageContainer>
         {isLogged && (
-        <>
-        <Navigation stylehidden={styles.isHidden}/>
-        </>
-        )
-        }
+          <>
+            <Navigation stylehidden={styles.isHidden} />
+          </>
+        )}
         <BoxRelative>
           <Title>Sign In</Title>
           <LoginForm />
@@ -47,6 +53,15 @@ const LoginPage = () => {
             </ButtonRegistration>
           </NavLink>
         </BoxRelative>
+        <DefaultData>
+          <DefaultText>*for the default login, use the data below:</DefaultText>
+          <DefaultLogin>
+            <Span>email:</Span> default@gmail.com
+          </DefaultLogin>
+          <DefaultLogin>
+            <Span>password:</Span> default1111
+          </DefaultLogin>
+        </DefaultData>
       </PageContainer>
     </Container>
   );

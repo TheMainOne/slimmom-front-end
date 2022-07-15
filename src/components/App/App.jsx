@@ -52,7 +52,14 @@ const App = () => {
               </PublicRoute>
             }
           />
-          <Route path="signup" element={<RegistrationPage />} />
+          <Route
+            path="signup"
+            element={
+              <PublicRoute redirectTo="/diary" restricted>
+                <RegistrationPage />
+              </PublicRoute>
+            }
+          />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PageTitle from 'components/PageTitle';
-import { PageContainer, FormContainer } from './MainPage.styled';
+import { PageContainer /*FormContainer*/ } from './MainPage.styled';
 
 import Container from 'components/Container';
 import { Modal } from 'components/Modal';
@@ -28,9 +28,9 @@ const MainPage = () => {
       <PageContainer>
         {resizeListener}
         <PageTitle title={t('title')} />
-        <FormContainer>
-          <CalculatorСalorieForm openModal={openModal} />
-        </FormContainer>
+        {/* <FormContainer> */}
+        <CalculatorСalorieForm openModal={openModal} />
+        {/* </FormContainer> */}
         <Modal showModal={showModal} setShowModal={setShowModal}>
           <ModalContent setShowModal={setShowModal} />
         </Modal>

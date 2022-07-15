@@ -17,3 +17,9 @@ export const DiaryAddProductFormStyled = styled.form`
     gap: 60px;
   }
 `;
+
+export const FlexWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
