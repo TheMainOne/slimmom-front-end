@@ -18,7 +18,7 @@ const ButtonRegister = styled(Button)`
     transform: scale(1.1);
   }
   @media screen and (min-width: 768px) {
-    margin: 60px 0 0;
+    margin: 60px 0 0 0;
   }
 `;
 const LinkLogin = styled(ButtonRegister)`

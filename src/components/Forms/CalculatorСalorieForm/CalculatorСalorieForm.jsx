@@ -10,8 +10,9 @@ import {
 } from './MuI';
 import RadioGroup from '@mui/material/RadioGroup';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { saveUserInfo } from 'redux/slices';
+import { getIsLoggedIn } from 'redux/auth/authSelector';
 
 const typeBlood = [1, 2, 3, 4];
 
@@ -37,6 +38,7 @@ const validationSchema = yup.object({
 const CalculatorСalorieForm = ({ openModal }) => {
   const [selectedTypeBlood, setSelectedTypeBlood] = useState(1);
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(getIsLoggedIn);
 
   const formik = useFormik({
     initialValues: {
@@ -133,7 +135,7 @@ const CalculatorСalorieForm = ({ openModal }) => {
         variant="contained"
         type="submit"
         onClick={() => {
-          if (formik.dirty) {
+          if (formik.dirty && !isLoggedIn) {
             openModal();
           }
         }}

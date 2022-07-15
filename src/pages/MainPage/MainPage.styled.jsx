@@ -15,9 +15,9 @@ const PageContainer = styled.div`
 
 const FormContainer = styled.div`
   width: 100%;
-  height: 190px;
-  margin-top: 68px;
+  margin-top: 32px;
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    margin-top: 62px;
     width: 512px;
   }
 `;

@@ -62,6 +62,10 @@ const ButtonRegister = styled(Button)`
   @media screen and (min-width: 768px) {
     margin: 28px 0 0;
   }
+  @media screen and (min-width: 1280px) {
+    margin-left: auto;
+    margin-right: 0;
+  }
 `;
 
 const CastomTextField = styled(TextField)({
