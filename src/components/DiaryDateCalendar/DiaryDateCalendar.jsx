@@ -1,41 +1,55 @@
 import { useDispatch, useSelector } from 'react-redux';
-import DatePicker from 'react-datepicker';
 import { selectActiveDate, setDate } from 'redux/slices';
-import 'react-datepicker/dist/react-datepicker.css';
 import { formatISO } from 'date-fns';
-import {
-  CalendarWrapper,
-  DateInputStyled,
-  IconCalendar,
-} from './DiaryDateCalendar.styled';
-import { memo, useState } from 'react';
+import { memo, useCallback, useEffect } from 'react';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+import useResizeAware from 'react-resize-aware';
+import { TextField } from '@mui/material';
+import { useState } from 'react';
 
-// import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+const DESKTOP_WIDTH_BREAKPOINT = 1280;
 
 const MaterialUIPickers = () => {
-  const [value, setValue] = useState(new Date('2014-08-18T21:11:54'));
-  const handleChange = newValue => {
-    setValue(newValue);
-  };
+  const dispatch = useDispatch();
+  const activeDate = new Date(useSelector(selectActiveDate));
+  const [localDate, setLocalDate] = useState(activeDate);
+
+  const selectDate = useCallback(date => {
+    setLocalDate(date);
+  }, []);
+
+  const [resizeListener, { width }] = useResizeAware();
+  const isTablet = width < DESKTOP_WIDTH_BREAKPOINT;
+  const isDesktop = !isTablet;
+
+  useEffect(() => {
+    const data = formatISO(localDate, { representation: 'date' });
+    dispatch(setDate(data));
+  }, [localDate, dispatch]);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      {desktop && (
+      {resizeListener}
+
+      {isDesktop && (
         <DesktopDatePicker
           label="Date desktop"
-          inputFormat="MM/dd/yyyy"
-          value={value}
-          onChange={handleChange}
+          inputFormat="dd.MM.yyyy"
+          value={localDate}
+          onChange={selectDate}
           renderInput={params => <TextField {...params} />}
         />
       )}
 
-      {tablet && (
+      {isTablet && (
         <MobileDatePicker
           label="Date mobile"
-          inputFormat="MM/dd/yyyy"
-          value={value}
-          onChange={handleChange}
+          inputFormat="dd.MM.yyyy"
+          value={localDate}
+          onChange={selectDate}
           renderInput={params => <TextField {...params} />}
         />
       )}
@@ -44,29 +58,9 @@ const MaterialUIPickers = () => {
 };
 
 export const DateCalendar = () => {
-  const dispatch = useDispatch();
-  const activeDate = useSelector(selectActiveDate);
-  const selectDate = date => {
-    const data = formatISO(date, { representation: 'date' });
-    console.log(data);
-
-    dispatch(setDate(data));
-  };
-
   return (
     <>
-      <CalendarWrapper>
-        <DatePicker
-          selected={activeDate}
-          onChange={selectDate}
-          dateFormat="dd.MM.yyyy"
-          customInput={<DateInputStyled maxLength="10" />}
-        />
-        <IconCalendar />
-      </CalendarWrapper>
-
       <MaterialUIPickers />
-
       <ul>{/* <li>36. Верстка мобілка, планшет, десктоп</li> */}</ul>
     </>
   );

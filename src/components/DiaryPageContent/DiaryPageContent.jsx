@@ -18,9 +18,9 @@ export const DiaryPageContent = () => {
     diaryApi.useGetProductsByDateQuery(currentDate);
   const { data: { consumedProducts = [] } = {} } = data;
 
-  const shouldShowForm = useShowForm(); // true only for now or future dates
-  const isDisabledDelete = !shouldShowForm; // true only for past dates
-  console.log({ isDisabledDelete });
+  const shouldShowForm = useShowForm();
+  // const isDisabledDelete = !shouldShowForm;
+  // console.log({ isDisabledDelete });
 
   return (
     <BlockWrapper>
