@@ -90,14 +90,14 @@ const Header = () => {
                       stylehidden={styles.isHidden}
                       style={styles.link}
                     >
-                      Diary
+                      {t('diary')}
                     </HeaderLink>
                     <HeaderLink
                       to="/calculator"
                       stylehidden={styles.isHidden}
                       style={styles.link}
                     >
-                      Calculator
+                      {t('calculator')}
                     </HeaderLink>
                   </div>
                   <UserInfo />

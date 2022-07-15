@@ -8,8 +8,11 @@ import { useEffect, useState } from 'react';
 import { getUserParams } from 'redux/slices/selector';
 import { validationSchema } from './validationSchema';
 import { transformUserData } from './transformUserData';
+import { useTranslation } from 'react-i18next';
 
 const RegistrationForm = () => {
+  const { t } = useTranslation();
+
   const [user, setUser] = useState(null);
   const [isRegister, setIsRegister] = useState(false);
   const dispatch = useDispatch();
@@ -66,7 +69,7 @@ const RegistrationForm = () => {
       ))}
 
       <ButtonRegister color="primary" variant="contained" type="submit">
-        Register
+        {t('register')}
       </ButtonRegister>
     </Form>
   );

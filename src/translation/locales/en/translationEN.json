@@ -13,8 +13,8 @@
   "kcal": "kcal",
   "bannedFood": "Foods you should not eat",
 
-  "email": "Email",
-  "password": "Password",
+  "email": "Email *",
+  "password": "Password *",
   "logIn": "Login",
   "register": "Register",
   "name": "Name",
