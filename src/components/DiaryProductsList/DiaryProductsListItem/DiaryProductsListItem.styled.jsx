@@ -40,8 +40,8 @@ const Title = styled.div`
   }
 
   &:nth-child(3) {
-    width: 58px;
-    margin-right: 13px;
+    width: 65px;
+    /* margin-right: 13px; */
     @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
       width: 106px;
       margin-right: 26px;
