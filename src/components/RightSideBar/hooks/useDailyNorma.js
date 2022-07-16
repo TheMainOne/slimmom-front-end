@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { userNormaApi } from 'redux/apis';
+// import { userNormaApi } from 'redux/apis';
 import { useGetConsumedByDate } from './useGetConsumedByDate';
 import { useGetUserNorma } from './useGetUserNorma';
 
