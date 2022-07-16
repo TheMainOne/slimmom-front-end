@@ -11,6 +11,11 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
+  // reducers: {
+  //   saveUserInfo(state, actions) {
+  //     state.userInfo = actions.payload;
+  //   },
+  // },
   extraReducers: {
     [register.fulfilled](state, action) {
       state.user = action.payload;

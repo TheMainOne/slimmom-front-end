@@ -2,8 +2,12 @@ const { baseApi } = require('./baseApi');
 
 export const userNormaApi = baseApi.injectEndpoints({
   endpoints: build => ({
-    getPrivatDailyNorma: build.query({
-      query: () => '/users/daily-norma',
+    getPrivateDailyNorma: build.mutation({
+      query: body => ({
+        url: `/users/daily-norma/private`,
+        method: 'POST',
+        body,
+      }),
       invalidatesTags: ['PrivatDailyNorma'],
     }),
     //getBannedProducts

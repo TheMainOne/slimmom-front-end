@@ -19,7 +19,6 @@ export const DiaryPageContent = () => {
   const { data: { consumedProducts = [] } = {} } = data;
 
   const shouldShowForm = useShowForm(); // true only for now or future dates
-  console.log(shouldShowForm);
 
   return (
     <BlockWrapper>

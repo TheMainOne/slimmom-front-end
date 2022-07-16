@@ -1,6 +1,6 @@
 import { Data, Head, Row, Unit } from './TabRows.styled';
 
-export const TabRows = ({ data, unit, head }) => {
+export const TabRows = ({ data = null, unit, head }) => {
   return (
     <Row>
       <Head>{head}</Head>
