@@ -19,7 +19,9 @@ const DiaryProductsListItem = ({
   currentDate,
   productId,
   disabled,
+  getNotifyData,
 }) => {
+  const [openModal, setOpenModal] = useState(false);
   const [deleteProduct, { isLoading: isDeleting }] =
     diaryApi.useDeleteProductFromDateMutation();
   const isDisabledButton = isDeleting
@@ -31,7 +33,6 @@ const DiaryProductsListItem = ({
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = event => {
-    console.log(event.currentTarget);
     setAnchorEl(event.currentTarget);
   };
 
@@ -42,6 +43,15 @@ const DiaryProductsListItem = ({
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
+  const handleOnDeleteClick = () => {
+    setOpenModal(!openModal);
+    getNotifyData({
+      title,
+      deleteProduct,
+      deletingInfo: { currentDate, productId },
+      openModal: !openModal,
+    });
+  };
   return (
     <ListItem>
       <Title onClick={handleClick}>{title}</Title>
@@ -73,7 +83,7 @@ const DiaryProductsListItem = ({
         <IconButton
           type="button"
           icon={<CloseIcon />}
-          onClick={() => deleteProduct({ currentDate, productId })}
+          onClick={handleOnDeleteClick}
           disabled={isDisabledButton}
         />
       </ButtonContainer>
