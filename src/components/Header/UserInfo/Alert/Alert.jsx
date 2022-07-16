@@ -1,13 +1,8 @@
 import { useState } from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import { HeaderNavButton } from '../UserInfo.styled';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
+import { AlertModal } from 'components/AlertModal';
 
 export const Alert = () => {
   const [open, setOpen] = useState(false);
@@ -17,44 +12,24 @@ export const Alert = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const logOut = () => {
+    dispatch(authOperations.logOut());
   };
-
   return (
     <>
       <HeaderNavButton color="success" onClick={handleClickOpen}>
         Exit
       </HeaderNavButton>
-      <Dialog
+
+      <AlertModal
+        setOpen={setOpen}
         open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          {'Are you sure, that you want to exit?'}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Pressing exit button you will log out from your account
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button color="success" onClick={handleClose}>
-            Stay more
-          </Button>
-          <Button
-            color="error"
-            onClick={() => {
-              dispatch(authOperations.logOut());
-            }}
-            autoFocus
-          >
-            Exit
-          </Button>
-        </DialogActions>
-      </Dialog>
+        dialogTitle={'Are you sure that you want to exit?'}
+        contentText={'Pressing exit button you will log out from your account'}
+        buttonTextPositive={'Stay more'}
+        buttonTextNegative={'Exit'}
+        onClick={logOut}
+      />
     </>
   );
 };
