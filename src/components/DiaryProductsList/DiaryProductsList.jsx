@@ -1,7 +1,7 @@
 import DiaryProductsListItem from './DiaryProductsListItem';
 import { List } from './DiaryProductsList.styled';
 
-const DiaryProductsList = ({ products, currentDate }) => {
+const DiaryProductsList = ({ products, currentDate, disabled }) => {
   return (
     <List>
       {products.map(({ _id: productId, title: { ua }, weight, kcal }) => (
@@ -12,6 +12,7 @@ const DiaryProductsList = ({ products, currentDate }) => {
           kcal={kcal}
           currentDate={currentDate}
           productId={productId}
+          disabled={disabled}
         />
       ))}
     </List>

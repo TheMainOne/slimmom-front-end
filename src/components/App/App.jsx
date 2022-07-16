@@ -27,7 +27,14 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<MainPage />} />
+          <Route
+            index
+            element={
+              <PublicRoute redirectTo="/diary" restricted>
+                <MainPage />
+              </PublicRoute>
+            }
+          />
           <Route
             path="diary"
             element={

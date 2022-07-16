@@ -7,12 +7,15 @@ import { useTranslation } from 'react-i18next';
 export const List = ({ user }) => {
   const { t } = useTranslation();
 
+export const List = ({ user }) => {
   const [getBannedProducts, { data, isLoading }] =
     useGetBannedProductsMutation();
 
-  const { height, age, currentWeight, desiredWeight, bloodType } = user;
-
   useEffect(() => {
+    if (!user) return;
+
+    const { height, age, currentWeight, desiredWeight, bloodType } = user;
+
     getBannedProducts({
       currentWeight,
       height,
@@ -20,7 +23,7 @@ export const List = ({ user }) => {
       desiredWeight,
       bloodType,
     });
-  }, [age, bloodType, currentWeight, desiredWeight, getBannedProducts, height]);
+  }, [getBannedProducts, user]);
 
   const categories =
     data && Object.keys(data?.results?.bannedProducts?.categories);

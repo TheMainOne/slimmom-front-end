@@ -154,7 +154,11 @@ const Header = () => {
           </HeaderNavigation>
         </Container>
       </HeaderStyled>
-      {isLogged && mobileWidth && <>{/* <UserInfo /> */}</>}
+      {isLogged && mobileWidth && (
+        <>
+          <UserInfo />
+        </>
+      )}
     </>
   );
 };

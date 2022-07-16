@@ -3,10 +3,9 @@ import { DailyKkalReport, Title, FoodList } from './model';
 import { useDailyNorma } from './hooks';
 import { useTranslation } from 'react-i18next';
 
-export const RightSideBar = () => {
+export const RightSideBar = ({ userData }) => {
+  const [responseData, date] = useDailyNorma(userData);
   const { t } = useTranslation();
-
-  const [responseData, date] = useDailyNorma('');
   console.log(responseData.bannedProducts);
   const summ = t('summary');
   return (

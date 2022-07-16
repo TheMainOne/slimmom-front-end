@@ -32,20 +32,26 @@ export const register = createAsyncThunk(
   }
 );
 
-export const logIn = createAsyncThunk('auth/login', async credentials => {
-  try {
-    const { data } = await axios.post('api/auth/login', credentials);
+export const logIn = createAsyncThunk(
+  'auth/login',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post('api/auth/login', credentials);
 
-    token.set(data.data.token);
-    return data;
-  } catch (error) {
-    toast.error('Sign in failed. Check your data!', {
-      theme: 'colored',
-      position: 'top-center',
-      autoClose: 3000,
-    });
+      token.set(data.data.token);
+
+      return data;
+    } catch ({ message, response: { data, status } }) {
+      toast.error(`Sign in failed. ${data?.message}!`, {
+        theme: 'colored',
+        position: 'top-center',
+        autoClose: 3000,
+      });
+
+      return rejectWithValue({ message, data, status });
+    }
   }
-});
+);
 
 export const logOut = createAsyncThunk('auth/logout', async () => {
   try {
@@ -62,16 +68,17 @@ export const fetchCurrentUser = createAsyncThunk(
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
-    }
-
-    token.set(persistedToken);
     try {
+      if (!persistedToken) {
+        throw new Error('no token');
+      }
+
+      token.set(persistedToken);
+
       const { data } = await axios.get('api/users/current');
       return data;
     } catch (error) {
-      toast.error(error.message);
+      return thunkAPI.rejectWithValue(error?.payload?.message);
     }
   }
 );

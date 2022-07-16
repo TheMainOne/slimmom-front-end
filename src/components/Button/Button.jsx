@@ -1,9 +1,6 @@
 import { Btn } from './Button.styled';
-import { useTranslation } from 'react-i18next';
 
-export const Button = ({ centered, onClick }) => {
-  const { t } = useTranslation();
-
+export const Button = ({ centered, onClick, text }) => {
   return (
     <Btn
       centered={centered}
@@ -12,7 +9,7 @@ export const Button = ({ centered, onClick }) => {
       type="submit"
       onClick={onClick}
     >
-      {t('start')}
+      {text}
     </Btn>
   );
 };

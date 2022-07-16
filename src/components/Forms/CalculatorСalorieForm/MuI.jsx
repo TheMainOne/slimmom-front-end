@@ -27,7 +27,6 @@ const RadioLabel = styled(FormLabel)`
   @media screen and (min-width: 768px) {
     padding-bottom: 11px;
     border-bottom: 1px solid #e0e0e0;
-    padding-right: 150px;
     display: block;
   }
 `;
@@ -61,6 +60,10 @@ const ButtonRegister = styled(Button)`
 
   @media screen and (min-width: 768px) {
     margin: 28px 0 0;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: auto;
+    margin-right: 0;
   }
 `;
 
