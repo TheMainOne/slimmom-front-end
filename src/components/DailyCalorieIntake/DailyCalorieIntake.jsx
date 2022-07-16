@@ -5,10 +5,10 @@ import { getUserParams } from 'redux/slices/selector';
 import { Title, Text, Span } from './DailyCalorieIntake.styled';
 import { List } from './List';
 import { useTranslation } from 'react-i18next';
-import { getUserParams } from 'redux/slices/selector';
 export const DailyCalorieIntake = () => {
   const [formula, setFormula] = useState(0);
   const userInfo = useSelector(getUserParams);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!userInfo) return;

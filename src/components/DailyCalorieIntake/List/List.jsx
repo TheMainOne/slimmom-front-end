@@ -6,8 +6,6 @@ import { useTranslation } from 'react-i18next';
 
 export const List = ({ user }) => {
   const { t } = useTranslation();
-
-export const List = ({ user }) => {
   const [getBannedProducts, { data, isLoading }] =
     useGetBannedProductsMutation();
 
