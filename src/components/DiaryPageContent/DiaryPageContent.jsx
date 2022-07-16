@@ -21,8 +21,7 @@ export const DiaryPageContent = () => {
     deletingInfo = {},
   } = alertOptions;
 
-  const [addProduct, { isLoading: isAddingProduct }] =
-    diaryApi.useAddProductMutation();
+  const [addProduct] = diaryApi.useAddProductMutation();
   const { data = {}, isLoading } =
     diaryApi.useGetProductsByDateQuery(currentDate);
   const { data: { consumedProducts = [] } = {} } = data;
@@ -45,7 +44,7 @@ export const DiaryPageContent = () => {
 
         {shouldShowForm && <DiaryAddProductForm addProduct={addProduct} />}
 
-        {isLoading || isAddingProduct ? (
+        {isLoading ? (
           <Spinner />
         ) : Boolean(consumedProducts.length) ? (
           <DiaryProductsList

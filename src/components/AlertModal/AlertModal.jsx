@@ -1,7 +1,8 @@
 // import Button from '@mui/material/Button';
 import { Button } from 'components/Button';
+import { AlertDialogActions } from './AlertModal.styled';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
+
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -36,11 +37,11 @@ export const AlertModal = ({
             {contentText}
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
+        <AlertDialogActions>
           <Button
             variant="outlined"
             disabled={disabledBtn}
-            onClick={setOpen}
+            onClick={handleClose}
             text={leftBtnText}
             type={leftBtnType}
           />
@@ -52,7 +53,7 @@ export const AlertModal = ({
             text={rightBtnText}
             type={rightBtnType}
           />
-        </DialogActions>
+        </AlertDialogActions>
       </Dialog>
     </>
   );

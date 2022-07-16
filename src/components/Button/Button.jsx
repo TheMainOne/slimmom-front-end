@@ -5,14 +5,14 @@ import { Btn } from './Button.styled';
 export const Button = ({
   type = 'button',
   variant = 'contained',
-  centered,
+  // centered,
   onClick = () => {},
   text = '',
   disabled = false,
 }) => {
   return (
     <Btn
-      centered={centered}
+      // centered={centered}
       variant={variant}
       type={type}
       onClick={onClick}
