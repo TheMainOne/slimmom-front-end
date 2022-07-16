@@ -17,9 +17,6 @@ const Block = styled.div`
 const InputContainer = styled.div`
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 204px;
     width: 510px;
   }
 
@@ -28,4 +25,6 @@ const InputContainer = styled.div`
   }
 `;
 
-export { Form, Block, InputContainer };
+const Wrapper = styled.div``;
+
+export { Form, Block, InputContainer, Wrapper };
