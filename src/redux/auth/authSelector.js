@@ -11,5 +11,6 @@ const authSelectors = {
   getName,
   getEmail,
   getFetchingCurrentUser,
+  getUserData,
 };
 export default authSelectors;
