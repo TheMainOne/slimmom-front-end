@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { diaryApi } from 'redux/apis';
+import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from 'components/IconButton';
 import {
@@ -7,6 +9,7 @@ import {
   Text,
   Measure,
   ButtonContainer,
+  PopoverStyled,
 } from './DiaryProductsListItem.styled';
 
 const DiaryProductsListItem = ({
@@ -24,9 +27,40 @@ const DiaryProductsListItem = ({
     : disabled
     ? disabled
     : false;
+
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = event => {
+    console.log(event.currentTarget);
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
   return (
     <ListItem>
-      <Title title={title}>{title}</Title>
+      <Title onClick={handleClick}>{title}</Title>
+      <PopoverStyled
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+      >
+        <Typography sx={{ p: 1 }}>{title}</Typography>
+      </PopoverStyled>
       <Title>
         <Text>{weight}</Text>
         <Measure>g</Measure>

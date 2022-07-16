@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const List = styled.ul`
   //Scrollbar variables
-  --mask-height: 20px;
+  --mask-height: 40px;
   --padding-right: 40px;
   --mask-image-content: linear-gradient(
     to bottom,
@@ -16,7 +16,7 @@ const List = styled.ul`
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 250px;
+  height: 220px;
   margin-top: ${({ theme: { spacing } }) => spacing(8)};
   margin-right: 5%;
   font-size: 14px;
@@ -36,19 +36,19 @@ const List = styled.ul`
 
   mask-size: var(--mask-size-content);
   mask-image: var(--mask-image-content);
-  mask-position: bottom 50px;
+  mask-position: bottom 40px;
   mask-repeat: no-repeat;
 
   @media (min-width: 768px) {
     width: 610px;
-    height: 244px;
+    height: 260px;
     padding-right: 32px;
     margin-right: 0;
   }
 
   @media (min-width: 1280px) {
     width: 623px;
-    height: 271px;
+    height: 306px;
   }
 `;
 
