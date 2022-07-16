@@ -2,7 +2,7 @@ import { register, logIn, logOut, fetchCurrentUser } from './authOperations';
 const { createSlice } = require('@reduxjs/toolkit');
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { name: null, email: null, userData: null },
   token: null,
   isLoggedIn: false,
   isFetchingCurrentUser: false,
@@ -11,11 +11,11 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  // reducers: {
-  //   saveUserInfo(state, actions) {
-  //     state.userInfo = actions.payload;
-  //   },
-  // },
+  reducers: {
+    setUserData(state, action) {
+      state.user.userData = action.payload;
+    },
+  },
   extraReducers: {
     [register.fulfilled](state, action) {
       state.user = action.payload;
@@ -43,5 +43,7 @@ export const authSlice = createSlice({
     },
   },
 });
+
+export const { setUserData } = authSlice.actions;
 
 export default authSlice.reducer;
