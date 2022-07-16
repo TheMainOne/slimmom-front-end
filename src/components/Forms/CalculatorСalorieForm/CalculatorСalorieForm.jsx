@@ -19,6 +19,7 @@ import { saveUserInfo } from 'redux/slices';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { validationSchema } from './validationSchema';
 import { setUserData } from 'redux/auth/authSlice';
+import { transformUserData } from '../RegistrationForm/transformUserData';
 
 const typeBlood = [1, 2, 3, 4];
 
@@ -40,7 +41,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
       dispatch(saveUserInfo(paramsUser)); /// Юля поменяй место записи слайса
 
       if (isLoggedIn) {
-        dispatch(setUserData(paramsUser));
+        dispatch(setUserData(transformUserData(paramsUser)));
         await getPrivatDailyNorma(paramsUser);
       }
 
