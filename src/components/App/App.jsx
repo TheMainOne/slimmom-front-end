@@ -1,7 +1,9 @@
 import React, { useEffect, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { theme, GlobalStyle } from 'styles';
+import { muiTheme } from 'styles';
 import { useDispatch } from 'react-redux';
 import Layout from 'pages/Layout';
 import 'react-toastify/dist/ReactToastify.css';
@@ -24,51 +26,54 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route
-            index
-            element={
-              <PublicRoute redirectTo="/diary" restricted>
-                <MainPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="diary"
-            element={
-              <PrivateRoute>
-                <DiaryPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="calculator"
-            element={
-              <PrivateRoute>
-                <CalculatorPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="login"
-            element={
-              <PublicRoute redirectTo="/diary" restricted>
-                <LoginPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="signup"
-            element={
-              <PublicRoute redirectTo="/diary" restricted>
-                <RegistrationPage />
-              </PublicRoute>
-            }
-          />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Route>
-      </Routes>
+      <MuiThemeProvider theme={muiTheme}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route
+              index
+              element={
+                <PublicRoute redirectTo="/diary" restricted>
+                  <MainPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="diary"
+              element={
+                <PrivateRoute>
+                  <DiaryPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="calculator"
+              element={
+                <PrivateRoute>
+                  <CalculatorPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="login"
+              element={
+                <PublicRoute redirectTo="/diary" restricted>
+                  <LoginPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="signup"
+              element={
+                <PublicRoute redirectTo="/diary" restricted>
+                  <RegistrationPage />
+                </PublicRoute>
+              }
+            />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Route>
+        </Routes>
+      </MuiThemeProvider>
+
       <GlobalStyle />
       <ToastContainer />
     </ThemeProvider>
