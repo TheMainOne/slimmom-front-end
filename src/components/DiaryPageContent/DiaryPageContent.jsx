@@ -1,6 +1,4 @@
-import { DiaryDateCalendar } from 'components/DiaryDateCalendar';
 import DiaryProductsList from 'components/DiaryProductsList';
-import { DiaryAddProductForm } from 'components/Forms/DiaryAddProductForm';
 import { Spinner } from 'components/Spinner';
 import { diaryApi } from 'redux/apis';
 
@@ -8,6 +6,7 @@ import { DiaryPageStyled } from './DiaryPageContent.styled';
 import { useSelector } from 'react-redux';
 import { BlockWrapper } from 'components/Container';
 import { useShowForm } from './hooks';
+import { DiaryCalendarAndForm } from './DiaryCalendarAndForm';
 
 export const DiaryPageContent = () => {
   const [addProduct, { isLoading: isAddingProduct }] =
@@ -23,9 +22,10 @@ export const DiaryPageContent = () => {
   return (
     <BlockWrapper>
       <DiaryPageStyled>
-        <DiaryDateCalendar />
-
-        {shouldShowForm && <DiaryAddProductForm addProduct={addProduct} />}
+        <DiaryCalendarAndForm
+          addProduct={addProduct}
+          shouldShowForm={shouldShowForm}
+        />
 
         {isLoading || isAddingProduct ? (
           <Spinner />
