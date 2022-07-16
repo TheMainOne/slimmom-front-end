@@ -1,6 +1,6 @@
 import { Btn } from './Button.styled';
 
-export const Button = ({ centered, onClick }) => {
+export const Button = ({ centered, onClick, text }) => {
   return (
     <Btn
       centered={centered}
@@ -9,7 +9,7 @@ export const Button = ({ centered, onClick }) => {
       type="submit"
       onClick={onClick}
     >
-      Start losing weight
+      {text}
     </Btn>
   );
 };
