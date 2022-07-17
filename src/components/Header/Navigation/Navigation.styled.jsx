@@ -45,7 +45,7 @@ export const HeaderLink = styled(NavLink)`
 `;
 
 export const MobileNavigation = styled.ul`
-position: absolute;
+  position: absolute;
   z-index: 10;
   width: 100%;
   height: 100vh;
@@ -55,14 +55,14 @@ position: absolute;
   padding: 60px 15px;
   background-color: #264061;
   text-align: center;
-`
+`;
 export const MobileNavigationItem = styled.li`
-&:not(:last-child) {
-  margin-bottom: 25px;
-}
-`
+  &:not(:last-child) {
+    margin-bottom: 25px;
+  }
+`;
 export const MobileNavigationLink = styled(NavLink)`
-text-decoration: none;
+  text-decoration: none;
   font-family: 'Verdana', sans-serif;
   font-weight: 700;
   font-size: 24px;
@@ -74,7 +74,7 @@ text-decoration: none;
   &.active {
     color: #fff;
   }
-`
+`;
 export const HeaderLinksWrapper = styled.div`
   display: flex;
 
@@ -89,4 +89,8 @@ export const HeaderLinksWrapper = styled.div`
     margin-left: 30px;
     display: ${props => props.isHidden && 'none'};
   }
+`;
+
+export const HeaderButtonsWrapper = styled.div`
+  background-color: #eff1f3;
 `;
