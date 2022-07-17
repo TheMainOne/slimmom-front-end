@@ -8,6 +8,7 @@ export const HeaderNavButtons = styled.span`
   height: 80%;
   display: flex;
   align-items: center;
+  text-transform: capitalize;
 
   &:first-of-type {
     border-right: 2px solid #e0e0e0;
