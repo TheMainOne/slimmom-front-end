@@ -70,17 +70,22 @@ export const HeaderNavButtonsContainer = styled.div`
 `;
 
 export const HeaderNavButton = styled.button`
+  padding: 0;
   border: none;
   cursor: pointer;
   font-family: ${({ theme: { fonts } }) => fonts.gothamPro};
   font-size: 14px;
   font-weight: 700;
   color: #9b9faa;
-  margin-right: 20px;
   height: 80%;
   background: none;
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     padding-left: 15px;
+    margin-right: 20px;
+  }
+
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
+    margin-right: 0;
   }
 `;
