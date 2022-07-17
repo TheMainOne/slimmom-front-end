@@ -25,7 +25,6 @@ const styles = {
 };
 
 const LoginPage = () => {
-  // const isLoading = useSelector(selectShowLoader); // Селектор статуса загрузки
   const isLogged = useSelector(state => getIsLoggedIn(state));
 
   useEffect(() => {
