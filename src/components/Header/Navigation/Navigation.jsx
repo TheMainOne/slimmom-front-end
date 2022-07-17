@@ -18,6 +18,10 @@ import {
 } from './Navigation.styled';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 import IconButton from 'components/IconButton';
+import { createPortal } from 'react-dom';
+import { getRefs } from 'utils';
+
+const { mobileMenuRoot } = getRefs();
 
 const styles = {
   link: {
@@ -47,16 +51,19 @@ const NavigationOnMobile = ({ visibleMenu, handleMenuBtnClick }) => (
           onClick={handleMenuBtnClick}
         />
 
-        <MobileNavigation onClick={handleMenuBtnClick}>
-          <MobileNavigationItem>
-            <MobileNavigationLink to="/diary">diary</MobileNavigationLink>
-          </MobileNavigationItem>
-          <MobileNavigationItem>
-            <MobileNavigationLink to="/calculator">
-              calculator
-            </MobileNavigationLink>
-          </MobileNavigationItem>
-        </MobileNavigation>
+        {createPortal(
+          <MobileNavigation onClick={handleMenuBtnClick}>
+            <MobileNavigationItem>
+              <MobileNavigationLink to="/diary">diary</MobileNavigationLink>
+            </MobileNavigationItem>
+            <MobileNavigationItem>
+              <MobileNavigationLink to="/calculator">
+                calculator
+              </MobileNavigationLink>
+            </MobileNavigationItem>
+          </MobileNavigation>,
+          mobileMenuRoot
+        )}
       </>
     ) : (
       <IconButton
