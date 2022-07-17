@@ -38,7 +38,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
       const paramsUser = { ...values, bloodType: selectedTypeBlood };
-      dispatch(saveUserInfo(paramsUser)); /// Юля поменяй место записи слайса
+      dispatch(saveUserInfo(paramsUser));
 
       if (isLoggedIn) {
         dispatch(setUserData(transformUserData(paramsUser)));
