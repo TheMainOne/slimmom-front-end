@@ -34,6 +34,7 @@ export const diaryApi = baseApi.injectEndpoints({
     }),
     deleteProductFromDate: build.mutation({
       query: ({ currentDate, productId }) => {
+        console.log(currentDate, productId);
         return {
           url: `/diary?date=${currentDate}&productId=${productId}`,
           method: 'DELETE',
@@ -46,5 +47,3 @@ export const diaryApi = baseApi.injectEndpoints({
     }),
   }),
 });
-
-// const { useGetProductsByDateQuery, useDeleteProductFromDateMutation } = diaryApi;
