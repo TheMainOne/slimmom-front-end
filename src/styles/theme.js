@@ -33,8 +33,7 @@ export const theme = {
     buttonShadow: `0px 4px 10px rgba(252, 132, 45, 0.5)`,
     dropShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
     cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
-    gradient:
-      ' linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, #FFFFFF 42.19%)',
+    time: '250ms',
   },
 
   breakpoints: {
