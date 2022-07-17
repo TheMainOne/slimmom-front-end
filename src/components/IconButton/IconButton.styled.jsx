@@ -7,21 +7,26 @@ const Button = styled.button`
   padding-bottom: ${({ theme: { spacing } }) => spacing(1)};
   padding-right: ${({ theme: { spacing } }) => spacing(1)};
   padding-left: ${({ theme: { spacing } }) => spacing(1)};
+  padding: ${({ padding }) => padding};
   background-color: transparent;
   border: none;
   border-radius: 50%;
   box-shadow: none;
   outline: none;
-  color: ${({ theme: { colors } }) => colors.$grey};
+  color: ${({ color, theme: { colors } }) => color || colors.$grey};
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme: { colors } }) => colors.$lightGrey};
+    background-color: ${({ hoverBgColor, theme: { colors } }) =>
+      hoverBgColor || colors.$lightGrey};
+    transform: scale(1.1);
   }
 
   &:active {
-    background-color: ${({ theme: { colors } }) => colors.$orange};
     color: ${({ theme: { colors } }) => colors.$white};
+    background-color: ${({ theme: { colors } }) => colors.$orange};
+    box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%),
+      0 3px 14px 2px rgb(0 0 0 / 12%);
   }
 
   &:disabled {
@@ -39,6 +44,9 @@ const Button = styled.button`
       height: 20px;
     }
   }
+
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: color, background-color, transform;
 `;
 
 export { Button };

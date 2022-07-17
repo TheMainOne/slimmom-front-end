@@ -1,14 +1,17 @@
 import styled from 'styled-components';
 import { IoMdReturnLeft } from 'react-icons/io';
 
-export const IconCloseModal = styled(IoMdReturnLeft)``;
+export const IconReturnLeft = styled(IoMdReturnLeft)``;
 
-export const MobileModalStyled = styled.div`
-  position: absolute;
-  top: calc(-120px);
+export const MobileModalBackdrop = styled.div`
+  position: fixed;
+  top: calc(122px);
   left: 0;
-  width: 100vw;
-  height: calc(100vh - 120px);
+  width: 100%;
+  height: calc(100% - 122px);
+
+  background-color: ${({ theme, isTransparent }) =>
+    isTransparent ? 'transparent ' : theme.colors.$white};
 `;
 
 export const MobileModalContent = styled.div`

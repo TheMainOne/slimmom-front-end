@@ -11,14 +11,7 @@ import CalculatorСalorieForm from 'components/Forms/CalculatorСalorieForm/Calc
 const MainPage = () => {
   const [resizeListener] = useResizeAware();
   const [showModal, setShowModal] = useState(false);
-  const openModal = () => {
-    setShowModal(prev => !prev);
-  };
-  if (showModal) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = 'unset';
-  }
+  const openModal = () => setShowModal(prev => !prev);
 
   return (
     <Container>

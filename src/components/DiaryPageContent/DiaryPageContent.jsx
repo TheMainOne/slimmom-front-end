@@ -7,6 +7,14 @@ import { useSelector } from 'react-redux';
 import { BlockWrapper } from 'components/Container';
 import { useShowForm } from './hooks';
 import { DiaryCalendarAndForm } from './DiaryCalendarAndForm';
+import { useShowModal } from 'hooks/ui';
+import {
+  AddProductButton,
+  AddProductIcon,
+} from 'components/Forms/DiaryAddProductForm/AddProduct.mui';
+import useResizeAware from 'react-resize-aware';
+
+const TABLET_WIDTH_BREAKPOINT = 768;
 
 export const DiaryPageContent = () => {
   const [addProduct, { isLoading: isAddingProduct }] =
@@ -19,12 +27,20 @@ export const DiaryPageContent = () => {
 
   const shouldShowForm = useShowForm(); // true only for now or future dates
 
+  const [resizeListener, { width }] = useResizeAware();
+  const isMobile = width < TABLET_WIDTH_BREAKPOINT;
+  const [showMobileModal, toggleModal] = useShowModal();
+
   return (
     <BlockWrapper>
+      {resizeListener}
       <DiaryPageStyled>
         <DiaryCalendarAndForm
           addProduct={addProduct}
           shouldShowForm={shouldShowForm}
+          isMobile={isMobile}
+          showMobileModal={showMobileModal}
+          toggleModal={toggleModal}
         />
 
         {isLoading || isAddingProduct ? (
@@ -37,6 +53,17 @@ export const DiaryPageContent = () => {
           />
         ) : (
           <h1>Сегодня вы ещё не ели!</h1>
+        )}
+
+        {isMobile && shouldShowForm && (
+          <AddProductButton
+            color="primary"
+            variant="contained"
+            type="button"
+            onClick={toggleModal}
+          >
+            <AddProductIcon />
+          </AddProductButton>
         )}
       </DiaryPageStyled>
     </BlockWrapper>

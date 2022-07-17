@@ -1,10 +1,16 @@
 import useResizeAware from 'react-resize-aware';
 import { useSelector } from 'react-redux';
 import { getName } from 'redux/auth/authSelector';
-import { HeaderNavButtons, HeaderNavButtonsContainer } from './UserInfo.styled';
+import {
+  HeaderNavButtons,
+  HeaderNavButtonsContainer,
+  IconReturnLeft,
+  MobileContainer,
+  ReturnButtonWrapper,
+} from './UserInfo.styled';
 import { Alert } from './Alert';
-import { BackButton } from 'components/MobileModal';
 import { useShowModal } from 'hooks/ui';
+import IconButton from 'components/IconButton';
 
 export default function UserInfo() {
   const [resizeListener] = useResizeAware();
@@ -12,15 +18,26 @@ export default function UserInfo() {
   const [showMobileModal, toggleModal] = useShowModal();
 
   return (
-    <HeaderNavButtonsContainer>
-      {resizeListener}
+    <MobileContainer>
+      <HeaderNavButtonsContainer>
+        {resizeListener}
 
-      {showMobileModal && <BackButton onClose={toggleModal} />}
+        {showMobileModal && (
+          <ReturnButtonWrapper>
+            <IconButton
+              padding="10px"
+              color="#212121"
+              icon={<IconReturnLeft />}
+              onClick={toggleModal}
+            />
+          </ReturnButtonWrapper>
+        )}
 
-      <HeaderNavButtons disableRipple color="success">
-        {name}
-      </HeaderNavButtons>
-      <Alert />
-    </HeaderNavButtonsContainer>
+        <HeaderNavButtons disableRipple color="success">
+          {name}
+        </HeaderNavButtons>
+        <Alert />
+      </HeaderNavButtonsContainer>
+    </MobileContainer>
   );
 }

@@ -18,7 +18,7 @@ import { formatISO } from 'date-fns';
 import { addProductSchema } from 'models';
 
 const limit = 10;
-export const DiaryAddProductForm = ({ addProduct }) => {
+export const DiaryAddProductForm = ({ addProduct, toggleModal }) => {
   const [title, setTitle] = useState('');
   const [productId, setProductId] = useState('');
 
@@ -44,6 +44,7 @@ export const DiaryAddProductForm = ({ addProduct }) => {
       await addProduct(newDiaryProduct);
       toast(newDiaryProduct);
       form.reset();
+      toggleModal();
     } catch (error) {
       toast(`Not added: ${error.message}`);
       console.log(error);
