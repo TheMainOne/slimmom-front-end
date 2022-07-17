@@ -89,3 +89,7 @@ export const HeaderLinksWrapper = styled.div`
     margin-left: 30px;
   }
 `;
+
+export const HeaderButtonsWrapper = styled.div`
+  background-color: #eff1f3;
+`;

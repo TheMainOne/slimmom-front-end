@@ -1,6 +1,8 @@
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
+import { Button } from 'components/Button';
+import { AlertDialogActions } from './AlertModal.styled';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
+
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -8,14 +10,17 @@ import DialogTitle from '@mui/material/DialogTitle';
 export const AlertModal = ({
   dialogTitle,
   contentText,
-  buttonTextPositive,
-  buttonTextNegative,
+  leftBtnText,
+  rightBtnText,
   onClick,
   open,
   setOpen,
+  leftBtnType = 'button',
+  rightBtnType = 'button',
+  disabledBtn,
 }) => {
   const handleClose = () => {
-    setOpen(false);
+    setOpen(!open);
   };
 
   return (
@@ -32,14 +37,23 @@ export const AlertModal = ({
             {contentText}
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button color="success" onClick={handleClose}>
-            {buttonTextPositive}
-          </Button>
-          <Button color="error" onClick={onClick} autoFocus>
-            {buttonTextNegative}
-          </Button>
-        </DialogActions>
+        <AlertDialogActions>
+          <Button
+            variant="outlined"
+            disabled={disabledBtn}
+            onClick={handleClose}
+            text={leftBtnText}
+            type={leftBtnType}
+          />
+          <Button
+            onClick={onClick}
+            variant="contained"
+            disabled={disabledBtn}
+            autoFocus
+            text={rightBtnText}
+            type={rightBtnType}
+          />
+        </AlertDialogActions>
       </Dialog>
     </>
   );

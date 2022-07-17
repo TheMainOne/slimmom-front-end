@@ -9,6 +9,7 @@ export const HeaderNavButtons = styled.span`
   height: 80%;
   display: flex;
   align-items: center;
+  text-transform: capitalize;
 
   &:first-of-type {
     border-right: 2px solid #e0e0e0;
@@ -81,6 +82,7 @@ export const HeaderNavButtonsContainer = styled.div`
 `;
 
 export const HeaderNavButton = styled.button`
+  padding: 0;
   border: none;
   cursor: pointer;
   font-family: ${({ theme: { fonts } }) => fonts.gothamPro};
@@ -99,6 +101,10 @@ export const HeaderNavButton = styled.button`
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     padding-left: 15px;
     margin-right: 20px;
+  }
+
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
+    margin-right: 0;
   }
 `;
 

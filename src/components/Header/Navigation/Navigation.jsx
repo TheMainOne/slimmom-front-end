@@ -15,6 +15,7 @@ import {
   MobileNavigation,
   MobileNavigationItem,
   MobileNavigationLink,
+  HeaderButtonsWrapper,
 } from './Navigation.styled';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 import IconButton from 'components/IconButton';
@@ -135,9 +136,11 @@ const Header = () => {
         </Container>
       </HeaderStyled>
       {isLogged && mobileWidth && (
-        <>
-          <UserInfo />
-        </>
+        <HeaderButtonsWrapper>
+          <Container>
+            <UserInfo />
+          </Container>
+        </HeaderButtonsWrapper>
       )}
     </>
   );

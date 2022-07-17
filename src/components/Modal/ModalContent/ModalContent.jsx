@@ -12,7 +12,7 @@ export const ModalContent = ({ setShowModal }) => {
         <DailyCalorieIntake />
         <Button
           text={'Start losing weight'}
-          centered={'true'}
+          // centered={'true'}
           onClick={() => navigate('/signup')}
         ></Button>
       </Content>

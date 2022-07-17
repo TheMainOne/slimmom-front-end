@@ -17,7 +17,11 @@ export const DiaryCalendarAndForm = ({
       <DiaryDateCalendar />
 
       {shouldShowForm && !isMobile && (
-        <DiaryAddProductForm addProduct={addProduct} />
+        <DiaryAddProductForm
+          addProduct={addProduct}
+          toggleModal={toggleModal}
+          isMobile={isMobile}
+        />
       )}
 
       {shouldShowForm && isMobile && showMobileModal && (
