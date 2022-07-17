@@ -19,6 +19,7 @@ import {
 } from './Navigation.styled';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { useTranslation } from 'react-i18next';
+import { Languages } from '../Languages';
 
 const styles = {
   link: {
@@ -30,7 +31,7 @@ const styles = {
 };
 
 const Header = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { pathname } = useLocation();
   const bannedPaths = [];
   const isHidden = bannedPaths.some(bannedPath => bannedPath === pathname);
@@ -46,11 +47,7 @@ const Header = () => {
   const handleMenuBtnClick = () => {
     setVisibleMenu(prev => !prev);
   };
-  const changeLanguage = ln => {
-    return () => {
-      i18n.changeLanguage(ln);
-    };
-  };
+
   return (
     <>
       <HeaderStyled isLogged={isLogged}>
@@ -148,8 +145,9 @@ const Header = () => {
                   <UserInfo />
                 </>
               )}
-              <button onClick={changeLanguage('en')}>{t('en')}</button>
-              <button onClick={changeLanguage('ua')}>{t('ua')}</button>
+              <div>
+                <Languages />
+              </div>
             </HeaderLinksWrapper>
           </HeaderNavigation>
         </Container>

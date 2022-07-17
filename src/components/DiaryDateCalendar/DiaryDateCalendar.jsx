@@ -9,10 +9,13 @@ import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import useResizeAware from 'react-resize-aware';
 import { TextField } from '@mui/material';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const DESKTOP_WIDTH_BREAKPOINT = 1280;
 
 const MaterialUIPickers = () => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const activeDate = new Date(useSelector(selectActiveDate));
   const [localDate, setLocalDate] = useState(activeDate);
@@ -36,7 +39,7 @@ const MaterialUIPickers = () => {
 
       {isDesktop && (
         <DesktopDatePicker
-          label="Date desktop"
+          label={t('date')}
           inputFormat="dd.MM.yyyy"
           value={localDate}
           onChange={selectDate}
@@ -46,7 +49,7 @@ const MaterialUIPickers = () => {
 
       {isTablet && (
         <MobileDatePicker
-          label="Date mobile"
+          label={t('dateM')}
           inputFormat="dd.MM.yyyy"
           value={localDate}
           onChange={selectDate}

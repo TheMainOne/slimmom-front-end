@@ -40,7 +40,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
       const paramsUser = { ...values, bloodType: selectedTypeBlood };
-      dispatch(saveUserInfo(paramsUser)); /// Юля поменяй место записи слайса
+      dispatch(saveUserInfo(paramsUser));
 
       if (isLoggedIn) {
         dispatch(setUserData(transformUserData(paramsUser)));
@@ -63,7 +63,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
             variant="standard"
             id="height"
             name="height"
-            label="Height *"
+            label={t('height')}
             value={formik.values.height}
             onChange={formik.handleChange}
             error={formik.touched.height && Boolean(formik.errors.height)}
@@ -73,7 +73,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
             variant="standard"
             id="age"
             name="age"
-            label="Age *"
+            label={t('age')}
             value={formik.values.age}
             onChange={formik.handleChange}
             error={formik.touched.age && Boolean(formik.errors.age)}
@@ -83,7 +83,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
             variant="standard"
             id="currentWeight"
             name="currentWeight"
-            label="Current weight *"
+            label={t('weight')}
             type="currentWeight"
             value={formik.values.currentWeight}
             onChange={formik.handleChange}
@@ -101,7 +101,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
             variant="standard"
             id="desiredWeight"
             name="desiredWeight"
-            label="Desired weight *"
+            label={t('desiredWeight')}
             value={formik.values.desiredWeight}
             onChange={formik.handleChange}
             error={
@@ -114,7 +114,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
           />
           <Block>
             <RadioLabel id="demo-row-radio-buttons-group-label">
-              Blood type *
+              {t('bloodType')}
             </RadioLabel>
             <RadioGroup
               id="bloodType"
@@ -137,15 +137,10 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
       </InputContainer>
 
       <ButtonRegister color="primary" variant="contained" type="submit">
-        Start losing weight
+        {t('start')}
       </ButtonRegister>
     </Form>
   );
 };
 
 export default CalculatorСalorieForm;
-
-// {t('bloodType')}
-// {t('start')}
-// {t('height')}
-// {t('desiredWeight')}

@@ -41,5 +41,8 @@
 
   "noFood": "You haven't eaten today yet!",
 
+  "date": "Date desktop",
+  "dateM": "Date mobile",
+
   "alert": ""
 }

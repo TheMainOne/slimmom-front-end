@@ -3,8 +3,11 @@ import { HeaderNavButton } from '../UserInfo.styled';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
 import { AlertModal } from 'components/AlertModal';
+import { useTranslation } from 'react-i18next';
 
 export const Alert = () => {
+  const { t } = useTranslation();
+
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -18,7 +21,7 @@ export const Alert = () => {
   return (
     <>
       <HeaderNavButton color="success" onClick={handleClickOpen}>
-        Exit
+        {t('exit')}
       </HeaderNavButton>
 
       <AlertModal
