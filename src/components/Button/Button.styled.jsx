@@ -2,22 +2,24 @@ import styled from '@emotion/styled';
 import Button from '@mui/material/Button';
 
 export const Btn = styled(Button)`
-  text-transform: none;
   display: block;
-  color: ${({ variant, theme: { colors } }) =>
-    variant === 'outlined' ? colors.$orange : colors.$white};
+  min-width: 176px;
+  padding: 13px 25px;
+
   background-color: ${({ variant, theme: { colors } }) =>
     variant === 'outlined' ? colors.$white : colors.$orange};
   box-shadow: ${({ theme: { options } }) => options.buttonShadow};
+  color: ${({ variant, theme: { colors } }) =>
+    variant === 'outlined' ? colors.$orange : colors.$white};
+
   border: 1px solid ${({ theme: { colors } }) => colors.$orange};
   border-radius: 30px;
-  /* margin: 0 auto; */
-  min-width: 176px;
-  padding: 13px 25px;
+
   font-family: 'Verdana';
   font-weight: 700;
   font-size: 14px;
   line-height: ${({ theme: { lineHeight } }) => lineHeight.verdanaHeight};
+  text-transform: none;
 
   & .Mui-focusVisible,
   &:hover {
@@ -26,6 +28,7 @@ export const Btn = styled(Button)`
     border: 1px solid ${({ theme: { colors } }) => colors.$orange};
     outline: 1px solid ${({ theme: { colors } }) => colors.$orange};
   }
+
   /* &:hover {
     background-color: #e76000;
     transform: scale(1.1);
