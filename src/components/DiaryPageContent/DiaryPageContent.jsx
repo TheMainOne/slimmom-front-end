@@ -6,6 +6,7 @@ import { BlockWrapper } from 'components/Container';
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar';
 import { useShowForm } from './hooks';
 import { DiaryAddProductForm } from 'components/Forms/DiaryAddProductForm';
+import EmptyListTitle from 'components/EmptyListTitle';
 import DiaryProductsList from 'components/DiaryProductsList';
 import { AlertModal } from 'components/AlertModal';
 import { DiaryPageStyled } from './DiaryPageContent.styled';
@@ -57,7 +58,7 @@ export const DiaryPageContent = () => {
             onOpenModal={setShowModal}
           />
         ) : (
-          <h1>Сегодня вы ещё не ели!</h1>
+          <EmptyListTitle>Ваш список за цей день порожній!</EmptyListTitle>
         )}
       </DiaryPageStyled>
       <AlertModal
