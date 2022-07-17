@@ -20,7 +20,6 @@ export const AlertModal = ({
   disabledBtn,
 }) => {
   const handleClose = () => {
-    console.log(!open);
     setOpen(!open);
   };
 
