@@ -2,6 +2,7 @@
   "name": "slimmom-front-end",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://TheMainOne.github.io/slimmom-front-end",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
