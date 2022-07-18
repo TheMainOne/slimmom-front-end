@@ -1,41 +1,37 @@
-import { useRef, useCallback } from 'react';
-import { createPortal } from 'react-dom';
-import { Background, ModalWrapper } from './Modal.styled';
-import { useToggleNoScroll } from 'hooks/ui';
-import { getRefs } from 'utils';
-import { useListenEscKeyDown } from 'hooks/ui';
+import { styled } from '@mui/material/styles';
+import Dialog from '@mui/material/Dialog';
+import { ModalContent } from './ModalContent/ModalContent';
+import useResizeAware from 'react-resize-aware';
 
-const { modalRoot } = getRefs();
+const MuiDialog = styled(Dialog)(({ theme }) => ({
+  '& .MuiDialogContent-root': {
+    width: 672,
+    height: 560,
+  },
+}));
 
-export const Modal = ({ showModal, setShowModal, children }) => {
-  useToggleNoScroll();
+export const Modal = ({ showModal, setShowModal }) => {
+  const [resizeListener, { width }] = useResizeAware();
+  const mobileWidth = width <= 767;
+  const handleClose = () => {
+    setShowModal(prev => !prev);
+  };
 
-  const modalRef = useRef();
-
-  const closeModal = useCallback(
-    e => {
-      if (modalRef.current === e.target) {
-        setShowModal(false);
-      }
-    },
-    [setShowModal]
-  );
-
-  const onEscCloseModal = useCallback(
-    () => setShowModal(false),
-    [setShowModal]
-  );
-
-  useListenEscKeyDown(onEscCloseModal);
-
-  return createPortal(
+  return (
     <>
-      {showModal && (
-        <Background ref={modalRef} onClick={closeModal}>
-          <ModalWrapper showModal={showModal}>{children}</ModalWrapper>
-        </Background>
+      {resizeListener}
+      {!mobileWidth && (
+        <div>
+          <MuiDialog
+            onClose={handleClose}
+            aria-labelledby="customized-dialog-title"
+            open={showModal}
+            maxWidth={false}
+          >
+            <ModalContent setShowModal={setShowModal} />
+          </MuiDialog>
+        </div>
       )}
-    </>,
-    modalRoot
+    </>
   );
 };
