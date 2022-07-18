@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectActiveDate, setDate } from 'redux/slices';
 import { formatISO } from 'date-fns';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
@@ -19,10 +19,6 @@ const MaterialUIPickers = () => {
   const [localDate, setLocalDate] = useState(activeDate);
   const [open, setOpen] = useState(false);
   const toggleCalendar = () => setOpen(show => !show);
-
-  const selectDate = useCallback(date => {
-    setLocalDate(date);
-  }, []);
 
   const [resizeListener, { width }] = useResizeAware();
   const isTablet = width < DESKTOP_WIDTH_BREAKPOINT;
@@ -42,7 +38,7 @@ const MaterialUIPickers = () => {
           <DesktopDatePicker
             inputFormat="dd.MM.yyyy"
             value={localDate}
-            onChange={selectDate}
+            onChange={setLocalDate}
             open={open}
             onOpen={toggleCalendar}
             onClose={toggleCalendar}
@@ -68,7 +64,9 @@ const MaterialUIPickers = () => {
           <MobileDatePicker
             inputFormat="dd.MM.yyyy"
             value={localDate}
-            onChange={selectDate}
+            minDate="2000-00-00"
+            maxDate="2200-12-31"
+            onChange={setLocalDate}
             open={open}
             onOpen={toggleCalendar}
             onClose={toggleCalendar}
