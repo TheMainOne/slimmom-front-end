@@ -7,8 +7,9 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import useResizeAware from 'react-resize-aware';
-import { TextField } from '@mui/material';
+import { IconButton, InputAdornment, TextField } from '@mui/material';
 import { useState } from 'react';
+import { CalendarWrapper, IconCalendar } from './DiaryDateCalendar.styled';
 
 const DESKTOP_WIDTH_BREAKPOINT = 1280;
 
@@ -16,6 +17,8 @@ const MaterialUIPickers = () => {
   const dispatch = useDispatch();
   const activeDate = new Date(useSelector(selectActiveDate));
   const [localDate, setLocalDate] = useState(activeDate);
+  const [open, setOpen] = useState(false);
+  const toggleCalendar = () => setOpen(show => !show);
 
   const selectDate = useCallback(date => {
     setLocalDate(date);
@@ -31,29 +34,63 @@ const MaterialUIPickers = () => {
   }, [localDate, dispatch]);
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      {resizeListener}
+    <CalendarWrapper>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        {resizeListener}
 
-      {isDesktop && (
-        <DesktopDatePicker
-          label="Date desktop"
-          inputFormat="dd.MM.yyyy"
-          value={localDate}
-          onChange={selectDate}
-          renderInput={params => <TextField {...params} />}
-        />
-      )}
+        {isDesktop && (
+          <DesktopDatePicker
+            inputFormat="dd.MM.yyyy"
+            value={localDate}
+            onChange={selectDate}
+            open={open}
+            onOpen={toggleCalendar}
+            onClose={toggleCalendar}
+            renderInput={params => (
+              <TextField
+                variant="standard"
+                {...params}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton edge="end" onClick={toggleCalendar}>
+                        <IconCalendar />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            )}
+          />
+        )}
 
-      {isTablet && (
-        <MobileDatePicker
-          label="Date mobile"
-          inputFormat="dd.MM.yyyy"
-          value={localDate}
-          onChange={selectDate}
-          renderInput={params => <TextField {...params} />}
-        />
-      )}
-    </LocalizationProvider>
+        {isTablet && (
+          <MobileDatePicker
+            inputFormat="dd.MM.yyyy"
+            value={localDate}
+            onChange={selectDate}
+            open={open}
+            onOpen={toggleCalendar}
+            onClose={toggleCalendar}
+            renderInput={params => (
+              <TextField
+                variant="standard"
+                {...params}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton edge="end" onClick={toggleCalendar}>
+                        <IconCalendar />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            )}
+          />
+        )}
+      </LocalizationProvider>
+    </CalendarWrapper>
   );
 };
 

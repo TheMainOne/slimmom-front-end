@@ -37,24 +37,32 @@ export const GlobalStyle = createGlobalStyle`
       url(${GothamProBold}) format('truetype');
   }
 
-
   html {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
+
+    overflow-y: scroll;
+    &.no-scroll {
+      overflow-y: hidden; // STOP MOVING AROUND :)
+    }
   }
 
   body {
     width: 100%;
     height: 100%;
     margin: 0;
+
+    overflow-y: hidden;
+    &.no-scroll {
+      overflow-y: scroll;
+    }
+
     font-family: ${({ theme: { fonts } }) => fonts.verdanBold};
     line-height: ${({ theme: { lineHeight } }) => lineHeight.verdana};
     letter-spacing: 0.04em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
   }
-
 
   #root {
     height: 100%;

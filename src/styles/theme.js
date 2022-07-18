@@ -33,6 +33,10 @@ export const theme = {
     buttonShadow: `0px 4px 10px rgba(252, 132, 45, 0.5)`,
     dropShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
     cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    gradient:
+      ' linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, #FFFFFF 42.19%)',
+    muiBtnShadow: `0 5px 5px -3px rgb(0, 0, 0, 0.2), 0 8px 10px 1px rgb(0, 0, 0, 0.14),
+      0 3px 14px 2px rgb(0, 0, 0, 0.12)`,
     time: '250ms',
   },
 

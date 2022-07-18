@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   display: flex;
-  margin-bottom: ${({ theme: { spacing } }) => spacing(1)};
+  margin-bottom: ${({ theme: { spacing } }) => spacing(1)}; //убрать
   padding-top: ${({ theme: { spacing } }) => spacing(1)};
   padding-bottom: ${({ theme: { spacing } }) => spacing(1)};
   padding-right: ${({ theme: { spacing } }) => spacing(1)};
@@ -12,21 +12,19 @@ const Button = styled.button`
   border-radius: 50%;
   box-shadow: none;
   outline: none;
-  color: ${({ theme: { colors } }) => colors.$grey};
+  color: ${({ color, theme: { colors } }) => color || colors.$grey};
   cursor: pointer;
-
-  /* & svg,
-  & svg path {
-    pointer-events: none;
-  } */
 
   &:hover {
     background-color: ${({ theme: { colors } }) => colors.$lightGrey};
+    transform: scale(1.05);
   }
 
   &:active {
-    background-color: ${({ theme: { colors } }) => colors.$orange};
     color: ${({ theme: { colors } }) => colors.$white};
+    background-color: ${({ theme: { colors } }) => colors.$orange};
+    box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%),
+      0 3px 14px 2px rgb(0 0 0 / 12%);
   }
 
   &:disabled {
@@ -44,6 +42,9 @@ const Button = styled.button`
       height: 20px;
     }
   }
+
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: color, background-color, transform;
 `;
 
 export { Button };

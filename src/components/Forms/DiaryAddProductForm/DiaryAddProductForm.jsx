@@ -17,8 +17,13 @@ import debounce from 'lodash/debounce';
 import { formatISO } from 'date-fns';
 import { addProductSchema } from 'models';
 
+const emptyFn = () => {};
 const limit = 10;
-export const DiaryAddProductForm = ({ addProduct }) => {
+export const DiaryAddProductForm = ({
+  addProduct,
+  toggleModal = emptyFn,
+  isMobile = false,
+}) => {
   const [title, setTitle] = useState('');
   const [productId, setProductId] = useState('');
 
@@ -44,6 +49,10 @@ export const DiaryAddProductForm = ({ addProduct }) => {
       await addProduct(newDiaryProduct);
       toast(newDiaryProduct);
       form.reset();
+
+      if (isMobile) {
+        toggleModal();
+      }
     } catch (error) {
       toast(`Not added: ${error.message}`);
       console.log(error);
