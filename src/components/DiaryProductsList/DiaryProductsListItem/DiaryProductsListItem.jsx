@@ -82,6 +82,8 @@ const DiaryProductsListItem = ({
           icon={<CloseIcon />}
           onClick={handleOnDeleteClick}
           disabled={isDisabledButton}
+          iconColor="$grey"
+          hoverIconColor="$grey"
         />
       </ButtonContainer>
     </ListItem>

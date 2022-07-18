@@ -6,7 +6,15 @@ const IconButton = ({
   onClick = () => {},
   position,
   disabled,
-  customBtn = '',
+  iconColor = null,
+  backgroundColor = null,
+  hoverBgColor = null,
+  hoverIconColor = null,
+  activeIconColor = null,
+  activeBgColor = null,
+  shouldScale = null,
+  isShadow = null,
+  buttonPudding = null,
 }) => {
   return (
     <Button
@@ -14,7 +22,15 @@ const IconButton = ({
       onClick={onClick}
       disabled={disabled}
       position={position}
-      customBtn={customBtn}
+      iconColor={iconColor}
+      backgroundColor={backgroundColor}
+      hoverBgColor={hoverBgColor}
+      hoverIconColor={hoverIconColor}
+      activeIconColor={activeIconColor}
+      activeBgColor={activeBgColor}
+      shouldScale={shouldScale}
+      isShadow={isShadow}
+      buttonPudding={buttonPudding}
     >
       {icon}
     </Button>
