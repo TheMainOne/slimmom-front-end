@@ -12,7 +12,7 @@ import { AppRouter } from './AppRouter';
 
 const App = () => {
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
@@ -24,7 +24,6 @@ const App = () => {
       <MuiThemeProvider theme={muiTheme}>
         <AppRouter />
       </MuiThemeProvider>
-
       <GlobalStyle />
       <ToastContainer />
     </ThemeProvider>

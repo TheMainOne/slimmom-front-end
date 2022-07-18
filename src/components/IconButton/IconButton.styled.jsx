@@ -2,33 +2,42 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   display: flex;
-  margin-bottom: ${({ theme: { spacing } }) => spacing(1)}; //убрать
-  padding-top: ${({ theme: { spacing } }) => spacing(1)};
-  padding-bottom: ${({ theme: { spacing } }) => spacing(1)};
-  padding-right: ${({ theme: { spacing } }) => spacing(1)};
-  padding-left: ${({ theme: { spacing } }) => spacing(1)};
-  background-color: transparent;
+  padding: ${({ buttonPadding, theme: { spacing } }) =>
+    buttonPadding ? spacing(Number(buttonPadding)) : spacing(1)};
+  background-color: ${({ backgroundColor, theme: { colors } }) =>
+    backgroundColor ? colors[backgroundColor] : 'transparent'};
   border: none;
   border-radius: 50%;
   box-shadow: none;
   outline: none;
-  color: ${({ color, theme: { colors } }) => color || colors.$grey};
+  color: ${({ iconColor, theme: { colors } }) =>
+    iconColor ? colors[iconColor] : colors.$black};
   cursor: pointer;
+  transition-property: color, background-color, box-shadow, transform;
+  transition-duration: ${({ theme: { options } }) => options.time};
+  transition-timing-function: ${({ theme: { options } }) => options.cubic};
 
   &:hover {
-    background-color: ${({ theme: { colors } }) => colors.$lightGrey};
-    transform: scale(1.05);
+    background-color: ${({ hoverBgColor, theme: { colors } }) =>
+      hoverBgColor ? colors[hoverBgColor] : colors.$lightGrey};
+    color: ${({ hoverIconColor, theme: { colors } }) =>
+      hoverIconColor ? colors[hoverIconColor] : colors.$black};
+    transform: ${({ shouldScale }) => (shouldScale ? 'scale(1.05)' : 'none')};
   }
 
   &:active {
-    color: ${({ theme: { colors } }) => colors.$white};
-    background-color: ${({ theme: { colors } }) => colors.$orange};
-    box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%),
-      0 3px 14px 2px rgb(0 0 0 / 12%);
+    color: ${({ activeIconColor, theme: { colors } }) =>
+      activeIconColor ? colors[activeIconColor] : colors.$white};
+    background-color: ${({ activeBgColor, theme: { colors } }) =>
+      activeBgColor ? colors[activeBgColor] : colors.$orange};
+    box-shadow: ${({ isShadow, theme: { colors } }) =>
+      isShadow ? colors.buttonShadow : 'none'};
   }
 
   &:disabled {
     background-color: ${({ theme: { colors } }) => colors.$lightGrey};
+    color: ${({ theme: { colors } }) => colors.$grey};
+    cursor: none;
   }
 
   & .css-i4bv87-MuiSvgIcon-root {
@@ -43,8 +52,8 @@ const Button = styled.button`
     }
   }
 
-  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: color, background-color, transform;
+  /* transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: color, background-color, transform; */
 `;
 
 export { Button };
