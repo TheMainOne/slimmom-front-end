@@ -9,7 +9,7 @@ const Layout = () => {
     <LayoutStyles>
       <BackgroundLayout>
         <Header />
-        <Suspense fallback="">
+        <Suspense fallback={<></>}>
           <Outlet />
         </Suspense>
       </BackgroundLayout>

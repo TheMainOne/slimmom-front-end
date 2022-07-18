@@ -87,10 +87,18 @@ export const HeaderLinksWrapper = styled.div`
     justify-content: ${props => (props.isLogged ? 'space-between' : 'initial')};
     align-items: inherit;
     margin-left: 30px;
-    display: ${props => props.isHidden && 'none'};
   }
 `;
 
 export const HeaderButtonsWrapper = styled.div`
   background-color: #eff1f3;
+`;
+
+export const MobileMenuButtonWrapper = styled.div`
+  & button {
+    color: #212121;
+    :active {
+      background-color: #e76000;
+    }
+  }
 `;

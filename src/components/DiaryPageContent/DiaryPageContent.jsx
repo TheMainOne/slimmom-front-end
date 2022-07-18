@@ -1,14 +1,21 @@
+import DiaryProductsList from 'components/DiaryProductsList';
+import { Spinner } from 'components/Spinner';
+import { diaryApi } from 'redux/apis';
+import { DiaryPageStyled } from './DiaryPageContent.styled';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { diaryApi } from 'redux/apis';
-import { Spinner } from 'components/Spinner';
 import { BlockWrapper } from 'components/Container';
-import { DiaryDateCalendar } from 'components/DiaryDateCalendar';
 import { useShowForm } from './hooks';
-import { DiaryAddProductForm } from 'components/Forms/DiaryAddProductForm';
-import DiaryProductsList from 'components/DiaryProductsList';
+import { DiaryCalendarAndForm } from './DiaryCalendarAndForm';
+import { useShowModal } from 'hooks/ui';
+import {
+  AddProductButton,
+  AddProductIcon,
+} from 'components/Forms/DiaryAddProductForm/AddProduct.mui';
+import useResizeAware from 'react-resize-aware';
 import { AlertModal } from 'components/AlertModal';
-import { DiaryPageStyled } from './DiaryPageContent.styled';
+
+const TABLET_WIDTH_BREAKPOINT = 768;
 
 export const DiaryPageContent = () => {
   const [showModal, setShowModal] = useState(false);
@@ -39,12 +46,21 @@ export const DiaryPageContent = () => {
     setShowModal(!showModal);
   };
 
+  const [resizeListener, { width }] = useResizeAware();
+  const isMobile = width < TABLET_WIDTH_BREAKPOINT;
+  const [showMobileModal, toggleMobileModal] = useShowModal();
+
   return (
     <BlockWrapper>
+      {resizeListener}
       <DiaryPageStyled>
-        <DiaryDateCalendar />
-
-        {shouldShowForm && <DiaryAddProductForm addProduct={addProduct} />}
+        <DiaryCalendarAndForm
+          addProduct={addProduct}
+          shouldShowForm={shouldShowForm}
+          isMobile={isMobile}
+          showMobileModal={showMobileModal}
+          toggleMobileModal={toggleMobileModal}
+        />
 
         {isLoading ? (
           <Spinner />
@@ -58,6 +74,17 @@ export const DiaryPageContent = () => {
           />
         ) : (
           <h1>Сегодня вы ещё не ели!</h1>
+        )}
+
+        {isMobile && shouldShowForm && (
+          <AddProductButton
+            color="primary"
+            variant="contained"
+            type="button"
+            onClick={toggleMobileModal}
+          >
+            <AddProductIcon />
+          </AddProductButton>
         )}
       </DiaryPageStyled>
       <AlertModal

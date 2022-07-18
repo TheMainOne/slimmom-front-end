@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IoMdReturnLeft } from 'react-icons/io';
 
 export const HeaderNavButtons = styled.span`
   font-family: ${({ theme: { fonts } }) => fonts.gothamPro};
@@ -16,7 +17,7 @@ export const HeaderNavButtons = styled.span`
   }
 
   &:last-of-type {
-    margin-right: 20px;
+    margin-right: 16px;
     color: #9b9faa;
     padding-left: 16px;
   }
@@ -50,15 +51,26 @@ export const HeaderNavButtons = styled.span`
   }
 `;
 
+export const MobileContainer = styled.div`
+  @media screen and (max-width: calc(${({ theme }) =>
+      theme.breakpoints.tablet} - 1px)) {
+    background-color: #eff1f3;
+  }
+`;
+
 export const HeaderNavButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
   height: 40px;
   width: 100%;
-  background-color: #eff1f3;
 
-  ${'' /* margin-right: 50px; */};
+  @media screen and (max-width: calc(${({ theme }) =>
+      theme.breakpoints.tablet} - 1px)) {
+    max-width: 320px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     background-color: inherit;
@@ -80,6 +92,12 @@ export const HeaderNavButton = styled.button`
   height: 80%;
   background: none;
 
+  @media screen and (max-width: calc(${({ theme }) =>
+      theme.breakpoints.tablet} - 1px)) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     padding-left: 15px;
     margin-right: 20px;
@@ -89,3 +107,14 @@ export const HeaderNavButton = styled.button`
     margin-right: 0;
   }
 `;
+
+export const ReturnButtonWrapper = styled.div`
+  max-height: 40px;
+  margin-right: auto;
+  > button {
+    padding: 8px 10px;
+    color: #212121;
+  }
+`;
+
+export const IconReturnLeft = styled(IoMdReturnLeft)``;
