@@ -5,9 +5,7 @@ import { formatingDate } from './formatingDate';
 export const useGetConsumedByDate = () => {
   const date = useSelector(state => state.calendar.activeDate);
 
-  const { data: dataTotal } = diaryApi.useGetProductsByDateQuery(
-    formatingDate.yyMmDd(date)
-  );
+  const { data: dataTotal } = diaryApi.useGetProductsByDateQuery(date);
 
   return { consumed: dataTotal?.data?.total, date: formatingDate.mmDdYy(date) };
 };

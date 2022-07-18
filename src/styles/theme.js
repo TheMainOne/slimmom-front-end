@@ -35,6 +35,9 @@ export const theme = {
     cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
     gradient:
       ' linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, #FFFFFF 42.19%)',
+    muiBtnShadow: `0 5px 5px -3px rgb(0, 0, 0, 0.2), 0 8px 10px 1px rgb(0, 0, 0, 0.14),
+      0 3px 14px 2px rgb(0, 0, 0, 0.12)`,
+    time: '250ms',
   },
 
   breakpoints: {

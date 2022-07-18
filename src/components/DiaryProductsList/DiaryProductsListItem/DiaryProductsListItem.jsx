@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { diaryApi } from 'redux/apis';
+import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from 'components/IconButton';
 import {
@@ -7,6 +9,7 @@ import {
   Text,
   Measure,
   ButtonContainer,
+  PopoverStyled,
 } from './DiaryProductsListItem.styled';
 
 const DiaryProductsListItem = ({
@@ -16,13 +19,55 @@ const DiaryProductsListItem = ({
   currentDate,
   productId,
   disabled,
+  getNotifyData,
 }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
   const [deleteProduct, { isLoading: isDeleting }] =
     diaryApi.useDeleteProductFromDateMutation();
+  const isDisabledButton = isDeleting
+    ? isDeleting
+    : disabled
+    ? disabled
+    : false;
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+  const handleOnDeleteClick = () => {
+    getNotifyData({
+      title,
+      deleteProduct,
+      deletingInfo: { currentDate, productId },
+    });
+  };
 
   return (
     <ListItem>
-      <Title>{title}</Title>
+      <Title onClick={handleClick}>{title}</Title>
+      <PopoverStyled
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+      >
+        <Typography sx={{ p: 1 }}>{title}</Typography>
+      </PopoverStyled>
       <Title>
         <Text>{weight}</Text>
         <Measure>g</Measure>
@@ -33,20 +78,15 @@ const DiaryProductsListItem = ({
       </Title>
       <ButtonContainer>
         <IconButton
-          type="button"
           icon={<CloseIcon />}
-          onClick={() => deleteProduct({ currentDate, productId })}
-          disabled={isDeleting ? isDeleting : disabled ? disabled : false}
+          onClick={handleOnDeleteClick}
+          disabled={isDisabledButton}
+          iconColor="$grey"
+          hoverIconColor="$grey"
         />
       </ButtonContainer>
-      {/* 
-      <ButtonContainer>
-        <IconButton type="button" icon={<CloseIcon />} />
-      </ButtonContainer> */}
     </ListItem>
   );
 };
-
-// onClick={() => deleteProduct(id)}
 
 export default DiaryProductsListItem;

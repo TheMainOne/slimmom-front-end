@@ -11,6 +11,7 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.7",
     "@mui/styled-engine-sc": "^5.8.0",
+    "@mui/x-date-pickers": "^5.0.0-beta.0",
     "@reduxjs/toolkit": "^1.8.3",
     "axios": "^0.27.2",
     "date-fns": "^2.28.0",
@@ -19,7 +20,6 @@
     "lodash": "^4.17.21",
     "match-sorter": "^6.3.1",
     "react": "^17.0.0",
-    "react-datepicker": "^4.8.0",
     "react-dom": "^17.0.0",
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
@@ -36,7 +36,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "lint": "eslint --cache --fix src/**/*.{js,jsx}"
+    "lint": "eslint --cache --fix src/**/*.{js,jsx}",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p"
   },
   "eslintConfig": {
     "extends": [

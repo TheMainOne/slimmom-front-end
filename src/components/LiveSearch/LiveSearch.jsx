@@ -7,22 +7,32 @@ export const LifeSearch = ({
   inputValue,
   onInputChange,
 }) => {
+  const options = items.map(option => {
+    const firstLetter = option.title.ua[0].toUpperCase();
+    return {
+      firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
+      ...option,
+    };
+  });
+
   return (
     <Autocomplete
       id="possible_products"
       // actual displayed items
       getOptionLabel={item => (item.title?.ua || item.title?.ru) ?? ''}
       isOptionEqualToValue={(option, value) => option._id === value._id}
-      options={items}
+      options={options?.sort(
+        (a, b) => -b.firstLetter?.localeCompare(a.firstLetter)
+      )}
       sx={{ width: 300 }}
-      noOptionsText={'Np products matches'}
+      noOptionsText={'No products matches'}
       renderOption={(props, item) => (
         <Box component="li" {...props} key={item._id}>
           {item.title?.ua || item.title?.ru}
         </Box>
       )}
       renderInput={params => (
-        <TextField {...params} label="Enter product name" />
+        <TextField variant="standard" {...params} label="Enter product name" />
       )}
       onChange={(e, val) => {
         setProductId(val?._id);
@@ -33,7 +43,7 @@ export const LifeSearch = ({
       // text ------
 
       filterOptions={x => x}
-      groupBy={option => option.categories?.[0]}
+      groupBy={option => option.firstLetter}
       // getOptionDisabled={option =>
       //   bannedProducts.some(bannedProduct => bannedProduct._id === option._id)
       // }

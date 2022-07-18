@@ -27,7 +27,6 @@ const RadioLabel = styled(FormLabel)`
   @media screen and (min-width: 768px) {
     padding-bottom: 11px;
     border-bottom: 1px solid #e0e0e0;
-    padding-right: 150px;
     display: block;
   }
 `;

@@ -10,7 +10,11 @@ export const ModalContent = ({ setShowModal }) => {
     <div>
       <Content>
         <DailyCalorieIntake />
-        <Button centered={'true'} onClick={() => navigate('/signup')}></Button>
+        <Button
+          text={'Start losing weight'}
+          // centered={'true'}
+          onClick={() => navigate('/signup')}
+        ></Button>
       </Content>
       <CloseModalButton
         aria-label="Close modal"

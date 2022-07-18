@@ -2,8 +2,8 @@ import { MainContainer, TextContainer, Block } from './model';
 import { DailyKkalReport, Title, FoodList } from './model';
 import { useDailyNorma } from './hooks';
 
-export const RightSideBar = () => {
-  const [responseData, date] = useDailyNorma('');
+export const RightSideBar = ({ userData }) => {
+  const [responseData, date] = useDailyNorma(userData);
 
   return (
     <MainContainer>

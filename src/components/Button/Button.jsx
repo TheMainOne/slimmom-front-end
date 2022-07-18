@@ -1,15 +1,17 @@
 import { Btn } from './Button.styled';
 
-export const Button = ({ centered, onClick }) => {
+// variant: "contained" || outlined
+
+export const Button = ({
+  type = 'button',
+  variant = 'contained',
+  onClick = () => {},
+  text = '',
+  disabled = false,
+}) => {
   return (
-    <Btn
-      centered={centered}
-      color="primary"
-      variant="contained"
-      type="submit"
-      onClick={onClick}
-    >
-      Start losing weight
+    <Btn variant={variant} type={type} onClick={onClick} disabled={disabled}>
+      {text}
     </Btn>
   );
 };
