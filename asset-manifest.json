@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/slimmom-front-end/static/css/main.039bf95e.css",
-    "main.js": "/slimmom-front-end/static/js/main.50bb7ccd.js",
+    "main.js": "/slimmom-front-end/static/js/main.9b980bbd.js",
     "static/js/124.3aead63f.chunk.js": "/slimmom-front-end/static/js/124.3aead63f.chunk.js",
     "static/js/362.1fa81a6f.chunk.js": "/slimmom-front-end/static/js/362.1fa81a6f.chunk.js",
     "static/js/646.b8a31dc9.chunk.js": "/slimmom-front-end/static/js/646.b8a31dc9.chunk.js",
@@ -35,7 +35,7 @@
     "static/media/iconCalendar.svg": "/slimmom-front-end/static/media/iconCalendar.25ad50961e43b5df706921e9737c9cdd.svg",
     "static/media/grey-background.svg": "/slimmom-front-end/static/media/grey-background.c655d736b7c28331ec143c1de45f86c8.svg",
     "main.039bf95e.css.map": "/slimmom-front-end/static/css/main.039bf95e.css.map",
-    "main.50bb7ccd.js.map": "/slimmom-front-end/static/js/main.50bb7ccd.js.map",
+    "main.9b980bbd.js.map": "/slimmom-front-end/static/js/main.9b980bbd.js.map",
     "124.3aead63f.chunk.js.map": "/slimmom-front-end/static/js/124.3aead63f.chunk.js.map",
     "362.1fa81a6f.chunk.js.map": "/slimmom-front-end/static/js/362.1fa81a6f.chunk.js.map",
     "646.b8a31dc9.chunk.js.map": "/slimmom-front-end/static/js/646.b8a31dc9.chunk.js.map",
@@ -51,6 +51,6 @@
   },
   "entrypoints": [
     "static/css/main.039bf95e.css",
-    "static/js/main.50bb7ccd.js"
+    "static/js/main.9b980bbd.js"
   ]
 }
