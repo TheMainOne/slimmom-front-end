@@ -10,8 +10,7 @@ export const MobileModalBackdrop = styled.div`
   width: 100%;
   height: calc(100% - 122px);
 
-  background-color: ${({ theme, isTransparent }) =>
-    isTransparent ? 'transparent ' : theme.colors.$white};
+  background-color: ${({ theme }) => theme.colors.$white};
 `;
 
 export const MobileModalContent = styled.div`
