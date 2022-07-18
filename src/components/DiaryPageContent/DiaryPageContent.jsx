@@ -48,7 +48,7 @@ export const DiaryPageContent = () => {
 
   const [resizeListener, { width }] = useResizeAware();
   const isMobile = width < TABLET_WIDTH_BREAKPOINT;
-  const [showMobileModal, toggleModal] = useShowModal();
+  const [showMobileModal, toggleMobileModal] = useShowModal();
 
   return (
     <BlockWrapper>
@@ -59,7 +59,7 @@ export const DiaryPageContent = () => {
           shouldShowForm={shouldShowForm}
           isMobile={isMobile}
           showMobileModal={showMobileModal}
-          toggleModal={toggleModal}
+          toggleMobileModal={toggleMobileModal}
         />
 
         {isLoading ? (
@@ -81,7 +81,7 @@ export const DiaryPageContent = () => {
             color="primary"
             variant="contained"
             type="button"
-            onClick={toggleModal}
+            onClick={toggleMobileModal}
           >
             <AddProductIcon />
           </AddProductButton>
