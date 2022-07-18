@@ -113,6 +113,7 @@ export const ReturnButtonWrapper = styled.div`
   margin-right: auto;
   > button {
     padding: 8px 10px;
+    color: #212121;
   }
 `;
 

@@ -6,8 +6,7 @@ const IconButton = ({
   onClick = () => {},
   position,
   disabled,
-  color,
-  padding,
+  customBtn = '',
 }) => {
   return (
     <Button
@@ -15,7 +14,7 @@ const IconButton = ({
       onClick={onClick}
       disabled={disabled}
       position={position}
-      color={color}
+      customBtn={customBtn}
     >
       {icon}
     </Button>

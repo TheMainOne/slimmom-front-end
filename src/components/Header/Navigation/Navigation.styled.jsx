@@ -93,3 +93,12 @@ export const HeaderLinksWrapper = styled.div`
 export const HeaderButtonsWrapper = styled.div`
   background-color: #eff1f3;
 `;
+
+export const MobileMenuButtonWrapper = styled.div`
+  & button {
+    color: #212121;
+    :active {
+      background-color: #e76000;
+    }
+  }
+`;

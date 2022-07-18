@@ -24,12 +24,7 @@ export default function UserInfo() {
 
         {showMobileModal && (
           <ReturnButtonWrapper>
-            <IconButton
-              padding="10px"
-              color="#212121"
-              icon={<IconReturnLeft />}
-              onClick={toggleModal}
-            />
+            <IconButton icon={<IconReturnLeft />} onClick={toggleModal} />
           </ReturnButtonWrapper>
         )}
 

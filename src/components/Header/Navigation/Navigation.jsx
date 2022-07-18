@@ -16,6 +16,7 @@ import {
   MobileNavigationItem,
   MobileNavigationLink,
   HeaderButtonsWrapper,
+  MobileMenuButtonWrapper,
 } from './Navigation.styled';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 import IconButton from 'components/IconButton';
@@ -45,12 +46,9 @@ const NavigationOnMobile = ({ visibleMenu, handleMenuBtnClick }) => (
   <>
     {visibleMenu ? (
       <>
-        <IconButton
-          color="#212121"
-          hoverBgColor="#e76000"
-          icon={<CloseIcon />}
-          onClick={handleMenuBtnClick}
-        />
+        <MobileMenuButtonWrapper>
+          <IconButton icon={<CloseIcon />} onClick={handleMenuBtnClick} />
+        </MobileMenuButtonWrapper>
 
         {createPortal(
           <MobileNavigation onClick={handleMenuBtnClick}>
@@ -67,12 +65,9 @@ const NavigationOnMobile = ({ visibleMenu, handleMenuBtnClick }) => (
         )}
       </>
     ) : (
-      <IconButton
-        color="#212121"
-        hoverBgColor="#e76000"
-        icon={<MenuIcon />}
-        onClick={handleMenuBtnClick}
-      />
+      <MobileMenuButtonWrapper>
+        <IconButton icon={<MenuIcon />} onClick={handleMenuBtnClick} />
+      </MobileMenuButtonWrapper>
     )}
   </>
 );
