@@ -29,8 +29,8 @@ export const Alert = () => {
         open={open}
         dialogTitle={'Are you sure that you want to exit?'}
         contentText={'Pressing exit button you will log out from your account'}
-        buttonTextPositive={'Stay more'}
-        buttonTextNegative={'Exit'}
+        leftBtnText={'Stay more'}
+        rightBtnText={'Exit'}
         onClick={logOut}
       />
     </>

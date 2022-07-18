@@ -26,10 +26,8 @@ const styles = {
 };
 
 const LoginPage = () => {
-  // const isLoading = useSelector(selectShowLoader); // Селектор статуса загрузки
-  const { t } = useTranslation();
   const isLogged = useSelector(state => getIsLoggedIn(state));
-
+  const { t } = useTranslation();
   useEffect(() => {
     document.title = 'Вход в профиль | SlimMom';
   }, []);

@@ -6,7 +6,6 @@ import CloseIcon from '@material-ui/icons/Close';
 import Container from 'components/Container';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import UserInfo from '../UserInfo';
 import {
   HeaderStyled,
@@ -16,37 +15,75 @@ import {
   MobileNavigation,
   MobileNavigationItem,
   MobileNavigationLink,
+  HeaderButtonsWrapper,
+  MobileMenuButtonWrapper,
 } from './Navigation.styled';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { useTranslation } from 'react-i18next';
 import { Languages } from '../Languages';
+import IconButton from 'components/IconButton';
+import { createPortal } from 'react-dom';
+import { getRefs } from 'utils';
+
+const { mobileMenuRoot } = getRefs();
 
 const styles = {
   link: {
     fontWeight: '700',
   },
-  isHidden: {
-    display: 'none',
-  },
 };
 
-const Header = () => {
-  const { t } = useTranslation();
-  const { pathname } = useLocation();
-  const bannedPaths = [];
-  const isHidden = bannedPaths.some(bannedPath => bannedPath === pathname);
+const NavigationForGuest = () => (
+  <>
+    <HeaderLink to="/login" style={styles.link}>
+      Sign in
+    </HeaderLink>
+    <HeaderLink to="/signup" style={styles.link}>
+      Registration
+    </HeaderLink>
+  </>
+);
 
+const NavigationOnMobile = ({ visibleMenu, handleMenuBtnClick }) => (
+  <>
+    {visibleMenu ? (
+      <>
+        <MobileMenuButtonWrapper>
+          <IconButton icon={<CloseIcon />} onClick={handleMenuBtnClick} />
+        </MobileMenuButtonWrapper>
+
+        {createPortal(
+          <MobileNavigation onClick={handleMenuBtnClick}>
+            <MobileNavigationItem>
+              <MobileNavigationLink to="/diary">diary</MobileNavigationLink>
+            </MobileNavigationItem>
+            <MobileNavigationItem>
+              <MobileNavigationLink to="/calculator">
+                calculator
+              </MobileNavigationLink>
+            </MobileNavigationItem>
+          </MobileNavigation>,
+          mobileMenuRoot
+        )}
+      </>
+    ) : (
+      <MobileMenuButtonWrapper>
+        <IconButton icon={<MenuIcon />} onClick={handleMenuBtnClick} />
+      </MobileMenuButtonWrapper>
+    )}
+  </>
+);
+
+const Header = () => {
   const [resizeListener, { width }] = useResizeAware();
-  const isLogged = useSelector(state => getIsLoggedIn(state));
+  const isLogged = useSelector(getIsLoggedIn);
   const mobileWidth = width <= 767;
   const tabletWidth = width >= 768 && width < 1279;
   const desktopWidth = width >= 1280;
-
+  const { t } = useTranslation();
   const [visibleMenu, setVisibleMenu] = useState(false);
 
-  const handleMenuBtnClick = () => {
-    setVisibleMenu(prev => !prev);
-  };
+  const handleMenuBtnClick = () => setVisibleMenu(prev => !prev);
 
   return (
     <>
@@ -58,87 +95,33 @@ const Header = () => {
               <Logo isLogged={isLogged} />
             </div>
 
-            <HeaderLinksWrapper isLogged={isLogged} isHidden={isHidden}>
-              {!isLogged && (
-                <>
-                  <HeaderLink
-                    to="/login"
-                    stylehidden={styles.isHidden}
-                    style={styles.link}
-                  >
-                    {t('signIn')}
-                  </HeaderLink>
-                  <HeaderLink
-                    to="/signup"
-                    stylehidden={styles.isHidden}
-                    style={styles.link}
-                  >
-                    {t('registration')}
-                  </HeaderLink>
-                </>
-              )}
+            <HeaderLinksWrapper isLogged={isLogged}>
+              {!isLogged && <NavigationForGuest />}
               {isLogged && mobileWidth && (
                 <div>
-                  {visibleMenu ? (
-                    <>
-                      <CloseIcon onClick={handleMenuBtnClick} />
-                      <MobileNavigation onClick={handleMenuBtnClick}>
-                        <MobileNavigationItem>
-                          <MobileNavigationLink to="/diary">
-                            {t('diary')}
-                          </MobileNavigationLink>
-                        </MobileNavigationItem>
-                        <MobileNavigationItem>
-                          <MobileNavigationLink to="/calculator">
-                            {t('calculator')}
-                          </MobileNavigationLink>
-                        </MobileNavigationItem>
-                      </MobileNavigation>
-                    </>
-                  ) : (
-                    <MenuIcon onClick={handleMenuBtnClick} />
-                  )}
+                  <NavigationOnMobile
+                    visibleMenu={visibleMenu}
+                    handleMenuBtnClick={handleMenuBtnClick}
+                  />
                 </div>
               )}
+
               {isLogged && tabletWidth && (
                 <>
                   <UserInfo />
-                  {visibleMenu ? (
-                    <>
-                      <CloseIcon onClick={handleMenuBtnClick} />
-                      <MobileNavigation onClick={handleMenuBtnClick}>
-                        <MobileNavigationItem>
-                          <MobileNavigationLink to="/diary">
-                            {t('diary')}
-                          </MobileNavigationLink>
-                        </MobileNavigationItem>
-                        <MobileNavigationItem>
-                          <MobileNavigationLink to="/calculator">
-                            {t('calculator')}
-                          </MobileNavigationLink>
-                        </MobileNavigationItem>
-                      </MobileNavigation>
-                    </>
-                  ) : (
-                    <MenuIcon onClick={handleMenuBtnClick} />
-                  )}
+                  <NavigationOnMobile
+                    visibleMenu={visibleMenu}
+                    handleMenuBtnClick={handleMenuBtnClick}
+                  />
                 </>
               )}
               {isLogged && desktopWidth && (
                 <>
                   <div>
-                    <HeaderLink
-                      to="/diary"
-                      stylehidden={styles.isHidden}
-                      style={styles.link}
-                    >
+                    <HeaderLink to="/diary" style={styles.link}>
                       {t('diary')}
                     </HeaderLink>
-                    <HeaderLink
-                      to="/calculator"
-                      stylehidden={styles.isHidden}
-                      style={styles.link}
-                    >
+                    <HeaderLink to="/calculator" style={styles.link}>
                       {t('calculator')}
                     </HeaderLink>
                   </div>
@@ -153,9 +136,11 @@ const Header = () => {
         </Container>
       </HeaderStyled>
       {isLogged && mobileWidth && (
-        <>
-          <UserInfo />
-        </>
+        <HeaderButtonsWrapper>
+          <Container>
+            <UserInfo />
+          </Container>
+        </HeaderButtonsWrapper>
       )}
     </>
   );

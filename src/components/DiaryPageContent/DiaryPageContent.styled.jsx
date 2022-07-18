@@ -6,7 +6,7 @@ export const DiaryPageContentStyled = styled.div`
   justify-content: center;
 
   width: 320px;
-  min-height: 460px;
+  height: 460px;
   height: 100%;
   padding: 40px 20px 60px 20px;
   margin: 0 auto;

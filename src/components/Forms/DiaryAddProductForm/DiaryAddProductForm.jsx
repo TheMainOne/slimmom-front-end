@@ -18,10 +18,14 @@ import { formatISO } from 'date-fns';
 import { addProductSchema } from 'models';
 import { useTranslation } from 'react-i18next';
 
+const emptyFn = () => {};
 const limit = 10;
-export const DiaryAddProductForm = ({ addProduct }) => {
+export const DiaryAddProductForm = ({
+  addProduct,
+  toggleMobileModal = emptyFn,
+  isMobile = false,
+}) => {
   const { t } = useTranslation();
-
   const [title, setTitle] = useState('');
   const [productId, setProductId] = useState('');
 
@@ -47,6 +51,10 @@ export const DiaryAddProductForm = ({ addProduct }) => {
       await addProduct(newDiaryProduct);
       toast(newDiaryProduct);
       form.reset();
+
+      if (isMobile) {
+        toggleMobileModal();
+      }
     } catch (error) {
       toast(`Not added: ${error.message}`);
       console.log(error);

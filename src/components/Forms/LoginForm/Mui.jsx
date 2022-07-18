@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
 const ButtonLogin = styled(Button)`
-  font-family: 'Verdana ';
+  font-family: 'Verdana';
   font-weight: 700;
   font-size: 14px;
   text-transform: none;

@@ -8,6 +8,13 @@ export const LifeSearch = ({
   onInputChange,
 }) => {
   const { t } = useTranslation();
+  const options = items.map(option => {
+    const firstLetter = option.title.ua[0].toUpperCase();
+    return {
+      firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
+      ...option,
+    };
+  });
 
   return (
     <Autocomplete
@@ -15,7 +22,9 @@ export const LifeSearch = ({
       // actual displayed items
       getOptionLabel={item => (item.title?.ua || item.title?.ru) ?? ''}
       isOptionEqualToValue={(option, value) => option._id === value._id}
-      options={items}
+      options={options?.sort(
+        (a, b) => -b.firstLetter?.localeCompare(a.firstLetter)
+      )}
       sx={{ width: 300 }}
       noOptionsText={t('noMatch')}
       renderOption={(props, item) => (
@@ -23,7 +32,9 @@ export const LifeSearch = ({
           {item.title?.ua || item.title?.ru}
         </Box>
       )}
-      renderInput={params => <TextField {...params} label={t('enter')} />}
+      renderInput={params => (
+        <TextField variant="standard" {...params} label={t('enter')} />
+      )}
       onChange={(e, val) => {
         setProductId(val?._id);
       }}
@@ -33,7 +44,7 @@ export const LifeSearch = ({
       // text ------
 
       filterOptions={x => x}
-      groupBy={option => option.categories?.[0]}
+      groupBy={option => option.firstLetter}
       // getOptionDisabled={option =>
       //   bannedProducts.some(bannedProduct => bannedProduct._id === option._id)
       // }

@@ -12,17 +12,8 @@ import { useTranslation } from 'react-i18next';
 const MainPage = () => {
   const [resizeListener] = useResizeAware();
   const [showModal, setShowModal] = useState(false);
+  const openModal = () => setShowModal(prev => !prev);
   const { t } = useTranslation();
-
-  const openModal = () => {
-    setShowModal(prev => !prev);
-  };
-  if (showModal) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = 'unset';
-  }
-
   return (
     <Container>
       <PageContainer>
