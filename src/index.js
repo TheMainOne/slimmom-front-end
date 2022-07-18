@@ -13,7 +13,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={<Spinner />} persistor={persistor}>
-        <BrowserRouter>
+        <BrowserRouter basename="/slimmom-front-end/">
           <App />
         </BrowserRouter>
       </PersistGate>
@@ -21,16 +21,3 @@ ReactDOM.render(
   </React.StrictMode>,
   root
 );
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <Provider store={store}>
-//       <PersistGate loading={<Spinner />} persistor={persistor}>
-//         <BrowserRouter basename="/slimmom-front-end/">
-//           <App />
-//         </BrowserRouter>
-//       </PersistGate>
-//     </Provider>
-//   </React.StrictMode>,
-//   root
-// );
