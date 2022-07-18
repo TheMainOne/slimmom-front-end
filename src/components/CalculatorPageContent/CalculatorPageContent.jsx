@@ -7,10 +7,12 @@ import { useTranslation } from 'react-i18next';
 export const CalculatorPageContent = ({ getPrivatDailyNorma }) => {
   const { t } = useTranslation();
 
-  <BlockWrapper>
-    <PageTitle title={t('title')} />
-    <CalculatorContainer>
-      <CalculatorСalorieForm getPrivatDailyNorma={getPrivatDailyNorma} />
-    </CalculatorContainer>
-  </BlockWrapper>;
+  return (
+    <BlockWrapper>
+      <PageTitle title={t('title')} />
+      <CalculatorContainer>
+        <CalculatorСalorieForm getPrivatDailyNorma={getPrivatDailyNorma} />
+      </CalculatorContainer>
+    </BlockWrapper>
+  );
 };
