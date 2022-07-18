@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { BlockWrapper } from 'components/Container';
 import { useShowForm } from './hooks';
+import EmptyListTitle from 'components/EmptyListTitle';
 import { DiaryCalendarAndForm } from './DiaryCalendarAndForm';
 import { useShowModal } from 'hooks/ui';
 import {
@@ -73,7 +74,7 @@ export const DiaryPageContent = () => {
             onOpenModal={setShowModal}
           />
         ) : (
-          <h1>Сегодня вы ещё не ели!</h1>
+          <EmptyListTitle>Ваш список за цей день порожній!</EmptyListTitle>
         )}
 
         {isMobile && shouldShowForm && (

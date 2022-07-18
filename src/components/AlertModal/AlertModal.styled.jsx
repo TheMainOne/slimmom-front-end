@@ -24,5 +24,17 @@ export const AlertDialogActions = styled(DialogActions)`
     & button:last-child {
       margin-left: ${({ theme: { spacing } }) => spacing(2)};
     }
-  } ;
+  }
+
+  @media (max-width: 767px) and (orientation: landscape) {
+    flex-direction: row;
+
+    & button:not(:last-child) {
+      margin-bottom: 0;
+    }
+
+    & button:last-child {
+      margin-left: ${({ theme: { spacing } }) => spacing(2)};
+    }
+  }
 `;
