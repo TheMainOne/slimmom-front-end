@@ -1,5 +1,5 @@
 [build]
-  base = "/"
+  base = "/slimmom-front-end/"
   publish = "/build"
   command = "react-scripts build"
 [[redirects]]
