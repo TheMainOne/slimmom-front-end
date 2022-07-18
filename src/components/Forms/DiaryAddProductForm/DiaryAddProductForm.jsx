@@ -21,7 +21,7 @@ const emptyFn = () => {};
 const limit = 10;
 export const DiaryAddProductForm = ({
   addProduct,
-  toggleModal = emptyFn,
+  toggleMobileModal = emptyFn,
   isMobile = false,
 }) => {
   const [title, setTitle] = useState('');
@@ -51,7 +51,7 @@ export const DiaryAddProductForm = ({
       form.reset();
 
       if (isMobile) {
-        toggleModal();
+        toggleMobileModal();
       }
     } catch (error) {
       toast(`Not added: ${error.message}`);
