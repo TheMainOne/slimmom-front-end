@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense, lazy } from 'react';
+import React, { useEffect, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
@@ -37,8 +37,7 @@ const App = () => {
         <Spinner />
       ) : (
         <>
-        {/* <Suspense fallback={<Spinner />}> */}
-        <Routes>
+       <Routes>
           <Route path="/" element={<Layout />}>
             <Route
               index
@@ -83,8 +82,7 @@ const App = () => {
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>
-        {/* </Suspense> */}
-        </>
+                </>
         )}
         </>
       </MuiThemeProvider>
