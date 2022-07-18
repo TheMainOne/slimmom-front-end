@@ -12,8 +12,7 @@ import { AppRouter } from './AppRouter';
 
 const App = () => {
   const dispatch = useDispatch();
-  // const isFetchingCurrentUser = useSelector(authSelector.getFetchingCurrentUser);
-
+  
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);

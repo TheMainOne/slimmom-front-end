@@ -4,6 +4,10 @@ import Layout from 'pages/Layout';
 import PrivateRoute from '../PrivateRoute';
 import PublicRoute from '../PublicRoute';
 import 'react-toastify/dist/ReactToastify.css';
+import { authSelector } from 'redux/auth';
+import { useSelector } from 'react-redux';
+import { Spinner } from 'components/Spinner';
+import { SpinnerContainer } from './App.styled';
 
 const MainPage = lazy(() => import('pages/MainPage'));
 const DiaryPage = lazy(() => import('pages/DiaryPage'));
@@ -11,7 +15,18 @@ const CalculatorPage = lazy(() => import('pages/CalculatorPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const RegistrationPage = lazy(() => import('pages/RegistrationPage'));
 
-export const AppRouter = () => (
+export const AppRouter = () => {
+
+  const isFetchingCurrentUser = useSelector(authSelector.getFetchingCurrentUser);
+
+  return (
+  <>
+  {isFetchingCurrentUser ? (
+    <SpinnerContainer>
+    <Spinner />
+    </SpinnerContainer>
+  ) : (
+    <>
   <Routes>
     <Route path="/" element={<Layout />}>
       <Route
@@ -57,4 +72,7 @@ export const AppRouter = () => (
       <Route path="*" element={<Navigate to="/" />} />
     </Route>
   </Routes>
-);
+  </>
+  )}
+  </>
+  )}
