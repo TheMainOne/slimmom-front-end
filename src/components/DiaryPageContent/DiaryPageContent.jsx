@@ -34,10 +34,12 @@ export const DiaryPageContent = () => {
   const { data: { consumedProducts = [] } = {} } = data;
 
   const getNotifyData = data => {
-    const { title, deleteProduct, deletingInfo, openModal } = data;
+    const { title, deleteProduct, deletingInfo } = data;
     setAlertOptions({ title, deleteProduct, deletingInfo });
-    setShowModal(openModal);
+    toggleModal();
   };
+
+  const toggleModal = () => setShowModal(!showModal);
 
   const handleCloseModal = () => {
     deleteProduct(deletingInfo);

@@ -16,9 +16,13 @@ const Button = styled.button`
   color: ${({ color, theme: { colors } }) => color || colors.$grey};
   cursor: pointer;
 
+  /* & svg,
+  & svg path {
+    pointer-events: none;
+  } */
+
   &:hover {
-    background-color: ${({ hoverBgColor, theme: { colors } }) =>
-      hoverBgColor || colors.$lightGrey};
+    background-color: ${({ theme: { colors } }) => colors.$lightGrey};
     transform: scale(1.1);
   }
 
