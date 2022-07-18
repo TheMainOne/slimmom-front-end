@@ -78,7 +78,6 @@ const DiaryProductsListItem = ({
       </Title>
       <ButtonContainer>
         <IconButton
-          type="button"
           icon={<CloseIcon />}
           onClick={handleOnDeleteClick}
           disabled={isDisabledButton}

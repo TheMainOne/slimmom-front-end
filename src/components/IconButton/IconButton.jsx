@@ -10,7 +10,7 @@ import { Button } from './IconButton.styled';
 // activeBgColor = "$orange",
 // shouldScale = false,
 // isShadow = false,
-// buttonPudding = 1,
+// buttonPadding = 1, 4*2=8 - вказуємо 2
 // disabled = false
 // icon = your icon component
 // onClick = your handler
@@ -19,7 +19,6 @@ const IconButton = ({
   type = 'button',
   icon,
   onClick = () => {},
-  position,
   disabled = false,
   iconColor = null,
   backgroundColor = null,
@@ -29,14 +28,13 @@ const IconButton = ({
   activeBgColor = null,
   shouldScale = null,
   isShadow = null,
-  buttonPudding = null,
+  buttonPadding = null,
 }) => {
   return (
     <Button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      position={position}
       iconColor={iconColor}
       backgroundColor={backgroundColor}
       hoverBgColor={hoverBgColor}
@@ -45,7 +43,7 @@ const IconButton = ({
       activeBgColor={activeBgColor}
       shouldScale={shouldScale}
       isShadow={isShadow}
-      buttonPudding={buttonPudding}
+      buttonPadding={buttonPadding}
     >
       {icon}
     </Button>

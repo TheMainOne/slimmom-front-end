@@ -2,12 +2,8 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   display: flex;
-  padding: ${({ buttonPudding, theme: { spacing } }) =>
-    buttonPudding ? spacing(Number(buttonPudding)) : spacing(1)};
-  padding-top: ${({ theme: { spacing } }) => spacing(1)};
-  padding-bottom: ${({ theme: { spacing } }) => spacing(1)};
-  padding-right: ${({ theme: { spacing } }) => spacing(1)};
-  padding-left: ${({ theme: { spacing } }) => spacing(1)};
+  padding: ${({ buttonPadding, theme: { spacing } }) =>
+    buttonPadding ? spacing(Number(buttonPadding)) : spacing(1)};
   background-color: ${({ backgroundColor, theme: { colors } }) =>
     backgroundColor ? colors[backgroundColor] : 'transparent'};
   border: none;
