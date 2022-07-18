@@ -35,9 +35,4 @@ export const StyledForm = styled(FormControl)`
   @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
     top: 6px;
   }
-  /* & .MuiSelect-outlined {
-    @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-      padding-right: 25px;
-    }
-  } */
 `;

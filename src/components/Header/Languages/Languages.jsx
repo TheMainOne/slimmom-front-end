@@ -39,7 +39,7 @@ export const Languages = () => {
             p: 0,
             top: 5,
           }}
-          IconComponent={false}
+          IconComponent=""
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={language}

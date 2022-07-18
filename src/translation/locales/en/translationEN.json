@@ -50,5 +50,6 @@
 
   "delete": "Delete this product?",
   "yes": "Yes",
-  "no": "No"
+  "no": "No",
+  "empty": "Your list is empty!"
 }

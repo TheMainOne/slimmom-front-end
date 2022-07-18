@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 
-// export const ModalContainer = styled.div`
-//   padding: 64px 81px 0;
-//   text-align: center;
-//   font-family: 'Verdana';
-
-//   color: ${({ theme: { colors } }) => colors.$black};
-// `;
 export const Title = styled.h2`
   font-style: normal;
   font-weight: 700;
