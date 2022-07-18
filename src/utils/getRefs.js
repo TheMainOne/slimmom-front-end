@@ -1,5 +1,5 @@
 export const getRefs = () => ({
-  htmlAndBody: document.querySelectorAll('[data-no-scroll]'),
+  html: document.documentElement,
   root: document.getElementById('root'),
   modalRoot: document.getElementById('modal-root'),
   mobileModalRoot: document.getElementById('mobile-modal-root'),
