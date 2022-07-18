@@ -27,10 +27,10 @@ export const Alert = () => {
       <AlertModal
         setOpen={setOpen}
         open={open}
-        dialogTitle={'Are you sure that you want to exit?'}
-        contentText={'Pressing exit button you will log out from your account'}
-        leftBtnText={'Stay more'}
-        rightBtnText={'Exit'}
+        dialogTitle={t('alert')}
+        contentText={t('warning')}
+        leftBtnText={t('stay')}
+        rightBtnText={t('exit')}
         onClick={logOut}
       />
     </>

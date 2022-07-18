@@ -9,14 +9,11 @@ import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import useResizeAware from 'react-resize-aware';
 import { IconButton, InputAdornment, TextField } from '@mui/material';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { CalendarWrapper, IconCalendar } from './DiaryDateCalendar.styled';
 
 const DESKTOP_WIDTH_BREAKPOINT = 1280;
 
 const MaterialUIPickers = () => {
-  const { t } = useTranslation();
-
   const dispatch = useDispatch();
   const activeDate = new Date(useSelector(selectActiveDate));
   const [localDate, setLocalDate] = useState(activeDate);

@@ -44,5 +44,11 @@
   "date": "Date desktop",
   "dateM": "Date mobile",
 
-  "alert": ""
+  "alert": "Are you sure that you want to exit?",
+  "warning": "By pressing exit button you will log out from your account",
+  "stay": "Stay more",
+
+  "delete": "Delete this product?",
+  "yes": "Yes",
+  "no": "No"
 }

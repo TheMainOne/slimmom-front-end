@@ -91,12 +91,12 @@ export const DiaryPageContent = () => {
         )}
       </DiaryPageStyled>
       <AlertModal
-        leftBtnText="Ні не хочу!"
-        rightBtnText="Так, хочу!"
+        leftBtnText={t('no')}
+        rightBtnText={t('yes')}
         open={showModal}
         onClick={handleCloseModal}
         setOpen={setShowModal}
-        dialogTitle="Ви дійсно хочете видалити цей продукт?"
+        dialogTitle={t('delete')}
         contentText={title}
       />
     </BlockWrapper>

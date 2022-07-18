@@ -2,15 +2,11 @@ import { useState } from 'react';
 import LanguageIcon from '@mui/icons-material/Language';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
 import { useTranslation } from 'react-i18next';
-import Select from '@mui/material/Select';
-import Box from '@mui/material/Box';
-// import { SelectS } from './Languages.styled';
+import { StyledSelect, StyledForm } from './Languages.styled';
 
 export const Languages = () => {
   const { i18n } = useTranslation();
-
   const [language, setLanguage] = useState('');
 
   const handleChange = event => {
@@ -23,19 +19,33 @@ export const Languages = () => {
   };
 
   return (
-    <Box>
-      <FormControl size="small" sx={{ m: 1, minWidth: 65 }}>
-        <InputLabel id="demo-simple-select-label">
-          <LanguageIcon />
-        </InputLabel>
-        <Select
+    <div>
+      <StyledForm
+        size="small"
+        sx={{
+          ml: 3,
+          p: 0,
+          top: 6,
+        }}
+      >
+        {!language && (
+          <InputLabel id="demo-simple-select-label">
+            <LanguageIcon />
+          </InputLabel>
+        )}
+        <StyledSelect
+          sx={{
+            ml: 3,
+            p: 0,
+            top: 5,
+          }}
           IconComponent={false}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={language}
           label="Age"
           onChange={handleChange}
-          variant="standard"
+          variant="outlined"
         >
           <MenuItem onClick={changeLanguage('en')} value={'en'}>
             🇺🇸
@@ -43,8 +53,8 @@ export const Languages = () => {
           <MenuItem onClick={changeLanguage('ua')} value={'ua'}>
             🇺🇦
           </MenuItem>
-        </Select>
-      </FormControl>
-    </Box>
+        </StyledSelect>
+      </StyledForm>
+    </div>
   );
 };
