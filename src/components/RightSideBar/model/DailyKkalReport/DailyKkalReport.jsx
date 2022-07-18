@@ -1,17 +1,17 @@
 import { TableContainer, TabRows } from './Table';
 
-export const DailyKkalReport = ({ data }) => {
+export const DailyKkalReport = ({ data, isLoading }) => {
   const { left, consumed, dailyRate, percente } = data;
 
   return (
     <TableContainer>
-      <TabRows data={left} head="Left" unit="kcal" />
+      <TabRows data={[left, isLoading]} head="Left" />
 
-      <TabRows data={consumed} head="Consumed" unit="kcal" />
+      <TabRows data={[consumed, isLoading]} head="Consumed" />
 
-      <TabRows data={dailyRate} head="Daily rate" unit="kcal" />
+      <TabRows data={[dailyRate, isLoading]} head="Daily rate" />
 
-      <TabRows data={percente} head="n% of normal" unit="%" />
+      <TabRows data={[percente, isLoading]} head="n% of normal" unit="%" />
     </TableContainer>
   );
 };
