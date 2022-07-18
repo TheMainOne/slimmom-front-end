@@ -10,7 +10,7 @@ export const DiaryCalendarAndForm = ({
   shouldShowForm,
   isMobile,
   showMobileModal,
-  toggleModal,
+  toggleMobileModal,
 }) => {
   return (
     <DiaryCalendarAndFormStyled>
@@ -19,16 +19,16 @@ export const DiaryCalendarAndForm = ({
       {shouldShowForm && !isMobile && (
         <DiaryAddProductForm
           addProduct={addProduct}
-          toggleModal={toggleModal}
-          isMobile={isMobile}
+          toggleMobileModal={toggleMobileModal}
         />
       )}
 
       {shouldShowForm && isMobile && showMobileModal && (
-        <MobileModal onClose={toggleModal}>
+        <MobileModal onClose={toggleMobileModal}>
           <DiaryAddProductForm
             addProduct={addProduct}
-            toggleModal={toggleModal}
+            toggleMobileModal={toggleMobileModal}
+            isMobile={isMobile}
           />
         </MobileModal>
       )}

@@ -78,10 +78,11 @@ const DiaryProductsListItem = ({
       </Title>
       <ButtonContainer>
         <IconButton
-          type="button"
           icon={<CloseIcon />}
           onClick={handleOnDeleteClick}
           disabled={isDisabledButton}
+          iconColor="$grey"
+          hoverIconColor="$grey"
         />
       </ButtonContainer>
     </ListItem>

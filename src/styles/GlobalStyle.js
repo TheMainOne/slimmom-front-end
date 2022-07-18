@@ -41,8 +41,10 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
 
-    overflow-y: scroll;
-    &.no-scroll {
+    &.overflow-scroll {
+      overflow-y: scroll;
+    }
+    &.overflow-hidden {
       overflow-y: hidden; // STOP MOVING AROUND :)
     }
   }
@@ -52,8 +54,11 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     margin: 0;
 
-    overflow-y: hidden;
-    &.no-scroll {
+    &.overflow-hidden {
+      overflow-y: hidden;
+    }
+
+    &.overflow-scroll {
       overflow-y: scroll;
     }
 

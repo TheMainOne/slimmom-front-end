@@ -71,6 +71,7 @@ const Measure = styled.span`
 const ButtonContainer = styled.div`
   display: flex;
   align-items: flex-end;
+  margin-bottom: ${({ theme: { spacing } }) => spacing(1)};
 `;
 
 const PopoverStyled = styled(Popover)`

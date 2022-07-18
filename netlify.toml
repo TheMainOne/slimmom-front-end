@@ -1,8 +1,7 @@
 [build]
-  base = "/"
-  publish = "/build"
-  command = "react-scripts build"
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  publish="build"
+
+[[redirect]]
+  from="/*"
+  to="/index.html"
+  status=200

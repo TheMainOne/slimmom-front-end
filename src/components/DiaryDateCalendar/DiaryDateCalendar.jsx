@@ -72,6 +72,7 @@ const MaterialUIPickers = () => {
             open={open}
             onOpen={toggleCalendar}
             onClose={toggleCalendar}
+            closeOnSelect={true}
             renderInput={params => (
               <TextField
                 variant="standard"
