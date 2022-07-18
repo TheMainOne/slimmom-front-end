@@ -1,7 +1,13 @@
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+
 import { ModalContent } from './ModalContent/ModalContent';
 import useResizeAware from 'react-resize-aware';
+import { MobileModal } from 'components/MobileModal';
+import { HeaderButtonsWrapper } from 'components/Header/Navigation/Navigation.styled';
+import Container from 'components/Container';
+import { useShowModal } from 'hooks/ui';
 
 const MuiDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -13,6 +19,8 @@ const MuiDialog = styled(Dialog)(({ theme }) => ({
 export const Modal = ({ showModal, setShowModal }) => {
   const [resizeListener, { width }] = useResizeAware();
   const mobileWidth = width <= 767;
+  const [showMobileModal, toggleMobileModal] = useShowModal();
+
   const handleClose = () => {
     setShowModal(prev => !prev);
   };
@@ -20,7 +28,7 @@ export const Modal = ({ showModal, setShowModal }) => {
   return (
     <>
       {resizeListener}
-      {!mobileWidth && (
+      {!mobileWidth ? (
         <div>
           <MuiDialog
             onClose={handleClose}
@@ -28,10 +36,23 @@ export const Modal = ({ showModal, setShowModal }) => {
             open={showModal}
             maxWidth={false}
           >
-            <ModalContent setShowModal={setShowModal} />
+            <DialogContent>
+              <ModalContent setShowModal={setShowModal} />
+            </DialogContent>
           </MuiDialog>
         </div>
+      ) : (
+        showMobileModal && (
+          <MobileModal onClose={toggleMobileModal}>
+            <ModalContent />
+          </MobileModal>
+        )
       )}
     </>
   );
 };
+{
+  /* <ReturnButtonWrapper>
+<IconButton icon={<IconReturnLeft />} onClick={toggleModal} />
+</ReturnButtonWrapper> */
+}
