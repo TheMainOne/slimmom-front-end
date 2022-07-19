@@ -8,15 +8,16 @@ import { BlockWrapper } from 'components/Container';
 import { useShowForm } from './hooks';
 import EmptyListTitle from 'components/EmptyListTitle';
 import { DiaryCalendarAndForm } from './DiaryCalendarAndForm';
-import { useShowModal } from 'hooks/ui';
+import { useMobileModal } from 'hooks/ui';
 import {
   AddProductButton,
+  AddProductButtonWrapper,
   AddProductIcon,
 } from 'components/Forms/DiaryAddProductForm/AddProduct.mui';
 import useResizeAware from 'react-resize-aware';
 import { AlertModal } from 'components/AlertModal';
 
-const TABLET_WIDTH_BREAKPOINT = 768;
+const TABLET = 768;
 
 export const DiaryPageContent = () => {
   const [showModal, setShowModal] = useState(false);
@@ -48,19 +49,18 @@ export const DiaryPageContent = () => {
   };
 
   const [resizeListener, { width }] = useResizeAware();
-  const isMobile = width < TABLET_WIDTH_BREAKPOINT;
-  const [showMobileModal, toggleMobileModal] = useShowModal();
+  const isMobile = width < TABLET;
+  const [, openMobileModal] = useMobileModal();
 
   return (
     <BlockWrapper>
       {resizeListener}
+
       <DiaryPageStyled>
         <DiaryCalendarAndForm
           addProduct={addProduct}
           shouldShowForm={shouldShowForm}
           isMobile={isMobile}
-          showMobileModal={showMobileModal}
-          toggleMobileModal={toggleMobileModal}
         />
 
         {isLoading ? (
@@ -78,16 +78,19 @@ export const DiaryPageContent = () => {
         )}
 
         {isMobile && shouldShowForm && (
-          <AddProductButton
-            color="primary"
-            variant="contained"
-            type="button"
-            onClick={toggleMobileModal}
-          >
-            <AddProductIcon />
-          </AddProductButton>
+          <AddProductButtonWrapper>
+            <AddProductButton
+              color="primary"
+              variant="contained"
+              type="button"
+              onClick={openMobileModal}
+            >
+              <AddProductIcon />
+            </AddProductButton>
+          </AddProductButtonWrapper>
         )}
       </DiaryPageStyled>
+
       <AlertModal
         leftBtnText="Ні не хочу!"
         rightBtnText="Так, хочу!"
