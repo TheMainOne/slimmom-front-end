@@ -169,7 +169,7 @@ const BananaImg = styled.img`
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -11%;
     animation-name: moveBanana;
     animation-duration: 1s;
     animation-timing-function: ease;
@@ -187,7 +187,6 @@ const BananaImg = styled.img`
 
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     position: absolute;
-    /* top: auto; */
     bottom: 47%;
     animation-name: upBanana;
     animation-duration: 1s;

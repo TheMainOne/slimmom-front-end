@@ -27,4 +27,16 @@ const InputContainer = styled.div`
 
 const Wrapper = styled.div``;
 
-export { Form, Block, InputContainer, Wrapper };
+const BoxButton = styled.div`
+  margin: auto;
+  margin-top: 40px;
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    margin: 28px 0 0;
+  }
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
+    margin-left: auto;
+    margin-right: 0;
+  }
+`;
+
+export { Form, Block, InputContainer, Wrapper, BoxButton };

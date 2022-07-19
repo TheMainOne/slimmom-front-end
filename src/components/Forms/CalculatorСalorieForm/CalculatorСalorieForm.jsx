@@ -1,12 +1,12 @@
 import { useFormik } from 'formik';
 import {
   Block,
+  BoxButton,
   Form,
   InputContainer,
   Wrapper,
 } from './CalculatorСalorieForm.styled';
 import {
-  ButtonRegister,
   CastomTextField,
   RadioInput,
   RadioLabel,
@@ -15,13 +15,13 @@ import {
 import RadioGroup from '@mui/material/RadioGroup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveUserInfo } from 'redux/slices';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { validationSchema } from './validationSchema';
 import { setUserData } from 'redux/auth/authSlice';
 import { transformUserData } from '../RegistrationForm/transformUserData';
 import { useShowModal } from 'hooks/ui';
 import useResizeAware from 'react-resize-aware';
+import { Button } from 'components/Button';
 
 const typeBlood = [1, 2, 3, 4];
 
@@ -42,10 +42,8 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
       const paramsUser = { ...values, bloodType: selectedTypeBlood };
-      dispatch(saveUserInfo(paramsUser));
-
+      dispatch(setUserData(transformUserData(paramsUser)));
       if (isLoggedIn) {
-        dispatch(setUserData(transformUserData(paramsUser)));
         await getPrivatDailyNorma(paramsUser);
       }
 
@@ -140,10 +138,9 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
           </Block>
         </Wrapper>
       </InputContainer>
-
-      <ButtonRegister color="primary" variant="contained" type="submit">
-        Start losing weight
-      </ButtonRegister>
+      <BoxButton>
+        <Button type="submit" text="Start losing weight" />
+      </BoxButton>
     </Form>
   );
 };
