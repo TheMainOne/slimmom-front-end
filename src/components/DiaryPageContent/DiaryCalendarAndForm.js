@@ -1,6 +1,7 @@
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar';
 import { DiaryAddProductForm } from 'components/Forms/DiaryAddProductForm';
 import { MobileModal } from 'components/MobileModal';
+import { useMobileModal } from 'hooks/ui';
 import styled from 'styled-components';
 
 const DiaryCalendarAndFormStyled = styled.div``;
@@ -9,9 +10,9 @@ export const DiaryCalendarAndForm = ({
   addProduct,
   shouldShowForm,
   isMobile,
-  showMobileModal,
-  toggleMobileModal,
 }) => {
+  const [showMobileModal, , hideMobileModal] = useMobileModal();
+
   return (
     <DiaryCalendarAndFormStyled>
       <DiaryDateCalendar />
@@ -19,15 +20,18 @@ export const DiaryCalendarAndForm = ({
       {shouldShowForm && !isMobile && (
         <DiaryAddProductForm
           addProduct={addProduct}
-          toggleMobileModal={toggleMobileModal}
+          hideMobileModal={hideMobileModal}
         />
       )}
 
       {shouldShowForm && isMobile && showMobileModal && (
-        <MobileModal toggleModal={toggleMobileModal}>
+        <MobileModal
+          hideMobileModal={hideMobileModal}
+          showMobileModal={showMobileModal}
+        >
           <DiaryAddProductForm
             addProduct={addProduct}
-            toggleMobileModal={toggleMobileModal}
+            hideMobileModal={hideMobileModal}
             isMobile={isMobile}
           />
         </MobileModal>
