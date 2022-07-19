@@ -6,7 +6,6 @@ import { CastomTextField } from './MuI';
 import { getUser, getUserData } from 'redux/auth/authSelector';
 import { useEffect, useState } from 'react';
 import { validationSchema } from './validationSchema';
-import { transformUserData } from './transformUserData';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'components/Button';
 

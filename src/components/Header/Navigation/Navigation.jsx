@@ -142,7 +142,7 @@ const Header = () => {
                   <UserInfo />
                 </>
               )}
-              {!isLogged && !mobileWidth && (
+              {!isLogged && (
                 <div>
                   <Languages />
                 </div>
@@ -181,3 +181,8 @@ const Header = () => {
 };
 
 export default Header;
+
+// position: absolute;
+/* left: 60px; */
+/* top: 3%; */
+// top: 78px;
