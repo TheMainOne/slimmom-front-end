@@ -69,7 +69,7 @@ const LoginForm = () => {
           color="primary" 
           variant="contained"  
           type="submit"  
-          disabled={!formik.isValid}>
+          >
            Login
         </ButtonLogin>
       
