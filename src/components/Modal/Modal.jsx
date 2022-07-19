@@ -5,8 +5,6 @@ import DialogContent from '@mui/material/DialogContent';
 import { ModalContent } from './ModalContent/ModalContent';
 import useResizeAware from 'react-resize-aware';
 import { MobileModal } from 'components/MobileModal';
-import { HeaderButtonsWrapper } from 'components/Header/Navigation/Navigation.styled';
-import Container from 'components/Container';
 import { useShowModal } from 'hooks/ui';
 
 const MuiDialog = styled(Dialog)(({ theme }) => ({
@@ -51,8 +49,3 @@ export const Modal = ({ showModal, setShowModal }) => {
     </>
   );
 };
-{
-  /* <ReturnButtonWrapper>
-<IconButton icon={<IconReturnLeft />} onClick={toggleModal} />
-</ReturnButtonWrapper> */
-}

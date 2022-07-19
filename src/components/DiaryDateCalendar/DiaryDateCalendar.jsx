@@ -95,13 +95,6 @@ const MaterialUIPickers = () => {
   );
 };
 
-export const DateCalendar = () => {
-  return (
-    <>
-      <MaterialUIPickers />
-      <ul>{/* <li>36. Верстка мобілка, планшет, десктоп</li> */}</ul>
-    </>
-  );
-};
+export const DateCalendar = () => <MaterialUIPickers />;
 
 export const DiaryDateCalendar = memo(DateCalendar);

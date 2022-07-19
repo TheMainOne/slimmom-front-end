@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getUserParams } from 'redux/slices/selector';
+import { getUserData } from 'redux/auth/authSelector';
 import { Title, Text, Span } from './DailyCalorieIntake.styled';
 import { List } from './List';
 
 export const DailyCalorieIntake = () => {
   const [formula, setFormula] = useState(0);
-  const userInfo = useSelector(getUserParams);
+  const userInfo = useSelector(getUserData);
 
   useEffect(() => {
     if (!userInfo) return;
