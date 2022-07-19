@@ -16,16 +16,14 @@ import { LifeSearch } from 'components/LiveSearch';
 import debounce from 'lodash/debounce';
 import { formatISO } from 'date-fns';
 import { addProductSchema } from 'models';
+import { useMobileModal } from 'hooks/ui';
 
-const emptyFn = () => {};
 const limit = 10;
-export const DiaryAddProductForm = ({
-  addProduct,
-  toggleMobileModal = emptyFn,
-  isMobile = false,
-}) => {
+export const DiaryAddProductForm = ({ addProduct, isMobile }) => {
   const [title, setTitle] = useState('');
   const [productId, setProductId] = useState('');
+
+  const [, , hideMobileModal] = useMobileModal();
 
   const [getProducts, { data: { data: products = [] } = {} }] =
     useGetProductsMutation();
@@ -51,7 +49,7 @@ export const DiaryAddProductForm = ({
       form.reset();
 
       if (isMobile) {
-        toggleMobileModal();
+        hideMobileModal();
       }
     } catch (error) {
       toast(`Not added: ${error.message}`);
