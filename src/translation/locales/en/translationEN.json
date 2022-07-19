@@ -51,5 +51,9 @@
   "delete": "Delete this product?",
   "yes": "Yes",
   "no": "No",
-  "empty": "Your list is empty!"
+  "empty": "Your list is empty!",
+
+  "allProduct": "All",
+  "almostProduct": "Most products from the category: ",
+  "someProduct": "Some products from the category: "
 }
