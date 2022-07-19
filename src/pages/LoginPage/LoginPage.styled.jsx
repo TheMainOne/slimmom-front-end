@@ -4,6 +4,10 @@ const PageContainer = styled.div`
   padding-bottom: 175px;
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     padding-bottom: 495px;
+
+    @media (max-width: 1279px) and (orientation: landscape) {
+      padding-bottom: ${({ theme: { spacing } }) => spacing(28)};
+    }
   }
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     padding-bottom: 255px;

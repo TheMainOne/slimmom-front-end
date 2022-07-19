@@ -1,20 +1,27 @@
 import { TableContainer, TabRows } from './Table';
 import { useTranslation } from 'react-i18next';
 
-export const DailyKkalReport = ({ data }) => {
-  const { t } = useTranslation();
-
+export const DailyKkalReport = ({ data, isLoading }) => {
   const { left, consumed, dailyRate, percente } = data;
+  const { t } = useTranslation();
 
   return (
     <TableContainer>
-      <TabRows data={left} head={t('left')} unit={t('kcal')} />
+      <TabRows data={[left, isLoading]} head={t('left')} />
 
-      <TabRows data={consumed} head={t('consumed')} unit={t('kcal')} />
+      <TabRows data={[consumed, isLoading]} head={t('consumed')} />
 
-      <TabRows data={dailyRate} head={t('rate')} unit={t('kcal')} />
+      <TabRows data={[dailyRate, isLoading]} head={t('rate')} />
 
-      <TabRows data={percente} head={t('norm')} unit="%" />
+      <TabRows data={[percente, isLoading]} head={t('norm')} unit="%" />
     </TableContainer>
   );
 };
+
+//  <TabRows data={[left, isLoading]} head="Left" />
+
+//       <TabRows data={[consumed, isLoading]} head="Consumed" />
+
+//       <TabRows data={[dailyRate, isLoading]} head="Daily rate" />
+
+//       <TabRows data={[percente, isLoading]} head="n% of normal" unit="%" />

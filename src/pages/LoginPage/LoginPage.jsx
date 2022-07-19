@@ -3,8 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ButtonRegistration } from 'components/Forms/LoginForm/Mui';
 import LoginForm from '../../components/Forms/LoginForm';
-// import { Spinner } from '../../components/Spinner/Spinner';
-// import { selectShowLoader } from '../../redux/slices/loaderSlice';
 import {
   PageContainer,
   Title,

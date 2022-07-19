@@ -14,8 +14,9 @@ const INITIAL_RES_DATA = {
 
 export const useDailyNorma = userData => {
   const [responseData, setResponseData] = useState(INITIAL_RES_DATA);
-  const { consumed, date } = useGetConsumedByDate();
-  const { userDailyRate, products } = useGetUserNorma();
+  const { consumed, date, isLoadingConsumed } = useGetConsumedByDate();
+  const { userDailyRate, products, isLoadingNorma } = useGetUserNorma();
+  const isLoading = isLoadingConsumed || isLoadingNorma;
 
   useEffect(() => {
     const dailyRate = userData?.results?.dailyRate || userDailyRate;
@@ -31,5 +32,5 @@ export const useDailyNorma = userData => {
     });
   }, [consumed, products, userDailyRate, userData]);
 
-  return [responseData, date];
+  return [responseData, date, isLoading];
 };

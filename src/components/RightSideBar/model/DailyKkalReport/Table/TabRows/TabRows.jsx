@@ -1,13 +1,16 @@
-import { Data, Head, Row, Unit } from './TabRows.styled';
+import { TabInfo } from '../TabInfo/TabInfo';
+import { Head, Row } from './TabRows.styled';
 
-export const TabRows = ({ data = null, unit, head }) => {
+const DEFAULT_DATA = '000';
+
+export const TabRows = ({ data, unit = 'kcal', head }) => {
+  const [number = null, isLoading] = data;
+  const userData = number || DEFAULT_DATA;
+
   return (
     <Row>
       <Head>{head}</Head>
-      <Data number={data >= 0}>
-        {data ? String(data).padStart(3, '0') : '000'}
-        <Unit>{unit}</Unit>
-      </Data>
+      <TabInfo data={{ userData, unit }} showData={!isLoading} />
     </Row>
   );
 };
