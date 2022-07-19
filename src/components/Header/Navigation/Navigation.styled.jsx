@@ -102,3 +102,9 @@ export const MobileMenuButtonWrapper = styled.div`
     }
   }
 `;
+
+export const Wrapp = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+`;
