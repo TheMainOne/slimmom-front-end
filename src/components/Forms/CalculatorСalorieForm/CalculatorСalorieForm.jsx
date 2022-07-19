@@ -14,7 +14,7 @@ import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { validationSchema } from './validationSchema';
 import { setUserData } from 'redux/auth/authSlice';
 import { transformUserData } from './transformUserData';
-import { useShowModal } from 'hooks/ui';
+import { useMobileModal } from 'hooks/ui';
 import useResizeAware from 'react-resize-aware';
 import { Button } from 'components/Button';
 
@@ -26,7 +26,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(getIsLoggedIn);
   const mobileWidth = width <= 767;
-  const [, toggleMobileModal] = useShowModal();
+  const [, openMobileModal] = useMobileModal();
   const formik = useFormik({
     initialValues: {
       height: '',
@@ -46,7 +46,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
         await openModal();
       }
       if (formik.dirty && !isLoggedIn && mobileWidth) {
-        await toggleMobileModal();
+        await openMobileModal();
       }
       resetForm();
     },
