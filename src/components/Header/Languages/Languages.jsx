@@ -4,10 +4,13 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import { useTranslation } from 'react-i18next';
 import { StyledSelect, StyledForm } from './Languages.styled';
+import { useSelector } from 'react-redux';
+import { getIsLoggedIn } from 'redux/auth/authSelector';
 
 export const Languages = () => {
   const { i18n } = useTranslation();
   const [language, setLanguage] = useState('');
+  const isLogged = useSelector(getIsLoggedIn);
 
   const handleChange = event => {
     setLanguage(event.target.value);
@@ -27,6 +30,7 @@ export const Languages = () => {
           p: 0,
           top: 6,
         }}
+        islogged={isLogged ? isLogged.toString() : undefined}
       >
         {!language && (
           <InputLabel id="demo-simple-select-label">

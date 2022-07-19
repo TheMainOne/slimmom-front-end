@@ -12,9 +12,10 @@ export const StyledForm = styled(FormControl)`
   @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
     margin: 0;
     padding: 0;
-    position: absolute;
-    top: 85px;
-    right: 8px;
+
+    right: ${props => (props.islogged ? '0px' : '8px')};
+    top: ${props => (props.islogged ? '0px' : '85px')};
+    position: ${props => (props.islogged ? 'relative' : 'absolute')};
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     position: relative;
