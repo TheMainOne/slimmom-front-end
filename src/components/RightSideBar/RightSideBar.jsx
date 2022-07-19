@@ -5,14 +5,14 @@ import { useTranslation } from 'react-i18next';
 
 export const RightSideBar = ({ userData }) => {
   const [responseData, date, isLoading] = useDailyNorma(userData);
-    const { t } = useTranslation();
+  const { t } = useTranslation();
   const summ = t('summary');
 
   return (
     <MainContainer>
       <TextContainer>
         <Block>
-          <Title text={`${summ} for ${date}`} />
+          <Title text={`${summ} ${date}`} />
           <DailyKkalReport
             data={responseData.dailyData}
             isLoading={isLoading}
