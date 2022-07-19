@@ -13,6 +13,7 @@ export const MobileModalBackdrop = styled.div`
   background-color: ${({ theme }) => theme.colors.$white};
   opacity: 0.99;
   transform: translateX(-100%);
+  overflow-y: auto;
 
   &.isHidden {
     opacity: 0.01;
