@@ -113,8 +113,8 @@ const ThreeDots = props => {
 
 export const Spinner = styled(ThreeDots).attrs(
   ({ theme, width, stroke, fill }) => ({
-    stroke: stroke ?? theme?.colors?.accent ?? '#2196f3',
-    fill: fill ?? theme?.colors?.accent ?? '#2196f3',
+    stroke: stroke ?? theme?.colors?.$orange ?? '#2196f3',
+    fill: fill ?? theme?.colors?.$orange ?? '#2196f3',
     width: width ?? 36,
     'aria-label': 'loading',
   })
