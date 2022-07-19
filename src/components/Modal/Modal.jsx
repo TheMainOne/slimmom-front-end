@@ -5,7 +5,7 @@ import DialogContent from '@mui/material/DialogContent';
 import { ModalContent } from './ModalContent/ModalContent';
 import useResizeAware from 'react-resize-aware';
 import { MobileModal } from 'components/MobileModal';
-import { useShowModal } from 'hooks/ui';
+import { useMobileModal } from 'hooks/ui';
 
 const MuiDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -14,17 +14,18 @@ const MuiDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export const Modal = ({
-  showMobileModal,
-  toggleMobileModal,
-  showModal,
-  setShowModal,
-}) => {
+export const Modal = ({ showModal, setShowModal }) => {
   const [resizeListener, { width }] = useResizeAware();
   const mobileWidth = width <= 767;
 
+  const [showMobileModal, , hideMobileModal] = useMobileModal();
+
   const handleClose = () => {
     setShowModal(prev => !prev);
+
+    if (showMobileModal) {
+      hideMobileModal();
+    }
   };
 
   return (
@@ -36,21 +37,18 @@ export const Modal = ({
           <MuiDialog
             onClose={handleClose}
             aria-labelledby="customized-dialog-title"
-            open={showModal}
+            open={showModal || showMobileModal}
             maxWidth={false}
           >
             <DialogContent>
-              <ModalContent setShowModal={setShowModal} />
+              <ModalContent handleClose={handleClose} />
             </DialogContent>
           </MuiDialog>
         </div>
       ) : (
-        showModal &&
-        showMobileModal && (
-          <MobileModal toggleModal={toggleMobileModal}>
-            <ModalContent />
-          </MobileModal>
-        )
+        <MobileModal hideMobileModal={hideMobileModal}>
+          <ModalContent />
+        </MobileModal>
       )}
     </div>
   );
