@@ -17,8 +17,12 @@ import {
   MobileNavigationLink,
   HeaderButtonsWrapper,
   MobileMenuButtonWrapper,
+  Wrapp,
 } from './Navigation.styled';
+
 import { getIsLoggedIn } from 'redux/auth/authSelector';
+import { useTranslation } from 'react-i18next';
+import { Languages } from '../Languages';
 import IconButton from 'components/IconButton';
 import { createPortal } from 'react-dom';
 import { getRefs } from 'utils';
@@ -34,48 +38,61 @@ const styles = {
   },
 };
 
-const NavigationForGuest = () => (
-  <>
-    <HeaderLink to="/login" style={styles.link}>
-      Sign in
-    </HeaderLink>
-    <HeaderLink to="/signup" style={styles.link}>
-      Registration
-    </HeaderLink>
-  </>
-);
+const NavigationForGuest = () => {
+  const { t } = useTranslation();
+  return (
+    <>
+      <HeaderLink to="/login" style={styles.link}>
+        {t('signIn')}
+      </HeaderLink>
+      <HeaderLink to="/signup" style={styles.link}>
+        {t('registration')}
+      </HeaderLink>
+    </>
+  );
+};
 
-const NavigationOnMobile = ({ visibleMenu, handleMenuBtnClick }) => (
-  <>
-    {visibleMenu ? (
-      <>
+const NavigationOnMobile = ({ visibleMenu, handleMenuBtnClick }) => {
+  const { t } = useTranslation();
+  return (
+    <>
+      {visibleMenu ? (
+        <>
+          <MobileMenuButtonWrapper>
+            <IconButton icon={<CloseIcon />} onClick={handleMenuBtnClick} />
+          </MobileMenuButtonWrapper>
+
+          {createPortal(
+            <MobileNavigation onClick={handleMenuBtnClick}>
+              <MobileNavigationItem>
+                <MobileNavigationLink to="/diary">
+                  {t('diary')}
+                </MobileNavigationLink>
+              </MobileNavigationItem>
+              <MobileNavigationItem>
+                <MobileNavigationLink to="/calculator">
+                  {t('calculator')}
+                </MobileNavigationLink>
+              </MobileNavigationItem>
+              <MobileNavigationItem>
+                <Languages />
+              </MobileNavigationItem>
+            </MobileNavigation>,
+            mobileMenuRoot
+          )}
+        </>
+      ) : (
         <MobileMenuButtonWrapper>
-          <IconButton icon={<CloseIcon />} onClick={handleMenuBtnClick} />
+          <MenuIcon onClick={handleMenuBtnClick} />
+          {/* <IconButton icon={<MenuIcon />} onClick={handleMenuBtnClick} /> */}
         </MobileMenuButtonWrapper>
-
-        {createPortal(
-          <MobileNavigation onClick={handleMenuBtnClick}>
-            <MobileNavigationItem>
-              <MobileNavigationLink to="/diary">diary</MobileNavigationLink>
-            </MobileNavigationItem>
-            <MobileNavigationItem>
-              <MobileNavigationLink to="/calculator">
-                calculator
-              </MobileNavigationLink>
-            </MobileNavigationItem>
-          </MobileNavigation>,
-          mobileMenuRoot
-        )}
-      </>
-    ) : (
-      <MobileMenuButtonWrapper>
-        <IconButton icon={<MenuIcon />} onClick={handleMenuBtnClick} />
-      </MobileMenuButtonWrapper>
-    )}
-  </>
-);
+      )}
+    </>
+  );
+};
 
 const Header = () => {
+  const { t } = useTranslation();
   const [resizeListener, { width }] = useResizeAware();
   const isLogged = useSelector(getIsLoggedIn);
   const mobileWidth = width <= 767;
@@ -120,25 +137,32 @@ const Header = () => {
               {isLogged && desktopWidth && (
                 <>
                   <div>
-                    <HeaderLink to="/diary" style={styles.link}>
-                      Diary
-                    </HeaderLink>
-                    <HeaderLink to="/calculator" style={styles.link}>
-                      Calculator
-                    </HeaderLink>
+                    <Wrapp>
+                      <HeaderLink to="/diary" style={styles.link}>
+                        {t('diary')}
+                      </HeaderLink>
+                      <HeaderLink to="/calculator" style={styles.link}>
+                        {t('calculator')}
+                      </HeaderLink>
+                      <Languages />
+                    </Wrapp>
                   </div>
                   <UserInfo />
                 </>
+              )}
+              {!isLogged && (
+                <div>
+                  <Languages />
+                </div>
               )}
             </HeaderLinksWrapper>
           </HeaderNavigation>
         </Container>
       </HeaderStyled>
+
       {isLogged && mobileWidth && (
         <HeaderButtonsWrapper>
-          <Container>
-            <UserInfo />
-          </Container>
+          <UserInfo />
         </HeaderButtonsWrapper>
       )}
       {!isLogged && mobileWidth && showModal && (

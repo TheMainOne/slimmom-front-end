@@ -42,3 +42,6 @@ export const Span = styled.span`
   @media screen and (max-width: 767px) {
   }
 `;
+export const Wrapper = styled.div`
+  min-height: 300px;
+`;

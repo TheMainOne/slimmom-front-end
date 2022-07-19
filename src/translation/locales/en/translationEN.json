@@ -1,0 +1,55 @@
+{
+  "signIn": "sign in",
+  "registration": "registration",
+  "title": "Calculate your daily calorie intake right now",
+  "height": "Height *",
+  "age": "Age *",
+  "weight": "Current weight *",
+  "desiredWeight": "Desired weight *",
+  "bloodType": "Blood type *",
+  "start": "Start losing weight",
+
+  "recommendation": "Your recommended daily calorie intake is",
+  "kcal": "kcal",
+  "bannedFood": "Foods you should not eat",
+
+  "email": "Email *",
+  "password": "Password *",
+  "logIn": "Login",
+  "register": "Register",
+  "name": "Name",
+
+  "diary": "diary",
+  "calculator": "calculator",
+  "exit": "Exit",
+  "summary": "Summary for",
+  "add": "Add",
+  "left": "Left",
+  "consumed": "Consumed",
+  "rate": "Daily rate",
+  "norm": "n% of normal",
+  "notRecommended": "Food not recommended",
+  "display": "Your diet will be displayed here",
+  "noMatch": "No products matches",
+  "enter": "Enter product name",
+  "grams": "Grams",
+  "g": "g",
+
+  "en": "en",
+  "ua": "ua",
+  "defaultLogin": "for the default login use the data below",
+
+  "noFood": "You haven't eaten today yet!",
+
+  "date": "Date desktop",
+  "dateM": "Date mobile",
+
+  "alert": "Are you sure that you want to exit?",
+  "warning": "By pressing exit button you will log out from your account",
+  "stay": "Stay more",
+
+  "delete": "Delete this product?",
+  "yes": "Yes",
+  "no": "No",
+  "empty": "Your list is empty!"
+}

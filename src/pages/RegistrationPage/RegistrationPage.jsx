@@ -9,17 +9,20 @@ import {
   BoxRelative,
   BoxButton,
 } from './RegistrationPage.styled';
+import { useTranslation } from 'react-i18next';
 
 const RegistrationPage = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <PageContainer>
         <BoxRelative>
-          <Title>Register</Title>
+          <Title>{t('register')}</Title>
           <RegistrationForm />
           <BoxButton>
             <LinkLog to="/login">
-              <Button variant="outlined" text="Login" />
+              <Button variant="outlined" text={t('logIn')} />
             </LinkLog>
           </BoxButton>
         </BoxRelative>

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { BlockWrapper } from 'components/Container';
 import { useShowForm } from './hooks';
+import { useTranslation } from 'react-i18next';
 import EmptyListTitle from 'components/EmptyListTitle';
 import { DiaryCalendarAndForm } from './DiaryCalendarAndForm';
 import { useShowModal } from 'hooks/ui';
@@ -19,6 +20,7 @@ import { AlertModal } from 'components/AlertModal';
 const TABLET_WIDTH_BREAKPOINT = 768;
 
 export const DiaryPageContent = () => {
+  const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
   const shouldShowForm = useShowForm(); // true only for now or future dates
   const currentDate = useSelector(state => state.calendar.activeDate);
@@ -74,7 +76,7 @@ export const DiaryPageContent = () => {
             onOpenModal={setShowModal}
           />
         ) : (
-          <EmptyListTitle>Ваш список за цей день порожній!</EmptyListTitle>
+          <EmptyListTitle>{t('noFood')}</EmptyListTitle>
         )}
 
         {isMobile && shouldShowForm && (
@@ -89,12 +91,12 @@ export const DiaryPageContent = () => {
         )}
       </DiaryPageStyled>
       <AlertModal
-        leftBtnText="Ні не хочу!"
-        rightBtnText="Так, хочу!"
+        leftBtnText={t('no')}
+        rightBtnText={t('yes')}
         open={showModal}
         onClick={handleCloseModal}
         setOpen={setShowModal}
-        dialogTitle="Ви дійсно хочете видалити цей продукт?"
+        dialogTitle={t('delete')}
         contentText={title}
       />
     </BlockWrapper>
