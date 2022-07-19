@@ -16,9 +16,7 @@ export const useDailyNorma = userData => {
   const [responseData, setResponseData] = useState(INITIAL_RES_DATA);
   const { consumed, date, isLoadingConsumed } = useGetConsumedByDate();
   const { userDailyRate, products, isLoadingNorma } = useGetUserNorma();
-
   const isLoading = isLoadingConsumed || isLoadingNorma;
-  console.log('~ isLoading', isLoading);
 
   useEffect(() => {
     const dailyRate = userData?.results?.dailyRate || userDailyRate;

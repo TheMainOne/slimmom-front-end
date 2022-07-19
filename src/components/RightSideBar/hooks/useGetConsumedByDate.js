@@ -8,8 +8,6 @@ export const useGetConsumedByDate = () => {
   const { data: dataTotal, isLoading } =
     diaryApi.useGetProductsByDateQuery(date);
 
-  console.log('~ isLoading', isLoading);
-
   return {
     consumed: dataTotal?.data?.total,
     date: formatingDate.mmDdYy(date),

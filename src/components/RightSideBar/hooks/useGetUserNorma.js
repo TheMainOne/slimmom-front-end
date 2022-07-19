@@ -8,8 +8,6 @@ export const useGetUserNorma = () => {
     userNormaApi.useGetPrivateDailyNormaMutation();
   const userInfo = useSelector(getUserData);
 
-  console.log('~ isLoading useGetUserNorma', isLoading);
-
   useEffect(() => {
     if (!userInfo) return;
     const { currentWeight, height, age, desiredWeight, bloodType } = userInfo;

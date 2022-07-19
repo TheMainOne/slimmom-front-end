@@ -18,7 +18,10 @@ export const RightSideBar = ({ userData }) => {
 
         <Block>
           <Title text={'Food not recommended'} />
-          <FoodList foodList={responseData.bannedProducts} />
+          <FoodList
+            foodList={responseData.bannedProducts}
+            isLoading={isLoading}
+          />
         </Block>
       </TextContainer>
     </MainContainer>
