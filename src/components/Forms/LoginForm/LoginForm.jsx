@@ -66,12 +66,10 @@ const LoginForm = () => {
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
         />
-
         <ButtonLogin
           color="primary"
           variant="contained"
           type="submit"
-          disabled={!formik.isValid}
         >
           {t('logIn')}
         </ButtonLogin>

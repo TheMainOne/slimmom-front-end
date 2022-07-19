@@ -7,11 +7,7 @@ import {
   PageContainer,
   Title,
   BoxRelative,
-  DefaultData,
-  DefaultLogin,
-  DefaultText,
-  Span,
-} from './LoginPage.styled';
+ } from './LoginPage.styled';
 import Container from 'components/Container';
 import Navigation from 'components/Header/Navigation';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
@@ -51,15 +47,6 @@ const LoginPage = () => {
             </ButtonRegistration>
           </NavLink>
         </BoxRelative>
-        <DefaultData>
-          <DefaultText>*{t('defaultLogin')}:</DefaultText>
-          <DefaultLogin>
-            <Span>{t('email')}:</Span> default@gmail.com
-          </DefaultLogin>
-          <DefaultLogin>
-            <Span>{t('password')}:</Span> default1111
-          </DefaultLogin>
-        </DefaultData>
       </PageContainer>
     </Container>
   );
