@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { userNormaApi } from 'redux/apis';
+import { useGetPrivateDailyNormaMutation } from 'redux/apis';
 import { getUserData } from 'redux/auth/authSelector';
 
 export const useGetUserNorma = () => {
-  const [triger, { data }] = userNormaApi.useGetPrivateDailyNormaMutation();
+  const [triger, { data }] = useGetPrivateDailyNormaMutation();
   const userInfo = useSelector(getUserData);
 
   useEffect(() => {
