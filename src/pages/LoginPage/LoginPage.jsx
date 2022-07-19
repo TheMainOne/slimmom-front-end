@@ -3,20 +3,15 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ButtonRegistration } from 'components/Forms/LoginForm/Mui';
 import LoginForm from '../../components/Forms/LoginForm';
-// import { Spinner } from '../../components/Spinner/Spinner';
-// import { selectShowLoader } from '../../redux/slices/loaderSlice';
 import {
   PageContainer,
   Title,
   BoxRelative,
-  DefaultData,
-  DefaultLogin,
-  DefaultText,
-  Span,
-} from './LoginPage.styled';
+ } from './LoginPage.styled';
 import Container from 'components/Container';
 import Navigation from 'components/Header/Navigation';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
+import { useTranslation } from 'react-i18next';
 
 const styles = {
   isHidden: {
@@ -26,7 +21,7 @@ const styles = {
 
 const LoginPage = () => {
   const isLogged = useSelector(state => getIsLoggedIn(state));
-
+  const { t } = useTranslation();
   useEffect(() => {
     document.title = 'Вход в профиль | SlimMom';
   }, []);
@@ -40,7 +35,7 @@ const LoginPage = () => {
           </>
         )}
         <BoxRelative>
-          <Title>Sign In</Title>
+          <Title>{t('signIn')}</Title>
           <LoginForm />
           <NavLink to="/signup">
             <ButtonRegistration
@@ -48,19 +43,10 @@ const LoginPage = () => {
               variant="outlined"
               type="button"
             >
-              Register
+              {t('register')}
             </ButtonRegistration>
           </NavLink>
         </BoxRelative>
-        <DefaultData>
-          <DefaultText>*for the default login, use the data below:</DefaultText>
-          <DefaultLogin>
-            <Span>email:</Span> default@gmail.com
-          </DefaultLogin>
-          <DefaultLogin>
-            <Span>password:</Span> default1111
-          </DefaultLogin>
-        </DefaultData>
       </PageContainer>
     </Container>
   );

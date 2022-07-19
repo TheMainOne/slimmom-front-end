@@ -9,10 +9,10 @@ import { ToastContainer } from 'react-toastify';
 import { authOperations } from 'redux/auth';
 import { useSetDocumentTitle } from 'hooks/ui';
 import { AppRouter } from './AppRouter';
-
+import '../../translation/i18n';
 const App = () => {
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);

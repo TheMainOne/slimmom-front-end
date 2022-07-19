@@ -11,7 +11,7 @@ import {
   ButtonContainer,
   PopoverStyled,
 } from './DiaryProductsListItem.styled';
-
+import { useTranslation } from 'react-i18next';
 const DiaryProductsListItem = ({
   title,
   weight,
@@ -21,6 +21,7 @@ const DiaryProductsListItem = ({
   disabled,
   getNotifyData,
 }) => {
+  const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [deleteProduct, { isLoading: isDeleting }] =
     diaryApi.useDeleteProductFromDateMutation();
@@ -70,11 +71,11 @@ const DiaryProductsListItem = ({
       </PopoverStyled>
       <Title>
         <Text>{weight}</Text>
-        <Measure>g</Measure>
+        <Measure>{t('g')}</Measure>
       </Title>
       <Title>
         <Text>{kcal}</Text>
-        <Measure>kcal</Measure>
+        <Measure>{t('kcal')}</Measure>
       </Title>
       <ButtonContainer>
         <IconButton

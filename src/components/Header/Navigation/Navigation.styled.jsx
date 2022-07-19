@@ -95,10 +95,17 @@ export const HeaderButtonsWrapper = styled.div`
 `;
 
 export const MobileMenuButtonWrapper = styled.div`
+  display: flex;
   & button {
     color: #212121;
     :active {
       background-color: #e76000;
     }
   }
+`;
+
+export const Wrapp = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 `;

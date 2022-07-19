@@ -12,7 +12,6 @@ export const ModalContent = ({ handleClose }) => {
         <Button
           autoFocus
           text={'Start losing weight'}
-          // centered={'true'}
           onClick={() => navigate('/signup')}
         ></Button>
       </Content>
