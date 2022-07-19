@@ -9,7 +9,7 @@ export const useShowForm = () => {
     const selectedDate = new Date(activeDate).getTime();
     const today = new Date().getTime();
     const isCurrentDate =
-      selectedDate > today || isSameDay(selectedDate, today);
+      selectedDate <= today || isSameDay(selectedDate, today);
 
     return isCurrentDate;
   }, [activeDate]);
