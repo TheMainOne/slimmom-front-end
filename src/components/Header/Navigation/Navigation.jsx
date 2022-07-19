@@ -22,6 +22,9 @@ import { getIsLoggedIn } from 'redux/auth/authSelector';
 import IconButton from 'components/IconButton';
 import { createPortal } from 'react-dom';
 import { getRefs } from 'utils';
+import { useShowModal } from 'hooks/ui';
+import { ReturnButtonWrapper } from '../UserInfo/UserInfo.styled';
+import { IconReturnLeft } from 'components/MobileModal/MobileModal.styled';
 
 const { mobileMenuRoot } = getRefs();
 
@@ -78,7 +81,7 @@ const Header = () => {
   const mobileWidth = width <= 767;
   const tabletWidth = width >= 768 && width < 1279;
   const desktopWidth = width >= 1280;
-
+  const [showModal, toggleMobileModal] = useShowModal();
   const [visibleMenu, setVisibleMenu] = useState(false);
 
   const handleMenuBtnClick = () => setVisibleMenu(prev => !prev);
@@ -95,6 +98,7 @@ const Header = () => {
 
             <HeaderLinksWrapper isLogged={isLogged}>
               {!isLogged && <NavigationForGuest />}
+
               {isLogged && mobileWidth && (
                 <div>
                   <NavigationOnMobile
@@ -134,6 +138,18 @@ const Header = () => {
         <HeaderButtonsWrapper>
           <Container>
             <UserInfo />
+          </Container>
+        </HeaderButtonsWrapper>
+      )}
+      {!isLogged && mobileWidth && showModal && (
+        <HeaderButtonsWrapper>
+          <Container>
+            <ReturnButtonWrapper>
+              <IconButton
+                icon={<IconReturnLeft />}
+                onClick={toggleMobileModal}
+              />
+            </ReturnButtonWrapper>
           </Container>
         </HeaderButtonsWrapper>
       )}

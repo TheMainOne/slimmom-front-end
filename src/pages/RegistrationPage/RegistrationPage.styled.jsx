@@ -19,6 +19,16 @@ const BoxRelative = styled.div`
   position: relative;
 `;
 
+const BoxButton = styled.div`
+  margin: auto;
+  margin-top: 20px;
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    position: absolute;
+    bottom: 0;
+    left: 215px;
+  }
+`;
+
 const Title = styled.h1`
   font-size: 14px;
   font-weight: 700;
@@ -35,4 +45,4 @@ const LinkLog = styled(Link)`
   margin: auto;
 `;
 
-export { PageContainer, Title, LinkLog, BoxRelative };
+export { PageContainer, Title, LinkLog, BoxRelative, BoxButton };

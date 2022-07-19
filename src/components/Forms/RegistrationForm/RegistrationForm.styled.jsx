@@ -9,4 +9,12 @@ const Form = styled.form`
   }
 `;
 
-export { Form };
+const BoxButton = styled.div`
+  margin: auto;
+  margin-top: 60px;
+  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    margin: 60px 0 0 0;
+  }
+`;
+
+export { Form, BoxButton };

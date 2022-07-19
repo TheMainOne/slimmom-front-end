@@ -14,9 +14,12 @@ const ButtonLogin = styled(Button)`
   padding: 13px 57px;
   width: 181px;
   margin-top: 60px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
   &:hover {
     background-color: #e76000;
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
   @media screen and (min-width: 768px) {
     margin: 60px 0 0;
@@ -31,9 +34,15 @@ const ButtonRegistration = styled(ButtonLogin)`
   box-shadow: none;
   width: 182px;
   margin-top: 20px;
+  box-shadow: 0px 4px 10px rgb(252 132 45 / 50%);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border 250mscubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
   &:hover {
     background-color: #ffffff;
-    border: 3px solid #e76000;
+    border: 2px solid #e76000;
+    transform: scale(1.05);
   }
   @media screen and (min-width: 768px) {
     position: absolute;

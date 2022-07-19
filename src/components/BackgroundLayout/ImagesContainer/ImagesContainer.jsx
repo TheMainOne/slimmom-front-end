@@ -1,5 +1,4 @@
-import banana from 'images/background/banana.png';
-import bananaTablet from 'images/background/banana-tablet.png';
+import bananaImageSource from 'images/background/banana.png';
 import leaves from 'images/background/leaves.png';
 import leavesTablet from 'images/background/leaves-tablet.png';
 import leavesTabletAuth from 'images/background/leaves-tablet-auth.png';
@@ -35,8 +34,6 @@ const ImagesContainer = ({ isMainPage = false }) => {
     : isMainPage
     ? leavesTablet
     : leavesTabletAuth;
-
-  const bananaImageSource = isTablet ? bananaTablet : banana;
 
   return (
     <ImagesWrapper>
