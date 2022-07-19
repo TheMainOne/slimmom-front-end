@@ -6,7 +6,7 @@ const DiaryPage = () => {
   return (
     <PageContainer>
       <DiaryPageContent />
-      {/* <RightSideBar /> */}
+      <RightSideBar />
     </PageContainer>
   );
 };

@@ -10,7 +10,7 @@ const CalculatorPage = () => {
   return (
     <PageContainer>
       <CalculatorPageContent getPrivatDailyNorma={getPrivatDailyNorma} />
-      {/* <RightSideBar userData={data} /> */}
+      <RightSideBar userData={data} />
     </PageContainer>
   );
 };
