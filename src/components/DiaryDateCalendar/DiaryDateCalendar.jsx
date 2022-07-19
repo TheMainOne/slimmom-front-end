@@ -38,6 +38,8 @@ const MaterialUIPickers = () => {
           <DesktopDatePicker
             inputFormat="dd.MM.yyyy"
             value={localDate}
+            minDate="2000-00-00"
+            maxDate="2200-12-31"
             onChange={setLocalDate}
             open={open}
             onOpen={toggleCalendar}
