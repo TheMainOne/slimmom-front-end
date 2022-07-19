@@ -1,18 +1,27 @@
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectShowMobileModal, toggleMobileModalAction } from 'redux/slices';
+import {
+  selectShowMobileModal,
+  displayMobileModal,
+  closeMobileModal,
+} from 'redux/slices';
 
-export const useShowModal = () => {
+export const useMobileModal = () => {
   const showMobileModal = useSelector(selectShowMobileModal);
   const dispatch = useDispatch();
 
-  const toggleMobileModal = useCallback(
-    () => dispatch(toggleMobileModalAction()),
+  const openMobileModal = useCallback(
+    () => dispatch(displayMobileModal()),
+    [dispatch]
+  );
+
+  const hideMobileModal = useCallback(
+    () => dispatch(closeMobileModal()),
     [dispatch]
   );
 
   return useMemo(
-    () => [showMobileModal, toggleMobileModal],
-    [showMobileModal, toggleMobileModal]
+    () => [showMobileModal, openMobileModal, hideMobileModal],
+    [showMobileModal, openMobileModal, hideMobileModal]
   );
 };
