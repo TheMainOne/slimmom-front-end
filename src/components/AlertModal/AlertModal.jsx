@@ -1,4 +1,3 @@
-// import Button from '@mui/material/Button';
 import { Button } from 'components/Button';
 import { AlertDialogActions } from './AlertModal.styled';
 import Dialog from '@mui/material/Dialog';

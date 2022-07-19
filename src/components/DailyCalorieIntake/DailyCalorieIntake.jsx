@@ -4,10 +4,11 @@ import { useSelector } from 'react-redux';
 import { getUserData } from 'redux/auth/authSelector';
 import { Title, Text, Span } from './DailyCalorieIntake.styled';
 import { List } from './List';
-
+import { useTranslation } from 'react-i18next';
 export const DailyCalorieIntake = () => {
   const [formula, setFormula] = useState(0);
   const userInfo = useSelector(getUserData);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!userInfo) return;
@@ -25,9 +26,9 @@ export const DailyCalorieIntake = () => {
 
   return (
     <>
-      <Title> Your recommended daily calorie intake is</Title>
+      <Title>{t('recommendation')}</Title>
       <Text>
-        {formula} <Span>kkal</Span>
+        {formula} <Span>{t('kcal')}</Span>
       </Text>
       <List user={userInfo} />
     </>

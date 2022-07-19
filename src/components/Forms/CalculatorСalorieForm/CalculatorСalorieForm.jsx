@@ -11,6 +11,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
+import { useTranslation } from 'react-i18next';
 import { validationSchema } from './validationSchema';
 import { setUserData } from 'redux/auth/authSlice';
 import { useShowModal } from 'hooks/ui';
@@ -27,6 +28,8 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
   const isLoggedIn = useSelector(getIsLoggedIn);
   const mobileWidth = width <= 767;
   const [, toggleMobileModal] = useShowModal();
+  const { t } = useTranslation();
+
   const formik = useFormik({
     initialValues: {
       height: '',
@@ -61,7 +64,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
             variant="standard"
             id="height"
             name="height"
-            label="Height *"
+            label={t('height')}
             value={formik.values.height}
             onChange={formik.handleChange}
             error={formik.touched.height && Boolean(formik.errors.height)}
@@ -71,7 +74,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
             variant="standard"
             id="age"
             name="age"
-            label="Age *"
+            label={t('age')}
             value={formik.values.age}
             onChange={formik.handleChange}
             error={formik.touched.age && Boolean(formik.errors.age)}
@@ -81,7 +84,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
             variant="standard"
             id="currentWeight"
             name="currentWeight"
-            label="Current weight *"
+            label={t('weight')}
             type="currentWeight"
             value={formik.values.currentWeight}
             onChange={formik.handleChange}
@@ -99,7 +102,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
             variant="standard"
             id="desiredWeight"
             name="desiredWeight"
-            label="Desired weight *"
+            label={t('desiredWeight')}
             value={formik.values.desiredWeight}
             onChange={formik.handleChange}
             error={
@@ -112,7 +115,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
           />
           <Block>
             <RadioLabel id="demo-row-radio-buttons-group-label">
-              Blood type *
+              {t('bloodType')}
             </RadioLabel>
             <RadioGroup
               id="bloodType"
@@ -134,7 +137,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
         </Wrapper>
       </InputContainer>
       <BoxButton>
-        <Button type="submit" text="Start losing weight" />
+        <Button type="submit" text={t('start')} />
       </BoxButton>
     </Form>
   );

@@ -17,6 +17,7 @@ import {
 import Container from 'components/Container';
 import Navigation from 'components/Header/Navigation';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
+import { useTranslation } from 'react-i18next';
 
 const styles = {
   isHidden: {
@@ -26,7 +27,7 @@ const styles = {
 
 const LoginPage = () => {
   const isLogged = useSelector(state => getIsLoggedIn(state));
-
+  const { t } = useTranslation();
   useEffect(() => {
     document.title = 'Вход в профиль | SlimMom';
   }, []);
@@ -40,7 +41,7 @@ const LoginPage = () => {
           </>
         )}
         <BoxRelative>
-          <Title>Sign In</Title>
+          <Title>{t('signIn')}</Title>
           <LoginForm />
           <NavLink to="/signup">
             <ButtonRegistration
@@ -48,17 +49,17 @@ const LoginPage = () => {
               variant="outlined"
               type="button"
             >
-              Register
+              {t('register')}
             </ButtonRegistration>
           </NavLink>
         </BoxRelative>
         <DefaultData>
-          <DefaultText>*for the default login, use the data below:</DefaultText>
+          <DefaultText>*{t('defaultLogin')}:</DefaultText>
           <DefaultLogin>
-            <Span>email:</Span> default@gmail.com
+            <Span>{t('email')}:</Span> default@gmail.com
           </DefaultLogin>
           <DefaultLogin>
-            <Span>password:</Span> default1111
+            <Span>{t('password')}:</Span> default1111
           </DefaultLogin>
         </DefaultData>
       </PageContainer>

@@ -16,6 +16,7 @@ import { LifeSearch } from 'components/LiveSearch';
 import debounce from 'lodash/debounce';
 import { formatISO } from 'date-fns';
 import { addProductSchema } from 'models';
+import { useTranslation } from 'react-i18next';
 
 const emptyFn = () => {};
 const limit = 10;
@@ -24,6 +25,7 @@ export const DiaryAddProductForm = ({
   toggleMobileModal = emptyFn,
   isMobile = false,
 }) => {
+  const { t } = useTranslation();
   const [title, setTitle] = useState('');
   const [productId, setProductId] = useState('');
 
@@ -84,7 +86,7 @@ export const DiaryAddProductForm = ({
         <AddProductInput
           variant="standard"
           name="weight"
-          label="Grams"
+          label={t('grams')}
           type="text"
           title="min 1, max 6 digits"
           inputProps={{ inputMode: 'numeric', pattern: '[0-9]{1,6}' }}

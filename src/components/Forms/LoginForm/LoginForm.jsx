@@ -1,12 +1,12 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import {  CastomTextField } from './Mui';
+import { CastomTextField } from './Mui';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
 import { ButtonLogin } from './Mui';
 import { Form } from './LoginForm.styled';
-
+import { useTranslation } from 'react-i18next';
 
 const validationSchema = yup.object({
   email: yup
@@ -20,6 +20,8 @@ const validationSchema = yup.object({
 });
 
 const LoginForm = () => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -41,44 +43,41 @@ const LoginForm = () => {
 
   return (
     <div>
-    <Form onSubmit={formik.handleSubmit}>
-      <CastomTextField
-        variant="standard"
-        id="email"
-        name="email"
-        label="Email *"
-        value={formik.values.email}
-        onChange={formik.handleChange}
-        error={formik.touched.email && Boolean(formik.errors.email)}
-        helperText={formik.touched.email && formik.errors.email}
-      />
-      <CastomTextField
-        variant="standard"
-        id="password"
-        name="password"
-        label="Password *"
-        type="password"
-        autoComplete="current-password"
-        value={formik.values.password}
-        onChange={formik.handleChange}
-        error={formik.touched.password && Boolean(formik.errors.password)}
-        helperText={formik.touched.password && formik.errors.password}
-      />
-      
-          <ButtonLogin 
-          color="primary" 
-          variant="contained"  
-          type="submit"  
-          disabled={!formik.isValid}>
-           Login
-        </ButtonLogin>
-      
-               
-      </Form>
+      <Form onSubmit={formik.handleSubmit}>
+        <CastomTextField
+          variant="standard"
+          id="email"
+          name="email"
+          label={t('email')}
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
+        />
+        <CastomTextField
+          variant="standard"
+          id="password"
+          name="password"
+          label={t('password')}
+          type="password"
+          autoComplete="current-password"
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.touched.password && formik.errors.password}
+        />
 
+        <ButtonLogin
+          color="primary"
+          variant="contained"
+          type="submit"
+          disabled={!formik.isValid}
+        >
+          {t('logIn')}
+        </ButtonLogin>
+      </Form>
     </div>
-    
-     );
+  );
 };
 
 export default LoginForm;

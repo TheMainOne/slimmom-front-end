@@ -2,8 +2,10 @@ import { useEffect } from 'react';
 import { Spinner } from 'components/Spinner';
 import { useGetBannedProductsMutation } from 'redux/apis/bannedProducts';
 import { OlList, Items, ListTitle, ListWrapper } from './List.styled';
+import { useTranslation } from 'react-i18next';
 
 export const List = ({ user }) => {
+  const { t } = useTranslation();
   const [getBannedProducts, { data, isLoading }] =
     useGetBannedProductsMutation();
 
@@ -26,7 +28,7 @@ export const List = ({ user }) => {
 
   return (
     <ListWrapper>
-      {categories && <ListTitle>Foods you should not eat</ListTitle>}
+      {categories && <ListTitle>{t('bannedFood')}</ListTitle>}
       {isLoading ? (
         <Spinner />
       ) : (
