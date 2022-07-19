@@ -7,7 +7,7 @@ export const Title = styled.h2`
   line-height: ${({ theme: { lineHeight } }) => lineHeight.verdanaHeight};
   width: 390px;
   color: ${({ theme: { colors } }) => colors.$black};
-  margin-bottom: ${({ theme: { spacing } }) => spacing(8)};
+  margin-bottom: ${({ theme: { spacing } }) => spacing(5)};
 
   @media screen and (max-width: 767px) {
     font-weight: 700;

@@ -1,11 +1,13 @@
+import { Button } from 'components/Button';
 import Container from 'components/Container';
 import RegistrationForm from 'components/Forms/RegistrationForm';
-import { LinkLogin } from 'components/Forms/RegistrationForm/MuI';
+// import { LinkLogin } from 'components/Forms/RegistrationForm/MuI';
 import {
   PageContainer,
   Title,
   LinkLog,
   BoxRelative,
+  BoxButton,
 } from './RegistrationPage.styled';
 import { useTranslation } from 'react-i18next';
 
@@ -18,11 +20,11 @@ const RegistrationPage = () => {
         <BoxRelative>
           <Title>{t('register')}</Title>
           <RegistrationForm />
-          <LinkLog to="/login">
-            <LinkLogin color="primary" variant="outlined" type="button">
-              {t('logIn')}
-            </LinkLogin>
-          </LinkLog>
+          <BoxButton>
+            <LinkLog to="/login">
+              <Button variant="outlined" text={t('logIn')} />
+            </LinkLog>
+          </BoxButton>
         </BoxRelative>
       </PageContainer>
     </Container>
