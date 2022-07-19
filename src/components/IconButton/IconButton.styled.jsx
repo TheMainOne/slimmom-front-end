@@ -45,7 +45,6 @@ const Button = styled.button`
     height: 18px;
   }
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-    margin-bottom: ${({ theme: { spacing } }) => spacing(2)};
     & .css-i4bv87-MuiSvgIcon-root {
       width: 20px;
       height: 20px;
