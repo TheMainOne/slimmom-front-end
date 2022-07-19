@@ -1,20 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn, register } from 'redux/auth/authOperations';
 import { useFormik } from 'formik';
-import { Form } from './RegistrationForm.styled';
-import { ButtonRegister, CastomTextField } from './MuI';
-import { getUser } from 'redux/auth/authSelector';
+import { BoxButton, Form } from './RegistrationForm.styled';
+import { CastomTextField } from './MuI';
+import { getUser, getUserData } from 'redux/auth/authSelector';
 import { useEffect, useState } from 'react';
-import { getUserParams } from 'redux/slices/selector';
 import { validationSchema } from './validationSchema';
-import { transformUserData } from './transformUserData';
+import { Button } from 'components/Button';
 
 const RegistrationForm = () => {
   const [user, setUser] = useState(null);
   const [isRegister, setIsRegister] = useState(false);
   const dispatch = useDispatch();
   const userInfo = useSelector(getUser);
-  const userParams = useSelector(getUserParams);
+  const userData = useSelector(getUserData);
 
   useEffect(() => {
     if (isRegister && userInfo?.code === 201) {
@@ -37,8 +36,7 @@ const RegistrationForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
-      if (userParams?.age) {
-        const userData = transformUserData(userParams);
+      if (userData?.age) {
         dispatch(register({ ...values, userData }));
       } else {
         dispatch(register({ ...values }));
@@ -83,10 +81,9 @@ const RegistrationForm = () => {
         error={formik.touched.password && Boolean(formik.errors.password)}
         helperText={formik.touched.password && formik.errors.password}
       />
-
-      <ButtonRegister color="primary" variant="contained" type="submit">
-        Register
-      </ButtonRegister>
+      <BoxButton>
+        <Button type="submit" text="Register" />
+      </BoxButton>
     </Form>
   );
 };
