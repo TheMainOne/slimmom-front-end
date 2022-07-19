@@ -1,17 +1,22 @@
 // import { useTemplate } from 'components/RightSideBar/hooks';
 import { templaitingItem } from 'components/RightSideBar/hooks';
 import { useMemo } from 'react';
+import { Spiner } from '../Spiner/Spiner';
 import { FoodItem } from './FoodItem';
 import { List } from './FoodList.styled';
 
-export const FoodList = ({ foodList }) => {
+const DEFAULT_TEXT = 'Your diet will be displayed here';
+
+export const FoodList = ({ foodList, isLoading }) => {
   const list = useMemo(() => templaitingItem(foodList?.categories), [foodList]);
-  const defaultTest = 'Your diet will be displayed here';
+  const showInfo = list?.length > 0;
 
   return (
     <>
       <List>
-        {(list?.length > 0 && <FoodItem productList={list} />) || defaultTest}
+        {isLoading && <Spiner />}
+        {showInfo && !isLoading && <FoodItem productList={list} />}
+        {!showInfo && !isLoading && DEFAULT_TEXT}
       </List>
     </>
   );

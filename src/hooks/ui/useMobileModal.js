@@ -4,7 +4,7 @@ import { selectShowMobileModal, toggleMobileModal } from 'redux/slices';
 
 export const useShowModal = () => {
   const showMobileModal = useSelector(selectShowMobileModal);
-  console.log({ showMobileModal });
+  // console.log({ showMobileModal });
   const dispatch = useDispatch();
 
   const toggleModal = useCallback(
