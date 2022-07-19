@@ -1,29 +1,29 @@
 import { styled } from '@mui/material/styles';
 import { TextField } from '@mui/material';
 
-const CastomTextField = styled(TextField)({
-  '& ': {
-    marginBottom: '20px',
-    minWidth: '240px',
-  },
-  '& label': {
-    color: '#9B9FAA',
-    fontFamily: 'Verdana',
-    fontWeight: 700,
-    fontSize: '14px',
-    lineHeight: '1.2',
-    letterSpacing: '0.04em',
-  },
-  '& label.Mui-focused': {
-    color: '#FC842D',
-  },
-  '& .MuiInput-underline:before': {
-    borderBottom: '1px solid #E0E0E0',
-  },
+const CastomTextField = styled(TextField)`
+  & {
+    margin-bottom: 20px;
+    min-width: 240px;
+  }
+  & label {
+    color: ${({ theme: { colors } }) => colors.$grey};
+    font-family: ${({ theme: { fonts } }) => fonts.verdana};
+    font-weight: 700;
+    font-size: 14px;
+    line-height: ${({ theme: { lineHeight } }) => lineHeight.verdanaHeight};
+    letter-spacing: 0.04em;
+  }
+  & label.Mui-focused {
+    color: ${({ theme: { colors } }) => colors.$orange};
+  }
+  & .MuiInput-underline:before {
+    border-bottom: 1px solid ${({ theme: { colors } }) => colors.borderColor};
+  }
 
-  '& .MuiInput-underline:after': {
-    borderBottomColor: '#FC842D',
-  },
-});
+  & .MuiInput-underline:after {
+    border-bottom-color: ${({ theme: { colors } }) => colors.$orange};
+  }
+`;
 
 export { CastomTextField };
