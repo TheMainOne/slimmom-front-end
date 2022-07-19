@@ -93,7 +93,7 @@ export const DiaryAddProductForm = ({
       </FlexWrapper>
 
       <AddProductButton color="primary" variant="contained" type="submit">
-        <AddProductIcon />
+        {isMobile ? 'Add' : <AddProductIcon />}
       </AddProductButton>
     </DiaryAddProductFormStyled>
   );

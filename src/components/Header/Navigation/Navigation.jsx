@@ -75,12 +75,16 @@ const NavigationOnMobile = ({ visibleMenu, handleMenuBtnClick }) => (
   </>
 );
 
+const TABLET = 768;
+const DESKTOP = 1280;
+
 const Header = () => {
   const [resizeListener, { width }] = useResizeAware();
+  const mobileWidth = width < TABLET;
+  const tabletWidth = width >= TABLET && width < DESKTOP;
+  const desktopWidth = width >= DESKTOP;
+
   const isLogged = useSelector(getIsLoggedIn);
-  const mobileWidth = width <= 767;
-  const tabletWidth = width >= 768 && width < 1279;
-  const desktopWidth = width >= 1280;
   const [showModal, toggleMobileModal] = useShowModal();
   const [visibleMenu, setVisibleMenu] = useState(false);
 
@@ -88,8 +92,8 @@ const Header = () => {
 
   return (
     <>
+      {resizeListener}
       <HeaderStyled isLogged={isLogged}>
-        {resizeListener}
         <Container>
           <HeaderNavigation>
             <div>
@@ -117,6 +121,7 @@ const Header = () => {
                   />
                 </>
               )}
+
               {isLogged && desktopWidth && (
                 <>
                   <div>
@@ -134,6 +139,7 @@ const Header = () => {
           </HeaderNavigation>
         </Container>
       </HeaderStyled>
+
       {isLogged && mobileWidth && (
         <HeaderButtonsWrapper>
           <Container>
@@ -141,6 +147,7 @@ const Header = () => {
           </Container>
         </HeaderButtonsWrapper>
       )}
+
       {!isLogged && mobileWidth && showModal && (
         <HeaderButtonsWrapper>
           <Container>

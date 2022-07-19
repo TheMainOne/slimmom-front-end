@@ -14,18 +14,23 @@ const MuiDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export const Modal = ({ showModal, setShowModal }) => {
+export const Modal = ({
+  showMobileModal,
+  toggleMobileModal,
+  showModal,
+  setShowModal,
+}) => {
   const [resizeListener, { width }] = useResizeAware();
   const mobileWidth = width <= 767;
-  const [showMobileModal, toggleMobileModal] = useShowModal();
 
   const handleClose = () => {
     setShowModal(prev => !prev);
   };
 
   return (
-    <>
+    <div>
       {resizeListener}
+
       {!mobileWidth ? (
         <div>
           <MuiDialog
@@ -40,12 +45,13 @@ export const Modal = ({ showModal, setShowModal }) => {
           </MuiDialog>
         </div>
       ) : (
+        showModal &&
         showMobileModal && (
-          <MobileModal onClose={toggleMobileModal}>
+          <MobileModal toggleModal={toggleMobileModal}>
             <ModalContent />
           </MobileModal>
         )
       )}
-    </>
+    </div>
   );
 };

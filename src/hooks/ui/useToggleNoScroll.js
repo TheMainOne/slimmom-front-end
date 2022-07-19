@@ -4,11 +4,17 @@ import { getScrollWidth } from 'utils';
 let isOpen = false;
 
 const toggleNoScroll = () => {
+  isOpen = !isOpen;
+
   document.body.style.paddingRight = isOpen
     ? '-' + getScrollWidth(document.body) + 'px'
     : '';
 
-  isOpen = !isOpen;
+  if (isOpen) {
+    document.documentElement.classList.add('overflow-hidden');
+  } else {
+    document.documentElement.classList.remove('overflow-hidden');
+  }
 };
 
 export const useToggleNoScroll = () => {

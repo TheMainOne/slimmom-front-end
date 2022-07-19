@@ -13,6 +13,6 @@ export const addProductSchema = object({
     .max(1024, 'id max 1024 char')
     .required('Product id (name) required'),
   date: date()
-    .min(new Date(2000, 0, 1), 'min 2020 year')
+    .min(new Date(2000, 0, 1), 'min 2000 year')
     .default(() => formatISO(new Date(), { representation: 'date' })),
 });

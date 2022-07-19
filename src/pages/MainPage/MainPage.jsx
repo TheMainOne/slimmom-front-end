@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PageTitle from 'components/PageTitle';
 import { PageContainer, FormContainer } from './MainPage.styled';
 
@@ -6,11 +6,18 @@ import Container from 'components/Container';
 import { Modal } from 'components/Modal';
 import useResizeAware from 'react-resize-aware';
 import CalculatorСalorieForm from 'components/Forms/CalculatorСalorieForm/CalculatorСalorieForm';
+import { useShowModal } from 'hooks/ui';
 
 const MainPage = () => {
   const [resizeListener] = useResizeAware();
   const [showModal, setShowModal] = useState(false);
   const openModal = () => setShowModal(prev => !prev);
+
+  const [showMobileModal, toggleMobileModal] = useShowModal();
+
+  useEffect(() => {
+    return toggleMobileModal;
+  }, [toggleMobileModal]);
 
   return (
     <Container>
@@ -20,7 +27,15 @@ const MainPage = () => {
         <FormContainer>
           <CalculatorСalorieForm openModal={openModal} />
         </FormContainer>
-        <Modal showModal={showModal} setShowModal={setShowModal} />
+
+        {(showModal || showMobileModal) && (
+          <Modal
+            showMobileModal={showMobileModal}
+            toggleMobileModal={toggleMobileModal}
+            showModal={showModal}
+            setShowModal={setShowModal}
+          />
+        )}
       </PageContainer>
     </Container>
   );
