@@ -7,6 +7,9 @@ const PageContainer = styled.div`
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     padding-top: 160px;
     padding-bottom: 419px;
+    @media (max-width: 1279px) and (orientation: landscape) {
+      padding-bottom: ${({ theme: { spacing } }) => spacing(28)};
+    }
   }
   @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.desktop}) {
     padding-bottom: 179px;
