@@ -1,8 +1,12 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTemplate } from './useTemplate';
+import { useTranslateCategory } from './useTranslateCategory';
 
 export const useTemplaitingItem = foodList => {
-  const templatingTo = useTemplate();
+  const { t } = useTranslation();
+  const { translateCategory } = useTranslateCategory();
+  const { template, otherTemplate } = useTemplate();
 
   const templatedList = useMemo(() => {
     if (!foodList) return;
@@ -11,20 +15,17 @@ export const useTemplaitingItem = foodList => {
     const templated = [];
 
     Object.keys(foodList).forEach(category => {
-      const itemInTemplated =
-        templatingTo.all(foodList[category], category) ||
-        templatingTo.some(foodList[category], category) ||
-        templatingTo.almost(foodList[category], category) ||
-        null;
+      const nameCategory = translateCategory(category);
+      const templatingItem = template(foodList[category], nameCategory);
 
-      if (itemInTemplated) templated.push(itemInTemplated);
-      if (!itemInTemplated) otherItems.push(category);
+      if (templatingItem) templated.push(templatingItem);
+      if (!templatingItem) otherItems.push(nameCategory);
     });
 
-    if (otherItems.length > 0) templated.push(templatingTo.other(otherItems));
+    if (otherItems.length > 0) templated.push(otherTemplate(otherItems));
 
     return templated;
-  }, [foodList, templatingTo]);
+  }, [foodList, t]);
 
   return templatedList;
 };

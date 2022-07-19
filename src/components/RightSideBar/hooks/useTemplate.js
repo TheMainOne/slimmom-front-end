@@ -1,25 +1,34 @@
 import { useTranslation } from 'react-i18next';
 import { transformFirstLetter } from './transformFirstLetter';
+import { useTranslateCategory } from './useTranslateCategory';
 
 export const useTemplate = () => {
   const { t } = useTranslation();
 
-  return {
-    all: ({ total, totalInBase }, category) =>
-      total === totalInBase ? `${t('allProduct')} ${category}.` : null,
+  const template = ({ total, totalInBase, products }, category) => {
+    const allItems = total === totalInBase;
+    const almostItems = total > totalInBase / 2;
+    const someItems = total <= 4;
+    const other = !allItems && !almostItems && !someItems;
 
-    almost: ({ total, totalInBase }, category) =>
-      total > totalInBase / 2 ? `${t('almostProduct')} ${category}.` : null,
+    if (allItems) return `${t('allProduct')} ${category}.`;
 
-    some: ({ total, products = [] }, category) => {
+    if (almostItems) return `${t('almostProduct')} ${category}.`;
+
+    if (someItems) {
       const listOfProducts = products?.map(pr => pr.title.ua).join(', ');
-      return total <= 4
-        ? `${t('someProduct')} ${category} (${listOfProducts}).`
-        : null;
-    },
+      return `${t('someProduct')} ${category} (${listOfProducts}).`;
+    }
 
-    other: otherItem => {
-      return transformFirstLetter(otherItem).join(', ');
-    },
+    if (other) return null;
+  };
+
+  const otherTemplate = otherItem => {
+    return transformFirstLetter(otherItem).join(', ');
+  };
+
+  return {
+    otherTemplate,
+    template,
   };
 };

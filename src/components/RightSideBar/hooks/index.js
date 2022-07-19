@@ -6,3 +6,4 @@ export { formatingDate } from './formatingDate';
 export { useGetUserNorma } from './useGetUserNorma';
 export { useGetConsumedByDate } from './useGetConsumedByDate';
 export { transformFirstLetter } from './transformFirstLetter';
+export { useTranslateCategory } from './useTranslateCategory';
