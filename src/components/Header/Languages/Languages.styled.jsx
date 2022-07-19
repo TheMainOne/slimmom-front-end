@@ -6,7 +6,9 @@ export const StyledForm = styled(FormControl)`
   & .MuiOutlinedInput-notchedOutline {
     border: none;
   }
-
+  & .MuiSvgIcon-root {
+    fill: ${({ theme: { colors } }) => colors.$grey};
+  }
   @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
     margin: 0;
     padding: 0;

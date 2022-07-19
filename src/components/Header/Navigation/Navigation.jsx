@@ -17,6 +17,7 @@ import {
   MobileNavigationLink,
   HeaderButtonsWrapper,
   MobileMenuButtonWrapper,
+  Wrapp,
 } from './Navigation.styled';
 
 import { getIsLoggedIn } from 'redux/auth/authSelector';
@@ -72,6 +73,9 @@ const NavigationOnMobile = ({ visibleMenu, handleMenuBtnClick }) => {
                 <MobileNavigationLink to="/calculator">
                   {t('calculator')}
                 </MobileNavigationLink>
+              </MobileNavigationItem>
+              <MobileNavigationItem>
+                <Languages />
               </MobileNavigationItem>
             </MobileNavigation>,
             mobileMenuRoot
@@ -132,12 +136,15 @@ const Header = () => {
               {isLogged && desktopWidth && (
                 <>
                   <div>
-                    <HeaderLink to="/diary" style={styles.link}>
-                      {t('diary')}
-                    </HeaderLink>
-                    <HeaderLink to="/calculator" style={styles.link}>
-                      {t('calculator')}
-                    </HeaderLink>
+                    <Wrapp>
+                      <HeaderLink to="/diary" style={styles.link}>
+                        {t('diary')}
+                      </HeaderLink>
+                      <HeaderLink to="/calculator" style={styles.link}>
+                        {t('calculator')}
+                      </HeaderLink>
+                      <Languages />
+                    </Wrapp>
                   </div>
                   <UserInfo />
                 </>
@@ -148,11 +155,6 @@ const Header = () => {
                 </div>
               )}
             </HeaderLinksWrapper>
-            {isLogged && !mobileWidth && !tabletWidth && (
-              <div>
-                <Languages />
-              </div>
-            )}
           </HeaderNavigation>
         </Container>
       </HeaderStyled>
@@ -181,8 +183,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// position: absolute;
-/* left: 60px; */
-/* top: 3%; */
-// top: 78px;

@@ -35,6 +35,9 @@ export const Languages = () => {
         )}
         <StyledSelect
           sx={{
+            '.MuiSelect-icon': {
+              color: 'white',
+            },
             ml: 3,
             p: 0,
             top: 5,
