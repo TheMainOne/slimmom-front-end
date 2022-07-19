@@ -1,20 +1,13 @@
 import { useEffect } from 'react';
 import { getScrollWidth } from 'utils';
+const { documentElement, body } = document;
 
-let isOpen = false;
-
+let isModalOpen = false;
 const toggleNoScroll = () => {
-  isOpen = !isOpen;
-
-  document.body.style.paddingRight = isOpen
-    ? '-' + getScrollWidth(document.body) + 'px'
-    : '';
-
-  if (isOpen) {
-    document.documentElement.classList.add('overflow-hidden');
-  } else {
-    document.documentElement.classList.remove('overflow-hidden');
-  }
+  isModalOpen = !isModalOpen;
+  const scrollWidth = getScrollWidth(body);
+  documentElement.style.overflowY = isModalOpen ? 'hidden' : 'auto';
+  documentElement.style.paddingRight = scrollWidth + 'px';
 };
 
 export const useToggleNoScroll = () => {
