@@ -95,6 +95,7 @@ export const HeaderButtonsWrapper = styled.div`
 `;
 
 export const MobileMenuButtonWrapper = styled.div`
+  display: flex;
   & button {
     color: #212121;
     :active {

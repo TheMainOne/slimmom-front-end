@@ -83,7 +83,8 @@ const NavigationOnMobile = ({ visibleMenu, handleMenuBtnClick }) => {
         </>
       ) : (
         <MobileMenuButtonWrapper>
-          <IconButton icon={<MenuIcon />} onClick={handleMenuBtnClick} />
+          <MenuIcon onClick={handleMenuBtnClick} />
+          {/* <IconButton icon={<MenuIcon />} onClick={handleMenuBtnClick} /> */}
         </MobileMenuButtonWrapper>
       )}
     </>
@@ -161,9 +162,7 @@ const Header = () => {
 
       {isLogged && mobileWidth && (
         <HeaderButtonsWrapper>
-          <Container>
-            <UserInfo />
-          </Container>
+          <UserInfo />
         </HeaderButtonsWrapper>
       )}
       {!isLogged && mobileWidth && showModal && (
