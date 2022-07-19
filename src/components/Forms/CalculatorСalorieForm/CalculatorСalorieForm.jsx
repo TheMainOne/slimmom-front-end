@@ -6,19 +6,14 @@ import {
   InputContainer,
   Wrapper,
 } from './CalculatorСalorieForm.styled';
-import {
-  CastomTextField,
-  RadioInput,
-  RadioLabel,
-  ControlLabel,
-} from './MuI';
+import { CastomTextField, RadioInput, RadioLabel, ControlLabel } from './MuI';
 import RadioGroup from '@mui/material/RadioGroup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { validationSchema } from './validationSchema';
 import { setUserData } from 'redux/auth/authSlice';
-import { transformUserData } from '../RegistrationForm/transformUserData';
+import { transformUserData } from './transformUserData';
 import { useShowModal } from 'hooks/ui';
 import useResizeAware from 'react-resize-aware';
 import { Button } from 'components/Button';
