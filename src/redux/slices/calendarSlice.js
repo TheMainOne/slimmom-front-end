@@ -9,12 +9,13 @@ const calendarSlice = createSlice({
   },
   reducers: {
     setActiveDate: (state, action) => void (state.activeDate = action.payload),
-    toggleMobileModalAction: state =>
-      void (state.showMobileModal = !state.showMobileModal),
+    displayMobileModal: state => void (state.showMobileModal = true),
+    closeMobileModal: state => void (state.showMobileModal = false),
   },
 });
 
-export const { setActiveDate, toggleMobileModalAction } = calendarSlice.actions;
+export const { setActiveDate, displayMobileModal, closeMobileModal } =
+  calendarSlice.actions;
 
 export const calendarReducer = calendarSlice.reducer;
 
