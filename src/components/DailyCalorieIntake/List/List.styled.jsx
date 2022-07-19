@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 export const ListWrapper = styled.div`
-  min-height: 242px;
+  min-height: 220px;
   text-align: start;
 `;
 export const OlList = styled.ol`

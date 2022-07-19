@@ -1,43 +1,6 @@
 import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
-const ButtonRegister = styled(Button)`
-  font-family: 'Verdana';
-  font-weight: 700;
-  font-size: 14px;
-  text-transform: none;
-  background-color: #fc842d;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  border-radius: 30px;
-  margin: auto;
-  padding: 13px 57px;
-  margin-top: 60px;
-  &:hover {
-    background-color: #e76000;
-    transform: scale(1.1);
-  }
-  @media screen and (min-width: 768px) {
-    margin: 60px 0 0 0;
-  }
-`;
-const LinkLogin = styled(ButtonRegister)`
-  color: #fc842d;
-  background-color: #ffffff;
-  border: 2px solid #fc842d;
-  padding: 11px 69px;
-  box-shadow: none;
-  margin-top: 20px;
-  &:hover {
-    background-color: #ffffff;
-    border: 3px solid #e76000;
-  }
-  @media screen and (min-width: 768px) {
-    position: absolute;
-    bottom: 0;
-    left: 215px;
-  }
-`;
 const CastomTextField = styled(TextField)({
   '& ': {
     marginBottom: '20px',
@@ -63,4 +26,4 @@ const CastomTextField = styled(TextField)({
   },
 });
 
-export { ButtonRegister, CastomTextField, LinkLogin };
+export { CastomTextField };
