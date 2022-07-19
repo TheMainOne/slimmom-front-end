@@ -1,11 +1,13 @@
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import { Rings } from 'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
+
+import styled from 'styled-components';
+
+// export const Loader = styled(ThreeDots)`
+//   padding: 10px;
+//   color: red;
+// `;
 
 export const Spiner = () => (
-  <Rings
-  // width="100"
-  // strokeColor="#6495ED"
-  // strokeWidth="1"
-  // animationDuration="3"
-  />
+  <ThreeDots color="grey" width="30px" height="30px" />
 );

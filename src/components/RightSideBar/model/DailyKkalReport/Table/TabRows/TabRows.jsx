@@ -7,20 +7,23 @@ export const TabRows = ({ data = null, unit = 'kcal', head }) => {
 
   const showData = data => {
     const number = data ? String(data).padStart(3, '0') : '000';
-    return isLoading ? <Spiner /> : number;
+    return isLoading ? (
+      <Spiner />
+    ) : (
+      <>
+        {number}
+        <Unit>{unit}</Unit>
+      </>
+    );
+    // return !isLoading && number;
   };
-  console.log('~ isLoading', isLoading);
 
   return (
     <Row>
       <Head>{head}</Head>
       <Data number={data >= 0}>
-        {
-          isLoading && number ? String(number).padStart(3, '0') : '000'
-          // showData(number)
-        }
-
-        <Unit>{unit}</Unit>
+        {/* <Spiner /> */}
+        {showData(number)}
       </Data>
     </Row>
   );
