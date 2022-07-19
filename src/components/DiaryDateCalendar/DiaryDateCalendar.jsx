@@ -9,12 +9,13 @@ import { useState } from 'react';
 import { CalendarWrapper, IconCalendar } from './DiaryDateCalendar.styled';
 import { isValidDate } from 'utils';
 import { formatISO } from 'date-fns';
+import { getIsLoggedIn } from 'redux/auth/authSelector';
 
 const MaterialUIPickers = () => {
   const dispatch = useDispatch();
   const dateFromRedux = useSelector(selectActiveDate);
   const [value, setValue] = useState(dateFromRedux);
-
+  const isLoggedIn = useSelector(getIsLoggedIn);
   const [open, setOpen] = useState(false);
   const toggleCalendar = useCallback(() => setOpen(show => !show), []);
 
@@ -26,15 +27,6 @@ const MaterialUIPickers = () => {
 
         const stringDate = formatISO(value, { representation: 'date' });
 
-        console.log({
-          date: { stringDate, type: typeof stringDate },
-          value: {
-            value,
-            type: typeof value,
-            local: value && value.toLocaleString(),
-          },
-        });
-
         dispatch(setActiveDate(stringDate));
       } catch (error) {
         console.log(error);
@@ -44,11 +36,22 @@ const MaterialUIPickers = () => {
     saveDateToRedux();
   }, [dispatch, value]);
 
+  useEffect(() => {
+    return () => {
+      if (isLoggedIn) return;
+
+      dispatch(
+        setActiveDate(formatISO(new Date(), { representation: 'date' }))
+      );
+    };
+  }, [dispatch, isLoggedIn]);
+
   return (
     <CalendarWrapper>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
           inputFormat="dd.MM.yyyy"
+          maxDate={new Date()}
           value={value}
           onChange={newValue => {
             setValue(newValue);
