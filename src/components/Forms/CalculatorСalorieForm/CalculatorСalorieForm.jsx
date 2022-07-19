@@ -6,12 +6,7 @@ import {
   InputContainer,
   Wrapper,
 } from './CalculatorСalorieForm.styled';
-import {
-  CastomTextField,
-  RadioInput,
-  RadioLabel,
-  ControlLabel,
-} from './MuI';
+import { CastomTextField, RadioInput, RadioLabel, ControlLabel } from './MuI';
 import RadioGroup from '@mui/material/RadioGroup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,15 +14,19 @@ import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { validationSchema } from './validationSchema';
 import { setUserData } from 'redux/auth/authSlice';
 import { transformUserData } from './transformUserData';
+import { useShowModal } from 'hooks/ui';
+import useResizeAware from 'react-resize-aware';
 import { Button } from 'components/Button';
 
 const typeBlood = [1, 2, 3, 4];
 
 const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
   const [selectedTypeBlood, setSelectedTypeBlood] = useState(1);
+  const [resizeListener, { width }] = useResizeAware();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(getIsLoggedIn);
-
+  const mobileWidth = width <= 767;
+  const [, toggleMobileModal] = useShowModal();
   const formik = useFormik({
     initialValues: {
       height: '',
@@ -43,16 +42,19 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
         await getPrivatDailyNorma(paramsUser);
       }
 
-      if (formik.dirty && !isLoggedIn) {
+      if (formik.dirty && !isLoggedIn && !mobileWidth) {
         await openModal();
       }
-
+      if (formik.dirty && !isLoggedIn && mobileWidth) {
+        await toggleMobileModal();
+      }
       resetForm();
     },
   });
 
   return (
     <Form onSubmit={formik.handleSubmit}>
+      {resizeListener}
       <InputContainer>
         <Wrapper>
           <CastomTextField
