@@ -49,7 +49,7 @@ i18n
   .use(LanguageDetector)
   .init({
     resources,
-    lng: 'en',
+    lng: localStorage.getItem('i18nextLng') || 'ua',
     fallbackLng: 'en',
     detection: options,
 
