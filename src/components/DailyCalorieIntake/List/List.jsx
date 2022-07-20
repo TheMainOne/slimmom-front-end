@@ -9,7 +9,7 @@ export const List = ({ data }) => {
   );
 
   const engLanguage = localStorage.getItem('i18nextLng') === 'en';
-  localStorage.getItem('i18nextLtn');
+
   return (
     <ListWrapper>
       {categories && <ListTitle>{t('bannedFood')}</ListTitle>}
