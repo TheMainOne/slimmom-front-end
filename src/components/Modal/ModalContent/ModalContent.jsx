@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from 'components/Button';
 import { DailyCalorieIntake } from 'components/DailyCalorieIntake';
 import { Content, CloseModalButton } from '../Modal.styled';
 export const ModalContent = ({ setShowModal }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -11,7 +13,7 @@ export const ModalContent = ({ setShowModal }) => {
         <DailyCalorieIntake />
         <Button
           autoFocus
-          text={'Start losing weight'}
+          text={t('start')}
           onClick={() => navigate('/signup')}
         ></Button>
       </Content>

@@ -4,10 +4,10 @@ import { useFormik } from 'formik';
 import { BoxButton, Form } from './RegistrationForm.styled';
 import { getUser, getUserData } from 'redux/auth/authSelector';
 import { useEffect, useState } from 'react';
-import { validationSchema } from './validationSchema';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'components/Button';
 import { Input } from 'components/Input';
+import * as yup from 'yup';
 
 const RegistrationForm = () => {
   const { t } = useTranslation();
@@ -17,7 +17,25 @@ const RegistrationForm = () => {
   const dispatch = useDispatch();
   const userInfo = useSelector(getUser);
   const userData = useSelector(getUserData);
-
+  const validationSchema = yup.object({
+    name: yup
+      .string(t('validation.nameString'))
+      .min(3, t('validation.nameMin'))
+      .max(254, t('validation.nameMax'))
+      .required(t('validation.name')),
+    email: yup
+      .string(t('validation.emailString'))
+      .min(3, t('validation.emailMin'))
+      .max(254, t('validation.emailMax'))
+      .email(t('validation.emailValid'))
+      .required(t('validation.email')),
+    password: yup
+      .string(t('validation.passwordString'))
+      .min(8, t('validation.passwordMin'))
+      .max(100, t('validation.passwordMax'))
+      .matches(/^[a-zA-Z0-9]+/, t('validation.passwordMatches'))
+      .required(t('validation.password')),
+  });
   useEffect(() => {
     if (isRegister && userInfo?.code === 201) {
       setUser(userInfo.data.user);
@@ -54,7 +72,7 @@ const RegistrationForm = () => {
     <Form onSubmit={formik.handleSubmit}>
       <Input
         name="name"
-        label={t('Name *')}
+        label={t('name')}
         value={formik.values.name}
         onChange={formik.handleChange}
         error={formik.touched.name && Boolean(formik.errors.name)}
