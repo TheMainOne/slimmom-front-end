@@ -1,10 +1,8 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useTemplate } from './useTemplate';
 import { useTranslateCategory } from './useTranslateCategory';
 
 export const useTemplaitingItem = foodList => {
-  const { t } = useTranslation();
   const { translateCategory } = useTranslateCategory();
   const { template, otherTemplate } = useTemplate();
 
@@ -25,8 +23,7 @@ export const useTemplaitingItem = foodList => {
     if (otherItems.length > 0) templated.push(otherTemplate(otherItems));
 
     return templated;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [foodList, t, otherTemplate, template, translateCategory]);
+  }, [foodList, otherTemplate, template, translateCategory]);
 
   return templatedList;
 };
