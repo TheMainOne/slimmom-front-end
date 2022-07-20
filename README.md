@@ -41,17 +41,17 @@
 
 ### Розробники (Dev team)
 
-    Team Lead 🦁 - Максим Львов	(Maksym Lvov)
-    Dev 😻 Олена Сеньків (Olena Senkiv)
-    Dev 😻 Наталія Семешенко (Nataliia Semeshenko)
-    Dev 😻 Анастасія Коломієць (Anastasiia Kolomiiets)
-    Dev 😻 Олександра Карбишева	(Oleksandra Karbysheva)
-    Dev 😻 Юлія Лисюк	(Yuliia Lysiuk)
-    Dev 😻 Анастасiя Малогон (Anastasiia Malogon)
-    Dev+Scrum 🐱‍👤 Костянтин Оченаш	(Kostiantyn Ochenash)
-    Client Manager 🧡 Tetiana Kulbaba
-    Mentor FrontEnd 🐱‍💻 Ivetta Dashkova
-    Mentor Node.js 🐱‍💻 Надежда Христюк
+    Team Lead 🦁 - Максим Львов	(Maksym Lvov) - Header/Routes + Deploy + Pull Request Review
+    Dev 😻 Олена Сеньків (Olena Senkiv) - Backend (register/login/logout + many other), Swagger Docs
+    Dev 😻 Наталія Семешенко (Nataliia Semeshenko) -  Dynamic Rezise,  Background,  Modal for DeleteProduct,  ConsumedProductsList
+    Dev 😻 Анастасія Коломієць (Anastasiia Kolomiiets) - Modal for MainPage, Translation (i18next) + helped with MobileModal
+    Dev 😻 Олександра Карбишева	(Oleksandra Karbysheva) - RigthSideBar + Backend (calculate daily-norma endpoint)
+    Dev 😻 Юлія Лисюк	(Yuliia Lysiuk) - RegistrationPage + RegistrationForm + Backend (add product endpoint)
+    Dev 😻 Анастасiя Малогон (Anastasiia Malogon) - LoginPage + LoginForm + MobileMenu + Initial Project Presentation (pptx)
+    Dev+Scrum 🐱‍👤 Костянтин Оченаш	(Kostiantyn Ochenash) - DiaryCalandar +  AddProductForm + MobileModal + Project Time Plan (trello + Google Sheets)
+    Client Manager 🧡 Tetiana Kulbaba - gives motivation videos and funny cats :)
+    Mentor FrontEnd 🐱‍💻 Ivetta Dashkova - clarified on Front Part
+    Mentor Node.js 🐱‍💻 Надежда Христюк - clarified on Back End
 
 ### Тестувальники (QA team)
 
