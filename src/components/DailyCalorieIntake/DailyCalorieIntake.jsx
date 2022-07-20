@@ -39,7 +39,7 @@ export const DailyCalorieIntake = () => {
               {formula} <Span>{t('kcal')}</Span>
             </Text>
 
-            <List user={userInfo} data={data} isLoading={isLoading} />
+            <List data={data} />
           </>
         )}
       </Wrapper>

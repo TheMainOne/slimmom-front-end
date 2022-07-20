@@ -6,19 +6,19 @@ import {
   InputContainer,
   Wrapper,
 } from './CalculatorСalorieForm.styled';
-import {RadioInput, RadioLabel, ControlLabel } from './MuI';
+import { RadioInput, RadioLabel, ControlLabel } from './MuI';
 import RadioGroup from '@mui/material/RadioGroup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { useTranslation } from 'react-i18next';
-import { validationSchema } from './validationSchema';
 import { setUserData } from 'redux/auth/authSlice';
 import { transformUserData } from './transformUserData';
 import { useMobileModal } from 'hooks/ui';
 import useResizeAware from 'react-resize-aware';
 import { Button } from 'components/Button';
 import { Input } from 'components/Input';
+import * as yup from 'yup';
 
 const typeBlood = [1, 2, 3, 4];
 
@@ -30,6 +30,33 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
   const isLoggedIn = useSelector(getIsLoggedIn);
   const mobileWidth = width <= 767;
   const [, openMobileModal] = useMobileModal();
+
+  const validationSchema = yup.object({
+    height: yup
+      .number()
+      .typeError(t('validation.heightTypeError'))
+      .min(100, t('validation.heightMin'))
+      .max(250, t('validation.heightMax'))
+      .required(t('validation.height')),
+    age: yup
+      .number(t('validation.ageNumber'))
+      .typeError(t('validation.ageTypeError'))
+      .min(18, t('validation.ageMin'))
+      .max(100, t('validation.ageMax'))
+      .required(t('validation.age')),
+    currentWeight: yup
+      .number(t('validation.currentWeightNumber'))
+      .typeError(t('validation.currentWeightTypeError'))
+      .min(20, t('validation.currentWeightMin'))
+      .max(500, t('validation.currentWeightMax'))
+      .required(t('validation.currentWeight')),
+    desiredWeight: yup
+      .number(t('validation.desiredWeightNumber'))
+      .typeError(t('validation.desiredWeightTypeError'))
+      .min(20, t('validation.desiredWeightMin'))
+      .max(500, t('validation.desiredWeightMax'))
+      .required(t('validation.desiredWeight')),
+  });
   const formik = useFormik({
     initialValues: {
       height: '',

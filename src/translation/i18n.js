@@ -50,7 +50,7 @@ i18n
   .init({
     resources,
     lng: localStorage.getItem('i18nextLng') || 'ua',
-    fallbackLng: 'en',
+    fallbackLng: 'ua',
     detection: options,
 
     interpolation: {

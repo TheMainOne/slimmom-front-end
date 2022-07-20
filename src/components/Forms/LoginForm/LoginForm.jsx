@@ -8,19 +8,19 @@ import { ButtonLogin } from './Mui';
 import { Form } from './LoginForm.styled';
 import { useTranslation } from 'react-i18next';
 
-const validationSchema = yup.object({
-  email: yup
-    .string('Enter your email')
-    .email('Enter a valid email')
-    .required('Email is required'),
-  password: yup
-    .string('Enter your password')
-    .min(8, 'Password should be of min 8 characters length')
-    .required('Password is required'),
-});
-
 const LoginForm = () => {
   const { t } = useTranslation();
+
+  const validationSchema = yup.object({
+    email: yup
+      .string(t('validation.emailString'))
+      .email(t('validation.emailValid'))
+      .required(t('validation.email')),
+    password: yup
+      .string(t('validation.passwordString'))
+      .min(8, t('validation.passwordMin'))
+      .required(t('validation.password')),
+  });
 
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -66,11 +66,7 @@ const LoginForm = () => {
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
         />
-        <ButtonLogin
-          color="primary"
-          variant="contained"
-          type="submit"
-        >
+        <ButtonLogin color="primary" variant="contained" type="submit">
           {t('logIn')}
         </ButtonLogin>
       </Form>
