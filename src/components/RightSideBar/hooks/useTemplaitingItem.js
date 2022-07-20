@@ -25,7 +25,8 @@ export const useTemplaitingItem = foodList => {
     if (otherItems.length > 0) templated.push(otherTemplate(otherItems));
 
     return templated;
-  }, [foodList, t, template, otherTemplate, translateCategory]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [foodList, t, otherTemplate, template, translateCategory]);
 
   return templatedList;
 };
