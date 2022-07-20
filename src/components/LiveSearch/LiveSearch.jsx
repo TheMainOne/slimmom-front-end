@@ -11,7 +11,7 @@ export const LifeSearch = ({
   onInputChange,
 }) => {
   const activeLang = useSelector(selectActiveLang);
-  console.log('activeLang', activeLang);
+ 
   const { t } = useTranslation();
 
   const isEng = activeLang === 'en';
