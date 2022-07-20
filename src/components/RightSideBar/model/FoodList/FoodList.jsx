@@ -1,15 +1,18 @@
 // import { useTemplate } from 'components/RightSideBar/hooks';
-import { templaitingItem } from 'components/RightSideBar/hooks';
-import { useMemo } from 'react';
+import { useTemplaitingItem } from 'components/RightSideBar/hooks';
+import { useTranslation } from 'react-i18next';
 import { Spiner } from '../Spiner/Spiner';
 import { FoodItem } from './FoodItem';
 import { List } from './FoodList.styled';
 
-const DEFAULT_TEXT = 'Your diet will be displayed here';
-
 export const FoodList = ({ foodList, isLoading }) => {
-  const list = useMemo(() => templaitingItem(foodList?.categories), [foodList]);
+  const { t } = useTranslation();
+
+  const list = useTemplaitingItem(foodList?.categories);
+
   const showInfo = list?.length > 0;
+
+  const DEFAULT_TEXT = t('display');
 
   return (
     <>

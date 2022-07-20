@@ -6,13 +6,12 @@ import { useTranslation } from 'react-i18next';
 export const RightSideBar = ({ userData }) => {
   const [responseData, date, isLoading] = useDailyNorma(userData);
   const { t } = useTranslation();
-  const summ = t('summary');
 
   return (
     <MainContainer>
       <TextContainer>
         <Block>
-          <Title text={`${summ} ${date}`} />
+          <Title text={`${t('summary')} ${date}`} />
           <DailyKkalReport
             data={responseData.dailyData}
             isLoading={isLoading}
@@ -20,7 +19,7 @@ export const RightSideBar = ({ userData }) => {
         </Block>
 
         <Block>
-          <Title text={t('Food not recommended')} />
+          <Title text={t('notRecommended')} />
           <FoodList
             foodList={responseData.bannedProducts}
             isLoading={isLoading}
