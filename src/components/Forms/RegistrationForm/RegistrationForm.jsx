@@ -2,12 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logIn, register } from 'redux/auth/authOperations';
 import { useFormik } from 'formik';
 import { BoxButton, Form } from './RegistrationForm.styled';
-import { CastomTextField } from './MuI';
 import { getUser, getUserData } from 'redux/auth/authSelector';
 import { useEffect, useState } from 'react';
 import { validationSchema } from './validationSchema';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'components/Button';
+import { Input } from 'components/Input';
 
 const RegistrationForm = () => {
   const { t } = useTranslation();
@@ -52,29 +52,24 @@ const RegistrationForm = () => {
 
   return (
     <Form onSubmit={formik.handleSubmit}>
-      <CastomTextField
-        variant="standard"
-        id="name"
+      <Input
         name="name"
-        label={t('name')}
+        label={t('Name *')}
         value={formik.values.name}
         onChange={formik.handleChange}
         error={formik.touched.name && Boolean(formik.errors.name)}
         helperText={formik.touched.name && formik.errors.name}
       />
-      <CastomTextField
-        variant="standard"
-        id="email"
+      <Input
         name="email"
         label={t('email')}
+        type="email"
         value={formik.values.email}
         onChange={formik.handleChange}
         error={formik.touched.email && Boolean(formik.errors.email)}
         helperText={formik.touched.email && formik.errors.email}
       />
-      <CastomTextField
-        variant="standard"
-        id="password"
+      <Input
         name="password"
         label={t('password')}
         type="password"

@@ -51,5 +51,29 @@
   "delete": "Delete this product?",
   "yes": "Yes",
   "no": "No",
-  "empty": "Your list is empty!"
+  "empty": "Your list is empty!",
+
+  "allProduct": "All",
+  "almostProduct": "Most products from the category: ",
+  "someProduct": "Some products from the category: ",
+
+  "eggs": "eggs",
+  "crops": "crops",
+  "flour": "flour products",
+  "dairy": "dairy products",
+  "fish": "oily fish",
+  "meat": "meat",
+  "berries": "berries",
+  "sausage": "sausage",
+  "oils": "oils and fats",
+  "fruit": "fruit",
+  "mushrooms": "mushrooms",
+  "vegetables": "vegetables and herbs",
+  "nuts": "nuts",
+  "seeds": "seeds",
+  "driedFruits": "dried fruits",
+  "alcoholic": "alcoholic drinks",
+  "nonAlcoholic": "non-alcoholic",
+  "poppy": "poppy",
+  "sesame": "sesame"
 }
