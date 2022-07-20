@@ -42,11 +42,11 @@
 ### Розробники (Dev team)
 
     Team Lead 🦁 - Максим Львов	(Maksym Lvov) - Header/Routes + Deploy + Pull Request Review
-    Dev 😻 Олена Сеньків (Olena Senkiv) - Backend (register/login/logout + many other), Swagger Docs
+    Dev 😻 Олена Сеньків (Olena Senkiv) - Backend DB + base settings, Swagger Docs, Auth: (signup, login, logout, current), Diary: (getAll, addProduct, removeProduct)
     Dev 😻 Наталія Семешенко (Nataliia Semeshenko) -  Dynamic Rezise,  Background,  Modal for DeleteProduct,  ConsumedProductsList
     Dev 😻 Анастасія Коломієць (Anastasiia Kolomiiets) - Modal for MainPage, Translation (i18next) + helped with MobileModal
     Dev 😻 Олександра Карбишева	(Oleksandra Karbysheva) - RigthSideBar + Backend (calculate daily-norma endpoint)
-    Dev 😻 Юлія Лисюк	(Yuliia Lysiuk) - RegistrationPage + RegistrationForm + Backend (add product endpoint)
+    Dev 😻 Юлія Лисюк	(Yuliia Lysiuk) - RegistrationPage + RegistrationForm + Backend (products search endpoint)
     Dev 😻 Анастасiя Малогон (Anastasiia Malogon) - LoginPage + LoginForm + MobileMenu + Initial Project Presentation (pptx)
     Dev+Scrum 🐱‍👤 Костянтин Оченаш	(Kostiantyn Ochenash) - DiaryCalandar +  AddProductForm + MobileModal + Project Time Plan (trello + Google Sheets)
     Client Manager 🧡 Tetiana Kulbaba - gives motivation videos and funny cats :)
@@ -59,7 +59,7 @@
     QA 😺 Іра Яременко (Ira Yaremenko)
     QA 😸 Оксана (Oksana)
     QA 😺 Марія Харламова (Maria Harlamova)
-    QA 😼 Муронюк Дмитро (Myroniyk Dmytro)
+    QA 😼 Миронюк Дмитро (Myroniyk Dmytro)
     QA 😼 Олексій Саган (Olexii Sagan)
     Client Manager 🧡 Катерина Федченко (Kateryna Fedchenko)
 
