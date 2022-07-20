@@ -6,14 +6,11 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { IconButton, InputAdornment } from '@mui/material';
 import { useState } from 'react';
-import {
-  CalendarWrapper,
-  DateInputStyled,
-  IconCalendar,
-} from './DiaryDateCalendar.styled';
+import { CalendarWrapper, IconCalendar } from './DiaryDateCalendar.styled';
 import { isValidDate } from 'utils';
 import { formatISO } from 'date-fns';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
+import { DateInputStyled } from './DiaryDateCalendar.mui';
 
 const MaterialUIPickers = () => {
   const dispatch = useDispatch();

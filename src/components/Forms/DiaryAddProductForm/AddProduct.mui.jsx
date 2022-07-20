@@ -3,7 +3,18 @@ import Button from '@mui/material/Button';
 import { GoPlus } from 'react-icons/go';
 import { CastomTextField as CustomTextField } from 'components/Input/Input.styled';
 
-export const Input = styled(CustomTextField)``;
+export const InputGrams = styled(CustomTextField)`
+  & {
+    margin-bottom: 0;
+    max-width: 106px;
+  }
+`;
+
+export const InputProduct = styled(CustomTextField)`
+  & {
+    margin-bottom: 0;
+  }
+`;
 
 export const AddProductButton = styled(Button)`
   && {

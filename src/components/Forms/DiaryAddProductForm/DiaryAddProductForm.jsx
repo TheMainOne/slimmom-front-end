@@ -3,7 +3,7 @@ import {
   DiaryAddProductFormStyled,
   FlexWrapper,
 } from './DiaryAddProductForm.styled';
-import { AddProductButton, AddProductIcon, Input } from './AddProduct.mui';
+import { AddProductButton, AddProductIcon, InputGrams } from './AddProduct.mui';
 import { useSelector } from 'react-redux';
 import { selectActiveDate } from 'redux/slices';
 import { useGetProductsMutation } from 'redux/apis';
@@ -77,7 +77,7 @@ export const DiaryAddProductForm = ({ addProduct, isMobile }) => {
 
       {/* TODO: check mockup add product form */}
       <FlexWrapper>
-        <Input
+        <InputGrams
           variant="standard"
           name="weight"
           label={t('grams')}
