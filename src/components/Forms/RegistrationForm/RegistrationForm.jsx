@@ -54,7 +54,7 @@ const RegistrationForm = () => {
     <Form onSubmit={formik.handleSubmit}>
       <Input
         name="name"
-        label={t('Name *')}
+        label={t('name')}
         value={formik.values.name}
         onChange={formik.handleChange}
         error={formik.touched.name && Boolean(formik.errors.name)}

@@ -17,7 +17,7 @@
   "password": "Password *",
   "logIn": "Login",
   "register": "Register",
-  "name": "Name",
+  "name": "Name *",
 
   "diary": "diary",
   "calculator": "calculator",

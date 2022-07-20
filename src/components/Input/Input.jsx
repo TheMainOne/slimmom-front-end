@@ -9,7 +9,7 @@ export const Input = ({
   onChange = () => {},
   error = '',
   helperText = '',
-  autoComplete = false,
+  autoComplete = '',
 }) => {
   return (
     <CastomTextField
