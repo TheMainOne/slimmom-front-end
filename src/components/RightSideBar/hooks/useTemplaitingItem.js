@@ -25,7 +25,7 @@ export const useTemplaitingItem = foodList => {
     if (otherItems.length > 0) templated.push(otherTemplate(otherItems));
 
     return templated;
-  }, [foodList, t]);
+  }, [foodList, t, template, otherTemplate, translateCategory]);
 
   return templatedList;
 };
