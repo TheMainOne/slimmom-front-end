@@ -6,7 +6,7 @@ import {
   InputContainer,
   Wrapper,
 } from './CalculatorСalorieForm.styled';
-import { CastomTextField, RadioInput, RadioLabel, ControlLabel } from './MuI';
+import {RadioInput, RadioLabel, ControlLabel } from './MuI';
 import RadioGroup from '@mui/material/RadioGroup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,6 +18,7 @@ import { transformUserData } from './transformUserData';
 import { useMobileModal } from 'hooks/ui';
 import useResizeAware from 'react-resize-aware';
 import { Button } from 'components/Button';
+import { Input } from 'components/Input';
 
 const typeBlood = [1, 2, 3, 4];
 
@@ -59,9 +60,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
       {resizeListener}
       <InputContainer>
         <Wrapper>
-          <CastomTextField
-            variant="standard"
-            id="height"
+          <Input
             name="height"
             label={t('height')}
             value={formik.values.height}
@@ -69,9 +68,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
             error={formik.touched.height && Boolean(formik.errors.height)}
             helperText={formik.touched.height && formik.errors.height}
           />
-          <CastomTextField
-            variant="standard"
-            id="age"
+          <Input
             name="age"
             label={t('age')}
             value={formik.values.age}
@@ -79,9 +76,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
             error={formik.touched.age && Boolean(formik.errors.age)}
             helperText={formik.touched.age && formik.errors.age}
           />
-          <CastomTextField
-            variant="standard"
-            id="currentWeight"
+          <Input
             name="currentWeight"
             label={t('weight')}
             type="currentWeight"
@@ -97,9 +92,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
           />
         </Wrapper>
         <Wrapper>
-          <CastomTextField
-            variant="standard"
-            id="desiredWeight"
+          <Input
             name="desiredWeight"
             label={t('desiredWeight')}
             value={formik.values.desiredWeight}
