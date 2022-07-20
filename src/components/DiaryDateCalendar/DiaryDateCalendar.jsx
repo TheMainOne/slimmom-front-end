@@ -58,6 +58,7 @@ const MaterialUIPickers = () => {
             setValue(newValue);
           }}
           open={open}
+          closeOnSelect={true}
           onOpen={toggleCalendar}
           onClose={toggleCalendar}
           renderInput={({ inputRef, inputProps, InputProps }) => (
