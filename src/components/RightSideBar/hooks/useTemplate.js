@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { transformFirstLetter } from './transformFirstLetter';
-import { useTranslateCategory } from './useTranslateCategory';
 
 export const useTemplate = () => {
   const { t } = useTranslation();
