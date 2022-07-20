@@ -8,12 +8,14 @@ const DiaryProductsList = ({
   getNotifyData,
   onOpenModal,
 }) => {
+  const lang = localStorage.getItem('i18nextLng');
+
   return (
     <List>
-      {products.map(({ _id: productId, title: { ua }, weight, kcal }) => (
+      {products.map(({ _id: productId, title, weight, kcal }) => (
         <DiaryProductsListItem
           key={productId}
-          title={ua}
+          title={title[lang]}
           weight={weight}
           kcal={kcal}
           currentDate={currentDate}

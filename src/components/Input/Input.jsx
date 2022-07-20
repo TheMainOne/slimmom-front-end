@@ -7,7 +7,7 @@ export const Input = ({
   label = '',
   value = '',
   onChange = () => {},
-  error = '',
+  error = false,
   helperText = '',
   autoComplete = '',
 }) => {
