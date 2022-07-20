@@ -4,9 +4,13 @@ import { memo, useCallback, useEffect } from 'react';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { IconButton, InputAdornment, TextField } from '@mui/material';
+import { IconButton, InputAdornment } from '@mui/material';
 import { useState } from 'react';
-import { CalendarWrapper, IconCalendar } from './DiaryDateCalendar.styled';
+import {
+  CalendarWrapper,
+  DateInputStyled,
+  IconCalendar,
+} from './DiaryDateCalendar.styled';
 import { isValidDate } from 'utils';
 import { formatISO } from 'date-fns';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
@@ -59,11 +63,13 @@ const MaterialUIPickers = () => {
           open={open}
           onOpen={toggleCalendar}
           onClose={toggleCalendar}
-          renderInput={params => (
-            <TextField
+          renderInput={({ inputRef, inputProps, InputProps }) => (
+            <DateInputStyled
+              ref={inputRef}
+              {...inputProps}
               variant="standard"
-              {...params}
               InputProps={{
+                ...InputProps,
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton edge="end" onClick={toggleCalendar}>
