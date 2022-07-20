@@ -2,15 +2,22 @@ import { Autocomplete } from '@mui/material';
 import { Box } from '@mui/system';
 import { InputProduct } from 'components/Forms/DiaryAddProductForm/AddProduct.mui';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { selectActiveLang } from 'redux/slices';
 export const LifeSearch = ({
   items,
   setProductId,
   inputValue,
   onInputChange,
 }) => {
+  const activeLang = useSelector(selectActiveLang);
+ 
   const { t } = useTranslation();
+
+  const isEng = activeLang === 'en';
   const options = items.map(option => {
-    const firstLetter = option.title.ua[0].toUpperCase();
+    const title = isEng ? option.title.en : option.title.ua;
+    const firstLetter = title[0].toUpperCase();
     return {
       firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
       ...option,
@@ -20,7 +27,7 @@ export const LifeSearch = ({
   return (
     <Autocomplete
       id="possible_products"
-      getOptionLabel={item => (item.title?.ua || item.title?.ru) ?? ''}
+      getOptionLabel={item => (isEng ? item.title.en : item.title.ua) ?? ''}
       isOptionEqualToValue={(option, value) => option._id === value._id}
       options={options?.sort(
         (a, b) => -b.firstLetter?.localeCompare(a.firstLetter)
@@ -29,7 +36,7 @@ export const LifeSearch = ({
       noOptionsText={t('noMatch')}
       renderOption={(props, item) => (
         <Box component="li" {...props} key={item._id}>
-          {item.title?.ua || item.title?.ru}
+          {isEng ? item.title.en : item.title.ua}
         </Box>
       )}
       renderInput={params => (
