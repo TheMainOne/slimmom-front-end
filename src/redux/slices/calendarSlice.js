@@ -4,17 +4,18 @@ import { formatISO, parseISO } from 'date-fns';
 const calendarSlice = createSlice({
   name: 'calendar',
   initialState: {
-    activeDate: formatISO(new Date(), { representation: 'date' }),
+    activeDate: formatISO(new Date().getTime(), { representation: 'date' }),
     showMobileModal: false,
   },
   reducers: {
-    setDate: (state, action) => void (state.activeDate = action.payload),
-    toggleMobileModal: state =>
-      void (state.showMobileModal = !state.showMobileModal),
+    setActiveDate: (state, action) => void (state.activeDate = action.payload),
+    displayMobileModal: state => void (state.showMobileModal = true),
+    closeMobileModal: state => void (state.showMobileModal = false),
   },
 });
 
-export const { setDate, toggleMobileModal } = calendarSlice.actions;
+export const { setActiveDate, displayMobileModal, closeMobileModal } =
+  calendarSlice.actions;
 
 export const calendarReducer = calendarSlice.reducer;
 

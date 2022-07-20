@@ -14,7 +14,7 @@ import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { useTranslation } from 'react-i18next';
 import { setUserData } from 'redux/auth/authSlice';
 import { transformUserData } from './transformUserData';
-import { useShowModal } from 'hooks/ui';
+import { useMobileModal } from 'hooks/ui';
 import useResizeAware from 'react-resize-aware';
 import { Button } from 'components/Button';
 import { Input } from 'components/Input';
@@ -29,7 +29,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(getIsLoggedIn);
   const mobileWidth = width <= 767;
-  const [, toggleMobileModal] = useShowModal();
+  const [, openMobileModal] = useMobileModal();
 
   const validationSchema = yup.object({
     height: yup
@@ -57,7 +57,6 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
       .max(500, t('validation.desiredWeightMax'))
       .required(t('validation.desiredWeight')),
   });
-
   const formik = useFormik({
     initialValues: {
       height: '',
@@ -77,7 +76,7 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
         await openModal();
       }
       if (formik.dirty && !isLoggedIn && mobileWidth) {
-        await toggleMobileModal();
+        await openMobileModal();
       }
       resetForm();
     },

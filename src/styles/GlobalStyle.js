@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-
 import Verdana from '../fonts/Verdana/Verdana.ttf';
 import VerdanaBold from '../fonts/Verdana/Verdana-Bold.ttf';
 import GothamPro from '../fonts/GothamPro/GothamPro.ttf';
@@ -40,27 +39,12 @@ export const GlobalStyle = createGlobalStyle`
   html {
     height: 100%;
     width: 100%;
-
-    &.overflow-scroll {
-      overflow-y: scroll;
-    }
-    &.overflow-hidden {
-      overflow-y: hidden; // STOP MOVING AROUND :)
-    }
   }
 
   body {
     width: 100%;
     height: 100%;
     margin: 0;
-
-    &.overflow-hidden {
-      overflow-y: hidden;
-    }
-
-    &.overflow-scroll {
-      overflow-y: scroll;
-    }
 
     font-family: ${({ theme: { fonts } }) => fonts.verdanBold};
     line-height: ${({ theme: { lineHeight } }) => lineHeight.verdana};

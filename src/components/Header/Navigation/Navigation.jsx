@@ -26,7 +26,7 @@ import { Languages } from '../Languages';
 import IconButton from 'components/IconButton';
 import { createPortal } from 'react-dom';
 import { getRefs } from 'utils';
-import { useShowModal } from 'hooks/ui';
+import { useMobileModal } from 'hooks/ui';
 import { ReturnButtonWrapper } from '../UserInfo/UserInfo.styled';
 import { IconReturnLeft } from 'components/MobileModal/MobileModal.styled';
 
@@ -91,22 +91,27 @@ const NavigationOnMobile = ({ visibleMenu, handleMenuBtnClick }) => {
   );
 };
 
+const TABLET = 768;
+const DESKTOP = 1280;
+
 const Header = () => {
   const { t } = useTranslation();
   const [resizeListener, { width }] = useResizeAware();
+  const mobileWidth = width < TABLET;
+  const tabletWidth = width >= TABLET && width < DESKTOP;
+  const desktopWidth = width >= DESKTOP;
+
   const isLogged = useSelector(getIsLoggedIn);
-  const mobileWidth = width <= 767;
-  const tabletWidth = width >= 768 && width < 1279;
-  const desktopWidth = width >= 1280;
-  const [showModal, toggleMobileModal] = useShowModal();
+  const [showMobileModal, , hideMobileModal] = useMobileModal();
   const [visibleMenu, setVisibleMenu] = useState(false);
 
   const handleMenuBtnClick = () => setVisibleMenu(prev => !prev);
 
   return (
-    <>
+    <div>
+      {resizeListener}
+
       <HeaderStyled isLogged={isLogged}>
-        {resizeListener}
         <Container>
           <HeaderNavigation>
             <div>
@@ -134,6 +139,7 @@ const Header = () => {
                   />
                 </>
               )}
+
               {isLogged && desktopWidth && (
                 <>
                   <div>
@@ -165,19 +171,17 @@ const Header = () => {
           <UserInfo />
         </HeaderButtonsWrapper>
       )}
-      {!isLogged && mobileWidth && showModal && (
+
+      {!isLogged && mobileWidth && showMobileModal && (
         <HeaderButtonsWrapper>
           <Container>
             <ReturnButtonWrapper>
-              <IconButton
-                icon={<IconReturnLeft />}
-                onClick={toggleMobileModal}
-              />
+              <IconButton icon={<IconReturnLeft />} onClick={hideMobileModal} />
             </ReturnButtonWrapper>
           </Container>
         </HeaderButtonsWrapper>
       )}
-    </>
+    </div>
   );
 };
 

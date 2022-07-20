@@ -9,22 +9,25 @@ import {
   ReturnButtonWrapper,
 } from './UserInfo.styled';
 import { Alert } from './Alert';
-import { useShowModal } from 'hooks/ui';
+import { useMobileModal } from 'hooks/ui';
 import IconButton from 'components/IconButton';
 
+const TABLET = 768;
+
 export default function UserInfo() {
-  const [resizeListener] = useResizeAware();
+  const [resizeListener, { width }] = useResizeAware();
+  const isMobile = width < TABLET;
   const name = useSelector(getName);
-  const [showMobileModal, toggleModal] = useShowModal();
+  const [showMobileModal, , hideMobileModal] = useMobileModal();
 
   return (
     <MobileContainer>
       <HeaderNavButtonsContainer>
         {resizeListener}
 
-        {showMobileModal && (
+        {showMobileModal && isMobile && (
           <ReturnButtonWrapper>
-            <IconButton icon={<IconReturnLeft />} onClick={toggleModal} />
+            <IconButton icon={<IconReturnLeft />} onClick={hideMobileModal} />
           </ReturnButtonWrapper>
         )}
 

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'components/Button';
 import { DailyCalorieIntake } from 'components/DailyCalorieIntake';
 import { Content, CloseModalButton } from '../Modal.styled';
-export const ModalContent = ({ setShowModal }) => {
+export const ModalContent = ({ handleClose }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -17,12 +17,7 @@ export const ModalContent = ({ setShowModal }) => {
           onClick={() => navigate('/signup')}
         ></Button>
       </Content>
-      <CloseModalButton
-        aria-label="Close modal"
-        onClick={() => {
-          setShowModal(prev => !prev);
-        }}
-      />
+      <CloseModalButton aria-label="Close modal" onClick={handleClose} />
     </>
   );
 };

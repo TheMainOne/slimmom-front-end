@@ -1,12 +1,20 @@
 const { useEffect } = require('react');
 const { useLocation } = require('react-router-dom');
 
-const routes = {
+export const ROUTES = {
   '/': 'SlimMom',
   '/signup': 'SignUp | SlimMom',
   '/login': 'Login | SlimMom',
   '/calculator': 'Calculator | SlimMom',
   '/diary': 'Diary | SlimMom',
+};
+
+export const routesNames = {
+  '/': '/',
+  '/signup': '/signup',
+  '/login': '/login',
+  '/calculator': '/calculator',
+  '/diary': '/diary',
 };
 
 const t = string => {
@@ -18,8 +26,8 @@ export const useSetDocumentTitle = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    if (!routes[pathname]) return;
+    if (!ROUTES[pathname]) return;
 
-    document.title = t(routes[pathname]);
+    document.title = t(ROUTES[pathname]);
   }, [pathname]);
 };

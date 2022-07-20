@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { transformFirstLetter } from './transformFirstLetter';
-import { useTranslateCategory } from './useTranslateCategory';
 
 export const useTemplate = () => {
   const { t } = useTranslation();
@@ -10,6 +9,7 @@ export const useTemplate = () => {
     const almostItems = total > totalInBase / 2;
     const someItems = total <= 4;
     const other = !allItems && !almostItems && !someItems;
+    const englishVersian = localStorage.getItem('i18nextLng') === 'en';
 
     if (allItems) return `${t('allProduct')} ${category}.`;
 
@@ -17,7 +17,9 @@ export const useTemplate = () => {
 
     if (someItems) {
       const listOfProducts = products?.map(pr => pr.title.ua).join(', ');
-      return `${t('someProduct')} ${category} (${listOfProducts}).`;
+      const list = !englishVersian ? ` ( ${listOfProducts})` : '';
+
+      return `${t('someProduct')} ${category}${list}.`;
     }
 
     if (other) return null;

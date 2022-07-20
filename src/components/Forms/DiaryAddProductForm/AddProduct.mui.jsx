@@ -60,3 +60,7 @@ export const AddProductButton = styled(Button)`
 `;
 
 export const AddProductIcon = styled(GoPlus)``;
+
+export const AddProductButtonWrapper = styled.div`
+  margin: 60px auto;
+`;

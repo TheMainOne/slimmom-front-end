@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PageTitle from 'components/PageTitle';
 import { PageContainer, FormContainer } from './MainPage.styled';
 
@@ -6,12 +6,25 @@ import Container from 'components/Container';
 import { Modal } from 'components/Modal';
 import useResizeAware from 'react-resize-aware';
 import CalculatorСalorieForm from 'components/Forms/CalculatorСalorieForm/CalculatorСalorieForm';
+import { useMobileModal } from 'hooks/ui';
 import { useTranslation } from 'react-i18next';
 
 const MainPage = () => {
   const [resizeListener] = useResizeAware();
   const [showModal, setShowModal] = useState(false);
   const openModal = () => setShowModal(prev => !prev);
+
+  const [showMobileModal, , hideMobileModal] = useMobileModal();
+
+  useEffect(() => {
+    return () => {
+      if (showModal || showMobileModal) {
+        hideMobileModal();
+        setShowModal(false);
+      }
+    };
+  }, [hideMobileModal, showMobileModal, showModal]);
+
   const { t } = useTranslation();
   return (
     <Container>
@@ -21,7 +34,10 @@ const MainPage = () => {
         <FormContainer>
           <CalculatorСalorieForm openModal={openModal} />
         </FormContainer>
-        <Modal showModal={showModal} setShowModal={setShowModal} />
+
+        {(showModal || showMobileModal) && (
+          <Modal showModal={showModal} setShowModal={setShowModal} />
+        )}
       </PageContainer>
     </Container>
   );

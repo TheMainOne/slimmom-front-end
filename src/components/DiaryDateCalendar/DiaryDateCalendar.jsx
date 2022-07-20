@@ -1,95 +1,86 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectActiveDate, setDate } from 'redux/slices';
-import { formatISO } from 'date-fns';
+import { selectActiveDate, setActiveDate } from 'redux/slices';
 import { memo, useCallback, useEffect } from 'react';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
-import useResizeAware from 'react-resize-aware';
-import { IconButton, InputAdornment, TextField } from '@mui/material';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { IconButton, InputAdornment } from '@mui/material';
 import { useState } from 'react';
-import { CalendarWrapper, IconCalendar } from './DiaryDateCalendar.styled';
-
-const DESKTOP_WIDTH_BREAKPOINT = 1280;
+import {
+  CalendarWrapper,
+  DateInputStyled,
+  IconCalendar,
+} from './DiaryDateCalendar.styled';
+import { isValidDate } from 'utils';
+import { formatISO } from 'date-fns';
+import { getIsLoggedIn } from 'redux/auth/authSelector';
 
 const MaterialUIPickers = () => {
   const dispatch = useDispatch();
-  const activeDate = new Date(useSelector(selectActiveDate));
-  const [localDate, setLocalDate] = useState(activeDate);
+  const dateFromRedux = useSelector(selectActiveDate);
+  const [value, setValue] = useState(dateFromRedux);
+  const isLoggedIn = useSelector(getIsLoggedIn);
   const [open, setOpen] = useState(false);
-  const toggleCalendar = () => setOpen(show => !show);
-
-  const selectDate = useCallback(date => {
-    setLocalDate(date);
-  }, []);
-
-  const [resizeListener, { width }] = useResizeAware();
-  const isTablet = width < DESKTOP_WIDTH_BREAKPOINT;
-  const isDesktop = !isTablet;
+  const toggleCalendar = useCallback(() => setOpen(show => !show), []);
 
   useEffect(() => {
-    const data = formatISO(localDate, { representation: 'date' });
-    dispatch(setDate(data));
-  }, [localDate, dispatch]);
+    const saveDateToRedux = () => {
+      try {
+        const isDate = isValidDate(value);
+        if (!isDate) return;
+
+        const stringDate = formatISO(value, { representation: 'date' });
+
+        dispatch(setActiveDate(stringDate));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    saveDateToRedux();
+  }, [dispatch, value]);
+
+  useEffect(() => {
+    return () => {
+      if (isLoggedIn) return;
+
+      dispatch(
+        setActiveDate(formatISO(new Date(), { representation: 'date' }))
+      );
+    };
+  }, [dispatch, isLoggedIn]);
 
   return (
     <CalendarWrapper>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
-        {resizeListener}
-
-        {isDesktop && (
-          <DesktopDatePicker
-            inputFormat="dd.MM.yyyy"
-            value={localDate}
-            onChange={selectDate}
-            open={open}
-            onOpen={toggleCalendar}
-            onClose={toggleCalendar}
-            renderInput={params => (
-              <TextField
-                variant="standard"
-                {...params}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton edge="end" onClick={toggleCalendar}>
-                        <IconCalendar />
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            )}
-          />
-        )}
-
-        {isTablet && (
-          <MobileDatePicker
-            inputFormat="dd.MM.yyyy"
-            value={localDate}
-            onChange={selectDate}
-            open={open}
-            onOpen={toggleCalendar}
-            onClose={toggleCalendar}
-            closeOnSelect={true}
-            renderInput={params => (
-              <TextField
-                variant="standard"
-                {...params}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton edge="end" onClick={toggleCalendar}>
-                        <IconCalendar />
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            )}
-          />
-        )}
+        <DatePicker
+          inputFormat="dd.MM.yyyy"
+          maxDate={new Date()}
+          value={value}
+          onChange={newValue => {
+            setValue(newValue);
+          }}
+          open={open}
+          onOpen={toggleCalendar}
+          onClose={toggleCalendar}
+          renderInput={({ inputRef, inputProps, InputProps }) => (
+            <DateInputStyled
+              ref={inputRef}
+              {...inputProps}
+              variant="standard"
+              InputProps={{
+                ...InputProps,
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton edge="end" onClick={toggleCalendar}>
+                      <IconCalendar />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          )}
+        />
       </LocalizationProvider>
     </CalendarWrapper>
   );

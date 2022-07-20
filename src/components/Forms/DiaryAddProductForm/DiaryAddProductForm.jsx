@@ -16,18 +16,16 @@ import { LifeSearch } from 'components/LiveSearch';
 import debounce from 'lodash/debounce';
 import { formatISO } from 'date-fns';
 import { addProductSchema } from 'models';
+import { useMobileModal } from 'hooks/ui';
 import { useTranslation } from 'react-i18next';
 
-const emptyFn = () => {};
 const limit = 10;
-export const DiaryAddProductForm = ({
-  addProduct,
-  toggleMobileModal = emptyFn,
-  isMobile = false,
-}) => {
+export const DiaryAddProductForm = ({ addProduct, isMobile }) => {
   const { t } = useTranslation();
   const [title, setTitle] = useState('');
   const [productId, setProductId] = useState('');
+
+  const [, , hideMobileModal] = useMobileModal();
 
   const [getProducts, { data: { data: products = [] } = {} }] =
     useGetProductsMutation();
@@ -53,7 +51,7 @@ export const DiaryAddProductForm = ({
       form.reset();
 
       if (isMobile) {
-        toggleMobileModal();
+        hideMobileModal();
       }
     } catch (error) {
       toast(`Not added: ${error.message}`);
@@ -95,7 +93,7 @@ export const DiaryAddProductForm = ({
       </FlexWrapper>
 
       <AddProductButton color="primary" variant="contained" type="submit">
-        <AddProductIcon />
+        {isMobile ? 'Add' : <AddProductIcon />}
       </AddProductButton>
     </DiaryAddProductFormStyled>
   );
