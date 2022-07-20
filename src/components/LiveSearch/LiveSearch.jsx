@@ -1,5 +1,6 @@
-import { TextField, Autocomplete } from '@mui/material';
+import { Autocomplete } from '@mui/material';
 import { Box } from '@mui/system';
+import { InputProduct } from 'components/Forms/DiaryAddProductForm/AddProduct.mui';
 import { useTranslation } from 'react-i18next';
 export const LifeSearch = ({
   items,
@@ -19,7 +20,6 @@ export const LifeSearch = ({
   return (
     <Autocomplete
       id="possible_products"
-      // actual displayed items
       getOptionLabel={item => (item.title?.ua || item.title?.ru) ?? ''}
       isOptionEqualToValue={(option, value) => option._id === value._id}
       options={options?.sort(
@@ -33,22 +33,15 @@ export const LifeSearch = ({
         </Box>
       )}
       renderInput={params => (
-        <TextField variant="standard" {...params} label={t('enter')} />
+        <InputProduct variant="standard" {...params} label={t('enter')} />
       )}
       onChange={(e, val) => {
         setProductId(val?._id);
       }}
-      // text ------
       inputValue={inputValue}
       onInputChange={onInputChange}
-      // text ------
-
       filterOptions={x => x}
       groupBy={option => option.firstLetter}
-      // getOptionDisabled={option =>
-      //   bannedProducts.some(bannedProduct => bannedProduct._id === option._id)
-      // }
-
       clearOnBlur={false}
       selectOnFocus
       handleHomeEndKeys

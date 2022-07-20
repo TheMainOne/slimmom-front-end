@@ -28,11 +28,12 @@ export const IconCalendar = styled(iconCalendar)``;
 export const CalendarWrapper = styled('div')`
   display: flex;
   align-items: center;
-
   max-width: 160;
+  margin-bottom: 32px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     max-width: 300px;
+    margin-bottom: 60px;
   }
 
   .react-datepicker__input-container {

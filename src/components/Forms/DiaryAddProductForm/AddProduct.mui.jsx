@@ -1,33 +1,18 @@
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import { GoPlus } from 'react-icons/go';
+import { CastomTextField as CustomTextField } from 'components/Input/Input.styled';
 
-export const AddProductInput = styled(TextField)`
+export const InputGrams = styled(CustomTextField)`
   & {
-    // marginBottom: '20px',
-    min-width: 240px;
+    margin-bottom: 0;
+    max-width: 106px;
   }
+`;
 
-  & label {
-    color: #9b9faa;
-    font-family: ${({ theme: { fonts } }) => fonts.verdanaBold};
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.2;
-    letter-spacing: 0.04em;
-  }
-
-  & label.Mui-focused {
-    color: #fc842d;
-  }
-
-  & .MuiInput-underline:before {
-    border-bottom: 1px solid #e0e0e0;
-  }
-
-  & .MuiInput-underline:after {
-    border-bottom-color: #fc842d;
+export const InputProduct = styled(CustomTextField)`
+  & {
+    margin-bottom: 0;
   }
 `;
 

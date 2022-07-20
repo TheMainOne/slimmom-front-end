@@ -1,25 +1,25 @@
-import { useState } from 'react';
 import LanguageIcon from '@mui/icons-material/Language';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import { useTranslation } from 'react-i18next';
 import { StyledSelect, StyledForm } from './Languages.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
+import { setCurrentLang, selectActiveLang } from 'redux/slices';
+import { useEffect } from 'react';
 
 export const Languages = () => {
   const { i18n } = useTranslation();
-  const [language, setLanguage] = useState('');
   const isLogged = useSelector(getIsLoggedIn);
-
+  const language = useSelector(selectActiveLang);
+  const dispatch = useDispatch();
   const handleChange = event => {
-    setLanguage(event.target.value);
+    dispatch(setCurrentLang(event.target.value));
   };
-  const changeLanguage = ln => {
-    return () => {
-      i18n.changeLanguage(ln);
-    };
-  };
+
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [i18n, language]);
 
   return (
     <div>
@@ -54,12 +54,8 @@ export const Languages = () => {
           onChange={handleChange}
           variant="outlined"
         >
-          <MenuItem onClick={changeLanguage('en')} value={'en'}>
-            🇺🇸
-          </MenuItem>
-          <MenuItem onClick={changeLanguage('ua')} value={'ua'}>
-            🇺🇦
-          </MenuItem>
+          <MenuItem value={'en'}>🇺🇸</MenuItem>
+          <MenuItem value={'ua'}>🇺🇦</MenuItem>
         </StyledSelect>
       </StyledForm>
     </div>

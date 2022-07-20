@@ -30,6 +30,5 @@ export const DiaryPageContentStyled = styled.div`
 export const DiaryPageStyled = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
   /* height: 60vh; */
 `;
