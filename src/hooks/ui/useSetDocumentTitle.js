@@ -1,13 +1,6 @@
+import { useTranslation } from 'react-i18next';
 const { useEffect } = require('react');
 const { useLocation } = require('react-router-dom');
-
-export const ROUTES = {
-  '/': 'SlimMom',
-  '/signup': 'SignUp | SlimMom',
-  '/login': 'Login | SlimMom',
-  '/calculator': 'Calculator | SlimMom',
-  '/diary': 'Diary | SlimMom',
-};
 
 export const routesNames = {
   '/': '/',
@@ -17,17 +10,21 @@ export const routesNames = {
   '/diary': '/diary',
 };
 
-const t = string => {
-  const translated = string; // TODO: add translation with i18next
-  return translated;
-};
-
 export const useSetDocumentTitle = () => {
+  const { t } = useTranslation();
+
   const { pathname } = useLocation();
 
   useEffect(() => {
+    const ROUTES = {
+      '/': 'SlimMom',
+      '/signup': t('routes.signup'),
+      '/login': t('routes.login'),
+      '/calculator': t('routes.calculator'),
+      '/diary': t('routes.diary'),
+    };
     if (!ROUTES[pathname]) return;
 
     document.title = t(ROUTES[pathname]);
-  }, [pathname]);
+  }, [pathname, t]);
 };

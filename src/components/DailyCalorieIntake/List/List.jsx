@@ -1,14 +1,12 @@
 import { OlList, Items, ListTitle, ListWrapper } from './List.styled';
 import { useTranslation } from 'react-i18next';
-import { useTemplaitingItem } from '../../RightSideBar/hooks/useTemplaitingItem';
-
+import { useTranslateCategory } from '../../RightSideBar/hooks/useTranslateCategory';
 export const List = ({ data }) => {
   const { t } = useTranslation();
-  const categories = useTemplaitingItem(
-    data?.results?.bannedProducts?.categories
-  );
+  const { translateCategory } = useTranslateCategory();
 
-  const engLanguage = localStorage.getItem('i18nextLng') === 'en';
+  const categories =
+    data && Object.keys(data?.results?.bannedProducts?.categories);
 
   return (
     <ListWrapper>
@@ -16,10 +14,8 @@ export const List = ({ data }) => {
 
       <OlList>
         {categories &&
-          categories?.map((product, index) => (
-            <Items key={index}>
-              {engLanguage ? product.slice(4) : product.slice(26)}
-            </Items>
+          categories?.map((category, index) => (
+            <Items key={index}>{translateCategory(category)}</Items>
           ))}
       </OlList>
     </ListWrapper>

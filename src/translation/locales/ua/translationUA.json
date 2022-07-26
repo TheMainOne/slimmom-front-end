@@ -111,5 +111,12 @@
     "desiredWeightMin": "Бажана вага повинна бути мінімум 20",
     "desiredWeightMax": "Бажана вага повинна бути максимум 500",
     "desiredWeightNumber": "Бажана вага є числом"
+  },
+
+  "routes": {
+    "signup": "Реєстрація | SlimMom",
+    "login": "Вхід у профіль | SlimMom",
+    "diary": "Щоденник | SlimMom",
+    "calculator": "Калькулятор | SlimMom"
   }
 }

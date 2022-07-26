@@ -111,5 +111,11 @@
     "desiredWeightMin": "Desired weight should be of min 20",
     "desiredWeightMax": "Desired weight should be of max 500",
     "desiredWeightNumber": "Desired weight it is number"
+  },
+  "routes": {
+    "signup": "SignUp | SlimMom",
+    "login": "Login | SlimMom",
+    "diary": "Diary | SlimMom",
+    "calculator": "Calculator | SlimMom"
   }
 }

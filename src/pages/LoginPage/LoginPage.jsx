@@ -3,11 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ButtonRegistration } from 'components/Forms/LoginForm/Mui';
 import LoginForm from '../../components/Forms/LoginForm';
-import {
-  PageContainer,
-  Title,
-  BoxRelative,
- } from './LoginPage.styled';
+import { PageContainer, Title, BoxRelative } from './LoginPage.styled';
 import Container from 'components/Container';
 import Navigation from 'components/Header/Navigation';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
@@ -23,8 +19,8 @@ const LoginPage = () => {
   const isLogged = useSelector(state => getIsLoggedIn(state));
   const { t } = useTranslation();
   useEffect(() => {
-    document.title = 'Вход в профиль | SlimMom';
-  }, []);
+    document.title = t('routes.login');
+  }, [t]);
 
   return (
     <Container>

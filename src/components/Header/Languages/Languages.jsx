@@ -1,12 +1,15 @@
 import LanguageIcon from '@mui/icons-material/Language';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+// import ReactCountryFlag from 'react-country-flag';
 import { useTranslation } from 'react-i18next';
 import { StyledSelect, StyledForm } from './Languages.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { setCurrentLang, selectActiveLang } from 'redux/slices';
 import { useEffect } from 'react';
+import { FlagUS } from './Flags/FlagUS';
+import { FlagUA } from './Flags/FlagUA';
 
 export const Languages = () => {
   const { i18n } = useTranslation();
@@ -54,8 +57,13 @@ export const Languages = () => {
           onChange={handleChange}
           variant="outlined"
         >
-          <MenuItem value={'en'}>🇺🇸</MenuItem>
-          <MenuItem value={'ua'}>🇺🇦</MenuItem>
+          <MenuItem value={'en'}>
+            <FlagUS />
+          </MenuItem>
+
+          <MenuItem value={'ua'}>
+            <FlagUA />
+          </MenuItem>
         </StyledSelect>
       </StyledForm>
     </div>
