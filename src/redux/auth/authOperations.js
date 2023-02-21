@@ -2,8 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-
-axios.defaults.baseURL = 'https://slimmomproject.herokuapp.com/';
+axios.defaults.baseURL = 'https://slimmom-back-end.cyclic.app/';
 
 const token = {
   set(token) {
@@ -53,10 +52,10 @@ export const logIn = createAsyncThunk(
 );
 
 export const logOut = createAsyncThunk('auth/logout', async () => {
-    try {
+  try {
     await axios.post('/api/auth/logout');
     token.unset();
-    } catch (error) {
+  } catch (error) {
     toast.error(error.message);
   }
 });
