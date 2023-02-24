@@ -4,13 +4,11 @@ import { PageContainer, FormContainer } from './MainPage.styled';
 
 import Container from 'components/Container';
 import { Modal } from 'components/Modal';
-import useResizeAware from 'react-resize-aware';
 import CalculatorСalorieForm from 'components/Forms/CalculatorСalorieForm/CalculatorСalorieForm';
 import { useMobileModal } from 'hooks/ui';
 import { useTranslation } from 'react-i18next';
 
 const MainPage = () => {
-  const [resizeListener] = useResizeAware();
   const [showModal, setShowModal] = useState(false);
   const openModal = () => setShowModal(prev => !prev);
 
@@ -29,7 +27,6 @@ const MainPage = () => {
   return (
     <Container>
       <PageContainer>
-        {resizeListener}
         <PageTitle title={t('title')} />
         <FormContainer>
           <CalculatorСalorieForm openModal={openModal} />

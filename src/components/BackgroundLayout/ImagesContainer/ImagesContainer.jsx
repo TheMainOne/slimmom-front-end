@@ -5,7 +5,6 @@ import leavesTabletAuth from 'images/background/leaves-tablet-auth.png';
 import strawberry from 'images/background/strawberry.png';
 import strawberryTablet from 'images/background/strawberry-tablet.png';
 import greyBackground from 'images/background/grey-background.svg';
-import useResizeAware from 'react-resize-aware';
 
 import {
   ImagesWrapper,
@@ -14,14 +13,19 @@ import {
   BananaImg,
   StrawberryImg,
 } from './ImagesContainer.styled';
+import { useLocation } from 'react-router-dom';
+import { useMedia } from 'hooks/ui';
 
 const DESKTOP_WIDTH_BREAKPOINT = 1280;
 const DESKTOP_HEIGHT_BREAKPOINT = 850;
 
-const ImagesContainer = ({ isMainPage = false }) => {
-  const [resizeListener, { width, height }] = useResizeAware();
+const ImagesContainer = () => {
+  const { width, height } = useMedia();
   const isTablet = width < DESKTOP_WIDTH_BREAKPOINT;
   const shouldResizeBg = height > DESKTOP_HEIGHT_BREAKPOINT;
+
+  const { pathname } = useLocation();
+  const isMainPage = pathname === '/';
 
   const strawberryImageSource = !isTablet
     ? strawberry
@@ -37,7 +41,6 @@ const ImagesContainer = ({ isMainPage = false }) => {
 
   return (
     <ImagesWrapper>
-      {resizeListener}
       <GreyBackgroundImg
         shouldResizeBg={shouldResizeBg}
         src={greyBackground}

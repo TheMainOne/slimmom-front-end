@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { authOperations } from 'redux/auth';
-import { useSetDocumentTitle } from 'hooks/ui';
+import { MediaContextProvider, useSetDocumentTitle } from 'hooks/ui';
 import { AppRouter } from './AppRouter';
 import '../../translation/i18n';
 const App = () => {
@@ -22,7 +22,9 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <MuiThemeProvider theme={muiTheme}>
-        <AppRouter />
+        <MediaContextProvider>
+          <AppRouter />
+        </MediaContextProvider>
       </MuiThemeProvider>
       <GlobalStyle />
       <ToastContainer />
