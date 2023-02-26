@@ -14,8 +14,7 @@ import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { useTranslation } from 'react-i18next';
 import { setUserData } from 'redux/auth/authSlice';
 import { transformUserData } from './transformUserData';
-import { useMobileModal } from 'hooks/ui';
-import useResizeAware from 'react-resize-aware';
+import { useMedia, useMobileModal } from 'hooks/ui';
 import { Button } from 'components/Button';
 import { Input } from 'components/Input';
 import * as yup from 'yup';
@@ -25,10 +24,10 @@ const typeBlood = [1, 2, 3, 4];
 const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
   const { t } = useTranslation();
   const [selectedTypeBlood, setSelectedTypeBlood] = useState(1);
-  const [resizeListener, { width }] = useResizeAware();
+  const { isMobile } = useMedia();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(getIsLoggedIn);
-  const mobileWidth = width <= 767;
+
   const [, openMobileModal] = useMobileModal();
 
   const validationSchema = yup.object({
@@ -72,10 +71,10 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
         await getPrivatDailyNorma(paramsUser);
       }
 
-      if (formik.dirty && !isLoggedIn && !mobileWidth) {
+      if (formik.dirty && !isLoggedIn && !isMobile) {
         await openModal();
       }
-      if (formik.dirty && !isLoggedIn && mobileWidth) {
+      if (formik.dirty && !isLoggedIn && isMobile) {
         await openMobileModal();
       }
       resetForm();
@@ -84,7 +83,6 @@ const CalculatorСalorieForm = ({ openModal, getPrivatDailyNorma }) => {
 
   return (
     <Form onSubmit={formik.handleSubmit}>
-      {resizeListener}
       <InputContainer>
         <Wrapper>
           <Input

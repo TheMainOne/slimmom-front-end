@@ -9,16 +9,13 @@ import { useShowForm } from './hooks';
 import { useTranslation } from 'react-i18next';
 import EmptyListTitle from 'components/EmptyListTitle';
 import { DiaryCalendarAndForm } from './DiaryCalendarAndForm';
-import { useMobileModal } from 'hooks/ui';
+import { useMedia, useMobileModal } from 'hooks/ui';
 import {
   AddProductButton,
   AddProductButtonWrapper,
   AddProductIcon,
 } from 'components/Forms/DiaryAddProductForm/AddProduct.mui';
-import useResizeAware from 'react-resize-aware';
 import { AlertModal } from 'components/AlertModal';
-
-const TABLET = 768;
 
 export const DiaryPageContent = () => {
   const { t } = useTranslation();
@@ -50,14 +47,12 @@ export const DiaryPageContent = () => {
     setShowModal(!showModal);
   };
 
-  const [resizeListener, { width }] = useResizeAware();
-  const isMobile = width < TABLET;
+  const { isMobile } = useMedia();
+
   const [, openMobileModal] = useMobileModal();
 
   return (
     <BlockWrapper>
-      {resizeListener}
-
       <DiaryPageStyled>
         <DiaryCalendarAndForm
           addProduct={addProduct}

@@ -1,4 +1,3 @@
-import useResizeAware from 'react-resize-aware';
 import { useSelector } from 'react-redux';
 import { getName } from 'redux/auth/authSelector';
 import {
@@ -9,22 +8,18 @@ import {
   ReturnButtonWrapper,
 } from './UserInfo.styled';
 import { Alert } from './Alert';
-import { useMobileModal } from 'hooks/ui';
+import { useMedia, useMobileModal } from 'hooks/ui';
 import IconButton from 'components/IconButton';
 
-const TABLET = 768;
-
 export default function UserInfo() {
-  const [resizeListener, { width }] = useResizeAware();
-  const isMobile = width < TABLET;
+  const { isMobile } = useMedia();
+
   const name = useSelector(getName);
   const [showMobileModal, , hideMobileModal] = useMobileModal();
 
   return (
     <MobileContainer>
       <HeaderNavButtonsContainer>
-        {resizeListener}
-
         {showMobileModal && isMobile && (
           <ReturnButtonWrapper>
             <IconButton icon={<IconReturnLeft />} onClick={hideMobileModal} />

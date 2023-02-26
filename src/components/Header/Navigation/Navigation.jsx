@@ -1,5 +1,4 @@
 import React from 'react';
-import useResizeAware from 'react-resize-aware';
 import Logo from '../Logo';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
@@ -26,7 +25,7 @@ import { Languages } from '../Languages';
 import IconButton from 'components/IconButton';
 import { createPortal } from 'react-dom';
 import { getRefs } from 'utils';
-import { useMobileModal } from 'hooks/ui';
+import { useMedia, useMobileModal } from 'hooks/ui';
 import { ReturnButtonWrapper } from '../UserInfo/UserInfo.styled';
 import { IconReturnLeft } from 'components/MobileModal/MobileModal.styled';
 
@@ -91,15 +90,9 @@ const NavigationOnMobile = ({ visibleMenu, handleMenuBtnClick }) => {
   );
 };
 
-const TABLET = 768;
-const DESKTOP = 1280;
-
 const Header = () => {
   const { t } = useTranslation();
-  const [resizeListener, { width }] = useResizeAware();
-  const mobileWidth = width < TABLET;
-  const tabletWidth = width >= TABLET && width < DESKTOP;
-  const desktopWidth = width >= DESKTOP;
+  const { isMobile, isTablet, isDesktop } = useMedia();
 
   const isLogged = useSelector(getIsLoggedIn);
   const [showMobileModal, , hideMobileModal] = useMobileModal();
@@ -109,8 +102,6 @@ const Header = () => {
 
   return (
     <div>
-      {resizeListener}
-
       <HeaderStyled isLogged={isLogged}>
         <Container>
           <HeaderNavigation>
@@ -121,7 +112,7 @@ const Header = () => {
             <HeaderLinksWrapper isLogged={isLogged}>
               {!isLogged && <NavigationForGuest />}
 
-              {isLogged && mobileWidth && (
+              {isLogged && isMobile && (
                 <div>
                   <NavigationOnMobile
                     visibleMenu={visibleMenu}
@@ -130,7 +121,7 @@ const Header = () => {
                 </div>
               )}
 
-              {isLogged && tabletWidth && (
+              {isLogged && isTablet && (
                 <>
                   <UserInfo />
                   <NavigationOnMobile
@@ -140,7 +131,7 @@ const Header = () => {
                 </>
               )}
 
-              {isLogged && desktopWidth && (
+              {isLogged && isDesktop && (
                 <>
                   <div>
                     <Wrapp>
@@ -166,13 +157,13 @@ const Header = () => {
         </Container>
       </HeaderStyled>
 
-      {isLogged && mobileWidth && (
+      {isLogged && isMobile && (
         <HeaderButtonsWrapper>
           <UserInfo />
         </HeaderButtonsWrapper>
       )}
 
-      {!isLogged && mobileWidth && showMobileModal && (
+      {!isLogged && isMobile && showMobileModal && (
         <HeaderButtonsWrapper>
           <Container>
             <ReturnButtonWrapper>

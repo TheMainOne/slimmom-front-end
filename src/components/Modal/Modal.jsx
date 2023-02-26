@@ -3,9 +3,8 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 
 import { ModalContent } from './ModalContent/ModalContent';
-import useResizeAware from 'react-resize-aware';
 import { MobileModal } from 'components/MobileModal';
-import { useMobileModal } from 'hooks/ui';
+import { useMedia, useMobileModal } from 'hooks/ui';
 
 const MuiDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -15,8 +14,7 @@ const MuiDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 export const Modal = ({ showModal, setShowModal }) => {
-  const [resizeListener, { width }] = useResizeAware();
-  const mobileWidth = width <= 767;
+  const { isMobile } = useMedia();
 
   const [showMobileModal, , hideMobileModal] = useMobileModal();
 
@@ -30,9 +28,7 @@ export const Modal = ({ showModal, setShowModal }) => {
 
   return (
     <div>
-      {resizeListener}
-
-      {!mobileWidth ? (
+      {!isMobile ? (
         <div>
           <MuiDialog
             onClose={handleClose}
